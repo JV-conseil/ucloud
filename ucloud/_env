@@ -14,7 +14,7 @@ export PARENT_PATH
 # export INSTALL_BINARIES=("bash" "python3.11" "postgresql" "postgresql-contrib")
 export INSTALL_BINARIES=("bash" "python3.11")
 
-export DEBUG=1
+export DEBUG=0
 
 export PATH_TO_SCRIPT_DIR="${PWD}"
 
