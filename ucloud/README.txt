@@ -32,6 +32,7 @@ What the script does
 
 options:
 
+clone           To clone a GitHub repo.
 delete          To erase the app.
 gh auth login   To login to GitHub.
 gh auth logout  To logout from GitHub.

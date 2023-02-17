@@ -80,11 +80,7 @@ fi
 
 
 
-echo
-read -r -n 1 -p "Do you want to clone a repo? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-
+git_clone () {
     gh repo list
     # gh repo list JV-conseil --visibility public
 
@@ -96,7 +92,16 @@ cd "${PATH_TO_WORK_DIR}" || exit
 gh repo clone {gh-owner}/{gh-repo}
 
 EOF
+}
+alias clone="git_clone"
 
+
+
+echo
+read -r -n 1 -p "Do you want to clone a repo? [y/N] "
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    git_clone
 fi
 
 
