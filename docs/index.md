@@ -52,6 +52,48 @@ cd ucloud
 
 ![The missing repo to start GitHubbing on UCloud with Ubuntu Terminal](https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif)
 
+## Available options
+
+```md
+# Command Lines to start GitHubbing on UCloud with Ubuntu Terminal
+
+Clone the ucloud repo at the root of your working folder
+
+cd /work/{working-folder} || exit
+git clone https://github.com/JV-conseil/ucloud.git
+
+/work/{working-folder}/
+├── data/
+└── ...
+
+## Usage
+
+cd /work/{working-folder}/ucloud/ucloud
+bash run.sh
+
+/work/{working-folder}/
+├── {some-repo}/
+├── data/
+├── install/
+└── ucloud/
+
+## What the script does
+
+- Install binaries for Linux with apt.
+- Authenticate to GitHub.
+- Clone / Pull repositories.
+
+## Options
+
+clone           To clone a GitHub repo.
+delete          To erase the app.
+login           To login to GitHub.
+gh_cli_install  To install GitHub CLI.
+gh auth logout  To logout from GitHub.
+update          To update 'ucloud' script.
+start           To go back to the launching page.
+```
+
 ## Further Readings 📚
 
 - [UCloud][UCloud User Guide] User Guide.

@@ -1,22 +1,25 @@
-=================================================
+=================================================================
 
-Command Lines to run UCloud with Terminal Ubuntu
+Command Lines to start GitHubbing on UCloud with Ubuntu Terminal
 
-=================================================
+=================================================================
 
-Copy the all folder ucloud at the root of your working folder.
+Clone the ucloud repo at the root of your working folder
 
-/work/{some-folder}/
+cd /work/{working-folder} || exit
+git clone https://github.com/JV-conseil/ucloud.git
+
+/work/{working-folder}/
 ├── data/
-└── ucloud/
+└── ...
 
 
 Usage
 
-cd /work/{some-folder}/ucloud/ucloud
+cd /work/{working-folder}/ucloud/ucloud
 bash run.sh
 
-/work/{some-folder}/
+/work/{working-folder}/
 ├── {some-repo}/
 ├── data/
 ├── install/
