@@ -33,4 +33,4 @@ Add any other context or screenshots about the feature request here.
 
 <!-- Definition -->
 
-[issues]: https://github.com/SDU-RIO-Explore/Welcome/issues
+[issues]: https://github.com/JV-conseil/issues

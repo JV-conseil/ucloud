@@ -59,4 +59,4 @@ Add any other context about the problem here.
 
 <!-- Definition -->
 
-[issues]: https://github.com/SDU-RIO-Explore/Welcome/issues
+[issues]: https://github.com/JV-conseil/issues
