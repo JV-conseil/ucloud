@@ -38,7 +38,7 @@ Then copy paste the following `bash` commands.
 
 ```bash
 ls -FGlAhp
-cd {your-working-folder}
+cd {your-working-folder} || exit
 
 git clone https://github.com/JV-conseil/ucloud.git
 ls -FGlAhp

@@ -85,8 +85,8 @@ read -r -n 1 -p "Do you want to clone a repo? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-    # gh repo list
-    gh repo list JV-conseil --visibility public
+    gh repo list
+    # gh repo list JV-conseil --visibility public
 
     cat << EOF
 
