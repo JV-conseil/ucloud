@@ -50,6 +50,8 @@ cd ucloud
 . run.sh
 ```
 
+![The missing repo to start GitHubbing on UCloud with Ubuntu Terminal](https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif)
+
 ## Further Readings 📚
 
 - [UCloud][UCloud User Guide] User Guide.
