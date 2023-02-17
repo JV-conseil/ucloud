@@ -20,6 +20,6 @@
 cat "README.txt"
 
 
-# . "./_install.sh"
+. "./_install.sh"
 . "./_github.sh"
 . "./_delete.sh"
