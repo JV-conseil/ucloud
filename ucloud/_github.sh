@@ -85,11 +85,12 @@ read -r -n 1 -p "Do you want to clone a repo? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-    gh repo list
+    # gh repo list
+    gh repo list JV-conseil --visibility public
 
     cat << EOF
 
-Choose one of the repo above to clone it as such
+Choose one of the repo listed above to clone it as such
 
 cd "${PATH_TO_WORK_DIR}" || exit
 gh clone {gh-owner}/{gh-repo}
