@@ -44,7 +44,6 @@ fi
 
 back_to_script_dir_ () {
 
-    # cd_ "${UCLOUD_SCRIPT_DIR}" || exit
     cd_ "${PATH_TO_SCRIPT_DIR}" || exit
 
 }
@@ -69,5 +68,4 @@ start () {
 #
 parent_directory () {
     echo "$(cd_ "$(dirname "${BASH_SOURCE[0]}")" || exit ; pwd -P)"
-    # cd "$(dirname "${BASH_SOURCE[0]}")" || exit ; pwd -P
 }
