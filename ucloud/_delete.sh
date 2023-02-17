@@ -16,7 +16,7 @@ delete () {
     then
         cd "${PATH_TO_WORK_DIR}" || exit
 
-        find . -not -path "*ucloud*" -and -not -path "*data*" -delete
+        find . -not -path "*ucloud*" -and -not -path "*data*" -exec rm -rf {} +
 
         back_to_script_dir_
     fi
