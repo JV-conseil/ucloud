@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# -*- coding: UTF-8 -*-
+#
+# author        : JV-conseil
+# credits       : JV-conseil
+# licence       : BSD 3-Clause License
+# copyright     : Copyright (c) 2019-2023 JV-conseil
+#                 All rights reserved
+#====================================================
+
+PARENT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" || exit ; pwd -P)"
+export PARENT_PATH
+
+# export INSTALL_BINARIES=("bash" "python3.11" "postgresql" "postgresql-contrib")
+export INSTALL_BINARIES=("python3.11")
+
+export DEBUG=1
+
+export PATH_TO_SCRIPT_DIR="${PWD}"
+
+export PATH_TO_WORK_DIR="${PATH_TO_SCRIPT_DIR%/*/*}"
+export PATH_TO_DATA_DIR="${PATH_TO_WORK_DIR}/data"
+export PATH_TO_INSTALL_DIR="${PATH_TO_WORK_DIR}/install"

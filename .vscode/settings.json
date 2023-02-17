@@ -1,0 +1,28 @@
+{
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
+  "html.format.indentHandlebars": true,
+  "html.format.indentInnerHtml": true,
+  "html.format.templating": true,
+  "editor.matchBrackets": "always",
+  "editor.bracketPairColorization.enabled": false,
+  "[css][scss][less]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "scss.format.enable": false,
+  "scss.format.braceStyle": "collapse",
+  "task.allowAutomaticTasks": "on",
+  "files.eol": "\n",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.windows": "bash",
+  "terminal.integrated.defaultProfile.osx": "bash",
+}

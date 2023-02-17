@@ -1,0 +1,27 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Launch",
+      "type": "shell",
+      "isBackground": true,
+      "osx": {
+        "command": "ucloud/run.sh"
+      },
+      "linux": {
+        "command": "ucloud/run.sh"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "Launch the script",
+      "problemMatcher": []
+    }
+  ]
+}

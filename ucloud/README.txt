@@ -1,0 +1,54 @@
+=================================================
+
+Command Lines to run UCloud with Terminal Ubuntu
+
+=================================================
+
+Copy the all folder ucloud at the root of your working folder.
+
+/work/{some-folder}/
+├── data/
+└── ucloud/
+
+
+Usage
+
+cd /work/{some-folder}/ucloud/ucloud
+bash run.sh
+
+/work/{some-folder}/
+├── {some-repo}/
+├── data/
+├── install/
+└── ucloud/
+
+
+What the script does
+
+- Install binaries for Linux with apt.
+- Authenticate to GitHub.
+- Clone / Pull repositories.
+
+
+options:
+
+erase_app       To erase the app.
+gh auth login   To login to GitHub.
+gh auth logout  To logout from GitHub.
+git_clone       To clone the connected GitHub repo.
+git_pull        To update the connected GitHub repo once cloned.
+pg_load         To load an sql dump into database.
+pg_start        To start the PostgreSQL server.
+pg_stop         To stop the PostgreSQL server.
+run_app         To run the app.
+start           To go back to the launching page.
+
+
+author:
+JV-conseil | JulienVieillefont#7058
+contact@jv-conseil.net
+
+
+version:
+2023-02-16 (rev)
+2021-11-16
