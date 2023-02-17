@@ -85,7 +85,7 @@ then
 
     gh repo list
 
-    cd "{PATH_TO_WORK_DIR}" || exit
+    cd "${PATH_TO_WORK_DIR}" || exit
 
     cat << EOF
 
