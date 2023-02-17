@@ -102,4 +102,4 @@ git_pull () {
     cd_ ..
     git pull
 }
-alias gitpull="git_pull"
+alias update="git_pull"

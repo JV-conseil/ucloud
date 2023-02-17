@@ -35,7 +35,7 @@ options:
 delete          To erase the app.
 gh auth login   To login to GitHub.
 gh auth logout  To logout from GitHub.
-git_pull        To update the connected GitHub repo once cloned.
+update          To update 'ucloud' script.
 start           To go back to the launching page.
 
 
