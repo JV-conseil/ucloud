@@ -38,7 +38,7 @@ Then copy paste the following `bash` commands.
 
 ```bash
 ls -FGlAhp
-cd {your-working-folder}
+cd {your-working-folder} || exit
 
 git clone https://github.com/JV-conseil/ucloud.git
 ls -FGlAhp
@@ -49,6 +49,8 @@ git pull
 cd ucloud
 . run.sh
 ```
+
+![The missing repo to start GitHubbing on UCloud with Ubuntu Terminal](https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif)
 
 ## Further Readings 📚
 
