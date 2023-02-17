@@ -59,4 +59,4 @@ Add any other context about the problem here.
 
 <!-- Definition -->
 
-[issues]: https://github.com/JV-conseil/issues
+[issues]: https://github.com/JV-conseil/ucloud/issues
