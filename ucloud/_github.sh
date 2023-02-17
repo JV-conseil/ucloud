@@ -101,5 +101,6 @@ git_pull () {
     back_to_script_dir_
     cd_ ..
     git pull
+    back_to_script_dir_
 }
 alias update="git_pull"
