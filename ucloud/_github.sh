@@ -93,7 +93,7 @@ then
 Choose one of the repo listed above to clone it as such
 
 cd "${PATH_TO_WORK_DIR}" || exit
-gh clone {gh-owner}/{gh-repo}
+gh repo clone {gh-owner}/{gh-repo}
 
 EOF
 
