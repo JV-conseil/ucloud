@@ -28,7 +28,7 @@
 
 Authenticate on [UCloud](https://cloud.sdu.dk/app/login).
 
-Navigate to <kbd>[Apps][UCloud Apps]</kbd> > <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd>.
+Navigate to [<kbd>Apps</kbd>][UCloud Apps] > <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd>.
 
 Configure a <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd> run with <kbd>"Add folder"</kbd> to select one of your folder then click on <kbd>Submit</kbd>.
 
@@ -59,6 +59,7 @@ cd ucloud
 - [Awesome Bash][Awesome Bash] A curated list of delightful Bash scripts and resources.
 - [The Ultimate Guide to Modularizing Bash Script Code][The Ultimate Guide to Modularizing Bash Script Code] by Shinichi Okada (medium.com).
 - [Shell Scripting for Beginners][Shell Scripting for Beginners – How to Write Bash Scripts in Linux] — How to Write Bash Scripts in Linux (freecodecamp.org).
+- [GitHub CLI][GitHub CLI manual] or gh, is a command-line interface to GitHub for use in your terminal or your scripts.
 
 ## Sponsorship
 
@@ -71,10 +72,11 @@ If this project helps you, you can offer me a cup of coffee ☕️ :-)
 <!-- Links -->
 
 [Awesome Bash]: https://github.com/awesome-lists/awesome-bash
+[GitHub CLI manual]: https://cli.github.com/manual/
+[SDU eScience Center]: https://escience.sdu.dk/
 [Shell Scripting for Beginners – How to Write Bash Scripts in Linux]: https://www.freecodecamp.org/news/shell-scripting-crash-course-how-to-write-bash-scripts-in-linux/
 [The Ultimate Guide to Modularizing Bash Script Code]: https://medium.com/mkdir-awesome/the-ultimate-guide-to-modularizing-bash-script-code-f4a4d53000c2
 [UCloud Apps]: https://cloud.sdu.dk/app/applications/overview/
 [UCloud Developer Guide]: https://docs.cloud.sdu.dk/dev/index.html
 [UCloud Terminal Ubuntu]: https://cloud.sdu.dk/app/jobs/create?app=terminal-ubuntu&version=0.20.0
 [UCloud User Guide]: https://docs.cloud.sdu.dk/index.html
-[SDU eScience Center]: https://escience.sdu.dk/
