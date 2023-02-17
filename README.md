@@ -37,16 +37,18 @@ Once <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd> job is running click o
 Then copy paste the following `bash` commands.
 
 ```bash
-ls
+ls -FGlAhp
 cd {your-working-folder}
+
 git clone https://github.com/JV-conseil/ucloud.git
-ls
+ls -FGlAhp
+
 cd ucloud
 git pull
+
 cd ucloud
 . run.sh
 ```
-
 
 ## Further Readings 📚
 
