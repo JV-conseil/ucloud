@@ -5,7 +5,7 @@
 </a>
 
 <!-- omit in toc -->
-# GitHubing on UCloud with Ubuntu Terminal
+# GitHubbing on UCloud with Ubuntu Terminal
 
 [![Ubuntu 22.10](https://img.shields.io/badge/Ubuntu-22.10-brightgreen)](https://releases.ubuntu.com/kinetic/)
 [![Python 3.11.1](https://img.shields.io/badge/Python-3.11.1-green)](https://www.python.org/downloads/release/python-3111/)
@@ -14,7 +14,7 @@
 [![Follow JV conseil – Internet Consulting on Twitter](https://img.shields.io/twitter/follow/JVconseil.svg?style=social&logo=twitter)](https://twitter.com/JVconseil)
 <!--[![PostgreSQL 14.6](https://img.shields.io/badge/PostgreSQL-14.6-green.svg)](https://www.postgresql.org/docs/14.6/)-->
 
-> The missing repo to start GitHubing on UCloud with Ubuntu Terminal.
+> The missing repo to start GitHubbing on UCloud with Ubuntu Terminal.
 
 ![social-media-preview](https://user-images.githubusercontent.com/8126807/219748305-e5d5d517-ec5c-4364-8a61-7baefdaf6f63.png)
 
@@ -22,9 +22,7 @@
 
 > UCloud is an interactive digital research environment built to support the needs of researchers for both computing and data management, throughout all the data life cycle — [SDU eScience Center][UCloud User Guide]
 
-## Disclaimer
-
-This project is in no way affiliated with [GitHub](https://github.com/), [Ubuntu](https://ubuntu.com), [SDU eScience Center][SDU eScience Center], [Aalborg University](https://www.aau.dk), [Aarhus Universitet](https://www.au.dk), [Danmarks Tekniske Universitet](https://www.dtu.dk) and [DeiC](https://www.deic.dk) (Danish e-infrastucture Coorperation).
+*This project is in no way affiliated with [GitHub](https://github.com/), [Ubuntu](https://ubuntu.com), [SDU eScience Center][SDU eScience Center], [Aalborg University](https://www.aau.dk), [Aarhus Universitet](https://www.au.dk), [Danmarks Tekniske Universitet](https://www.dtu.dk) and [DeiC](https://www.deic.dk) (Danish e-infrastucture Coorperation).*
 
 ## Usage
 

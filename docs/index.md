@@ -5,7 +5,7 @@
 </a>
 
 <!-- omit in toc -->
-# GitHubing on UCloud with Ubuntu Terminal
+# GitHubbing on UCloud with Ubuntu Terminal
 
 [![Ubuntu 22.10](https://img.shields.io/badge/Ubuntu-22.10-brightgreen)](https://releases.ubuntu.com/kinetic/)
 [![Python 3.11.1](https://img.shields.io/badge/Python-3.11.1-green)](https://www.python.org/downloads/release/python-3111/)
@@ -14,7 +14,7 @@
 [![Become a sponsor to JV-conseil](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/JV-conseil)
 [![Follow JV conseil – Internet Consulting on Twitter](https://img.shields.io/twitter/follow/JVconseil.svg?style=social&logo=twitter)](https://twitter.com/JVconseil)
 
-> The missing repo to start GitHubing on UCloud with Ubuntu Terminal.
+> The missing repo to start GitHubbing on UCloud with Ubuntu Terminal.
 
 ## What is UCloud
 

@@ -40,10 +40,8 @@ start           To go back to the launching page.
 
 
 author:
-JV-conseil | JulienVieillefont#7058
-contact@jv-conseil.net
+JV-conseil
 
 
 version:
-2023-02-16 (rev)
-2021-11-16
+2023-02-17
