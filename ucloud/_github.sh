@@ -49,11 +49,7 @@ fi
 
 
 
-echo
-read -r -n 1 -p "Do you want to authenticate to GitHub? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-
+gh_login () {
     cat << EOF
 
 
@@ -75,7 +71,16 @@ EOF
 
     gh version
     gh auth login
+}
+alias login="gh_login"
 
+
+
+echo
+read -r -n 1 -p "Do you want to authenticate to GitHub? [y/N] "
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    gh_login
 fi
 
 
