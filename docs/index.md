@@ -28,11 +28,11 @@
 
 Authenticate on [UCloud](https://cloud.sdu.dk/app/login).
 
-Navigate to [<kbd>Apps</kbd>][UCloud Apps] > [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu].
+Navigate to [<kbd>Apps</kbd>][UCloud Apps] > [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu]
 
-Configure a [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu] run with <kbd>"Add folder"</kbd> to select one of your folder then click on <kbd>Submit</kbd>.
+Configure a [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu] run with <kbd>"Add folder"</kbd> to select one of your folder then click on <kbd>Submit</kbd>
 
-Once [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu] job is running click on <kbd>Open terminal</kbd>.
+Once [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu] job is running click on <kbd>Open terminal</kbd>
 
 Then copy paste the following `bash` commands.
 
