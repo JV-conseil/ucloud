@@ -9,7 +9,7 @@
 #====================================================
 
 
-clear_dir_ () {
+delete () {
     echo
     read -r -n 1 -p "All files and folder except 'data' & 'ucloud' will be deleted, do you confirm? [y/N] "
     if [[ $REPLY =~ ^[Yy]$ ]]
@@ -28,7 +28,7 @@ read -r -n 1 -p "Do you want to delete imported files? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-    clear_dir_
+    delete
 
     gh auth logout
 

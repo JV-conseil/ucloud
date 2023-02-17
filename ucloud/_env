@@ -12,7 +12,7 @@ PARENT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" || exit ; pwd -P)"
 export PARENT_PATH
 
 # export INSTALL_BINARIES=("bash" "python3.11" "postgresql" "postgresql-contrib")
-export INSTALL_BINARIES=("python3.11")
+export INSTALL_BINARIES=("bash" "python3.11")
 
 export DEBUG=1
 

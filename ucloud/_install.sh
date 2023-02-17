@@ -37,7 +37,7 @@ Installing ${__bin}...
 
 EOF
 
-        sudo apt install "$__bin"
+        sudo apt install -y "$__bin"
 
         if [[ "$__bin" =~ ^python.* ]]
         then

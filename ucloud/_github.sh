@@ -85,17 +85,21 @@ then
 
     gh repo list
 
-    cd "${PATH_TO_WORK_DIR}" || exit
-
     cat << EOF
 
 Choose one of the repo above to clone it as such
 
 cd "${PATH_TO_WORK_DIR}" || exit
-
 gh clone {gh-owner}/{gh-repo}
 
 EOF
 
 fi
 
+
+git_pull () {
+    back_to_script_dir_
+    cd_ ..
+    git pull
+}
+alias gitpull="git_pull"

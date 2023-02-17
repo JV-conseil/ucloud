@@ -32,15 +32,10 @@ What the script does
 
 options:
 
-erase_app       To erase the app.
+delete          To erase the app.
 gh auth login   To login to GitHub.
 gh auth logout  To logout from GitHub.
-git_clone       To clone the connected GitHub repo.
 git_pull        To update the connected GitHub repo once cloned.
-pg_load         To load an sql dump into database.
-pg_start        To start the PostgreSQL server.
-pg_stop         To stop the PostgreSQL server.
-run_app         To run the app.
 start           To go back to the launching page.
 
 
