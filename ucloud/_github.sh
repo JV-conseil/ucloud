@@ -9,6 +9,7 @@
 #====================================================
 
 
+
 gh_cli_install () {
     VERSION=$(curl "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-)
 
@@ -36,6 +37,7 @@ EOF
     ls "${PATH_TO_INSTALL_DIR}"
     gh version
 }
+
 
 
 echo
@@ -95,6 +97,7 @@ gh clone {gh-owner}/{gh-repo}
 EOF
 
 fi
+
 
 
 git_pull () {

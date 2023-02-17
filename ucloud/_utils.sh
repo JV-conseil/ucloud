@@ -39,33 +39,22 @@ fi
 
 
 #
-# BACK TO /UCLOUD DIR
+# FUNCTIONS
 #
 
 back_to_script_dir_ () {
-
     cd_ "${PATH_TO_SCRIPT_DIR}" || exit
-
 }
 
 
-#
-# RUN
-#
 start () {
-
     back_to_script_dir_
-
     # shellcheck disable=SC1091
     . run.sh
-
 }
 
 
-#
-# PARENT DIR
-# https://stackoverflow.com/a/24112741/2477854
-#
 parent_directory () {
+    # https://stackoverflow.com/a/24112741/2477854
     echo "$(cd_ "$(dirname "${BASH_SOURCE[0]}")" || exit ; pwd -P)"
 }
