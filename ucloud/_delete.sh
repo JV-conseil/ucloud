@@ -9,30 +9,26 @@
 #====================================================
 
 
-ERASE_APP=("${UCLOUD_APP_DIR}" "${UCLOUD_INSTALL_DIR}")
-
-
-erase_app () {
+clear_dir_ () {
     echo
-    read -r -n 1 -p "Are you sure? [y/N] "
+    read -r -n 1 -p "All files and folder except 'data' & 'ucloud' will be deleted, do you confirm? [y/N] "
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-        for __dir in "${ERASE_APP[@]}"
-        do
+        cd "${PATH_TO_WORK_DIR}" || exit
 
-            rm -rf "${__dir}" || :
+        find . -not -path "*ucloud*" -and -not -path "*data*" -delete
 
-        done
+        back_to_script_dir_
     fi
 }
 
 
 echo
-read -r -n 1 -p "Do you want to remove the app? [y/N] "
+read -r -n 1 -p "Do you want to delete imported files? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-    erase_app
+    clear_dir_
 
     gh auth logout
 

@@ -22,9 +22,9 @@ https://cli.github.com/manual/
 
 EOF
 
-    mkdir "${UCLOUD_INSTALL_DIR}"
+    mkdir "${PATH_TO_INSTALL_DIR}"
     ls
-    cd "${UCLOUD_INSTALL_DIR}" || exit
+    cd "${PATH_TO_INSTALL_DIR}" || exit
 
     curl -sSL "https://github.com/cli/cli/releases/download/v${VERSION}/gh_${VERSION}_linux_amd64.tar.gz" -o "gh_${VERSION}_linux_amd64.tar.gz"
     tar xvf "gh_${VERSION}_linux_amd64.tar.gz"
@@ -33,7 +33,7 @@ EOF
 
     back_to_script_dir_
 
-    ls "${UCLOUD_INSTALL_DIR}"
+    ls "${PATH_TO_INSTALL_DIR}"
     gh version
 }
 
@@ -77,65 +77,25 @@ EOF
 fi
 
 
-git_clone () {
-    cat << EOF
-
-
-Cloning repo ${GH_ORG}/${GH_REPO} into ${UCLOUD_WORK_DIR}...
-
-EOF
-
-    cd "${UCLOUD_WORK_DIR}" || exit
-
-    gh repo clone "${GH_ORG}/${GH_REPO}"
-
-    back_to_script_dir_
-}
-
 
 echo
-read -r -n 1 -p "Do you want to clone the repo ${GH_ORG}/${GH_REPO}? [y/N] "
+read -r -n 1 -p "Do you want to clone a repo? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-    git_clone
+    gh repo list
 
-fi
-
-
-git_pull () {
-    cat << EOF
-
-
-Pulling repo "${GH_ORG}/${GH_REPO}"...
-
-EOF
-
-    cd "${UCLOUD_APP_DIR}" || exit
-
-    git pull
-    ls
+    cd "{PATH_TO_WORK_DIR}" || exit
 
     cat << EOF
 
+Choose one of the repo above to clone it as such
 
-Updating ${UCLOUD_SCRIPT_DIR}...
+cd "${PATH_TO_WORK_DIR}" || exit
+
+gh clone {gh-owner}/{gh-repo}
 
 EOF
 
-    rm -rf "${UCLOUD_SCRIPT_DIR}"
-    cp -rf "${UCLOUD_APP_DIR}/${GH_UCLOUD_DIR}" "${UCLOUD_WORK_DIR}"
-
-    back_to_script_dir_
-}
-alias gitpull="git_pull"
-
-
-echo
-read -r -n 1 -p "Do you want to pull the repo ${GH_ORG}/${GH_REPO}? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-
-    git_pull
-
 fi
+

@@ -21,7 +21,4 @@ cat "README.txt"
 
 . "./_install.sh"
 . "./_github.sh"
-. "./_postgresql.sh"
-. "./_pip.sh"
-. "./app.sh"
-. "./_erase.sh"
+. "./_delete.sh"
