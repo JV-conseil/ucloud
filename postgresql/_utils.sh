@@ -74,12 +74,13 @@ _ucld_::create_env_file() {
 #                 All rights reserved
 #====================================================
 
+export DEBUG=0
+
 export DBHOST=\"${DBHOST}\"
 export DBNAME=\"${DBNAME}\"
 export DBPASS=\"${DBPASS}\"
 export DBPORT=\"${DBPORT}\"
 export DBUSER=\"${DBUSER}\"
 
-export DEBUG=1
 export SECRET_KEY=\"$(openssl rand -base64 64)\"" >"${PATH_TO_ENV}"
 }
