@@ -15,8 +15,10 @@ export DBPASS
 export DBPORT="5432"
 export DBUSER="manager"
 
+export PATH_TO_WORK_DIR="${PATH_TO_SCRIPT_DIR%/*/*}"
+export PATH_TO_ENV="${PATH_TO_WORK_DIR}/.env"
+export PATH_TO_PGPASS="${PATH_TO_WORK_DIR}/.pgpass"
 export PATH_TO_DATABASE="/work/database"
-export PATH_TO_ENV="${PWD%/*/*}/.env"
 
 _ucld_::pg_start() {
   pg_ctl -D "${PATH_TO_DATABASE}"
@@ -25,6 +27,10 @@ _ucld_::pg_start() {
 _ucld_::pg_list() {
   psql --dbname=postgres --command="\l+"
   psql postgres
+}
+
+_ucld_::change_superuser_password() {
+  psql --dbname=postgres --command="ALTER ROLE ucloud WITH PASSWORD '${DBPASS}' ;"
 }
 
 _ucld_::pg_create_db() {
@@ -58,11 +64,27 @@ _ucld_::create_env_file() {
 #                 All rights reserved
 #====================================================
 
+# hostname:port:database:username:password
+${DBHOST}:${DBPORT}:postgres:ucloud:${DBPASS}" >"${PATH_TO_PGPASS}"
+
+  cat <<<"#!/usr/bin/env bash
+# -*- coding: UTF-8 -*-
+#
+# author        : JV-conseil
+# credits       : JV-conseil
+# licence       : BSD 3-Clause License
+# copyright     : Copyright (c) 2019-2023 JV-conseil
+#                 All rights reserved
+#====================================================
+
 export DBHOST=\"${DBHOST}\"
 export DBNAME=\"${DBNAME}\"
 export DBPASS=\"${DBPASS}\"
 export DBPORT=\"${DBPORT}\"
 export DBUSER=\"${DBUSER}\"
+
+export PGPASSFILE=\"${PATH_TO_PGPASS}\"
+
 export DJANGO_DEBUG=\"True\"
 
 # Django Syntax coloring
@@ -78,6 +100,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   _ucld_::create_env_file
   _ucld_::pg_create_db
+  _ucld_::change_superuser_password
 
 else
   _ucld_::pg_list
