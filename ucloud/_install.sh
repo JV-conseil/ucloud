@@ -20,7 +20,7 @@ EOF
   # You may follow the bottom link to build it from source tarball.
   # sudo add-apt-repository ppa:deadsnakes/ppa
 
-  sudo apt update
+  sudo apt update && sudo apt upgrade
 
   for __bin in "${INSTALL_BINARIES[@]}"; do
 
@@ -31,7 +31,7 @@ Installing ${__bin}...
 
 EOF
 
-    sudo apt update -y "$__bin" || sudo apt install -y "$__bin"
+    sudo apt install --only-upgrade -y "$__bin"
 
     if [[ "$__bin" =~ ^python.* ]]; then
       sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/"$__bin" 100
