@@ -9,7 +9,7 @@
 #====================================================
 
 export DBHOST="postgres.database.ucloud.sdu.dk"
-export DBNAME="welcome"
+export DBNAME="demo"
 DBPASS="$(openssl rand -base64 32)"
 export DBPASS
 export DBPORT="5432"
