@@ -52,7 +52,7 @@ _ucld_::pg_create_db() {
 
 cat "README.txt"
 
-. "../common/install./sh"
+. "../common/install.sh"
 
 echo
 read -r -n 1 -p "Do you want to create a new DB User & Database ? [y/N] "
