@@ -12,3 +12,11 @@ _ucld_::generate_key() {
   __size=${1:-15}
   python -c "import secrets; result = ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+') for i in range($__size)); print(result)"
 }
+
+_ucld_::parent_directory() {
+  # https://stackoverflow.com/a/24112741/2477854
+  echo "$(
+    cd_ "$(dirname "${BASH_SOURCE[0]}")" || exit
+    pwd -P
+  )"
+}
