@@ -31,7 +31,9 @@ _ucld_::pg_create_db() {
   _ucld_::pg_start
 
   __psql_commands=(
+    "DROP USER IF EXISTS ${DBUSER} ;"
     "CREATE USER ${DBUSER} WITH PASSWORD '${DBPASS}' ;"
+    "DROP DATABASE IF EXISTS ${DBNAME} ;"
     "CREATE DATABASE ${DBNAME} ;"
     "GRANT ALL PRIVILEGES ON DATABASE ${DBNAME} TO ${DBUSER} ;"
   )
@@ -41,6 +43,7 @@ _ucld_::pg_create_db() {
     psql --dbname=postgres --command="${__cmd}"
   done
 
+  psql --dbname=postgres --command="\du+"
   _ucld_::pg_list
 }
 
@@ -72,6 +75,8 @@ cat "README.txt"
 echo
 read -r -n 1 -p "Do you want to create a new DB User & Database ? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]; then
+
+  _ucld_::create_env_file
   _ucld_::pg_create_db
 
 else
