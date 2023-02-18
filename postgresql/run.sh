@@ -38,7 +38,6 @@ _ucld_::pg_create_db() {
 
   __psql_commands=(
     "CREATE USER ${DBUSER} WITH PASSWORD '${DBPASS}' ;"
-    "ADD ROLE ucloud TO ${DBUSER} ;"
     "CREATE DATABASE ${DBNAME} ;"
     "GRANT ALL PRIVILEGES ON DATABASE ${DBNAME} TO ${DBUSER} ;"
   )
