@@ -14,10 +14,11 @@ alias mv='mv -iv'                  # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'            # Preferred 'mkdir' implementation
 alias ls='ls -FGlAhp'              # Preferred 'ls' implementation
 cd_() { builtin cd "$@" || exit; } # Silent cd with no list directory
+# Always list directory contents upon 'cd'
 cd() {
   builtin cd "$@" || exit
   ls
-} # Always list directory contents upon 'cd'
+}
 
 cat /proc/version || :
 cat /etc/issue || :
