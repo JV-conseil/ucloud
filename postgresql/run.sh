@@ -16,8 +16,8 @@ export DBPORT="5432"
 export DBUSER="manager"
 
 export PATH_TO_WORK_DIR="${PWD%/*/*}"
-export PATH_TO_ENV="${PATH_TO_WORK_DIR}/.env"
-export PATH_TO_PGPASS="${PATH_TO_WORK_DIR}/.pgpass"
+export PATH_TO_ENV="${PATH_TO_WORK_DIR}/env/.env"
+export PATH_TO_PGPASS="${PATH_TO_WORK_DIR}/env/.pgpass"
 export PATH_TO_DATABASE="/work/database"
 
 _ucld_::pg_start() {
