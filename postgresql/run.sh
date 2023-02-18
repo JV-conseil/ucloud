@@ -30,7 +30,14 @@ _ucld_::pg_list() {
 }
 
 _ucld_::change_superuser_password() {
-  psql --dbname=postgres --command="ALTER ROLE ucloud WITH PASSWORD '${DBPASS}' ;"
+  __psql_commands=(
+    "ALTER ROLE ucloud WITH PASSWORD '${DBPASS}' ;"
+  )
+
+  for __cmd in "${__psql_commands[@]}"; do
+    echo "${__cmd}"
+    psql --dbname=postgres --command="${__cmd}"
+  done
 }
 
 _ucld_::pg_create_db() {
