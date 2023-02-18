@@ -94,9 +94,31 @@ update          To update 'ucloud' script.
 start           To go back to the launching page.
 ```
 
-## Ruuning an app on UCloud
+## Running an app on UCloud
 
-Once you are in sync with your [GitHub][GitHub] repos, follow guidelines in the sample [your-repo-bash-ucloud](your-repo-bash-ucloud/README.md) folder to run your app on UCloud.
+Once you are in sync with your [GitHub][GitHub] repos, follow guidelines in the sample [app_run_script](app_run_script/README.md) folder to run your app on UCloud.
+
+When your UCloud folder structure will look like this.
+
+```bash
+/work/{your-working-folder}/
+├── data/
+└── {your-repo}/
+    └── .bash/
+        └── ucloud/
+            └── run.sh
+├── install/
+└── ucloud/
+    └── ucloud/
+            └── run.sh
+```
+
+Then you can run the script of the app.
+
+```bash
+cd /work/{your-working-folder}/{your-repo}/.bash/ucloud/ || exit
+. run.sh
+```
 
 ## Further Readings 📚
 
