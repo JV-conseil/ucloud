@@ -27,6 +27,6 @@ alias start="_ucld_::start"
 
 cat "README.txt"
 
-. "../common/install.sh"
+. "./_install.sh"
 . "./_github.sh"
 . "./_delete.sh"
