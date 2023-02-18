@@ -31,7 +31,7 @@ Installing ${__bin}...
 
 EOF
 
-    sudo apt install -y "$__bin"
+    sudo apt update -y "$__bin" || sudo apt install -y "$__bin"
 
     if [[ "$__bin" =~ ^python.* ]]; then
       sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/"$__bin" 100
