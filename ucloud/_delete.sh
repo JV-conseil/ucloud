@@ -12,6 +12,7 @@ _ucld_::delete() {
   echo
   read -r -n 1 -p "All files and folder except 'data' & 'ucloud' will be _ucld_::deleted, do you confirm? [y/N] "
   if [[ $REPLY =~ ^[Yy]$ ]]; then
+
     cd "${PATH_TO_WORK_DIR}" || exit
 
     find . -not -path "*ucloud*" -and -not -path "*data*" -and -not -path . -type d -exec rm -rf {} +
@@ -19,6 +20,7 @@ _ucld_::delete() {
     ls "${PATH_TO_WORK_DIR}"
 
     _ucld_::back_to_script_dir_
+
   fi
 }
 
