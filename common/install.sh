@@ -8,6 +8,9 @@
 #                 All rights reserved
 #====================================================
 
+# export INSTALL_BINARIES=("bash" "python3.11" "postgresql" "postgresql-contrib")
+export INSTALL_BINARIES=("bash" "git" "python3.11")
+
 _ucld_::install() {
   cat <<EOF
 
