@@ -74,7 +74,7 @@ _ucld_::create_env_file() {
 #                 All rights reserved
 #====================================================
 
-export DEBUG=0
+export DEBUG=1
 
 export DBHOST=\"${DBHOST}\"
 export DBNAME=\"${DBNAME}\"
