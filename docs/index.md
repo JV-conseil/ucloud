@@ -94,6 +94,10 @@ update          To update 'ucloud' script.
 start           To go back to the launching page.
 ```
 
+## Ruuning an app on UCloud
+
+Once you are in sync with your [GitHub][GitHub] repos, follow guidelines in the sample [your-repo-bash-ucloud](your-repo-bash-ucloud/README.md) folder to run your app on UCloud.
+
 ## Further Readings 📚
 
 - [UCloud][UCloud User Guide] User Guide.
@@ -102,6 +106,7 @@ start           To go back to the launching page.
 - [The Ultimate Guide to Modularizing Bash Script Code][The Ultimate Guide to Modularizing Bash Script Code] by Shinichi Okada (medium.com).
 - [Shell Scripting for Beginners][Shell Scripting for Beginners – How to Write Bash Scripts in Linux] — How to Write Bash Scripts in Linux (freecodecamp.org).
 - [GitHub CLI][GitHub CLI manual] or gh, is a command-line interface to GitHub for use in your terminal or your scripts.
+- [Google Shell Style Guide][Google Shell Style Guide] rev. 2.02.
 
 ## Sponsorship
 
@@ -115,6 +120,8 @@ If this project helps you, you can offer me a cup of coffee ☕️ :-)
 
 [Awesome Bash]: https://github.com/awesome-lists/awesome-bash
 [GitHub CLI manual]: https://cli.github.com/manual/
+[GitHub]: https://github.com/
+[Google Shell Style Guide]: https://google.github.io/styleguide/shellguide.html
 [SDU eScience Center]: https://escience.sdu.dk/
 [Shell Scripting for Beginners – How to Write Bash Scripts in Linux]: https://www.freecodecamp.org/news/shell-scripting-crash-course-how-to-write-bash-scripts-in-linux/
 [The Ultimate Guide to Modularizing Bash Script Code]: https://medium.com/mkdir-awesome/the-ultimate-guide-to-modularizing-bash-script-code-f4a4d53000c2

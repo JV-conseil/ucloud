@@ -52,6 +52,10 @@ cd ucloud
 
 ![The missing repo to start GitHubbing on UCloud with Ubuntu Terminal](https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif)
 
+## Ruuning an app on UCloud
+
+Once you are in sync with your [GitHub][GitHub] repos, follow guidelines in the sample [your-repo-bash-ucloud](your-repo-bash-ucloud/README.md) folder to run your app on UCloud.
+
 ## Further Readings 📚
 
 - [UCloud][UCloud User Guide] User Guide.
@@ -74,6 +78,8 @@ If this project helps you, you can offer me a cup of coffee ☕️ :-)
 
 [Awesome Bash]: https://github.com/awesome-lists/awesome-bash
 [GitHub CLI manual]: https://cli.github.com/manual/
+[GitHub]: https://github.com/
+[Google Shell Style Guide]: https://google.github.io/styleguide/shellguide.html
 [SDU eScience Center]: https://escience.sdu.dk/
 [Shell Scripting for Beginners – How to Write Bash Scripts in Linux]: https://www.freecodecamp.org/news/shell-scripting-crash-course-how-to-write-bash-scripts-in-linux/
 [The Ultimate Guide to Modularizing Bash Script Code]: https://medium.com/mkdir-awesome/the-ultimate-guide-to-modularizing-bash-script-code-f4a4d53000c2
@@ -81,4 +87,3 @@ If this project helps you, you can offer me a cup of coffee ☕️ :-)
 [UCloud Developer Guide]: https://docs.cloud.sdu.dk/dev/index.html
 [UCloud Terminal Ubuntu]: https://cloud.sdu.dk/app/jobs/create?app=terminal-ubuntu&version=0.20.0
 [UCloud User Guide]: https://docs.cloud.sdu.dk/index.html
-[Google Shell Style Guide]: https://google.github.io/styleguide/shellguide.html
