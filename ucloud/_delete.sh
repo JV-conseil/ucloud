@@ -8,32 +8,30 @@
 #                 All rights reserved
 #====================================================
 
+_ucld_::delete() {
+  echo
+  read -r -n 1 -p "All files and folder except 'data' & 'ucloud' will be _ucld_::deleted, do you confirm? [y/N] "
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    cd "${PATH_TO_WORK_DIR}" || exit
 
-delete () {
-    echo
-    read -r -n 1 -p "All files and folder except 'data' & 'ucloud' will be deleted, do you confirm? [y/N] "
-    if [[ $REPLY =~ ^[Yy]$ ]]
-    then
-        cd "${PATH_TO_WORK_DIR}" || exit
+    find . -not -path "*ucloud*" -and -not -path "*data*" -and -not -path . -type d -exec rm -rf {} +
 
-        find . -not -path "*ucloud*" -and -not -path "*data*" -and -not -path . -type d -exec rm -rf {} +
+    ls "${PATH_TO_WORK_DIR}"
 
-        ls "${PATH_TO_WORK_DIR}"
-
-        back_to_script_dir_
-    fi
+    _ucld_::back_to_script_dir_
+  fi
 }
 
+alias delete="_ucld_::delete"
 
 echo
 read -r -n 1 -p "Do you want to delete imported files? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
+if [[ $REPLY =~ ^[Yy]$ ]]; then
 
-    delete
+  _ucld_::delete
 
-    gh auth logout
+  gh auth logout
 
-    back_to_script_dir_
+  _ucld_::back_to_script_dir_
 
 fi

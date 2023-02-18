@@ -8,17 +8,22 @@
 #                 All rights reserved
 #====================================================
 
-
 # shellcheck disable=SC1091
 {
-    . "./_env"
-    . "./_utils.sh"
-    # more files
+  . "./_env"
+  . "./_utils.sh"
+  # more files
 }
 
+_ucld_::start() {
+  _ucld_::back_to_script_dir_
+  # shellcheck disable=SC1091
+  . run.sh
+}
+
+alias start="_ucld_::start"
 
 cat "README.txt"
-
 
 . "./_install.sh"
 . "./_github.sh"

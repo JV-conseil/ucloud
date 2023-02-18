@@ -8,13 +8,16 @@
 #                 All rights reserved
 #====================================================
 
-PARENT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" || exit ; pwd -P)"
+export DEBUG=0
+
+PARENT_PATH="$(
+    cd "$(dirname "${BASH_SOURCE[0]}")" || exit
+    pwd -P
+)"
 export PARENT_PATH
 
 # export INSTALL_BINARIES=("bash" "python3.11" "postgresql" "postgresql-contrib")
-export INSTALL_BINARIES=("bash" "python3.11")
-
-export DEBUG=0
+export INSTALL_BINARIES=("bash" "git" "python3.11")
 
 export PATH_TO_SCRIPT_DIR="${PWD}"
 

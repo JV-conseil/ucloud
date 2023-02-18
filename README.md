@@ -60,6 +60,7 @@ cd ucloud
 - [The Ultimate Guide to Modularizing Bash Script Code][The Ultimate Guide to Modularizing Bash Script Code] by Shinichi Okada (medium.com).
 - [Shell Scripting for Beginners][Shell Scripting for Beginners – How to Write Bash Scripts in Linux] — How to Write Bash Scripts in Linux (freecodecamp.org).
 - [GitHub CLI][GitHub CLI manual] or gh, is a command-line interface to GitHub for use in your terminal or your scripts.
+- [Google Shell Style Guide][Google Shell Style Guide] rev. 2.02.
 
 ## Sponsorship
 
@@ -80,3 +81,4 @@ If this project helps you, you can offer me a cup of coffee ☕️ :-)
 [UCloud Developer Guide]: https://docs.cloud.sdu.dk/dev/index.html
 [UCloud Terminal Ubuntu]: https://cloud.sdu.dk/app/jobs/create?app=terminal-ubuntu&version=0.20.0
 [UCloud User Guide]: https://docs.cloud.sdu.dk/index.html
+[Google Shell Style Guide]: https://google.github.io/styleguide/shellguide.html

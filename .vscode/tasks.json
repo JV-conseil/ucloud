@@ -8,10 +8,10 @@
       "type": "shell",
       "isBackground": true,
       "osx": {
-        "command": "ucloud/run.sh"
+        "command": "cd ucloud && . run.sh"
       },
       "linux": {
-        "command": "ucloud/run.sh"
+        "command": "cd ucloud && . run.sh"
       },
       "runOptions": {
         "runOn": "folderOpen"

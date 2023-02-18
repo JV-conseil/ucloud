@@ -8,12 +8,10 @@
 #                 All rights reserved
 #====================================================
 
+_ucld_::gh_cli_install() {
+  VERSION=$(curl "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-)
 
-
-gh_cli_install () {
-    VERSION=$(curl "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-)
-
-    cat << EOF
+  cat <<EOF
 
 
 Installing GitHub CLI v$VERSION...
@@ -23,34 +21,23 @@ https://cli.github.com/manual/
 
 EOF
 
-    mkdir "${PATH_TO_INSTALL_DIR}"
-    ls
-    cd "${PATH_TO_INSTALL_DIR}" || exit
+  mkdir "${PATH_TO_INSTALL_DIR}"
+  ls
+  cd "${PATH_TO_INSTALL_DIR}" || exit
 
-    curl -sSL "https://github.com/cli/cli/releases/download/v${VERSION}/gh_${VERSION}_linux_amd64.tar.gz" -o "gh_${VERSION}_linux_amd64.tar.gz"
-    tar xvf "gh_${VERSION}_linux_amd64.tar.gz"
-    sudo cp "gh_${VERSION}_linux_amd64/bin/gh" /usr/local/bin/
-    sudo cp -r "gh_${VERSION}_linux_amd64/share/man/man1/"* /usr/share/man/man1/
+  curl -sSL "https://github.com/cli/cli/releases/download/v${VERSION}/gh_${VERSION}_linux_amd64.tar.gz" -o "gh_${VERSION}_linux_amd64.tar.gz"
+  tar xvf "gh_${VERSION}_linux_amd64.tar.gz"
+  sudo cp "gh_${VERSION}_linux_amd64/bin/gh" /usr/local/bin/
+  sudo cp -r "gh_${VERSION}_linux_amd64/share/man/man1/"* /usr/share/man/man1/
 
-    back_to_script_dir_
+  _ucld_::back_to_script_dir_
 
-    ls "${PATH_TO_INSTALL_DIR}"
-    gh version
+  ls "${PATH_TO_INSTALL_DIR}"
+  gh version
 }
 
-
-
-echo
-read -r -n 1 -p "Do you want to install GitHub CLI? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    gh_cli_install
-fi
-
-
-
-gh_login () {
-    cat << EOF
+_ucld_::gh_login() {
+  cat <<EOF
 
 
 Authenticating to GitHub with a Personal Access Token...
@@ -69,27 +56,15 @@ Authenticating to GitHub with a Personal Access Token...
 
 EOF
 
-    gh version
-    gh auth login
+  gh version
+  gh auth login
 }
-alias login="gh_login"
 
+_ucld_::git_clone() {
+  gh repo list
+  # gh repo list JV-conseil --visibility public
 
-
-echo
-read -r -n 1 -p "Do you want to authenticate to GitHub? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    gh_login
-fi
-
-
-
-git_clone () {
-    gh repo list
-    # gh repo list JV-conseil --visibility public
-
-    cat << EOF
+  cat <<EOF
 
 Choose one of the repo listed above to clone it as such
 
@@ -98,23 +73,33 @@ gh repo clone {gh-owner}/{gh-repo}
 
 EOF
 }
-alias clone="git_clone"
 
+_ucld_::git_pull() {
+  _ucld_::back_to_script_dir_
+  cd_ ..
+  git pull
+  _ucld_::back_to_script_dir_
+}
 
+alias clone="_ucld_::git_clone"
+alias login="_ucld_::gh_login"
+alias gh_cli_install="_ucld_::gh_cli_install"
+alias update="_ucld_::git_pull"
+
+echo
+read -r -n 1 -p "Do you want to install GitHub CLI? [y/N] "
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  _ucld_::gh_cli_install
+fi
+
+echo
+read -r -n 1 -p "Do you want to authenticate to GitHub? [y/N] "
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  _ucld_::gh_login
+fi
 
 echo
 read -r -n 1 -p "Do you want to clone a repo? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    git_clone
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  _ucld_::git_clone
 fi
-
-
-
-git_pull () {
-    back_to_script_dir_
-    cd_ ..
-    git pull
-    back_to_script_dir_
-}
-alias update="git_pull"
