@@ -85,8 +85,6 @@ export DBPASS=\"${DBPASS}\"
 export DBPORT=\"${DBPORT}\"
 export DBUSER=\"${DBUSER}\"
 
-export PGPASSFILE=\"${PATH_TO_PGPASS}\"
-
 export DJANGO_DEBUG=\"True\"
 
 # Django Syntax coloring
