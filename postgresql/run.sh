@@ -31,9 +31,9 @@ _ucld_::pg_create_db() {
   _ucld_::pg_start
 
   __psql_commands=(
-    "DROP USER IF EXISTS ${DBUSER} ;"
+    # "DROP DATABASE IF EXISTS ${DBNAME} ;"
+    # "DROP USER IF EXISTS ${DBUSER} ;"
     "CREATE USER ${DBUSER} WITH PASSWORD '${DBPASS}' ;"
-    "DROP DATABASE IF EXISTS ${DBNAME} ;"
     "CREATE DATABASE ${DBNAME} ;"
     "GRANT ALL PRIVILEGES ON DATABASE ${DBNAME} TO ${DBUSER} ;"
   )
@@ -66,14 +66,14 @@ export DBUSER=\"${DBUSER}\"
 export DJANGO_DEBUG=\"True\"
 
 # Django Syntax coloring
-# > https://docs.djangoproject.com/en/3.1/ref/django-admin/#syntax-coloring
+# <https://docs.djangoproject.com/en/3.1/ref/django-admin/#syntax-coloring>
 export DJANGO_COLORS=\"dark;http_info=white\"" >"${PATH_TO_ENV}"
 }
 
 cat "README.txt"
 
 echo
-read -r -n 1 -p "Do you want to create a new DB User & Database ? [y/N] "
+read -r -n 1 -p "Do you want to create a new User & Database ? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   _ucld_::create_env_file

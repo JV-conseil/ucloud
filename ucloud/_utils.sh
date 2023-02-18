@@ -13,7 +13,7 @@ _ucld_::back_to_script_dir_() {
 }
 
 _ucld_::parent_directory() {
-  # https://stackoverflow.com/a/24112741/2477854
+  # <https://stackoverflow.com/a/24112741/2477854>
   echo "$(
     cd_ "$(dirname "${BASH_SOURCE[0]}")" || exit
     pwd -P
