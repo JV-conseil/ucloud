@@ -8,7 +8,7 @@
 #                 All rights reserved
 #====================================================
 
-export DBHOST="0.0.0.0"
+export DBHOST="postgres.database.ucloud.sdu.dk"
 export DBNAME="welcome"
 DBPASS="$(openssl rand -base64 32)"
 export DBPASS
@@ -53,7 +53,7 @@ _ucld_::pg_create_db() {
   _ucld_::pg_list
 }
 
-_ucld_::create_env_file() {
+_ucld_::create_pgpass_file() {
   cat <<<"#!/usr/bin/env bash
 # -*- coding: UTF-8 -*-
 #
@@ -65,8 +65,10 @@ _ucld_::create_env_file() {
 #====================================================
 
 # hostname:port:database:username:password
-${DBHOST}:${DBPORT}:postgres:ucloud:${DBPASS}" >"${PATH_TO_PGPASS}"
+0.0.0.0:5432:postgres:ucloud:${DBPASS}" >"${PATH_TO_PGPASS}"
+}
 
+_ucld_::create_env_file() {
   cat <<<"#!/usr/bin/env bash
 # -*- coding: UTF-8 -*-
 #
@@ -98,6 +100,7 @@ echo
 read -r -n 1 -p "Do you want to create a new User & Database ? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 
+  _ucld_::create_pgpass_file
   _ucld_::create_env_file
   _ucld_::pg_create_db
   _ucld_::change_superuser_password
