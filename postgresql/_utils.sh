@@ -32,7 +32,6 @@ _ucld_::pg_create_db() {
   _ucld_::pg_start
 
   __psql_commands=(
-    "DROP DATABASE IF EXISTS demo ;"
     "DROP DATABASE IF EXISTS ${DBNAME} ;"
     "DROP USER ${DBUSER} ;"
     "CREATE USER ${DBUSER} WITH PASSWORD '${DBPASS}' ;"
