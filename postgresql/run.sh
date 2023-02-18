@@ -37,8 +37,8 @@ _ucld_::pg_create_db() {
   _ucld_::pg_start
 
   __psql_commands=(
-    # "DROP DATABASE IF EXISTS ${DBNAME} ;"
-    # "DROP USER IF EXISTS ${DBUSER} ;"
+    "DROP DATABASE IF EXISTS ${DBNAME} ;"
+    "DROP USER ${DBUSER} ;"
     "CREATE USER ${DBUSER} WITH PASSWORD '${DBPASS}' ;"
     "CREATE DATABASE ${DBNAME} ;"
     "GRANT ALL PRIVILEGES ON DATABASE ${DBNAME} TO ${DBUSER} ;"
