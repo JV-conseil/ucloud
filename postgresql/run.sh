@@ -16,7 +16,7 @@ export DBPORT="5432"
 export DBUSER="manager"
 
 export PATH_TO_DATABASE="/work/database"
-export PATH_TO_ENV="/work/.env"
+export PATH_TO_ENV="${PWD%/*/*}/.env"
 
 _ucld_::pg_start() {
   pg_ctl -D "${PATH_TO_DATABASE}"
