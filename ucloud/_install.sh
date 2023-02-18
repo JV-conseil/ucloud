@@ -47,6 +47,8 @@ EOF
   done
 }
 
+alias install="_ucld_::install"
+
 echo
 read -r -n 1 -p "You are running $(python --version), do you want to upgrade to v3.11? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]; then

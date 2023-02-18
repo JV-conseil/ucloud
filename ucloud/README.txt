@@ -39,11 +39,12 @@ options:
 
 clone           To clone a GitHub repo.
 delete          To erase the app.
-login           To login to GitHub.
-gh_cli_install  To install GitHub CLI.
 gh auth logout  To logout from GitHub.
-update          To update 'ucloud' script.
+gh_cli_install  To install GitHub CLI.
+install         To install binaries for Linux with apt.
+login           To login to GitHub.
 start           To go back to the launching page.
+update          To update 'ucloud' script.
 
 
 author:
