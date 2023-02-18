@@ -8,8 +8,8 @@
 #                 All rights reserved
 #====================================================
 
-# export INSTALL_BINARIES=("bash" "python3.11" "postgresql" "postgresql-contrib")
-export INSTALL_BINARIES=("bash" "git" "python3.11")
+# export INSTALL_PACKAGES=("bash" "python3.11" "postgresql" "postgresql-contrib")
+export INSTALL_PACKAGES=("bash" "git" "python3.11")
 
 _ucld_::install() {
   cat <<EOF
@@ -25,7 +25,7 @@ EOF
 
   sudo apt update && sudo apt upgrade
 
-  for __bin in "${INSTALL_BINARIES[@]}"; do
+  for __bin in "${INSTALL_PACKAGES[@]}"; do
 
     cat <<EOF
 
@@ -53,7 +53,8 @@ EOF
 alias install="_ucld_::install"
 
 echo
-read -r -n 1 -p "You are running $(python --version), do you want to upgrade to v3.11? [y/N] "
+# read -r -n 1 -p "You are running $(python --version || :), do you want to upgrade to v3.11? [y/N] "
+read -r -n 1 -p "Do you want to install packages for Linux with apt? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   _ucld_::install
 fi

@@ -79,7 +79,7 @@ bash run.sh
 
 ## What the script does
 
-- Install binaries for Linux with apt.
+- Install packages for Linux with apt.
 - Authenticate to GitHub.
 - Clone / Pull repositories.
 

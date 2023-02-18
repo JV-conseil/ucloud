@@ -30,7 +30,7 @@ bash run.sh
 
 What the script does
 
-- Install binaries for Linux with apt.
+- Install packages for Linux with apt.
 - Authenticate to GitHub.
 - Clone / Pull repositories.
 
@@ -41,7 +41,7 @@ clone           To clone a GitHub repo.
 delete          To erase the app.
 gh auth logout  To logout from GitHub.
 gh_cli_install  To install GitHub CLI.
-install         To install binaries for Linux with apt.
+install         To install packages for Linux with apt.
 login           To login to GitHub.
 start           To go back to the launching page.
 update          To update 'ucloud' script.
