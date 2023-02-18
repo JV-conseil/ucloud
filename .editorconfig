@@ -52,7 +52,7 @@ indent_size = 2
 
 # Google Shell Style Guide 2.02
 # https://google.github.io/styleguide/shellguide.html#s5-formatting
-[{,.bashrc,.env,*.sh}]
+[{,.bash*,.env,*.sh}]
 indent_style = space
 indent_size = 2
 max_line_length = 80
