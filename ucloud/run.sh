@@ -10,9 +10,8 @@
 
 # shellcheck disable=SC1091
 {
-  . "../common/.bashrc"
-  . "../common/utils.sh"
   . "./.env"
+  . "./.bashrc"
   . "./_utils.sh"
   # more files
 }

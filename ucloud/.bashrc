@@ -8,7 +8,7 @@
 #                 All rights reserved
 #====================================================
 
-# alias cp='cp -iv'                         # Preferred 'cp' implementation
+# alias cp='cp -iv'                # Preferred 'cp' implementation
 alias cp='cp -v'                   # Preferred 'cp' implementation
 alias mv='mv -iv'                  # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'            # Preferred 'mkdir' implementation
