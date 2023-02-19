@@ -15,6 +15,11 @@ _ucld_::install() {
   cat <<EOF
 
 
+========================================
+ Installing packages for Linux with apt
+========================================
+
+
 Updating Apt...
 
 EOF
@@ -51,10 +56,3 @@ EOF
 }
 
 alias install="_ucld_::install"
-
-echo
-# read -r -n 1 -p "You are running $(python --version || :), do you want to upgrade to v3.11? [y/N] "
-read -r -n 1 -p "Do you want to install packages for Linux with apt? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  _ucld_::install
-fi
