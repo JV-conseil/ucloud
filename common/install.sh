@@ -8,7 +8,6 @@
 #                 All rights reserved
 #====================================================
 
-# export INSTALL_PACKAGES=("bash" "python3.11" "postgresql" "postgresql-contrib")
 export INSTALL_PACKAGES=("bash" "git" "nano" "python3.11")
 
 _ucld_::install() {
