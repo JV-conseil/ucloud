@@ -18,7 +18,7 @@
 cat "README.txt"
 
 echo
-read -r -n 1 -p "Do you want to create a new User & Database ? [y/N] "
+read -r -n 1 -p "Do you want to create a new User & Database? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   _ucld_::pg_create_db
@@ -26,6 +26,14 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   _ucld_::create_pgpass_file
   _ucld_::create_env_file
 
+else
+  _ucld_::pg_list
+fi
+
+echo
+read -r -n 1 -p "Do you want to to Configure SSL on PostgreSQL? [y/N] "
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  _ucld_::pg_conf_ssl
 else
   _ucld_::pg_list
 fi

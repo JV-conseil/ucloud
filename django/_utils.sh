@@ -38,7 +38,7 @@ EOF
   cat <<EOF
 
 Test your deployment
-curl "https://${UCLOUD_ALLOWED_HOST}" --verbose
+curl "https://${UCLOUD_PUBLIC_LINK}" --verbose
 
 EOF
 }
