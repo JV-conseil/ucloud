@@ -26,11 +26,24 @@ SECRET_KEY = os.environ.get(
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if os.environ.get("DEBUG", True) else False
+DEBUG = True if os.environ.get("DEBUG", "1") == "1" else False
+TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []  # ["127.0.0.1", os.environ.get("UCLOUD_ALLOWED_HOST")]
+# ALLOWED_HOSTS = [
+#     "localhost",
+#     "127.0.0.1",
+#     os.environ.get("UCLOUD_ALLOWED_HOST", ""),
+# ]
+ALLOWED_HOSTS = []
 
 CSRF_TRUSTED_ORIGINS = ["https://*.cloud.sdu.dk"]
+
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = (
+    ("HTTP_X_FORWARDED_PROTO", "https") if SECURE_SSL_REDIRECT else None
+)
+SESSION_COOKIE_SECURE = SECURE_SSL_REDIRECT
+CSRF_COOKIE_SECURE = SESSION_COOKIE_SECURE
 
 
 # Application definition
@@ -42,6 +55,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Apps
+    "core",
     "demo",
 ]
 
@@ -88,6 +103,9 @@ DATABASES = {
         "HOST": os.environ.get("DBHOST"),
         "PORT": os.environ.get("DBPORT"),
         "CONN_HEALTH_CHECKS": True,
+        # "OPTIONS": {
+        #     "sslmode": "require",
+        # },
     }
 }
 
@@ -127,6 +145,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, STATIC_URL),
+]
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

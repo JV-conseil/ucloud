@@ -24,6 +24,7 @@ if [[ "${DEBUG}" == 1 ]]; then
 
   echo
   ls -FGlAhp
+  echo
 else
   python manage.py collectstatic --no-input
 fi
