@@ -8,6 +8,12 @@
 #                 All rights reserved
 #====================================================
 
+# shellcheck disable=SC1091
+{
+  . "./utils.sh"
+  # more files
+}
+
 # alias cp='cp -iv'                # Preferred 'cp' implementation
 alias cp='cp -v'                   # Preferred 'cp' implementation
 alias mv='mv -iv'                  # Preferred 'mv' implementation
@@ -18,6 +24,9 @@ cd_() { builtin cd "$@" || exit; } # Silent cd with no list directory
 cd() {
   builtin cd "$@" || exit
   ls
+}
+nano() {
+  builtin nano --linenumbers "$@"
 }
 
 cat /proc/version || :

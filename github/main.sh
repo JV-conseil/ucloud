@@ -11,7 +11,7 @@
 # shellcheck disable=SC1091
 {
   . "./.env"
-  . "./_alias.sh"
+  . "../common/main.sh"
   . "./_utils.sh"
   # more files
 }

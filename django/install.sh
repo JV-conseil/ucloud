@@ -11,6 +11,7 @@
 # shellcheck disable=SC1091
 {
   . "${PWD%/*/*/*}/env/.env"
+  . "../common/main.sh"
   . "./_utils.sh"
   # more files
 }

@@ -24,7 +24,11 @@ DBPASS="$(_ucld_::key_gen 32)"
 export DBPASS
 
 _ucld_::pg_start() {
-  pg_ctl -D "${PATH_TO_DATABASE}"
+  pg_ctl start -D "${PATH_TO_DATABASE}"
+}
+
+_ucld_::pg_restart() {
+  pg_ctl restart -D "${PATH_TO_DATABASE}"
 }
 
 _ucld_::pg_list() {
@@ -33,7 +37,6 @@ _ucld_::pg_list() {
 }
 
 _ucld_::pg_create_db() {
-  _ucld_::pg_start
 
   local _psql_commands=(
     "DROP DATABASE IF EXISTS ${DBNAME} ;"
