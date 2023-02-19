@@ -9,18 +9,4 @@
 #====================================================
 
 # shellcheck disable=SC1091
-{
-  . "/work/env/.env"
-  . "/work/ucloud/_utils.sh"
-  # more files
-}
-
-if [[ "${DEBUG}" == 1 ]]; then
-  _ucld_::debug
-else
-  python manage.py collectstatic --no-input
-fi
-
-_ucld_::dj_install_dependencies
-
-python manage.py runserver
+. "./main.sh"

@@ -34,6 +34,13 @@ EOF
 
   ls -FGlAhp
   echo
+
+  cat <<EOF
+
+Test your deployment
+curl "https://${UCLOUD_ALLOWED_HOST}" --verbose
+
+EOF
 }
 
 _ucld_::dj_install_dependencies() {
