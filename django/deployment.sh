@@ -17,17 +17,15 @@
 if [[ "${DEBUG}" == 1 ]]; then
   bash --version
   python --version
-  cat <<EOF
 
-
-Current directory
-
-EOF
-
-  ls -FGlAhp
   # print environment variables sorted by name
   # <https://stackoverflow.com/a/60756021/2477854>
   env -0 | sort -z | tr '\0' '\n'
+
+  echo
+  ls -FGlAhp
+else
+  python manage.py collectstatic --no-input
 fi
 
 python3 -m pip install --upgrade pip

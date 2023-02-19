@@ -23,6 +23,8 @@ if [[ "${DEBUG}" == 1 ]]; then
   # print environment variables sorted by name
   # <https://stackoverflow.com/a/60756021/2477854>
   env -0 | sort -z | tr '\0' '\n'
+else
+  python manage.py collectstatic --no-input
 fi
 
 cd "${PWD%/*/*}" || exit
