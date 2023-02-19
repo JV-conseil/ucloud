@@ -18,11 +18,7 @@
 cat "README.txt"
 
 if [[ "${DEBUG}" == 1 ]]; then
-  bash --version
-  python --version
-  # print environment variables sorted by name
-  # <https://stackoverflow.com/a/60756021/2477854>
-  env -0 | sort -z | tr '\0' '\n'
+  _ucld_::debug
 else
   python manage.py collectstatic --no-input
 fi

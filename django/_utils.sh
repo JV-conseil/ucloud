@@ -14,6 +14,28 @@ _ucld_::create_password() {
   python -c "import secrets; result = ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+') for i in range($_size)); print(result)"
 }
 
+_ucld_::debug() {
+  cat <<EOF
+
+
+===================
+ DEBUG information
+===================
+
+EOF
+  bash --version
+  python --version
+
+  # print environment variables sorted by name
+  # <https://stackoverflow.com/a/60756021/2477854>
+  echo
+  env -0 | sort -z | tr '\0' '\n'
+  echo
+
+  ls -FGlAhp
+  echo
+}
+
 _ucld_::dj_install_dependencies() {
   cat <<EOF
 

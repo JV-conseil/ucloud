@@ -11,22 +11,12 @@
 # shellcheck disable=SC1091
 {
   . "/work/env/.env"
-  . "./_utils.sh"
+  . "/work/ucloud/_utils.sh"
   # more files
 }
 
 if [[ "${DEBUG}" == 1 ]]; then
-  bash --version
-  python --version
-
-  # print environment variables sorted by name
-  # <https://stackoverflow.com/a/60756021/2477854>
-  echo
-  env -0 | sort -z | tr '\0' '\n'
-  echo
-
-  ls -FGlAhp
-  echo
+  _ucld_::debug
 else
   python manage.py collectstatic --no-input
 fi
@@ -34,3 +24,5 @@ fi
 _ucld_::dj_install_dependencies
 
 python manage.py runserver
+
+curl "https://app-githubbing.cloud.sdu.dk" --verbose
