@@ -46,7 +46,7 @@ ls -FGlAhp
 cd ucloud
 git pull
 
-cd ucloud
+cd github
 . run.sh
 ```
 
@@ -67,7 +67,7 @@ When your UCloud folder structure will look like this.
             └── run.sh
 ├── install/
 └── ucloud/
-    └── ucloud/
+    └── github/
             └── run.sh
 ```
 

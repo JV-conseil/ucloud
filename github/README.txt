@@ -1,10 +1,8 @@
 
 
-=================================================================
-
-Command Lines to start GitHubbing on UCloud with Ubuntu Terminal
-
-=================================================================
+==================================================================
+ Command Lines to start GitHubbing on UCloud with Ubuntu Terminal
+==================================================================
 
 Clone the 'ucloud' repo at the root of your working folder
 

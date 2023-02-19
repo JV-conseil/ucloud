@@ -4,24 +4,43 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Launch",
+      "label": "django",
       "type": "shell",
-      "isBackground": true,
+      "isBackground": false,
       "osx": {
-        "command": "cd ucloud && . run.sh"
+        "command": "cd django && . install.sh"
       },
       "linux": {
-        "command": "cd ucloud && . run.sh"
+        "command": "cd django && . install.sh"
       },
-      "runOptions": {
-        "runOn": "folderOpen"
+      "detail": "The missing command lines to Django on UCloud",
+      "problemMatcher": [],
+    },
+    {
+      "label": "github",
+      "type": "shell",
+      "isBackground": false,
+      "osx": {
+        "command": "cd github && . run.sh"
       },
-      "group": {
-        "kind": "build",
-        "isDefault": true
+      "linux": {
+        "command": "cd github && . run.sh"
       },
-      "detail": "Launch the script",
-      "problemMatcher": []
-    }
+      "detail": "The missing command lines to start GitHubbing on UCloud with Ubuntu Terminal",
+      "problemMatcher": [],
+    },
+    {
+      "label": "postgresql",
+      "type": "shell",
+      "isBackground": false,
+      "osx": {
+        "command": "cd postgresql && . run.sh"
+      },
+      "linux": {
+        "command": "cd postgresql && . run.sh"
+      },
+      "detail": "The missing command lines to PostgreSQL on UCloud",
+      "problemMatcher": [],
+    },
   ]
 }

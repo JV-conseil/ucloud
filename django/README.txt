@@ -1,7 +1,7 @@
 
 
 ===========================================
- Command Lines to run PostgreSQL on UCloud
+ Command Lines to run Django on UCloud
 ===========================================
 
 ...
