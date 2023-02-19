@@ -14,7 +14,7 @@ _ucld_::create_password() {
   python -c "import secrets; result = ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+') for i in range($_size)); print(result)"
 }
 
-_ucld_::debug() {
+_ucld_::dj_debug() {
   cat <<EOF
 
 

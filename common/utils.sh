@@ -15,3 +15,24 @@ _ucld_::parent_directory() {
     pwd -P
   )"
 }
+
+_ucld_::debug() {
+  cat <<EOF
+
+
+===================
+ DEBUG information
+===================
+
+EOF
+  cat /proc/version &>/dev/null
+  cat /etc/issue &>/dev/null
+  bash --version
+  python --version
+
+  # print environment variables sorted by name
+  # <https://stackoverflow.com/a/60756021/2477854>
+  echo
+  env -0 | sort -z | tr '\0' '\n'
+  echo
+}

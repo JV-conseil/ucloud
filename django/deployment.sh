@@ -16,7 +16,7 @@
 }
 
 if [[ "${DEBUG}" == 1 ]]; then
-  _ucld_::debug
+  _ucld_::dj_debug
 else
   python manage.py collectstatic --no-input
 fi

@@ -30,12 +30,6 @@ nano() {
   command nano --linenumbers "$@"
 }
 
-cat /proc/version || :
-cat /etc/issue || :
-bash --version
-
 if [[ "${DEBUG}" == 1 ]]; then
-  # print environment variables sorted by name
-  # <https://stackoverflow.com/a/60756021/2477854>
-  env -0 | sort -z | tr '\0' '\n'
+  _ucld_::debug
 fi
