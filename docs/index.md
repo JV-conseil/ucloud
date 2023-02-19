@@ -96,7 +96,7 @@ start           To go back to the launching page.
 
 ## Running an app on UCloud
 
-Once you are in sync with your [GitHub][GitHub] repos, follow guidelines in the sample [app_run_script](app_run_script/README.md) folder to run your app on UCloud.
+Once you are in sync with your [GitHub][GitHub] repos, follow guidelines in the sample [app](app/README.md) folder to run your app on UCloud.
 
 When your UCloud folder structure will look like this.
 
