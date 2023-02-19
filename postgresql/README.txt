@@ -8,6 +8,7 @@ What this script does
 
 - Install new User & Database.
 - Generate .env & .pgpass files.
+- Configure SSL on PostgreSQL server.
 
 
 author:
