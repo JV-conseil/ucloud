@@ -11,6 +11,7 @@
 # shellcheck disable=SC1091
 {
   . "/work/env/.env"
+  . "./_utils.sh"
   # more files
 }
 
@@ -30,7 +31,6 @@ else
   python manage.py collectstatic --no-input
 fi
 
-python3 -m pip install --upgrade pip
-pip install -r "./requirements.txt"
+_ucld_::dj_install_dependencies
 
 python manage.py runserver

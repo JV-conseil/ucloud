@@ -67,6 +67,17 @@ _ucld_::pg_update_superuser_password() {
   done
 }
 
+_wlcm_::pg_conf_ssl() {
+  # How to Configure SSL on PostgreSQL
+  # <https://www.cherryservers.com/blog/how-to-configure-ssl-on-postgresql>
+  # 19.9. Secure TCP/IP Connections with SSL
+  # <https://www.postgresql.org/docs/14/ssl-tcp.html>
+  cd "${PATH_TO_DATABASE}" || exit
+  # create a simple self-signed certificate for the server, valid for 365 days
+  openssl req -new -x509 -days 365 -nodes -text -out server.crt -keyout server.key -subj "/CN=0.0.0.0"
+  chmod og-rwx server.key
+}
+
 _ucld_::create_env_file() {
   cat <<<"#!/usr/bin/env bash
 # -*- coding: UTF-8 -*-
