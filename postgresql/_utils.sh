@@ -82,5 +82,8 @@ export DBPASS=\"${DBPASS}\"
 export DBPORT=\"${DBPORT}\"
 export DBUSER=\"${DBUSER}\"
 
-export SECRET_KEY=\"$(openssl rand -base64 64)\"" >"${PATH_TO_ENV}"
+export SECRET_KEY=\"$(openssl rand -base64 64)\"
+
+export UCLOUD_ALLOWED_HOST=\"${UCLOUD_ALLOWED_HOST}\"
+" >"${PATH_TO_ENV}"
 }
