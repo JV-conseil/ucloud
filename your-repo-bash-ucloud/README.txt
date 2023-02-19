@@ -1,10 +1,8 @@
 
 
-=================================================
-
-Running this repo on UCloud with Ubuntu Terminal
-
-=================================================
+==================================================
+ Running this repo on UCloud with Ubuntu Terminal
+==================================================
 
 Visit GitHubbing on UCloud with Ubuntu Terminal and follow instructions.
 https://github.com/JV-conseil/ucloud
@@ -19,7 +17,7 @@ Then your UCloud folder structure should look like this.
             └── run.sh
 ├── install/
 └── ucloud/
-    └── ucloud/
+    └── github/
             └── run.sh
 
 Then you can run the script of the app.

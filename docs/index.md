@@ -77,7 +77,7 @@ bash run.sh
 ├── install/
 └── ucloud/
 
-## What the script does
+## What this script does
 
 - Install packages for Linux with apt.
 - Authenticate to GitHub.

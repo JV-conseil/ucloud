@@ -16,7 +16,7 @@ git clone https://github.com/JV-conseil/ucloud.git
 
 Usage
 
-cd /work/{working-folder}/ucloud/ucloud
+cd /work/{working-folder}/ucloud/github
 bash run.sh
 
 /work/{working-folder}/
@@ -26,11 +26,12 @@ bash run.sh
 └── ucloud/
 
 
-What the script does
+What this script does
 
 - Install packages for Linux with apt.
+- Install GitHub CLI
 - Authenticate to GitHub.
-- Clone / Pull repositories.
+- Clone / Pull GitHub repositories.
 
 
 options:
