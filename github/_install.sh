@@ -25,26 +25,26 @@ EOF
 
   sudo apt update && sudo apt upgrade
 
-  for __bin in "${INSTALL_PACKAGES[@]}"; do
+  for _bin in "${INSTALL_PACKAGES[@]}"; do
 
     cat <<EOF
 
 
-Installing ${__bin}...
+Installing ${_bin}...
 
 EOF
 
-    sudo apt install --only-upgrade -y "$__bin"
+    sudo apt install --only-upgrade -y "$_bin"
 
-    if [[ "$__bin" =~ ^python.* ]]; then
-      sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/"$__bin" 100
+    if [[ "$_bin" =~ ^python.* ]]; then
+      sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/"$_bin" 100
 
       pip install --upgrade pip
     fi
 
     cat <<EOF
 
-You are now running $(${__bin//postgresql/psql} --version || :)
+You are now running $(${_bin//postgresql/psql} --version || :)
 
 EOF
   done

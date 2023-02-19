@@ -128,7 +128,8 @@ cd /work/{your-working-folder}/{your-repo}/.bash/ucloud/ || exit
 - [The Ultimate Guide to Modularizing Bash Script Code][The Ultimate Guide to Modularizing Bash Script Code] by Shinichi Okada (medium.com).
 - [Shell Scripting for Beginners][Shell Scripting for Beginners – How to Write Bash Scripts in Linux] — How to Write Bash Scripts in Linux (freecodecamp.org).
 - [GitHub CLI][GitHub CLI manual] or gh, is a command-line interface to GitHub for use in your terminal or your scripts.
-- [Google Shell Style Guide][Google Shell Style Guide] rev. 2.02.
+- [Google Shell Style Guide][Google Shell Style Guide] v2.02.
+- [How to use a key-value dictionary][How to use a key-value dictionary in bash] in bash.
 
 ## Sponsorship
 
@@ -144,6 +145,7 @@ If this project helps you, you can offer me a cup of coffee ☕️ :-)
 [GitHub CLI manual]: https://cli.github.com/manual/
 [GitHub]: https://github.com/
 [Google Shell Style Guide]: https://google.github.io/styleguide/shellguide.html
+[How to use a key-value dictionary in bash]: https://www.xmodulo.com/key-value-dictionary-bash.html
 [SDU eScience Center]: https://escience.sdu.dk/
 [Shell Scripting for Beginners – How to Write Bash Scripts in Linux]: https://www.freecodecamp.org/news/shell-scripting-crash-course-how-to-write-bash-scripts-in-linux/
 [The Ultimate Guide to Modularizing Bash Script Code]: https://medium.com/mkdir-awesome/the-ultimate-guide-to-modularizing-bash-script-code-f4a4d53000c2

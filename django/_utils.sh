@@ -10,6 +10,6 @@
 
 _ucld_::create_password() {
   # e.g.: $(_ucld_::create_password 15)
-  __size=${1:-15}
-  python -c "import secrets; result = ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+') for i in range($__size)); print(result)"
+  local _size=${1:-15}
+  python -c "import secrets; result = ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+') for i in range($_size)); print(result)"
 }

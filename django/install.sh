@@ -15,6 +15,23 @@
   # more files
 }
 
+_ucld_::create_superuser() {
+  cat <<EOF
+
+
+Creating a superuser...
+
+EOF
+  local _username="ucloud"
+  local _password
+  _password=$(_ucld_::create_password 32)
+
+  echo "Username: ${_username}"
+  echo "Password: ${_password}"
+
+  echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('${_username}', '${_username}', '${_password}');" | python manage.py shell && echo -e "\n\e[0;33mDone!\nYou will be able to test superuser access to the admin panel by visiting https://${UCLOUD_HOST}/admin/login/?next=/admin/\e[0;0m"
+}
+
 cat "README.txt"
 
 if [[ "${DEBUG}" == 1 ]]; then
@@ -57,20 +74,7 @@ EOF
   python manage.py makemigrations
   python manage.py migrate
 
-  cat <<EOF
-
-
-Creating a superuser...
-
-EOF
-
-  __username="ucloud"
-  __password=$(_ucld_::create_password 32)
-  echo "Username: ${__username}"
-  echo "Password: ${__password}"
-
-  echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('${__username}', '${__username}', '${__password}');" | python manage.py shell && echo -e "\n\e[0;33mDone!\nYou will be able to test superuser access to the admin panel by visiting https://${UCLOUD_HOST}/admin/login/?next=/admin/\e[0;0m"
-
+  _ucld_::create_superuser
 else
   python manage.py runserver
 fi
