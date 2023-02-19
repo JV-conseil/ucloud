@@ -26,7 +26,7 @@ cd() {
   ls
 }
 nano() {
-  builtin nano --linenumbers "$@"
+  command nano --linenumbers "$@"
 }
 
 cat /proc/version || :
