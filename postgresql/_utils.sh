@@ -106,10 +106,10 @@ EOF
     fi
   fi
 
-  cat "postgresql/postgresql.conf.txt"
+  cat postgresql/postgresql.conf.txt
   nano "${PATH_TO_DB}/postgresql.conf"
 
-  cat "postgresql/pg_hba.conf.txt"
+  cat postgresql/pg_hba.conf.txt
   nano "${PATH_TO_DB}/pg_hba.conf"
 
 }
