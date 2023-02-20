@@ -28,23 +28,8 @@ if [[ -d "${_dj_repo}" ]]; then
 
   cd_ "$_dj_repo" && pwd
 
-  if [[ "${DEBUG}" == 1 ]]; then
-    _ucld_::dj_debug
-  else
-
-    echo
-    read -r -N 1 -p "Do you want to collectstatic? [y/N] "
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-      python manage.py collectstatic --no-input
-    fi
-
-  fi
-
-  echo
-  read -r -N 1 -p "Do you want to install dependencies? [y/N] "
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    _ucld_::dj_install_dependencies
-  fi
+  _ucld_::dj_collectstatic
+  _ucld_::dj_install_dependencies
 
   echo
   read -r -N 1 -p "Do you want to run migrations? [y/N] "

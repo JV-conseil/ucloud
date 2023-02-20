@@ -43,6 +43,14 @@ curl "https://${UCLOUD_PUBLIC_LINK}" --verbose
 EOF
 }
 
+_ucld_::dj_collectstatic() {
+  if [[ "${DEBUG}" == 1 ]]; then
+    _ucld_::dj_debug
+  else
+    python manage.py collectstatic --no-input
+  fi
+}
+
 _ucld_::dj_install_dependencies() {
   cat <<EOF
 
