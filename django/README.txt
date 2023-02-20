@@ -6,11 +6,11 @@
 
 What this script does
 
-- installing dependencies.
-- run migrations.
-- create a superuser.
-- collectstatic when DEBUG = False.
-- runserver
+- Install dependencies.
+- Run migrations.
+- Create a superuser.
+- Collectstatic when DEBUG = False.
+- Runserver
 
 
 author:

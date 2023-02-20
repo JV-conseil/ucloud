@@ -26,7 +26,7 @@ done
 
 if [[ -d "${_dj_repo}" ]]; then
 
-  cd "$_dj_repo" && pwd
+  cd_ "$_dj_repo" && pwd
 
   if [[ "${DEBUG}" == 1 ]]; then
     _ucld_::dj_debug
