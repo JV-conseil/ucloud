@@ -54,7 +54,7 @@ if [[ -d "${_dj_repo}" ]]; then
     cat <<EOF
 
 
-... then you should quit this run and start a new one with a running PostgreSQL server connected job identified by hostname: ${UCLOUD_DB_HOSTNAME}
+... then you should quit this run and start a new one with a running PostgreSQL server connected job identified by the hostname: ${UCLOUD_DB_HOSTNAME}
 
 EOF
   fi

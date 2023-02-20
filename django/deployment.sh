@@ -11,7 +11,7 @@
 # shellcheck disable=SC1091
 {
   . "/work/env/.env"
-  . "/work/ucloud/_utils.sh"
+  . "/work/ucloud/django/_utils.sh"
   # more files
 }
 
