@@ -72,6 +72,9 @@ EOF
 }
 
 _ucld_::pg_conf_ssl() {
+  local server_key
+  server_key="${PATH_TO_DB}/server.key"
+
   cat <<EOF
 
 
@@ -89,11 +92,19 @@ EOF
     return
   fi
 
-  openssl genrsa -aes128 2048 >"${PATH_TO_DB}/server.key"
-  openssl rsa -in "${PATH_TO_DB}/server.key" -out "${PATH_TO_DB}/server.key"
-  chown ucloud "${PATH_TO_DB}/server.key"
-  openssl req -new -x509 -days 365 -key "${PATH_TO_DB}/server.key" -out "${PATH_TO_DB}/server.crt"
-  cp "${PATH_TO_DB}/server.crt" "${PATH_TO_DB}/root.crt"
+  if [[ -f ${server_key} ]]; then
+    echo
+    read -r -n 1 -p "${server_key} already exists, do you want to delete it? [y/N] "
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      rm -v -rf "${server_key}"
+
+      openssl genrsa -aes128 2048 >"${PATH_TO_DB}/server.key"
+      openssl rsa -in "${PATH_TO_DB}/server.key" -out "${PATH_TO_DB}/server.key"
+      chown ucloud "${PATH_TO_DB}/server.key"
+      openssl req -new -x509 -days 365 -key "${PATH_TO_DB}/server.key" -out "${PATH_TO_DB}/server.crt"
+      cp "${PATH_TO_DB}/server.crt" "${PATH_TO_DB}/root.crt"
+    fi
+  fi
 
   cat "postgresql/postgresql.conf.txt"
   nano "${PATH_TO_DB}/postgresql.conf"
