@@ -9,4 +9,4 @@
 #====================================================
 
 # shellcheck disable=SC1091
-. "install.sh"
+. "django/install.sh"

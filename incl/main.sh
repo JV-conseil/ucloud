@@ -10,8 +10,8 @@
 
 # shellcheck disable=SC1091
 {
-  . "_install.sh"
-  . "_utils.sh"
+  . "incl/_install.sh"
+  . "incl/_utils.sh"
   # more files
 }
 

@@ -8,10 +8,10 @@
       "type": "shell",
       "isBackground": false,
       "osx": {
-        "command": "cd django && . install.sh"
+        "command": ". django/main.sh"
       },
       "linux": {
-        "command": "cd django && . install.sh"
+        "command": ". django/main.sh"
       },
       "detail": "The missing command lines to Django on UCloud",
       "problemMatcher": [],
@@ -21,10 +21,10 @@
       "type": "shell",
       "isBackground": false,
       "osx": {
-        "command": "cd github && . run.sh"
+        "command": ". github/main.sh"
       },
       "linux": {
-        "command": "cd github && . run.sh"
+        "command": ". github/main.sh"
       },
       "detail": "The missing command lines to start GitHubbing on UCloud with Ubuntu Terminal",
       "problemMatcher": [],
@@ -34,10 +34,10 @@
       "type": "shell",
       "isBackground": true,
       "osx": {
-        "command": "bash main.sh"
+        "command": ". main.sh"
       },
       "linux": {
-        "command": "bash main.sh"
+        "command": ". main.sh"
       },
       "runOptions": {
         "runOn": "folderOpen"
@@ -54,10 +54,10 @@
       "type": "shell",
       "isBackground": false,
       "osx": {
-        "command": "cd postgresql && . run.sh"
+        "command": ". postgresql/main.sh"
       },
       "linux": {
-        "command": "cd postgresql && . run.sh"
+        "command": ". postgresql/main.sh"
       },
       "detail": "The missing command lines to PostgreSQL on UCloud",
       "problemMatcher": [],

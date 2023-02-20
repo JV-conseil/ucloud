@@ -36,3 +36,7 @@ EOF
   env -0 | sort -z | tr '\0' '\n'
   echo
 }
+
+_ucld_::back_to_script_dir_() {
+  cd_ "${PATH_TO_SCRIPT_DIR}" || exit
+}

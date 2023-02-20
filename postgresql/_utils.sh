@@ -24,11 +24,11 @@ DBPASS="$(_ucld_::key_gen 32)"
 export DBPASS
 
 _ucld_::pg_start() {
-  pg_ctl start -D "${PATH_TO_DATABASE}"
+  pg_ctl start -D "${PATH_TO_DB}"
 }
 
 _ucld_::pg_restart() {
-  pg_ctl restart -D "${PATH_TO_DATABASE}"
+  pg_ctl restart -D "${PATH_TO_DB}"
 }
 
 _ucld_::pg_list() {
@@ -39,11 +39,11 @@ _ucld_::pg_list() {
 _ucld_::pg_create_db() {
 
   local _psql_commands=(
-    "DROP DATABASE IF EXISTS ${DBNAME} ;"
-    "DROP USER ${DBUSER} ;"
-    "CREATE USER ${DBUSER} WITH PASSWORD '${DBPASS}' ;"
-    "CREATE DATABASE ${DBNAME} ;"
-    "GRANT ALL PRIVILEGES ON DATABASE ${DBNAME} TO ${DBUSER} ;"
+    "DROP DATABASE IF EXISTS ${DB_NAME} ;"
+    "DROP USER ${DB_USER} ;"
+    "CREATE USER ${DB_USER} WITH PASSWORD '${DBPASS}' ;"
+    "CREATE DATABASE ${DB_NAME} ;"
+    "GRANT ALL PRIVILEGES ON DATABASE ${DB_NAME} TO ${DB_USER} ;"
   )
 
   for _cmd in "${_psql_commands[@]}"; do
@@ -55,23 +55,29 @@ _ucld_::pg_create_db() {
   _ucld_::pg_list
 }
 
-_ucld_::pg_update_superuser_password() {
+_ucld_::pg_update_su_password() {
+  _su_pass="$(_ucld_::key_gen 32)"
+  local _su_pass
   local _psql_commands=(
-    "ALTER ROLE ucloud WITH PASSWORD '${DBPASS}' ;"
+    "ALTER ROLE ucloud WITH PASSWORD '${_su_pass}' ;"
   )
 
   for _cmd in "${_psql_commands[@]}"; do
     echo "${_cmd}"
     psql --dbname=postgres --command="${_cmd}"
   done
+
+  cat <<EOF
+
+Creating a .pgpass file...
+
+EOF
+
+  cat "../incl/shebang.txt" >"${PATH_TO_PGPASS}"
+  echo "0.0.0.0:5432:postgres:ucloud:${_su_pass}" >>"${PATH_TO_PGPASS}"
 }
 
 _ucld_::pg_conf_ssl() {
-  # How to Configure SSL on PostgreSQL
-  # <https://www.cherryservers.com/blog/how-to-configure-ssl-on-postgresql>
-  # 19.9. Secure TCP/IP Connections with SSL
-  # <https://www.postgresql.org/docs/14/ssl-tcp.html>
-
   cat <<EOF
 
 
@@ -79,9 +85,12 @@ _ucld_::pg_conf_ssl() {
  Configure SSL on PostgreSQL
 =============================
 
+- How to Configure SSL on PostgreSQL: https://www.cherryservers.com/blog/how-to-configure-ssl-on-postgresql
+- 19.9. Secure TCP/IP Connections with SSL: https://www.postgresql.org/docs/14/ssl-tcp.html
+
 EOF
 
-  cd "${PATH_TO_DATABASE}" || exit
+  cd "${PATH_TO_DB}" || exit
 
   openssl genrsa -aes128 2048 >server.key
   openssl rsa -in server.key -out server.key
@@ -117,29 +126,36 @@ EOF
  edit pg_hba.conf
 ==================
 
-host    ${DBNAME}         all          0.0.0.0/0    md5
-hostssl ${DBNAME}         all          0.0.0.0/0    md5
+host    ${DB_NAME}         all          0.0.0.0/0    md5
+hostssl ${DB_NAME}         all          0.0.0.0/0    md5
 
 EOF
   nano "pg_hba.conf" || return
+
+  _ucld_::back_to_script_dir_
 }
 
 _ucld_::create_env_file() {
-  cat "../common/shebang.txt" >"${PATH_TO_ENV}"
-  cat <<<"export DEBUG=1
+  cat <<EOF
 
-  export DBHOST=\"${DBHOST}\"
-  export DBNAME=\"${DBNAME}\"
+Creating an .env file...
+
+EOF
+  cat "../incl/shebang.txt" >"${PATH_TO_ENV}"
+  cat <<<"
+  export DEBUG=1
+
+  export DB_HOST=\"${DB_HOST}\"
+  export DB_NAME=\"${DB_NAME}\"
   export DBPASS=\"${DBPASS}\"
-  export DBPORT=\"${DBPORT}\"
-  export DBUSER=\"${DBUSER}\"
+  export DB_PORT=\"${DB_PORT}\"
+  export DBSSLMODE=\"require\"
+  export DB_USER=\"${DB_USER}\"
+
+  export PGSSLMODE=\"${DBSSLMODE}\"
 
   export SECRET_KEY=\"$(_ucld_::key_gen 32)\"
 
-  export UCLOUD_PUBLIC_LINK=\"${UCLOUD_PUBLIC_LINK}\"" >>"${PATH_TO_ENV}"
-}
-
-_ucld_::create_pgpass_file() {
-  cat "../common/shebang.txt" >"${PATH_TO_PGPASS}"
-  echo "0.0.0.0:5432:postgres:ucloud:${DBPASS}" >>"${PATH_TO_PGPASS}"
+  export UCLOUD_PUBLIC_LINK=\"${UCLOUD_PUBLIC_LINK}\"
+  " >>"${PATH_TO_ENV}"
 }

@@ -24,8 +24,6 @@ _ucld_::delete() {
   fi
 }
 
-alias delete="_ucld_::delete"
-
 echo
 read -r -n 1 -p "Do you want to delete imported files? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]; then

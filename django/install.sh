@@ -10,21 +10,19 @@
 
 # shellcheck disable=SC1091
 {
-  . "${PWD%/*/*/*}/env/.env"
-  . "../common/main.sh"
-  . "_utils.sh"
+  . "${PWD%/*}/env/.env"
+  . "incl/main.sh"
+  . "django/_utils.sh"
   # more files
 }
 
-cat "README.txt"
+cat "django/README.txt"
 
 if [[ "${DEBUG}" == 1 ]]; then
   _ucld_::dj_debug
 else
   python manage.py collectstatic --no-input
 fi
-
-cd "${PWD%/*/*}" || exit
 
 echo
 read -r -N 1 -p "Do you want to install dependencies? [y/N] "

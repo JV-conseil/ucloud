@@ -10,22 +10,13 @@
 
 # shellcheck disable=SC1091
 {
-  . ".env"
-  . "../common/main.sh"
-  . "_utils.sh"
+  . "incl/main.sh"
+  . "github/_utils.sh"
   # more files
 }
 
-_ucld_::start() {
-  _ucld_::back_to_script_dir_
-  # shellcheck disable=SC1091
-  . run.sh
-}
+cat "github/README.txt"
 
-alias start="_ucld_::start"
-
-cat "README.txt"
-
-. "_install.sh"
-. "_github.sh"
+. "github/_install.sh"
+. "github/_gh_cli.sh"
 # . "_delete.sh"
