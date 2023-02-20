@@ -76,5 +76,5 @@ fi
 echo
 read -r -n 1 -p "Do you want to configure Django? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-  . github/main.sh
+  . django/main.sh
 fi
