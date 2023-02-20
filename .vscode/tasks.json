@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "django",
+      "label": "Django",
       "type": "shell",
       "isBackground": false,
       "osx": {
@@ -17,7 +17,7 @@
       "problemMatcher": [],
     },
     {
-      "label": "github",
+      "label": "GitHub",
       "type": "shell",
       "isBackground": false,
       "osx": {
@@ -30,7 +30,27 @@
       "problemMatcher": [],
     },
     {
-      "label": "postgresql",
+      "label": "Launch",
+      "type": "shell",
+      "isBackground": true,
+      "osx": {
+        "command": "bash main.sh"
+      },
+      "linux": {
+        "command": "bash main.sh"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "The missing repo to start initiate apps on UCloud...",
+      "problemMatcher": []
+    },
+    {
+      "label": "PostgreSQL",
       "type": "shell",
       "isBackground": false,
       "osx": {

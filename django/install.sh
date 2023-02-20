@@ -12,7 +12,7 @@
 {
   . "${PWD%/*/*/*}/env/.env"
   . "../common/main.sh"
-  . "./_utils.sh"
+  . "_utils.sh"
   # more files
 }
 

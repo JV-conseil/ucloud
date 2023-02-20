@@ -10,9 +10,9 @@
 
 # shellcheck disable=SC1091
 {
-  . "./.env"
+  . ".env"
   . "../common/main.sh"
-  . "./_utils.sh"
+  . "_utils.sh"
   # more files
 }
 
@@ -32,7 +32,7 @@ else
 fi
 
 echo
-read -r -n 1 -p "Do you want to to Configure SSL on PostgreSQL? [y/N] "
+read -r -n 1 -p "Do you want to configure SSL on PostgreSQL? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   _ucld_::pg_conf_ssl
 else

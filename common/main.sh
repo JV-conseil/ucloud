@@ -10,8 +10,8 @@
 
 # shellcheck disable=SC1091
 {
-  . "./install.sh"
-  . "./utils.sh"
+  . "_install.sh"
+  . "_utils.sh"
   # more files
 }
 
@@ -19,12 +19,13 @@
 alias cp='cp -v'                   # Preferred 'cp' implementation
 alias mv='mv -iv'                  # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'            # Preferred 'mkdir' implementation
-alias ls='ls -FGlAhp'              # Preferred 'ls' implementation
+alias ll='ls -FGlAhp'              # Preferred 'ls' implementation
+alias ls='ll'                      # Preferred 'ls' implementation
 cd_() { builtin cd "$@" || exit; } # Silent cd with no list directory
 # Always list directory contents upon 'cd'
 cd() {
   builtin cd "$@" || exit
-  ls
+  ll
 }
 nano() {
   command nano --linenumbers "$@"

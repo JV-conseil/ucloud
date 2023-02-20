@@ -108,7 +108,7 @@ ssl_ciphers = 'HIGH:MEDIUM:+3DES:!aNULL' # allowed SSL ciphers
 ssl_prefer_server_ciphers = on
 
 EOF
-  nano "postgresql.conf" || exit
+  nano "postgresql.conf" || return
 
   cat <<EOF
 
@@ -121,45 +121,25 @@ host    ${DBNAME}         all          0.0.0.0/0    md5
 hostssl ${DBNAME}         all          0.0.0.0/0    md5
 
 EOF
-  nano "pg_hba.conf" || exit
+  nano "pg_hba.conf" || return
 }
 
 _ucld_::create_env_file() {
-  cat <<<"#!/usr/bin/env bash
-# -*- coding: UTF-8 -*-
-#
-# author        : JV-conseil
-# credits       : JV-conseil
-# licence       : BSD 3-Clause License
-# copyright     : Copyright (c) 2019-2023 JV-conseil
-#                 All rights reserved
-#====================================================
+  cat "../common/shebang.txt" >"${PATH_TO_ENV}"
+  cat <<<"export DEBUG=1
 
-export DEBUG=1
+  export DBHOST=\"${DBHOST}\"
+  export DBNAME=\"${DBNAME}\"
+  export DBPASS=\"${DBPASS}\"
+  export DBPORT=\"${DBPORT}\"
+  export DBUSER=\"${DBUSER}\"
 
-export DBHOST=\"${DBHOST}\"
-export DBNAME=\"${DBNAME}\"
-export DBPASS=\"${DBPASS}\"
-export DBPORT=\"${DBPORT}\"
-export DBUSER=\"${DBUSER}\"
+  export SECRET_KEY=\"$(_ucld_::key_gen 32)\"
 
-export SECRET_KEY=\"$(_ucld_::key_gen 32)\"
-
-export UCLOUD_PUBLIC_LINK=\"${UCLOUD_PUBLIC_LINK}\"
-" >"${PATH_TO_ENV}"
+  export UCLOUD_PUBLIC_LINK=\"${UCLOUD_PUBLIC_LINK}\"" >>"${PATH_TO_ENV}"
 }
 
 _ucld_::create_pgpass_file() {
-  cat <<<"#!/usr/bin/env bash
-# -*- coding: UTF-8 -*-
-#
-# author        : JV-conseil
-# credits       : JV-conseil
-# licence       : BSD 3-Clause License
-# copyright     : Copyright (c) 2019-2023 JV-conseil
-#                 All rights reserved
-#====================================================
-
-# hostname:port:database:username:password
-0.0.0.0:5432:postgres:ucloud:${DBPASS}" >"${PATH_TO_PGPASS}"
+  cat "../common/shebang.txt" >"${PATH_TO_PGPASS}"
+  echo "0.0.0.0:5432:postgres:ucloud:${DBPASS}" >>"${PATH_TO_PGPASS}"
 }

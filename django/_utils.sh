@@ -53,7 +53,7 @@ _ucld_::dj_install_dependencies() {
 
 EOF
   python3 -m pip install --upgrade pip
-  pip3 install -r "./requirements.txt"
+  pip3 install -r requirements.txt
 }
 
 _ucld_::dj_create_superuser() {
