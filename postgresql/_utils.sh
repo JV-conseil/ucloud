@@ -84,6 +84,11 @@ _ucld_::pg_conf_ssl() {
 
 EOF
 
+  if [[ ! -d ${PATH_TO_DB} ]]; then
+    echo "${PATH_TO_DB}: No database directory found... exiting"
+    return
+  fi
+
   openssl genrsa -aes128 2048 >"${PATH_TO_DB}/server.key"
   openssl rsa -in "${PATH_TO_DB}/server.key" -out "${PATH_TO_DB}/server.key"
   chown ucloud "${PATH_TO_DB}/server.key"
@@ -104,7 +109,7 @@ _ucld_::create_env_file() {
 Creating an .env file...
 
 EOF
-  cat "../incl/shebang.txt" >"${PATH_TO_ENV}"
+  cat "incl/shebang.txt" >"${PATH_TO_ENV}"
   cat <<<"
 export DEBUG=1
 

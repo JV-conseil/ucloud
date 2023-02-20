@@ -11,7 +11,6 @@
 # shellcheck disable=SC1091
 {
   . "incl/main.sh"
-  . "github/_utils.sh"
   # more files
 }
 
