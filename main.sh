@@ -32,6 +32,10 @@ export DBPORT="5432"
 export DBUSER="manager"
 export DBSSLMODE="require"
 
+if [[ "${DEBUG}" == 1 ]]; then
+  _ucld_::debug
+fi
+
 # shellcheck disable=SC1091
 {
   . "incl/main.sh"

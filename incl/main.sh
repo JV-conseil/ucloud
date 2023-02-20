@@ -30,7 +30,3 @@ cd() {
 nano() {
   command nano --linenumbers "$@"
 }
-
-if [[ "${DEBUG}" == 1 ]]; then
-  _ucld_::debug
-fi
