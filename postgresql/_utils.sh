@@ -122,7 +122,7 @@ export DBUSER=\"${DBUSER}\"
 
 export PGSSLMODE=\"${DBSSLMODE}\"
 
-export SECRET_KEY=\"$(_ucld_::key_gen 32)\"
+export SECRET_KEY=\"$(_ucld_::key_gen 16)\"
 
 export UCLOUD_PUBLIC_LINK=\"${UCLOUD_PUBLIC_LINK}\"
   " >>"${PATH_TO_ENV}"
