@@ -26,10 +26,11 @@ export PATH_TO_PGPASS="${PATH_TO_WORK_DIR}/env/.pgpass"
 
 export PATH_TO_DB="/work/database"
 
-export DB_HOST="${UCLOUD_DB_HOSTNAME}"
-export DB_NAME="demo"
-export DB_PORT="5432"
-export DB_USER="manager"
+export DBHOST="${UCLOUD_DB_HOSTNAME}"
+export DBNAME="demo"
+export DBPORT="5432"
+export DBUSER="manager"
+export DBSSLMODE="require"
 
 # shellcheck disable=SC1091
 {
