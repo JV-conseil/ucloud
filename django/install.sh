@@ -18,7 +18,12 @@
 
 cat "django/README.txt"
 
-printf "Please select a valid Django repository:\n"
+cat <<EOF
+
+Please select a valid Django repository:
+
+EOF
+
 select _dj_repo in $(dirname "${PATH_TO_WORK_DIR}"/*/manage.py); do
   test -n "${_dj_repo}" && break
   echo ">>> Invalid Selection"
