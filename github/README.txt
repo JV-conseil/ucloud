@@ -36,7 +36,6 @@ What this script does
 
 options:
 
-clone           To clone a GitHub repo.
 gh auth logout  To logout from GitHub.
 gh_cli_install  To install GitHub CLI.
 install         To install packages for Linux with apt.

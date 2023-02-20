@@ -9,28 +9,30 @@
 #====================================================
 
 _ucld_::gh_cli_install() {
-  VERSION=$(curl "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-)
+  local gh_cli_version gh_cli_archive
+  gh_cli_version=$(curl "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-)
+  gh_cli_archive="gh_${gh_cli_version}_linux_amd64.tar.gz"
 
   cat <<EOF
 
 
-Installing GitHub CLI v$VERSION...
+Installing GitHub CLI v$gh_cli_version...
 
 GitHub CLI, or gh, is a command-line interface to GitHub for use in your terminal or your scripts.
 https://cli.github.com/manual/
 
 EOF
 
-  mkdir "${PATH_TO_INSTALL_DIR}"
-  ls
-  cd "${PATH_TO_INSTALL_DIR}" || exit
+  if [[ ! -f "${PATH_TO_INSTALL_DIR}/${gh_cli_archive}" ]]; then
 
-  curl -sSL "https://github.com/cli/cli/releases/download/v${VERSION}/gh_${VERSION}_linux_amd64.tar.gz" -o "gh_${VERSION}_linux_amd64.tar.gz"
-  tar xvf "gh_${VERSION}_linux_amd64.tar.gz"
-  sudo cp "gh_${VERSION}_linux_amd64/bin/gh" /usr/local/bin/
-  sudo cp -r "gh_${VERSION}_linux_amd64/share/man/man1/"* /usr/share/man/man1/
+    mkdir -p "${PATH_TO_INSTALL_DIR}"
 
-  _ucld_::back_to_script_dir_
+    curl -sSL "https://github.com/cli/cli/releases/download/v${gh_cli_version}/${gh_cli_archive}" -o "${gh_cli_archive}"
+    tar xvf "${PATH_TO_INSTALL_DIR}/${gh_cli_archive}"
+    sudo cp "${PATH_TO_INSTALL_DIR}/gh_${gh_cli_version}_linux_amd64/bin/gh" /usr/local/bin/
+    sudo cp -r "${PATH_TO_INSTALL_DIR}/gh_${gh_cli_version}_linux_amd64/share/man/man1/"* /usr/share/man/man1/
+
+  fi
 
   ls "${PATH_TO_INSTALL_DIR}"
   gh version
@@ -73,17 +75,7 @@ gh repo clone {gh-owner}/{gh-repo} "${PATH_TO_WORK_DIR}"
 EOF
 }
 
-_ucld_::git_pull() {
-  _ucld_::back_to_script_dir_
-  cd_ ..
-  git pull
-  _ucld_::back_to_script_dir_
-}
-
-alias clone="_ucld_::git_clone"
-alias login="_ucld_::gh_login"
 alias gh_cli_install="_ucld_::gh_cli_install"
-alias update="_ucld_::git_pull"
 
 echo
 read -r -n 1 -p "Do you want to install GitHub CLI? [y/N] "
