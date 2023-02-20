@@ -10,7 +10,7 @@
 
 _ucld_::gh_cli_install() {
   local gh_cli_version gh_cli_archive
-  gh_cli_version=$(curl "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-)
+  gh_cli_version=$(curl --silent "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-)
   gh_cli_archive="gh_${gh_cli_version}_linux_amd64.tar.gz"
 
   cat <<EOF
