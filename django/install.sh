@@ -50,6 +50,14 @@ if [[ -d "${_dj_repo}" ]]; then
       python manage.py runserver
     fi
 
+  else
+    cat <<EOF
+
+... then you should quit this run and start a new one
+with a running PostgreSQL server connected job
+identified by hostname: ${UCLOUD_DB_HOSTNAME}
+
+EOF
   fi
 
   _ucld_::back_to_script_dir_
