@@ -76,7 +76,8 @@ Clone GitHub repo
 -----------------
 EOF
 
-  gh repo list
+  # gh repo list
+  _ucld_::gh_cli_list_user_repos full
 
   cat <<EOF
 
@@ -84,7 +85,8 @@ Choose one of the repo in the list below to clone it into ${PATH_TO_WORK_DIR}
 
 EOF
 
-  select _gh_repo in $(gh repo list --json nameWithOwner --jq '.[].nameWithOwner'); do
+  # select _gh_repo in $(gh repo list --json nameWithOwner --jq '.[].nameWithOwner'); do
+  select _gh_repo in $(_ucld_::gh_cli_list_user_repos); do
     test -n "${_gh_repo}" && break
     echo ">>> Invalid Selection"
   done

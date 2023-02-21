@@ -27,7 +27,8 @@ _ucld_::exception() {
   esac
 
   echo "ERROR: ${_error}"
-  printf "%s\t%s\n" "$(date "+%Y-%m-%d %H:%M:%S")" "${_error}" >>logfile.log
+  # printf "%s\t%s\n" "$(date "+%Y-%m-%d %H:%M:%S")" "${_error}" >>logfile.log
+  echo "${_error}" >>logfile.log
   exit "${_code}"
 }
 

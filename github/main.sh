@@ -11,6 +11,7 @@
 # shellcheck disable=SC1091
 {
   . "incl/all.sh"
+  . "github/_api.sh"
   # more files
 }
 
