@@ -15,9 +15,9 @@
   # more files
 }
 
-if [[ -z ${DEBUG} ]]; then
+declare -xi DEBUG
 
-  declare -xir DEBUG
+if [[ -z ${PATH_TO_SCRIPT_DIR} ]]; then
 
   readonly PATH_TO_SCRIPT_DIR="${PWD}"
   readonly PATH_TO_WORK_DIR="${PATH_TO_SCRIPT_DIR%/*}"
