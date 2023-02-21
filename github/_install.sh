@@ -69,18 +69,21 @@ EOF
 
 _ucld_::git_clone() {
   # gh repo list JV-conseil --visibility public
-
   cat <<EOF
 
 
 Clone GitHub repo
 -----------------
 
-Choose one of the repo listed above to clone it as such
-
 EOF
 
   gh repo list
+
+  cat <<EOF
+
+Choose one of the repo listed above to clone it into ${PATH_TO_WORK_DIR}
+
+EOF
 
   select _gh_repo in $(gh repo list --json nameWithOwner --jq '.[].nameWithOwner'); do
     test -n "${_gh_repo}" && break
