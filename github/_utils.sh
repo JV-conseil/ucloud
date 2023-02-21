@@ -103,3 +103,5 @@ EOF
     ls "${PATH_TO_WORK_DIR}"
   fi
 }
+
+alias gh_cli_install="_ucld_::gh_cli_install"
