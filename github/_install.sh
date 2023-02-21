@@ -96,7 +96,7 @@ EOF
 Cloning ${_gh_repo} into ${PATH_TO_WORK_DIR}...
 
 EOF
-    cd_ "${PATH_TO_WORK_DIR}" || exit
+    cd_ "${PATH_TO_WORK_DIR}"
     gh repo clone "${_gh_repo}" &>>logfile.log
     _ucld_::back_to_script_dir_
     ls "${PATH_TO_WORK_DIR}"

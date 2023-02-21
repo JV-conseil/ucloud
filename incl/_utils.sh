@@ -9,7 +9,7 @@
 #====================================================
 
 _ucld_::back_to_script_dir_() {
-  cd_ "${PATH_TO_SCRIPT_DIR}" || exit
+  cd_ "${PATH_TO_SCRIPT_DIR}"
 }
 
 _ucld_::debug() {
@@ -50,7 +50,7 @@ _ucld_::key_gen() {
 _ucld_::parent_directory() {
   # <https://stackoverflow.com/a/24112741/2477854>
   echo "$(
-    cd_ "$(dirname "${BASH_SOURCE[0]}")" || exit
+    cd_ "$(dirname "${BASH_SOURCE[0]}")"
     pwd -P
   )"
 }
