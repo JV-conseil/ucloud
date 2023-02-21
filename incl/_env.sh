@@ -14,7 +14,7 @@
 # shellcheck disable=SC1091
 {
   . "./settings.conf"
-  . "env/settings.conf" &>/dev/null
+  . "env/settings.conf" &>>logfile.log
   # more files
 }
 

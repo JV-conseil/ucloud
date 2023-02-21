@@ -8,7 +8,7 @@
 #                 All rights reserved
 #====================================================
 
-if [[ $(apt -v &>/dev/null) -eq 0 ]]; then
+if [[ $(apt -v &>>logfile.log) -eq 0 ]]; then
 
   cat <<EOF
 

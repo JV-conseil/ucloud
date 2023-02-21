@@ -10,7 +10,7 @@
 
 alias ls='ls -FGlAhp'
 
-if [[ $(cd_ "$@" &>/dev/null) -ne 0 ]]; then
+if [[ $(cd_ "$@" &>>logfile.log) -ne 0 ]]; then
   # alias cp='cp -iv'                # Preferred 'cp' implementation
   alias cp='cp -v'        # Preferred 'cp' implementation
   alias mv='mv -iv'       # Preferred 'mv' implementation
@@ -30,6 +30,6 @@ nano() {
   command nano --linenumbers "$@"
 }
 
-if ! grep -q "cd_() " "${HOME}/.profile" &>/dev/null; then
+if ! grep -q "cd_() " "${HOME}/.profile" &>>logfile.log; then
   cat incl/_aliases.sh >>"${HOME}/.profile"
 fi

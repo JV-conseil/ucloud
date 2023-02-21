@@ -21,8 +21,8 @@ _ucld_::debug() {
 ===================
 
 EOF
-  cat /proc/version &>/dev/null
-  cat /etc/issue &>/dev/null
+  cat /proc/version &>>logfile.log
+  cat /etc/issue &>>logfile.log
   bash --version
   python --version
 
@@ -39,7 +39,7 @@ EOF
 _ucld_::key_gen() {
   # e.g.: $(_ucld_::key_gen 128)
   local _size=${1:-15}
-  if [[ $(python --version &>/dev/null) -ne 0 ]]; then
+  if [[ $(python --version &>>logfile.log) -ne 0 ]]; then
     openssl rand -base64 "${_size}"
   else
     python -c "import secrets; result = ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+') for i in range($_size)); print(result)"

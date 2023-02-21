@@ -1,0 +1,7 @@
+incl/_aliases.sh: line 13: cd_: command not found
+incl/_env.sh: line 17: env/settings.conf: No such file or directory
+cat: /proc/version: No such file or directory
+cat: /etc/issue: No such file or directory
+The operation couldn’t be completed. Unable to locate a Java Runtime.
+Please visit http://www.java.com for information on installing Java.
+
