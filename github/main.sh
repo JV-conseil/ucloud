@@ -18,20 +18,30 @@
 
 cat "github/README.txt"
 
-echo
-read -r -n 1 -p "Do you want to install GitHub CLI? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  _ucld_::gh_cli_install
+if ! [ -x "$(command -v gh)" ]; then
+
+  echo
+  read -r -n 1 -p "Do you want to install GitHub CLI? [y/N] "
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    _ucld_::gh_cli_install
+  fi
+
 fi
 
-echo
-read -r -n 1 -p "Do you want to authenticate to GitHub? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  _ucld_::gh_login
-fi
+if [[ $(gh auth status &>>logfile.log) -ne 0 ]]; then
 
-echo
-read -r -n 1 -p "Do you want to clone a repo? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  _ucld_::git_clone
+  echo
+  read -r -n 1 -p "Do you want to authenticate to GitHub? [y/N] "
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    _ucld_::gh_login
+  fi
+
+else
+
+  echo
+  read -r -n 1 -p "Do you want to clone a repo? [y/N] "
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    _ucld_::git_clone
+  fi
+
 fi

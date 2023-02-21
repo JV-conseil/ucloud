@@ -23,19 +23,19 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 fi
 
 echo
-read -r -n 1 -p "Do you want to configure GitHub? [y/N] "
+read -r -n 1 -p "Do you want to manage GitHub? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   . github/main.sh
 fi
 
 echo
-read -r -n 1 -p "Do you want to configure PostreSQL? [y/N] "
+read -r -n 1 -p "Do you want to manage PostreSQL? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   . postgresql/main.sh
 fi
 
 echo
-read -r -n 1 -p "Do you want to configure Django? [y/N] "
+read -r -n 1 -p "Do you want to manage Django? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   . django/main.sh
 fi
