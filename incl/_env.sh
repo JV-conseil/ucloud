@@ -15,9 +15,10 @@
   # more files
 }
 
-which settings.conf
+echo "declare -xir DEBUG ${DEBUG}"
+echo "UCLD_DATA_DIR ${UCLD_DATA_DIR}"
 
-declare -xir DEBUG
+declare -xi DEBUG
 
 readonly PATH_TO_SCRIPT_DIR="${PWD}"
 readonly PATH_TO_WORK_DIR="${PATH_TO_SCRIPT_DIR%/*}"

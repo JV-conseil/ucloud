@@ -15,7 +15,7 @@ _ucld_::delete() {
 
     cd "${PATH_TO_WORK_DIR}" || exit
 
-    find . -not -path "*ucloud*" -and -not -path "*data*" -and -not -path . -type d -exec rm -rf {} +
+    find . -not -path "*ucloud*" -and -not -path "*data*" -and -not -path . -type d -exec rm -vrf {} +
 
     ls "${PATH_TO_WORK_DIR}"
 

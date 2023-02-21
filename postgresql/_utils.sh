@@ -95,7 +95,7 @@ EOF
     echo
     read -r -n 1 -p "${server_key} already exists, do you want to delete it? [y/N] "
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-      rm -v -rf "${server_key}"
+      rm -vrf "${server_key}"
 
       openssl genrsa -aes128 2048 >"${UCLOUD_DB_PATH}/server.key"
       openssl rsa -in "${UCLOUD_DB_PATH}/server.key" -out "${UCLOUD_DB_PATH}/server.key"
