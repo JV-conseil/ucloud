@@ -14,15 +14,15 @@
 # _ucld_db["port"]="5432"
 # _ucld_db["user"]="manager"
 
+DBHOST="${UCLOUD_DB_HOSTNAME}"
 DBPASS="$(_ucld_::key_gen 32)"
-export DBPASS
 
 _ucld_::pg_start() {
-  pg_ctl start -D "${PATH_TO_DB}"
+  pg_ctl start -D "${UCLOUD_DB_PATH}"
 }
 
 _ucld_::pg_restart() {
-  pg_ctl restart -D "${PATH_TO_DB}"
+  pg_ctl restart -D "${UCLOUD_DB_PATH}"
 }
 
 _ucld_::pg_list() {
@@ -73,22 +73,21 @@ EOF
 
 _ucld_::pg_conf_ssl() {
   local server_key
-  server_key="${PATH_TO_DB}/server.key"
+  server_key="${UCLOUD_DB_PATH}/server.key"
 
   cat <<EOF
 
 
-=============================
- Configure SSL on PostgreSQL
-=============================
+Configure SSL on PostgreSQL
+---------------------------
 
 - How to Configure SSL on PostgreSQL: https://www.cherryservers.com/blog/how-to-configure-ssl-on-postgresql
 - 19.9. Secure TCP/IP Connections with SSL: https://www.postgresql.org/docs/14/ssl-tcp.html
 
 EOF
 
-  if [[ ! -d ${PATH_TO_DB} ]]; then
-    echo "${PATH_TO_DB}: No database directory found... exiting"
+  if [[ ! -d ${UCLOUD_DB_PATH} ]]; then
+    echo "${UCLOUD_DB_PATH}: No database directory found... exiting"
     return
   fi
 
@@ -98,19 +97,27 @@ EOF
     if [[ $REPLY =~ ^[Yy]$ ]]; then
       rm -v -rf "${server_key}"
 
-      openssl genrsa -aes128 2048 >"${PATH_TO_DB}/server.key"
-      openssl rsa -in "${PATH_TO_DB}/server.key" -out "${PATH_TO_DB}/server.key"
-      chown ucloud "${PATH_TO_DB}/server.key"
-      openssl req -new -x509 -days 365 -key "${PATH_TO_DB}/server.key" -out "${PATH_TO_DB}/server.crt"
-      cp "${PATH_TO_DB}/server.crt" "${PATH_TO_DB}/root.crt"
+      openssl genrsa -aes128 2048 >"${UCLOUD_DB_PATH}/server.key"
+      openssl rsa -in "${UCLOUD_DB_PATH}/server.key" -out "${UCLOUD_DB_PATH}/server.key"
+      chown ucloud "${UCLOUD_DB_PATH}/server.key"
+      openssl req -new -x509 -days 365 -key "${UCLOUD_DB_PATH}/server.key" -out "${UCLOUD_DB_PATH}/server.crt"
+      cp "${UCLOUD_DB_PATH}/server.crt" "${UCLOUD_DB_PATH}/root.crt"
     fi
   fi
 
   cat postgresql/postgresql.conf.txt
-  nano "${PATH_TO_DB}/postgresql.conf"
+  cat <<EOF
+
+nano "${UCLOUD_DB_PATH}/postgresql.conf"
+
+EOF
 
   cat postgresql/pg_hba.conf.txt
-  nano "${PATH_TO_DB}/pg_hba.conf"
+  cat <<EOF
+
+nano "${UCLOUD_DB_PATH}/pg_hba.conf"
+
+EOF
 
 }
 
@@ -122,7 +129,7 @@ Creating an .env file...
 EOF
   cat "incl/shebang.txt" >"${PATH_TO_ENV}"
   cat <<<"
-export DEBUG=1
+export DEBUG=\"${DEBUG}\"
 
 export DBHOST=\"${DBHOST}\"
 export DBNAME=\"${DBNAME}\"

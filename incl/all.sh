@@ -10,11 +10,12 @@
 
 # shellcheck disable=SC1091
 {
-  . "incl/all.sh"
+  . "incl/_alias.sh"
+  . "incl/_environment.sh"
+  . "incl/_utils.sh"
   # more files
 }
 
-cat "github/README.txt"
-
-. "github/_install.sh"
-# . "github/_delete.sh"
+if [[ "${DEBUG}" == 1 ]]; then
+  _ucld_::debug
+fi

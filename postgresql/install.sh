@@ -10,7 +10,7 @@
 
 # shellcheck disable=SC1091
 {
-  . "incl/main.sh"
+  . "incl/all.sh"
   . "postgresql/_utils.sh"
   # more files
 }

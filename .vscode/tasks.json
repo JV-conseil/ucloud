@@ -4,6 +4,19 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "App",
+      "type": "shell",
+      "isBackground": false,
+      "osx": {
+        "command": ". app/main.sh"
+      },
+      "linux": {
+        "command": ". app/main.sh"
+      },
+      "detail": "Running a Python app on UCloud",
+      "problemMatcher": [],
+    },
+    {
       "label": "Django",
       "type": "shell",
       "isBackground": false,

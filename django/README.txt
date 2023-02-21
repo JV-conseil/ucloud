@@ -1,8 +1,7 @@
 
 
-=======================================
- Command Lines to run Django on UCloud
-=======================================
+Command Lines to run Django on UCloud
+-------------------------------------
 
 What this script does
 

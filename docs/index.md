@@ -57,7 +57,7 @@ cd github
 ```md
 # Command Lines to start GitHubbing on UCloud with Ubuntu Terminal
 
-Clone the 'ucloud' repo at the root of your working folder
+Clone the "ucloud" repo at the root of your working folder
 
 cd /work/{working-folder} || exit
 git clone https://github.com/JV-conseil/ucloud.git
@@ -90,7 +90,7 @@ delete          To erase the app.
 login           To login to GitHub.
 gh_cli_install  To install GitHub CLI.
 gh auth logout  To logout from GitHub.
-update          To update 'ucloud' script.
+update          To update "ucloud" script.
 start           To go back to the launching page.
 ```
 

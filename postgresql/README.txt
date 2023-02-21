@@ -1,8 +1,8 @@
 
 
-===========================================
- Command Lines to run PostgreSQL on UCloud
-===========================================
+
+Command Lines to run PostgreSQL on UCloud
+-----------------------------------------
 
 What this script does
 

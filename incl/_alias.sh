@@ -8,13 +8,6 @@
 #                 All rights reserved
 #====================================================
 
-# shellcheck disable=SC1091
-{
-  . "incl/_install.sh"
-  . "incl/_utils.sh"
-  # more files
-}
-
 # alias cp='cp -iv'                # Preferred 'cp' implementation
 alias cp='cp -v'                   # Preferred 'cp' implementation
 alias mv='mv -iv'                  # Preferred 'mv' implementation

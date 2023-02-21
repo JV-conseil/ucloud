@@ -1,7 +1,7 @@
 
-======================
- edit postgresql.conf
-======================
+
+Edit postgresql.conf
+--------------------
 
 listen_addresses = '*'
 

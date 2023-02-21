@@ -8,10 +8,10 @@
 #                 All rights reserved
 #====================================================
 
-# shellcheck disable=SC1091
+# shellcheck disable=SC1090,SC1091
 {
-  . "${PWD%/*}/env/.env"
-  . "incl/main.sh"
+  . "incl/all.sh"
+  . "${PATH_TO_ENV}"
   . "django/_utils.sh"
   # more files
 }

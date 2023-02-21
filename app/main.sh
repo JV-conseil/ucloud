@@ -8,24 +8,23 @@
 #                 All rights reserved
 #====================================================
 
-export PATH_TO_APP_DIR="${PWD%/*/*}"
+# shellcheck disable=SC1091
+. "incl/all.sh"
 
-_ucld_::dependencies() {
-  pip install -r "${PATH_TO_APP_DIR}/requirements.txt"
-}
+cat "app/README.txt"
 
-_ucld_::run_app() {
-  python3 "${PATH_TO_APP_DIR}/main.py"
-  ls "${PATH_TO_DATA_DIR}/output"
-}
+cat <<EOF
 
-alias run_app="_ucld_::run_app"
+Please select a repo with a Python app...
 
-cat "README.txt"
+EOF
 
-echo
-read -r -n 1 -p "Do you want to install dependencies? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]; then
+select _app_repo in $(dirname "${PATH_TO_WORK_DIR}"/*/main.py); do
+  test -n "${_app_repo}" && break
+  echo ">>> Invalid Selection"
+done
+
+if [[ -d "${_app_repo}" ]]; then
 
   cat <<EOF
 
@@ -34,21 +33,24 @@ Installing dependencies...
 
 EOF
 
-  _ucld_::dependencies
-
-fi
-
-echo
-read -r -n 1 -p "Do you want to run the app? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]; then
+  pip install -r "${_app_repo}/requirements.txt"
 
   cat <<EOF
 
 
-Running the App...
+Running the app...
 
 EOF
 
-  _ucld_::run_app
+  python3 "${_app_repo}/main.py"
+
+  cat <<EOF
+
+
+Displaying the output folder...
+
+EOF
+
+  ls "${PATH_TO_DATA_DIR}/output"
 
 fi

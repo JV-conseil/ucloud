@@ -1,7 +1,7 @@
 
-==================
- edit pg_hba.conf
-==================
+
+Edit pg_hba.conf
+----------------
 
 host    all           all           0.0.0.0/0          md5
 hostssl all           all           0.0.0.0/0          md5

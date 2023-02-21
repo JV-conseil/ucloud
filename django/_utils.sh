@@ -18,9 +18,9 @@ _ucld_::dj_debug() {
   cat <<EOF
 
 
-===================
- DEBUG information
-===================
+
+DEBUG information
+-----------------
 
 EOF
   bash --version
