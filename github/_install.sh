@@ -23,7 +23,7 @@ https://cli.github.com/manual/
 
 EOF
 
-  if [[ ! -f "${PATH_TO_INSTALL_DIR}/${gh_cli_archive}" ]]; then
+  if [[ $(gh version &>/dev/null) -ne 0 ]]; then
 
     mkdir -p "${PATH_TO_INSTALL_DIR}"
 
@@ -32,10 +32,15 @@ EOF
     sudo cp "${PATH_TO_INSTALL_DIR}/gh_${gh_cli_version}_linux_amd64/bin/gh" /usr/local/bin/
     sudo cp -r "${PATH_TO_INSTALL_DIR}/gh_${gh_cli_version}_linux_amd64/share/man/man1/"* /usr/share/man/man1/
 
+    ls "${PATH_TO_INSTALL_DIR}"
+
   fi
 
-  ls "${PATH_TO_INSTALL_DIR}"
-  gh version
+  cat <<EOF
+
+You are now running $(gh version)
+
+EOF
 }
 
 _ucld_::gh_login() {
