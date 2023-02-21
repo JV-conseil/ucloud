@@ -90,7 +90,7 @@ EOF
     echo ">>> Invalid Selection"
   done
 
-  if [[ -f "${_gh_repo}" ]]; then
+  if [[ "${_gh_repo}" ]]; then
     cat <<EOF
 
 
