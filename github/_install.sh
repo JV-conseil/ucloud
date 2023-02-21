@@ -93,10 +93,12 @@ EOF
     cat <<EOF
 
 
-Cloning ${_gh_repo} into ${PATH_TO_WORK_DIR}/...
+Cloning ${_gh_repo} into ${PATH_TO_WORK_DIR}...
 
 EOF
-    gh repo clone "${_gh_repo}" "${PATH_TO_WORK_DIR}/"
+    cd_ "${PATH_TO_WORK_DIR}" || exit
+    gh repo clone "${_gh_repo}" &>>logfile.log
+    _ucld_::back_to_script_dir_
   fi
 }
 
