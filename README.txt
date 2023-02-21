@@ -27,7 +27,7 @@ cd /work/{working-folder}/ucloud || exit
 bash main.sh
 
 
-The missing repo to initiate apps on UCloud...
+The missing repo to manage apps on UCloud...
 
 - Start GitHubbing: authenticate, clone, pull your repos.
 - PostreSQL: install database and users, activate SSL.

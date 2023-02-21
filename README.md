@@ -20,7 +20,7 @@
 <img alt="https://img.shields.io/badge/stack-overflow-orange.svg" src="https://img.shields.io/badge/stack-overflow-orange.svg">
 -->
 
-> The missing repo to start GitHubbing on UCloud with Ubuntu Terminal.
+> The missing repo to start GitHubbing on UCloud.
 
 ![social-media-preview](https://user-images.githubusercontent.com/8126807/219748305-e5d5d517-ec5c-4364-8a61-7baefdaf6f63.png)
 
@@ -52,7 +52,7 @@ cd ucloud
 . main.sh
 ```
 
-![The missing repo to start GitHubbing on UCloud with Ubuntu Terminal](https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif)
+![The missing repo to start GitHubbing on UCloud](https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif)
 
 ## Running an app on UCloud
 
@@ -68,6 +68,11 @@ Once you are in sync with your [GitHub][GitHub] repos and your UCloud folder str
 ```
 
 Then you can run the script of the app from `ucloud/main.sh`.
+
+```bash
+cd /work/{your-working-folder}/ucloud || exit
+. main.sh
+```
 
 ## Further Readings 📚
 

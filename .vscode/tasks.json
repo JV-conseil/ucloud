@@ -59,7 +59,7 @@
         "kind": "build",
         "isDefault": true
       },
-      "detail": "The missing repo to start initiate apps on UCloud...",
+      "detail": "The missing repo to manage apps on UCloud...",
       "problemMatcher": []
     },
     {
