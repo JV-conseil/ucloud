@@ -46,11 +46,8 @@ ls -FGlAhp
 cd {your-working-folder} || exit
 
 git clone https://github.com/JV-conseil/ucloud.git
-ls -FGlAhp
 
 cd ucloud
-git pull
-
 . main.sh
 ```
 

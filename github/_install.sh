@@ -23,7 +23,7 @@ https://cli.github.com/manual/
 
 EOF
 
-  if [[ $(gh version &>/dev/null) -ne 0 ]]; then
+  if ! [ -x "$(command -v gh)" ]; then
 
     mkdir -p "${PATH_TO_INSTALL_DIR}"
 

@@ -16,6 +16,6 @@
   # more files
 }
 
-if [[ "${DEBUG}" == 1 ]]; then
+if [[ "${DEBUG}" -gt 0 ]]; then
   _ucld_::debug
 fi
