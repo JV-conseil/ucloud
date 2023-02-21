@@ -24,7 +24,7 @@ _ucld_::gh_cli_list_user_repos() {
   declare -a _owners=("")
 
   _choice=${1}
-  _owners+=($(_ucld_::gh_cli_list_user_orgs)) || exit
+  _owners+=($(_ucld_::gh_cli_list_user_orgs)) || return
 
   for _org in "${_owners[@]}"; do
 

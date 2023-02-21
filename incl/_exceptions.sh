@@ -9,9 +9,8 @@
 #====================================================
 
 _ucld_::exception() {
-  local _error _code
+  local _error
   _error=${1:-"Oops something went wrong..."}
-  declare -i _code=${2:-1}
 
   case ${_error} in
 
@@ -29,7 +28,6 @@ _ucld_::exception() {
   echo "ERROR: ${_error}"
   # printf "%s\t%s\n" "$(date "+%Y-%m-%d %H:%M:%S")" "${_error}" >>logfile.log
   echo "${_error}" >>logfile.log
-  exit "${_code}"
 }
 
 # _ucld_::exception "$@"
