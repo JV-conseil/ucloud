@@ -92,7 +92,6 @@ EOF
   if [[ "${_gh_repo}" ]]; then
     cat <<EOF
 
-
 Cloning ${_gh_repo} into ${PATH_TO_WORK_DIR}...
 
 EOF
