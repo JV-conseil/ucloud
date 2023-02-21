@@ -8,8 +8,6 @@
 #                 All rights reserved
 #====================================================
 
-export INSTALL_PACKAGES=("bash" "git" "nano" "python3.11")
-
 cat <<EOF
 
 
@@ -27,7 +25,7 @@ EOF
 
 sudo apt update && sudo apt upgrade
 
-for _bin in "${INSTALL_PACKAGES[@]}"; do
+for _bin in "${INSTALL_LINUX_PACKAGES[@]}"; do
 
   cat <<EOF
 

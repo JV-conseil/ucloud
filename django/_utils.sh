@@ -8,12 +8,6 @@
 #                 All rights reserved
 #====================================================
 
-_ucld_::create_password() {
-  # e.g.: $(_ucld_::create_password 15)
-  local _size=${1:-15}
-  python -c "import secrets; result = ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+') for i in range($_size)); print(result)"
-}
-
 _ucld_::dj_debug() {
   cat <<EOF
 
@@ -75,7 +69,7 @@ _ucld_::dj_create_superuser() {
 EOF
   local _username="ucloud"
   local _password
-  _password=$(_ucld_::create_password 32)
+  _password=$(_ucld_::key_gen 32)
 
   echo "Username: ${_username}"
   echo "Password: ${_password}"

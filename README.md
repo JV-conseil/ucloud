@@ -51,37 +51,25 @@ ls -FGlAhp
 cd ucloud
 git pull
 
-cd github
-. run.sh
+. main.sh
 ```
 
 ![The missing repo to start GitHubbing on UCloud with Ubuntu Terminal](https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif)
 
 ## Running an app on UCloud
 
-Once you are in sync with your [GitHub][GitHub] repos, follow guidelines in the sample [app](app/README.md) folder to run your app on UCloud.
-
-When your UCloud folder structure will look like this.
+Once you are in sync with your [GitHub][GitHub] repos and your UCloud folder structure will look like this.
 
 ```bash
 /work/{your-working-folder}/
 ├── data/
 └── {your-repo}/
-    └── .bash/
-        └── ucloud/
-            └── run.sh
 ├── install/
 └── ucloud/
-    └── github/
-            └── run.sh
+    └── main.sh
 ```
 
-Then you can run the script of the app.
-
-```bash
-cd /work/{your-working-folder}/{your-repo}/.bash/ucloud/ || exit
-. run.sh
-```
+Then you can run the script of the app from `ucloud/main.sh`.
 
 ## Further Readings 📚
 

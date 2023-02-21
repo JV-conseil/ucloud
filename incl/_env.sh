@@ -9,7 +9,13 @@
 #====================================================
 
 # shellcheck disable=SC1091
-. "./settings.conf"
+{
+  . "./settings.conf"
+  . "env/settings.conf" &>/dev/null
+  # more files
+}
+
+which settings.conf
 
 declare -xir DEBUG
 
