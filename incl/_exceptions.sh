@@ -15,7 +15,7 @@ _ucld_::exception() {
   case ${_error} in
 
   psql | postgresql)
-    _error="a connected job with a PostgreSQL server running was not found. You should quit this run and start a new one with a running PostgreSQL server connected job identified by the hostname: ${UCLOUD_DB_HOSTNAME}"
+    _error="a connected job with a PostgreSQL server running was not found. You should quit this run and start a new one with a running PostgreSQL server connected job identified by the hostname: ${UCLD_DB_HOSTNAME}"
     ;;
 
   PATTERN_N)

@@ -14,17 +14,17 @@
 # _ucld_db["port"]="5432"
 # _ucld_db["user"]="manager"
 
-UCLOUD_DB_PATH="/work/${UCLD_DATABASE_DIR}"
+UCLD_DB_PATH="/work/${UCLD_DATABASE_DIR}"
 
-DBHOST="${UCLOUD_DB_HOSTNAME}"
+DBHOST="${UCLD_DB_HOSTNAME}"
 DBPASS="$(_ucld_::key_gen 32)"
 
 _ucld_::pg_start() {
-  pg_ctl start -D "${UCLOUD_DB_PATH}"
+  pg_ctl start -D "${UCLD_DB_PATH}"
 }
 
 _ucld_::pg_restart() {
-  pg_ctl restart -D "${UCLOUD_DB_PATH}"
+  pg_ctl restart -D "${UCLD_DB_PATH}"
 }
 
 _ucld_::pg_list() {
@@ -75,7 +75,7 @@ EOF
 
 _ucld_::pg_conf_ssl() {
   local server_key
-  server_key="${UCLOUD_DB_PATH}/server.key"
+  server_key="${UCLD_DB_PATH}/server.key"
 
   cat <<EOF
 
@@ -88,8 +88,8 @@ Configure SSL on PostgreSQL
 
 EOF
 
-  if [[ ! -d ${UCLOUD_DB_PATH} ]]; then
-    _ucld_::exception "${UCLOUD_DB_PATH} database directory not found... exiting"
+  if [[ ! -d ${UCLD_DB_PATH} ]]; then
+    _ucld_::exception "${UCLD_DB_PATH} database directory not found... exiting"
     return
   fi
 
@@ -99,25 +99,25 @@ EOF
     if [[ $REPLY =~ ^[Yy]$ ]]; then
       rm -vrf "${server_key}"
 
-      openssl genrsa -aes128 2048 >"${UCLOUD_DB_PATH}/server.key"
-      openssl rsa -in "${UCLOUD_DB_PATH}/server.key" -out "${UCLOUD_DB_PATH}/server.key"
-      chown ucloud "${UCLOUD_DB_PATH}/server.key"
-      openssl req -new -x509 -days 365 -key "${UCLOUD_DB_PATH}/server.key" -out "${UCLOUD_DB_PATH}/server.crt"
-      cp "${UCLOUD_DB_PATH}/server.crt" "${UCLOUD_DB_PATH}/root.crt"
+      openssl genrsa -aes128 2048 >"${UCLD_DB_PATH}/server.key"
+      openssl rsa -in "${UCLD_DB_PATH}/server.key" -out "${UCLD_DB_PATH}/server.key"
+      chown ucloud "${UCLD_DB_PATH}/server.key"
+      openssl req -new -x509 -days 365 -key "${UCLD_DB_PATH}/server.key" -out "${UCLD_DB_PATH}/server.crt"
+      cp "${UCLD_DB_PATH}/server.crt" "${UCLD_DB_PATH}/root.crt"
     fi
   fi
 
   cat postgresql/postgresql.conf.txt
   cat <<EOF
 
-nano "${UCLOUD_DB_PATH}/postgresql.conf"
+nano "${UCLD_DB_PATH}/postgresql.conf"
 
 EOF
 
   cat postgresql/pg_hba.conf.txt
   cat <<EOF
 
-nano "${UCLOUD_DB_PATH}/pg_hba.conf"
+nano "${UCLD_DB_PATH}/pg_hba.conf"
 
 EOF
 
@@ -144,6 +144,6 @@ export PGSSLMODE=\"${DBSSLMODE}\"
 
 export SECRET_KEY=\"$(_ucld_::key_gen 16)\"
 
-export UCLOUD_PUBLIC_LINK=\"${UCLOUD_PUBLIC_LINK}\"
+export UCLD_PUBLIC_LINK=\"${UCLD_PUBLIC_LINK}\"
   " >>"${PATH_TO_ENV}"
 }

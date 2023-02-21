@@ -32,7 +32,7 @@ EOF
   cat <<EOF
 
 Test your deployment
-curl "https://${UCLOUD_PUBLIC_LINK}" --verbose
+curl "https://${UCLD_PUBLIC_LINK}" --verbose
 
 EOF
 }
@@ -74,7 +74,7 @@ EOF
   echo "Username: ${_username}"
   echo "Password: ${_password}"
 
-  echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('${_username}', '${_username}', '${_password}');" | python manage.py shell && echo -e "\n\e[0;33mDone!\nYou will be able to test superuser access to the admin panel by visiting https://${UCLOUD_HOST}/admin/login/?next=/admin/\e[0;0m"
+  echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('${_username}', '${_username}', '${_password}');" | python manage.py shell && echo -e "\n\e[0;33mDone!\nYou will be able to test superuser access to the admin panel by visiting https://${UCLD_PUBLIC_LINK}/admin/login/?next=/admin/\e[0;0m"
 }
 
 _ucld_::dj_running_migrations() {
