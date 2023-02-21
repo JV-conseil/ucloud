@@ -20,3 +20,7 @@
 if [[ "${DEBUG}" -gt 0 ]]; then
   _ucld_::debug
 fi
+
+if [[ ! -d "${PATH_TO_DATABASE_DIR}" ]]; then
+  mkdir -pv "${PATH_TO_DATABASE_DIR}"
+fi

@@ -25,10 +25,10 @@ EOF
 
   if ! [ -x "$(command -v gh)" ]; then
 
-    mkdir -p "${PATH_TO_INSTALL_DIR}"
+    mkdir -pv "${PATH_TO_INSTALL_DIR}"
 
     curl -sSL "https://github.com/cli/cli/releases/download/v${gh_cli_version}/${gh_cli_archive}" -o "${PATH_TO_INSTALL_DIR}/${gh_cli_archive}"
-    tar xvf "${PATH_TO_INSTALL_DIR}/${gh_cli_archive}"
+    tar -xvf "${PATH_TO_INSTALL_DIR}/${gh_cli_archive}" --directory="${PATH_TO_INSTALL_DIR}"
     sudo cp "${PATH_TO_INSTALL_DIR}/gh_${gh_cli_version}_linux_amd64/bin/gh" /usr/local/bin/
     sudo cp -r "${PATH_TO_INSTALL_DIR}/gh_${gh_cli_version}_linux_amd64/share/man/man1/"* /usr/share/man/man1/
 
