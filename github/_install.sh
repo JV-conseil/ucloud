@@ -68,21 +68,34 @@ EOF
 }
 
 _ucld_::git_clone() {
-  gh repo list
   # gh repo list JV-conseil --visibility public
 
   cat <<EOF
 
-Choose one of the repo listed above to clone it as such
 
-gh repo clone {gh-owner}/{gh-repo} "${PATH_TO_WORK_DIR}"
+Clone GitHub repo
+-----------------
+
+Choose one of the repo listed above to clone it as such
 
 EOF
 
-  select _gh_repo in $(gh repo list); do
+  gh repo list
+
+  select _gh_repo in $(gh repo list --json nameWithOwner --jq '.[].nameWithOwner'); do
     test -n "${_gh_repo}" && break
     echo ">>> Invalid Selection"
   done
+
+  if [[ -f "${_gh_repo}" ]]; then
+    cat <<EOF
+
+
+Cloning ${_gh_repo} into ${PATH_TO_WORK_DIR}...
+
+EOF
+    gh repo clone "${_gh_repo}" "${PATH_TO_WORK_DIR}"
+  fi
 }
 
 alias gh_cli_install="_ucld_::gh_cli_install"
