@@ -49,15 +49,11 @@ _ucld_::gh_login() {
 
 Authenticating to GitHub with a Personal Access Token...
 
-- generate a Personal Access Token here https://github.com/settings/tokens
+- generate one token here https://github.com/settings/tokens
 - minimum required scopes are 'repo', 'read:org', 'workflow'.
-- expiration Custom... the next day.
+- expiration Custom... + 1 day.
 
-
-? What account do you want to log into?
-> GitHub.com
-? What is your preferred protocol for Git operations?
-> HTTPS
+? Authenticate Git with your GitHub credentials? Yes
 ? How would you like to authenticate GitHub CLI?
 > Paste an authentication token
 
@@ -91,16 +87,26 @@ EOF
     echo ">>> Invalid Selection"
   done
 
-  if [[ "${_gh_repo}" && ! -d "${PATH_TO_WORK_DIR}/${_gh_repo#*/}" ]]; then
+  if [[ "${_gh_repo}" ]]; then
     cat <<EOF
 
 Cloning ${_gh_repo} into ${PATH_TO_WORK_DIR}...
 
 EOF
-    cd_ "${PATH_TO_WORK_DIR}"
-    gh repo clone "${_gh_repo}" &>>"${PATH_TO_SCRIPT_DIR}/logfile.log"
-    _ucld_::back_to_script_dir_
-    ls "${PATH_TO_WORK_DIR}"
+
+    if [[ -d "${PATH_TO_WORK_DIR}/${_gh_repo#*/}" ]]; then
+      cat <<EOF
+
+${PATH_TO_WORK_DIR}/${_gh_repo#*/} is already cloned!
+
+EOF
+    else
+      cd_ "${PATH_TO_WORK_DIR}"
+      gh repo clone "${_gh_repo}" &>>"${PATH_TO_SCRIPT_DIR}/logfile.log"
+      _ucld_::back_to_script_dir_
+      ls "${PATH_TO_WORK_DIR}"
+    fi
+
   fi
 }
 

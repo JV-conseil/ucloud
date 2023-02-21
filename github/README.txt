@@ -13,6 +13,7 @@ What this script does
 
 options:
 
+gh auth login   To login to GitHub.
 gh auth logout  To logout from GitHub.
 gh_cli_install  To install GitHub CLI.
 
