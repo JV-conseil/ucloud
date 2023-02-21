@@ -95,7 +95,7 @@ start           To go back to the launching page.
 
 ## Running an app on UCloud
 
-Once you are in sync with your [GitHub][GitHub] repos and your UCloud folder structure will look like this.
+Once you are in sync with your [GitHub][GitHub] repos and your UCloud folder structure looks like this.
 
 ```bash
 /work/{your-working-folder}/
