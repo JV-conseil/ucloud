@@ -8,5 +8,52 @@
 #                 All rights reserved
 #====================================================
 
-# shellcheck disable=SC1091
-. "django/install.sh"
+# shellcheck disable=SC1090,SC1091
+{
+  . "incl/all.sh"
+  . "${PATH_TO_ENV}"
+  . "django/_utils.sh"
+  # more files
+}
+
+cat "django/README.txt"
+
+cat <<EOF
+
+
+Please select a valid Django repository...
+
+EOF
+
+select _dj_repo in $(dirname "${PATH_TO_WORK_DIR}"/*/manage.py); do
+  test -n "${_dj_repo}" && break
+  echo ">>> Invalid Selection"
+done
+
+if [[ -d "${_dj_repo}" ]]; then
+
+  cd_ "$_dj_repo"
+
+  _ucld_::dj_collectstatic
+  _ucld_::dj_install_dependencies
+
+  # echo
+  # read -r -N 1 -p "Do you have a connected job with a PostgreSQL server running? [y/N] "
+  # if [[ $REPLY =~ ^[Yy]$ ]]; then
+  if [ -x "$(command -v psql)" ]; then
+
+    echo
+    read -r -N 1 -p "Do you want to run migrations? [y/N] "
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      _ucld_::dj_running_migrations
+      _ucld_::dj_create_superuser
+    else
+      python manage.py runserver
+    fi
+
+  else
+    _ucld_::exception postgresql
+  fi
+
+  _ucld_::back_to_script_dir_
+fi
