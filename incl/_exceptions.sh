@@ -25,9 +25,15 @@ _ucld_::exception() {
   *) ;;
   esac
 
-  echo "ERROR: ${_error}"
+  echo ""
   # printf "%s\t%s\n" "$(date "+%Y-%m-%d %H:%M:%S")" "${_error}" >>logfile.log
   echo "${_error}" >>logfile.log
+  cat <<EOF
+
+
+ERROR: ${_error}
+
+EOF
 }
 
 # _ucld_::exception "$@"
