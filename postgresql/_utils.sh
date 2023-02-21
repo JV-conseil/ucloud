@@ -14,6 +14,8 @@
 # _ucld_db["port"]="5432"
 # _ucld_db["user"]="manager"
 
+UCLOUD_DB_PATH="/work/${UCLD_DATABASE_DIR}"
+
 DBHOST="${UCLOUD_DB_HOSTNAME}"
 DBPASS="$(_ucld_::key_gen 32)"
 

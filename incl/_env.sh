@@ -26,8 +26,13 @@ if [[ -z ${PATH_TO_SCRIPT_DIR} ]]; then
   readonly PATH_TO_WORK_DIR="${PATH_TO_SCRIPT_DIR%/*}"
 
   readonly PATH_TO_DATA_DIR="${PATH_TO_WORK_DIR}/${UCLD_DATA_DIR}"
+  readonly PATH_TO_DATABASE_DIR="/${PATH_TO_WORK_DIR}/${UCLD_DATABASE_DIR}"
   readonly PATH_TO_INSTALL_DIR="${PATH_TO_WORK_DIR}/${UCLD_INSTALL_DIR}"
   readonly PATH_TO_ENV="${PATH_TO_WORK_DIR}/${UCLD_ENV_DIR}/.env"
   readonly PATH_TO_PGPASS="${PATH_TO_WORK_DIR}/${UCLD_ENV_DIR}/.pgpass"
 
+fi
+
+if [[ ! -d "${PATH_TO_DATABASE_DIR}" ]]; then
+  mkdir -pv "${PATH_TO_DATABASE_DIR}"
 fi
