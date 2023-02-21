@@ -19,7 +19,7 @@ Please select a repo with a Python app...
 
 EOF
 
-select _app_repo in $(dirname "${PATH_TO_WORK_DIR}"/*/manage.py); do
+select _app_repo in $(dirname "${PATH_TO_WORK_DIR}"/*/main.py); do
   test -n "${_app_repo}" && break
   echo ">>> Invalid Selection"
 done
