@@ -28,7 +28,7 @@ if ! [ -x "$(command -v gh)" ]; then
 
 else
 
-  if [[ $(gh auth status &>>logfile.log) -ne 0 ]]; then
+  if ! gh auth status &>>logfile.log; then
 
     echo
     read -r -n 1 -p "Do you want to authenticate to GitHub? [y/N] "
