@@ -96,10 +96,10 @@ EOF
 Cloning ${_gh_repo} into ${PATH_TO_WORK_DIR}...
 
 EOF
-    # cd_ "${PATH_TO_WORK_DIR}" || exit
-    # gh repo clone "${_gh_repo}" &>>logfile.log
-    # _ucld_::back_to_script_dir_
-    git clone "${_gh_repo}" "${PATH_TO_WORK_DIR}" &>>logfile.log
+    cd_ "${PATH_TO_WORK_DIR}" || exit
+    gh repo clone "${_gh_repo}" &>>logfile.log
+    _ucld_::back_to_script_dir_
+    ls "${PATH_TO_WORK_DIR}"
   fi
 }
 
