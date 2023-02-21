@@ -74,14 +74,13 @@ _ucld_::git_clone() {
 
 Clone GitHub repo
 -----------------
-
 EOF
 
   gh repo list
 
   cat <<EOF
 
-Choose one of the repo listed above to clone it into ${PATH_TO_WORK_DIR}
+Choose one of the repo in the list below to clone it into ${PATH_TO_WORK_DIR}
 
 EOF
 
@@ -94,10 +93,10 @@ EOF
     cat <<EOF
 
 
-Cloning ${_gh_repo} into ${PATH_TO_WORK_DIR}...
+Cloning ${_gh_repo} into ${PATH_TO_WORK_DIR}/...
 
 EOF
-    gh repo clone "${_gh_repo}" "${PATH_TO_WORK_DIR}"
+    gh repo clone "${_gh_repo}" "${PATH_TO_WORK_DIR}/"
   fi
 }
 
