@@ -78,6 +78,11 @@ Choose one of the repo listed above to clone it as such
 gh repo clone {gh-owner}/{gh-repo} "${PATH_TO_WORK_DIR}"
 
 EOF
+
+  select _gh_repo in $(gh repo list); do
+    test -n "${_gh_repo}" && break
+    echo ">>> Invalid Selection"
+  done
 }
 
 alias gh_cli_install="_ucld_::gh_cli_install"

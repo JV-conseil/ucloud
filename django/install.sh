@@ -51,12 +51,7 @@ if [[ -d "${_dj_repo}" ]]; then
     fi
 
   else
-    cat <<EOF
-
-
-... then you should quit this run and start a new one with a running PostgreSQL server connected job identified by the hostname: ${UCLOUD_DB_HOSTNAME}
-
-EOF
+    _ucld_::exception postgresql
   fi
 
   _ucld_::back_to_script_dir_

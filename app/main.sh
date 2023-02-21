@@ -54,6 +54,7 @@ EOF
   ls "${PATH_TO_DATA_DIR}/output"
 
 else
-  echo "Error: main.py not found in ${_app_repo}... exiting" >&2
+  # echo "Error: main.py not found in ${_app_repo}... exiting" >&2
+  _ucld_::exception "main.py not found in ${_app_repo}... exiting"
 
 fi
