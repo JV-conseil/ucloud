@@ -80,6 +80,7 @@ Then you can run the script of the app from `ucloud/main.sh`.
 - [Google Shell Style Guide][Google Shell Style Guide] v2.02.
 - [How to use a key-value dictionary][How to use a key-value dictionary in bash] in bash.
 - [How to Configure SSL on PostgreSQL][How to Configure SSL on PostgreSQL].
+- [Bash Parameter expansions][Bash Parameter expansions].
 
 ## Sponsorship
 
@@ -104,3 +105,4 @@ If this project helps you, you can offer me a cup of coffee ☕️ :-)
 [UCloud Developer Guide]: https://docs.cloud.sdu.dk/dev/index.html
 [UCloud Terminal Ubuntu]: https://cloud.sdu.dk/app/jobs/create?app=terminal-ubuntu&version=0.20.0
 [UCloud User Guide]: https://docs.cloud.sdu.dk/index.html
+[Bash Parameter expansions]: https://devhints.io/bash#parameter-expansions

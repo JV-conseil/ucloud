@@ -12,10 +12,26 @@
 {
   . "incl/all.sh"
   . "github/_api.sh"
+  . "github/_utils.sh"
   # more files
 }
 
 cat "github/README.txt"
 
-. "github/_install.sh"
-# . "github/_delete.sh"
+echo
+read -r -n 1 -p "Do you want to install GitHub CLI? [y/N] "
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  _ucld_::gh_cli_install
+fi
+
+echo
+read -r -n 1 -p "Do you want to authenticate to GitHub? [y/N] "
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  _ucld_::gh_login
+fi
+
+echo
+read -r -n 1 -p "Do you want to clone a repo? [y/N] "
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  _ucld_::git_clone
+fi

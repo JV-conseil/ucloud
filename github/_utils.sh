@@ -64,7 +64,7 @@ Authenticating to GitHub with a Personal Access Token...
 EOF
 
   gh version
-  gh auth login
+  gh auth login --hostname "gitHub.com" --git-protocol "https"
 }
 
 _ucld_::git_clone() {
@@ -91,35 +91,15 @@ EOF
     echo ">>> Invalid Selection"
   done
 
-  if [[ "${_gh_repo}" ]]; then
+  if [[ "${_gh_repo}" && ! -d "${PATH_TO_WORK_DIR}/${_gh_repo#*/}" ]]; then
     cat <<EOF
 
 Cloning ${_gh_repo} into ${PATH_TO_WORK_DIR}...
 
 EOF
     cd_ "${PATH_TO_WORK_DIR}"
-    gh repo clone "${_gh_repo}" &>>logfile.log
+    gh repo clone "${_gh_repo}" &>>"${PATH_TO_SCRIPT_DIR}/logfile.log"
     _ucld_::back_to_script_dir_
     ls "${PATH_TO_WORK_DIR}"
   fi
 }
-
-alias gh_cli_install="_ucld_::gh_cli_install"
-
-echo
-read -r -n 1 -p "Do you want to install GitHub CLI? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  _ucld_::gh_cli_install
-fi
-
-echo
-read -r -n 1 -p "Do you want to authenticate to GitHub? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  _ucld_::gh_login
-fi
-
-echo
-read -r -n 1 -p "Do you want to clone a repo? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  _ucld_::git_clone
-fi
