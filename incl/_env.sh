@@ -15,7 +15,7 @@
   # more files
 }
 
-if [[ ! -v ${PATH_TO_SCRIPT_DIR} ]]; then
+if [[ -z ${PATH_TO_SCRIPT_DIR} ]]; then
 
   declare -xir DEBUG
 
