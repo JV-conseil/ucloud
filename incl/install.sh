@@ -50,4 +50,5 @@ You are now running $(${_bin//postgresql/psql} --version || :)
 
 EOF
   done
+
 fi

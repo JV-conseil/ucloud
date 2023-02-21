@@ -15,13 +15,14 @@
   # more files
 }
 
-echo "declare -xir DEBUG ${DEBUG}"
-echo "UCLD_DATA_DIR ${UCLD_DATA_DIR}"
+if [[ ! -v ${PATH_TO_SCRIPT_DIR} ]]; then
 
-declare -xi DEBUG
+  declare -xir DEBUG
 
-readonly PATH_TO_SCRIPT_DIR="${PWD}"
-readonly PATH_TO_WORK_DIR="${PATH_TO_SCRIPT_DIR%/*}"
+  readonly PATH_TO_SCRIPT_DIR="${PWD}"
+  readonly PATH_TO_WORK_DIR="${PATH_TO_SCRIPT_DIR%/*}"
+
+fi
 
 export PATH_TO_DATA_DIR="${PATH_TO_WORK_DIR}/${UCLD_DATA_DIR}"
 export PATH_TO_INSTALL_DIR="${PATH_TO_WORK_DIR}/${UCLD_INSTALL_DIR}"
