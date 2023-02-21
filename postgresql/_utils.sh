@@ -129,7 +129,7 @@ Creating an .env file...
 EOF
   cat "incl/shebang.txt" >"${PATH_TO_ENV}"
   cat <<<"
-export DEBUG=\"${DEBUG}\"
+export DEBUG=${DEBUG}
 
 export DBHOST=\"${DBHOST}\"
 export DBNAME=\"${DBNAME}\"

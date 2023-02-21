@@ -16,9 +16,9 @@ _ucld_::debug() {
   cat <<EOF
 
 
-
-Debug
------
+===================
+ DEBUG information
+===================
 
 EOF
   cat /proc/version &>/dev/null
