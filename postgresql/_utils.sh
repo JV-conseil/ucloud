@@ -87,7 +87,7 @@ Configure SSL on PostgreSQL
 EOF
 
   if [[ ! -d ${UCLOUD_DB_PATH} ]]; then
-    echo "${UCLOUD_DB_PATH}: No database directory found... exiting"
+    echo "Error: ${UCLOUD_DB_PATH} database directory not found... exiting"
     return
   fi
 

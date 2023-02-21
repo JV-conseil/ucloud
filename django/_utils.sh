@@ -18,9 +18,9 @@ _ucld_::dj_debug() {
   cat <<EOF
 
 
-
-DEBUG information
------------------
+===================
+ DEBUG information
+===================
 
 EOF
   bash --version
@@ -44,7 +44,7 @@ EOF
 }
 
 _ucld_::dj_collectstatic() {
-  if [[ "${DEBUG}" == 1 ]]; then
+  if [[ "${DEBUG}" -gt 0 ]]; then
     _ucld_::dj_debug
   else
     python manage.py collectstatic --no-input

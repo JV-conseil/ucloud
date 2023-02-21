@@ -24,7 +24,7 @@ select _app_repo in $(dirname "${PATH_TO_WORK_DIR}"/*/main.py); do
   echo ">>> Invalid Selection"
 done
 
-if [[ -d "${_app_repo}" ]]; then
+if [[ -f "${_app_repo}/main.py" ]]; then
 
   cat <<EOF
 
@@ -52,5 +52,8 @@ Displaying the output folder...
 EOF
 
   ls "${PATH_TO_DATA_DIR}/output"
+
+else
+  echo "Error: main.py not found in ${_app_repo}... exiting" >&2
 
 fi

@@ -26,11 +26,14 @@ EOF
   bash --version
   python --version
 
-  # print environment variables sorted by name
-  # <https://stackoverflow.com/a/60756021/2477854>
-  echo
-  env -0 | sort -z | tr '\0' '\n'
-  echo
+  if [[ "${DEBUG}" -gt 1 ]]; then
+    # print environment variables sorted by name
+    # <https://stackoverflow.com/a/60756021/2477854>
+    echo
+    env -0 | sort -z | tr '\0' '\n'
+    echo
+  fi
+
 }
 
 _ucld_::key_gen() {
