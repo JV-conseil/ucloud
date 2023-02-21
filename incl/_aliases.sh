@@ -10,7 +10,8 @@
 
 alias ls='ls -FGlAhp'
 
-if [[ $(cd_ "$@" &>>logfile.log) -ne 0 ]]; then
+# if [[ $(cd_ "$@" &>>logfile.log) -ne 0 ]]; then
+if ! [ -x "$(command -v cd_)" ]; then
   # alias cp='cp -iv'                # Preferred 'cp' implementation
   alias cp='cp -v'        # Preferred 'cp' implementation
   alias mv='mv -iv'       # Preferred 'mv' implementation
