@@ -97,9 +97,10 @@ EOF
     if [[ -d "${PATH_TO_WORK_DIR}/${_gh_repo#*/}" ]]; then
       cat <<EOF
 
-${PATH_TO_WORK_DIR}/${_gh_repo#*/} is already cloned!
+${_gh_repo#*/} is already cloned!
 
 EOF
+      ls "${PATH_TO_WORK_DIR}/${_gh_repo#*/}"
     else
       cd_ "${PATH_TO_WORK_DIR}"
       gh repo clone "${_gh_repo}" &>>"${PATH_TO_SCRIPT_DIR}/logfile.log"
