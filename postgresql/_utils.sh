@@ -15,8 +15,13 @@
 # _ucld_db["user"]="manager"
 
 UCLD_DB_PATH="/work/${UCLD_DATABASE_DIR}"
+PATH_TO_PGPASS="${PATH_TO_ENV}/.pgpass"
 
-DBHOST="${UCLD_DB_HOSTNAME}"
+# DB connections strings DBNAME, DBHOST...
+for key in "${!DATABASE_PARAM[@]}"; do
+  eval "DB${key^^}=\"${DATABASE_PARAM[${key}]}\""
+done
+
 DBPASS="$(_ucld_::key_gen 32)"
 
 _ucld_::pg_start() {
@@ -129,7 +134,7 @@ _ucld_::create_env_file() {
 Creating an .env file...
 
 EOF
-  cat "incl/shebang.txt" >"${PATH_TO_ENV}"
+  cat "incl/shebang.txt" >"${PATH_TO_ENV_FILE}"
   cat <<<"
 export DEBUG=${DEBUG}
 
@@ -145,5 +150,5 @@ export PGSSLMODE=\"${DBSSLMODE}\"
 export SECRET_KEY=\"$(_ucld_::key_gen 16)\"
 
 export UCLD_PUBLIC_LINK=\"${UCLD_PUBLIC_LINK}\"
-  " >>"${PATH_TO_ENV}"
+  " >>"${PATH_TO_ENV_FILE}"
 }

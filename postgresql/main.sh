@@ -17,10 +17,6 @@
 
 cat "postgresql/README.txt"
 
-if [[ ! -d "${PATH_TO_DATABASE_DIR}" ]]; then
-  mkdir -pv "${PATH_TO_DATABASE_DIR}"
-fi
-
 if [ -x "$(command -v psql)" ]; then
 
   echo

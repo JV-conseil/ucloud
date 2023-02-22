@@ -51,7 +51,7 @@ Displaying the output folder...
 
 EOF
 
-  ls "${PATH_TO_DATA_DIR}/output"
+  ls "${PATH_TO_DATA}/output"
 
 else
   # echo "Error: main.py not found in ${_app_repo}... exiting" >&2

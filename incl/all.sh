@@ -13,6 +13,7 @@
   . "incl/_aliases.sh"
   . "incl/_env.sh"
   . "incl/_utils.sh"
+  . "incl/_skeleton.sh"
   . "incl/_exceptions.sh"
   # more files
 }

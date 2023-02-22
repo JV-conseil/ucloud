@@ -31,5 +31,10 @@ nano() {
 }
 
 if ! grep -q "cd_() " "${HOME}/.profile" &>>logfile.log; then
+  cat <<<"
+
+
+#====================================================
+" >>"${HOME}/.profile"
   cat incl/_aliases.sh >>"${HOME}/.profile"
 fi

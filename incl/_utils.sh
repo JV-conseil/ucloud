@@ -54,3 +54,7 @@ _ucld_::parent_directory() {
     pwd -P
   )"
 }
+
+_ucld_::is_running_on_ucloud() {
+  if [[ "${PWD}" == "/work/"* ]]; then echo true; else echo false; fi
+}

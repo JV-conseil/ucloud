@@ -11,7 +11,7 @@
 # shellcheck disable=SC1090,SC1091
 {
   . "incl/all.sh"
-  . "${PATH_TO_ENV}"
+  . "${PATH_TO_ENV_FILE}"
   . "django/_utils.sh"
   # more files
 }
