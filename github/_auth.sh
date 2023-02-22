@@ -25,8 +25,7 @@ Authenticating to GitHub with a Personal Access Token...
 EOF
 
   gh version
-  gh auth login --hostname "gitHub.com" --git-protocol "https"
-  echo $?
+  gh auth login --hostname "github.com" --git-protocol "https"
 }
 
 if [[ "$(_ucld_::gh_is_cli_installed)" == true && "$(_ucld_::gh_is_authenticated)" == false ]]; then
