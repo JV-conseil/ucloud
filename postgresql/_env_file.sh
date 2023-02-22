@@ -22,6 +22,7 @@ export DBUSER=\"${DBUSER}\"
 
 export PGSSLMODE=\"${DBSSLMODE}\"
 export PGPASSFILE=\"${PG_PATH_TO_PGPASS}\"
+export PGUSER=\"${PGUSER}\"
 
 export SECRET_KEY=\"$(_ucld_::key_gen 16)\"
 

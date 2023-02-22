@@ -18,27 +18,13 @@ _ucld_::generate_ssl_certificate() {
   # _password="$(openssl rand -base64 15)"
   # _server_key="server.key"
 
-  # openssl genrsa -aes128 2048 >"${PG_PATH_TO_DB}/server.key"
-  # openssl rsa -in "${PG_PATH_TO_DB}/server.key" -out "${PG_PATH_TO_DB}/server.key"
-  # chown ucloud "${PG_PATH_TO_DB}/server.key"
-  # openssl req -new -x509 -days 365 -key "${PG_PATH_TO_DB}/server.key" -out "${PG_PATH_TO_DB}/server.crt"
-  # cp "${PG_PATH_TO_DB}/server.crt" "${PG_PATH_TO_DB}/root.crt"
-
   # create an ssl certificate key
   openssl genrsa -aes128 -passout pass:"${_password}" -out "${_server_key}" 2048 &>>logfile.log
   openssl rsa -in "${_server_key}" -passin pass:"${_password}" -out "${_server_key}" &>>logfile.log
-  chown "${USER}" "${_server_key}"
+  chown ucloud "${_server_key}"
   openssl req -new -x509 -days 365 -key "${_server_key}" -out "${_server_key/.key/.crt}" -subj "${_subject}" # &>>logfile.log
   cp_ "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}" &>>logfile.log
 }
-
-# ssl = on
-# ssl_ca_file = 'root.crt'
-# ssl_cert_file = 'server.crt'
-# ssl_crl_file = ''
-# ssl_key_file = 'server.key'
-# ssl_ciphers = 'HIGH:MEDIUM:+3DES:!aNULL' # allowed SSL ciphers
-# ssl_prefer_server_ciphers = on
 
 # <https://www.postgresql.org/docs/current/sql-altersystem.html>
 _ucld_::pg_alter_system() {
@@ -83,21 +69,10 @@ EOF
   _ucld_::generate_ssl_certificate
   _ucld_::pg_alter_system
 
-  cp "${PG_PATH_TO_DB}/pg_hba.conf" "${PG_PATH_TO_DB}/pg_hba.conf.save"
+  cp "${PG_PATH_TO_DB}/pg_hba.conf" "${PG_PATH_TO_DB}/pg_hba.conf.bkp"
   cat postgresql/pg_hba.conf.txt >"${PG_PATH_TO_DB}/pg_hba.conf"
 
-  #   cat postgresql/postgresql.conf.txt
-  #   cat <<EOF
-
-  # $ nano "${PG_PATH_TO_DB}/postgresql.conf"
-
-  # EOF
-
-  #   cat postgresql/pg_hba.conf.txt
-  #   cat <<EOF
-
-  # $ nano "${PG_PATH_TO_DB}/pg_hba.conf"
-
-  EOF
+  psql --dbname=postgres --command="SELECT pg_reload_conf() ;"
+  psql --host=localhost
 
 }

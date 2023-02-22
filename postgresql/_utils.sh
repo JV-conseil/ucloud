@@ -6,12 +6,16 @@
 # licence       : BSD 3-Clause License
 # copyright     : Copyright (c) 2019-2023 JV-conseil
 #                 All rights reserved
+#
+# shellcheck disable=SC2034
+#
 #====================================================
 
 PG_PATH_TO_DB="/work/${UCLD_FOLDERS[database]}"
 PG_PATH_TO_PGPASS="/work/${UCLD_FOLDERS[env]}/.pgpass"
-# shellcheck disable=SC2034
+
 PG_PATH_TO_ENV_FILE="/work/${UCLD_FOLDERS[env]}/.env"
+PGUSER="ucloud"
 
 # DB connections strings DBNAME, DBHOST...
 for key in "${!DATABASE_PARAM[@]}"; do
@@ -55,7 +59,7 @@ _ucld_::pg_update_su_password() {
   local _psql_commands _su_pass
   _su_pass="$(_ucld_::key_gen 32)"
   _psql_commands=(
-    "ALTER ROLE ucloud WITH PASSWORD '${_su_pass}' ;"
+    "ALTER ROLE ${PGUSER} WITH PASSWORD '${_su_pass}' ;"
   )
 
   for _cmd in "${_psql_commands[@]}"; do
@@ -64,5 +68,6 @@ _ucld_::pg_update_su_password() {
   done
 
   cat "incl/shebang.txt" >"${PG_PATH_TO_PGPASS}"
-  echo "0.0.0.0:5432:postgres:ucloud:${_su_pass}" >>"${PG_PATH_TO_PGPASS}"
+  echo "localhost:5432:${PGUSER}:${PGUSER}:${_su_pass}" >>"${PG_PATH_TO_PGPASS}"
+  chmod 600 "${PG_PATH_TO_PGPASS}"
 }
