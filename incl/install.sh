@@ -48,7 +48,7 @@ EOF
 
     cat <<EOF
 
-You are now running $(${_bin%.*} --version &>>logfile.log)
+You are now running $(${_bin%.*} --version 2>>logfile.log)
 
 EOF
   done
