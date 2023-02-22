@@ -21,8 +21,8 @@ _ucld_::debug() {
 ===================
 
 EOF
-  cat /proc/version &>>logfile.log
-  cat /etc/issue &>>logfile.log
+  cat /proc/version 2>>logfile.log
+  cat /etc/issue 2>>logfile.log
   bash --version
   python --version
 

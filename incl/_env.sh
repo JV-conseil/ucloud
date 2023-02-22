@@ -17,7 +17,7 @@ declare -A DATABASE_PARAM UCLD_FOLDERS
 # shellcheck disable=SC1091
 {
   . "./settings.conf"
-  . "env/settings.conf" &>>logfile.log
+  . "env/settings.conf" 2>>logfile.log
   # more files
 }
 
