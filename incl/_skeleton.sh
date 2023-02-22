@@ -29,8 +29,6 @@ for key in "${!UCLD_FOLDERS[@]}"; do
   # folder creation
   if [[ ! -d "${value}" && "$(_ucld_::is_running_on_ucloud)" == true ]]; then
     mkdir "${value}"
-  else
-    echo "folder ${value} not created"
   fi
 
 done

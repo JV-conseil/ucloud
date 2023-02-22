@@ -1,6 +1,0 @@
-incl/_env.sh: line 20: env/settings.conf: No such file or directory
-cat: /proc/version: No such file or directory
-cat: /etc/issue: No such file or directory
-incl/_env.sh: line 20: env/settings.conf: No such file or directory
-cat: /proc/version: No such file or directory
-cat: /etc/issue: No such file or directory

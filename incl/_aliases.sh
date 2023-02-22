@@ -11,24 +11,25 @@
 alias ls='ls -FGlAhp'
 
 if ! [ -x "$(command -v cd_)" ]; then
-  # alias cp='cp -iv'                # Preferred 'cp' implementation
+  # alias cp='cp -iv'     # Preferred 'cp' implementation
+  alias cp_='cp'          # Silent 'cp'
   alias cp='cp -v'        # Preferred 'cp' implementation
   alias mv='mv -iv'       # Preferred 'mv' implementation
   alias mkdir='mkdir -pv' # Preferred 'mkdir' implementation
+  alias rm='rm -vrf'      # Preferred 'rm' implementation
 
-  # ls() { command ls -FGlAhp "$@"; }
-
-  cd_() { builtin cd "$@" || exit; } # Silent cd with no list directory
+  # Silent cd with no list directory
+  cd_() { builtin cd "$@" || exit; }
   # Always list directory contents upon 'cd'
   cd() {
     builtin cd "$@" || exit
     ls
   }
-fi
 
-nano() {
-  command nano --linenumbers "$@"
-}
+  nano() {
+    command nano --linenumbers "$@"
+  }
+fi
 
 if ! grep -q "cd_() " "${HOME}/.profile" &>>logfile.log; then
   cat <<<"

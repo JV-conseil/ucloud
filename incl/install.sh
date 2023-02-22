@@ -39,14 +39,16 @@ EOF
     sudo apt install --only-upgrade -y "$_bin"
 
     if [[ "$_bin" =~ ^python.* ]]; then
-      sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/"$_bin" 100
+      # sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.11 1
+      # sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/"${_bin}" 100
+      sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/"${_bin}" 1
 
       pip install --upgrade pip
     fi
 
     cat <<EOF
 
-You are now running $(${_bin//postgresql/psql} --version || :)
+You are now running $(${_bin%.*} --version &>>logfile.log)
 
 EOF
   done
