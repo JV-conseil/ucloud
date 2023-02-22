@@ -58,7 +58,7 @@ _ucld_::parent_directory() {
 _ucld_::is_running_on_ucloud() {
   local _bool=false
   if [[ "${PWD}" == "/work/"* ]]; then _bool=true; fi
-  echo "${_bool}"
+  echo ${_bool}
 }
 
 _ucld_::is_running_on_ucloud

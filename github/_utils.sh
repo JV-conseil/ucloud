@@ -48,9 +48,13 @@ _ucld_::gh_list_user_repos() {
 }
 
 _ucld_::gh_is_cli_installed() {
-  if [ -x "$(command -v gh)" ]; then echo true; else echo false; fi
+  local _bool=false
+  if [ -x "$(command -v gh)" ]; then _bool=true; fi
+  echo ${_bool}
 }
 
 _ucld_::gh_is_authenticated() {
-  if gh auth status &>/dev/null; then echo true; else echo false; fi
+  local _bool=false
+  if gh auth status &>/dev/null; then _bool=true; fi
+  echo ${_bool}
 }
