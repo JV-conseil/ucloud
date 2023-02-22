@@ -29,6 +29,7 @@ _ucld_::pg_restart() {
 }
 
 _ucld_::pg_list() {
+  psql --dbname=postgres --command="\du+"
   psql --dbname=postgres --command="\l+"
   psql postgres
 }
@@ -47,7 +48,6 @@ _ucld_::pg_create_db() {
     psql --dbname=postgres --command="${_cmd}"
   done
 
-  psql --dbname=postgres --command="\du+"
   _ucld_::pg_list
 }
 
