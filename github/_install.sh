@@ -25,7 +25,7 @@ EOF
 
   if ! [ -x "$(command -v gh)" ]; then
 
-    mkdir -pv "${PATH_TO_INSTALL}"
+    mkdir "${PATH_TO_INSTALL}"
 
     curl -sSL "https://github.com/cli/cli/releases/download/v${gh_cli_version}/${gh_cli_targz}" -o "${PATH_TO_INSTALL}/${gh_cli_targz}"
     tar -xvf "${PATH_TO_INSTALL}/${gh_cli_targz}" --directory="${PATH_TO_INSTALL}"
