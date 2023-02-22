@@ -28,7 +28,7 @@ EOF
   gh auth login --hostname "github.com" --git-protocol "https"
 }
 
-if [[ "$(_ucld_::gh_is_cli_installed)" == true && "$(_ucld_::gh_is_authenticated)" == false ]]; then
+if [[ "$(_ucld_::is_gh_cli_installed)" == true && "$(_ucld_::is_gh_auth_login)" == false ]]; then
 
   echo
   read -r -n 1 -p "Do you want to authenticate to GitHub? [y/N] "

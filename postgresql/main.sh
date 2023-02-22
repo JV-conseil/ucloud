@@ -12,12 +12,14 @@
 {
   . "incl/all.sh"
   . "postgresql/_utils.sh"
+  . "postgresql/_env_file.sh"
+  . "postgresql/_ssl.sh"
   # more files
 }
 
 cat "postgresql/README.txt"
 
-if [ -x "$(command -v psql)" ]; then
+if [[ "$(is_postgresql_running)" == true ]]; then
 
   echo
   read -r -n 1 -p "Do you want to create a new User & Database? [y/N] "

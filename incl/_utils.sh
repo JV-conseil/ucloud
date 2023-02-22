@@ -60,3 +60,9 @@ _ucld_::is_running_on_ucloud() {
   if [[ "${PWD}" == "/work/"* ]]; then _bool=true; fi
   echo ${_bool}
 }
+
+_ucld_::is_postgresql_running() {
+  local _bool=false
+  if [ -x "$(command -v psql)" ]; then _bool=true; fi
+  echo ${_bool}
+}

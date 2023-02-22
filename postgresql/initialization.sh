@@ -10,6 +10,6 @@
 
 # shellcheck disable=SC1091
 {
-  . "/work/env/.pgpass"
+  . "/work/env/.env" || :
   # more files
 }

@@ -47,13 +47,13 @@ _ucld_::gh_list_user_repos() {
 
 }
 
-_ucld_::gh_is_cli_installed() {
+_ucld_::is_gh_cli_installed() {
   local _bool=false
   if [ -x "$(command -v gh)" ]; then _bool=true; fi
   echo ${_bool}
 }
 
-_ucld_::gh_is_authenticated() {
+_ucld_::is_gh_auth_login() {
   local _bool=false
   if gh auth status &>/dev/null; then _bool=true; fi
   echo ${_bool}
