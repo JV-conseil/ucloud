@@ -64,3 +64,16 @@ cat: /etc/issue: No such file or directory
 incl/_env.sh: line 20: env/settings.conf: No such file or directory
 cat: /proc/version: No such file or directory
 cat: /etc/issue: No such file or directory
+incl/_env.sh: line 20: env/settings.conf: No such file or directory
+cat: /proc/version: No such file or directory
+cat: /etc/issue: No such file or directory
+github.com
+  ✓ Logged in to github.com as JV-conseil (/Users/julien_vieillefont/.config/gh/hosts.yml)
+  ✓ Git operations for github.com configured to use ssh protocol.
+  ✓ Token: gho_************************************
+  ✓ Token scopes: admin:public_key, gist, read:org, repo
+github.com
+  ✓ Logged in to github.com as JV-conseil (/Users/julien_vieillefont/.config/gh/hosts.yml)
+  ✓ Git operations for github.com configured to use ssh protocol.
+  ✓ Token: gho_************************************
+  ✓ Token scopes: admin:public_key, gist, read:org, repo
