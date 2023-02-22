@@ -83,6 +83,9 @@ EOF
   _ucld_::generate_ssl_certificate
   _ucld_::pg_alter_system
 
+  cp "${PG_PATH_TO_DB}/pg_hba.conf" "${PG_PATH_TO_DB}/pg_hba.conf.save"
+  cat postgresql/pg_hba.conf.txt >"${PG_PATH_TO_DB}/pg_hba.conf"
+
   #   cat postgresql/postgresql.conf.txt
   #   cat <<EOF
 
@@ -90,11 +93,11 @@ EOF
 
   # EOF
 
-  cat postgresql/pg_hba.conf.txt
-  cat <<EOF
+  #   cat postgresql/pg_hba.conf.txt
+  #   cat <<EOF
 
-$ nano "${PG_PATH_TO_DB}/pg_hba.conf"
+  # $ nano "${PG_PATH_TO_DB}/pg_hba.conf"
 
-EOF
+  EOF
 
 }
