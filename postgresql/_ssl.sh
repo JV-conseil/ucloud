@@ -58,14 +58,14 @@ EOF
   cat postgresql/postgresql.conf.txt
   cat <<EOF
 
-nano "${UCLD_DB_PATH}/postgresql.conf"
+$ nano "${UCLD_DB_PATH}/postgresql.conf"
 
 EOF
 
   cat postgresql/pg_hba.conf.txt
   cat <<EOF
 
-nano "${UCLD_DB_PATH}/pg_hba.conf"
+$ nano "${UCLD_DB_PATH}/pg_hba.conf"
 
 EOF
 

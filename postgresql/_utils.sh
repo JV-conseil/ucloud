@@ -8,7 +8,7 @@
 #                 All rights reserved
 #====================================================
 
-UCLD_DB_PATH="/work/${UCLD_DATABASE_DIR}"
+UCLD_DB_PATH="/work/${UCLD_FOLDERS[database]}"
 PATH_TO_PGPASS="${PATH_TO_ENV}/.pgpass"
 
 # DB connections strings DBNAME, DBHOST...
