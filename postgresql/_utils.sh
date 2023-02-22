@@ -8,8 +8,10 @@
 #                 All rights reserved
 #====================================================
 
-UCLD_DB_PATH="/work/${UCLD_FOLDERS[database]}"
-PATH_TO_PGPASS="${PATH_TO_ENV}/.pgpass"
+PG_PATH_TO_DB="/work/${UCLD_FOLDERS[database]}"
+PG_PATH_TO_PGPASS="/work/${UCLD_FOLDERS[env]}/.pgpass"
+# shellcheck disable=SC2034
+PG_PATH_TO_ENV_FILE="/work/${UCLD_FOLDERS[env]}/.env"
 
 # DB connections strings DBNAME, DBHOST...
 for key in "${!DATABASE_PARAM[@]}"; do
@@ -19,11 +21,11 @@ done
 DBPASS="$(_ucld_::key_gen 32)"
 
 _ucld_::pg_start() {
-  pg_ctl start -D "${UCLD_DB_PATH}"
+  pg_ctl start -D "${PG_PATH_TO_DB}"
 }
 
 _ucld_::pg_restart() {
-  pg_ctl restart -D "${UCLD_DB_PATH}"
+  pg_ctl restart -D "${PG_PATH_TO_DB}"
 }
 
 _ucld_::pg_list() {
@@ -67,6 +69,6 @@ Creating a .pgpass file...
 
 EOF
 
-  cat "incl/shebang.txt" >"${PATH_TO_PGPASS}"
-  echo "0.0.0.0:5432:postgres:ucloud:${_su_pass}" >>"${PATH_TO_PGPASS}"
+  cat "incl/shebang.txt" >"${PG_PATH_TO_PGPASS}"
+  echo "0.0.0.0:5432:postgres:ucloud:${_su_pass}" >>"${PG_PATH_TO_PGPASS}"
 }

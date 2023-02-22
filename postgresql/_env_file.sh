@@ -14,7 +14,7 @@ _ucld_::create_env_file() {
 Creating an .env file...
 
 EOF
-  cat "incl/shebang.txt" >"${PATH_TO_ENV_FILE}"
+  cat "incl/shebang.txt" >"${PG_PATH_TO_ENV_FILE}"
   cat <<<"
 export DEBUG=${DEBUG}
 
@@ -26,10 +26,10 @@ export DBSSLMODE=\"${DBSSLMODE}\"
 export DBUSER=\"${DBUSER}\"
 
 export PGSSLMODE=\"${DBSSLMODE}\"
-export PGPASSFILE=\"${PATH_TO_PGPASS}\"
+export PGPASSFILE=\"${PG_PATH_TO_PGPASS}\"
 
 export SECRET_KEY=\"$(_ucld_::key_gen 16)\"
 
 export UCLD_PUBLIC_LINK=\"${UCLD_PUBLIC_LINK}\"
-  " >>"${PATH_TO_ENV_FILE}"
+  " >>"${PG_PATH_TO_ENV_FILE}"
 }
