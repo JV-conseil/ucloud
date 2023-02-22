@@ -26,6 +26,7 @@ EOF
 
   gh version
   gh auth login --hostname "gitHub.com" --git-protocol "https"
+  echo $?
 }
 
 if [[ "$(_ucld_::gh_is_cli_installed)" == true && "$(_ucld_::gh_is_authenticated)" == false ]]; then
