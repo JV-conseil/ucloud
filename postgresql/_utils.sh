@@ -63,12 +63,6 @@ _ucld_::pg_update_su_password() {
     psql --dbname=postgres --command="${_cmd}"
   done
 
-  cat <<EOF
-
-Creating a .pgpass file...
-
-EOF
-
   cat "incl/shebang.txt" >"${PG_PATH_TO_PGPASS}"
   echo "0.0.0.0:5432:postgres:ucloud:${_su_pass}" >>"${PG_PATH_TO_PGPASS}"
 }

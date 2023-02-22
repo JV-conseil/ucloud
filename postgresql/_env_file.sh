@@ -9,11 +9,6 @@
 #====================================================
 
 _ucld_::create_env_file() {
-  cat <<EOF
-
-Creating an .env file...
-
-EOF
   cat "incl/shebang.txt" >"${PG_PATH_TO_ENV_FILE}"
   cat <<<"
 export DEBUG=${DEBUG}
