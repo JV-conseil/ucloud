@@ -19,7 +19,7 @@
 
 cat "postgresql/README.txt"
 
-if [[ "$(is_postgresql_running)" == true ]]; then
+if [[ "$(_ucld_::is_postgresql_running)" == true ]]; then
 
   echo
   read -r -n 1 -p "Do you want to create a new User & Database? [y/N] "

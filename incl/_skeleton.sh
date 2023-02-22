@@ -11,6 +11,17 @@
 #
 #====================================================
 
+_ucld_::is_ubuntu_job() {
+  local _bool=false
+  if [[ "${PWD}" == "/work/"* ]]; then
+    _bool=true
+    if [[ -d "/work/database" ]]; then
+      _bool=false
+    fi
+  fi
+  echo ${_bool}
+}
+
 declare -A UCLD_SKELETON
 
 for key in "${!UCLD_FOLDERS[@]}"; do
@@ -27,7 +38,7 @@ for key in "${!UCLD_FOLDERS[@]}"; do
   eval "export PATH_TO_${key^^}=\"${value}\""
 
   # folder creation
-  if [[ ! -d "${value}" && "$(_ucld_::is_running_on_ucloud)" == true ]]; then
+  if [[ ! -d "${value}" && "$(_ucld_::is_ubuntu_job)" == true ]]; then
     mkdir "${value}"
   fi
 
