@@ -36,14 +36,18 @@ Installing ${_bin}...
 
 EOF
 
-    sudo apt install --only-upgrade -y "$_bin"
+    # sudo apt install --only-upgrade -y "$_bin"
+    sudo apt install --only-upgrade -y "python3.11" || sudo apt install -y "python3.11"
 
     if [[ "$_bin" =~ ^python.* ]]; then
+      sudo apt install -y "$_bin"
       # sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.11 1
       # sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/"${_bin}" 100
       sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/"${_bin}" 1
 
       pip install --upgrade pip
+    else
+      sudo apt install --only-upgrade -y "$_bin"
     fi
 
     cat <<EOF
