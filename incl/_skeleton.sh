@@ -27,9 +27,10 @@ for key in "${!UCLD_FOLDERS[@]}"; do
   eval "export PATH_TO_${key^^}=\"${value}\""
 
   # folder creation
-  if [[ $(_ucld_::is_running_on_ucloud) == true && -d "${value}" ]]; then
-    echo "folder ${value}"
+  if [[ "$(_ucld_::is_running_on_ucloud)" == true && -d "${value}" ]]; then
     mkdir -pv "${value}"
+  else
+    echo "folder ${value} not created"
   fi
 
 done

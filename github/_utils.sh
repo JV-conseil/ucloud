@@ -52,5 +52,5 @@ _ucld_::gh_is_cli_installed() {
 }
 
 _ucld_::gh_is_authenticated() {
-  if gh auth status &>>logfile.log; then echo true; else echo false; fi
+  if gh auth status &>/dev/null; then echo true; else echo false; fi
 }
