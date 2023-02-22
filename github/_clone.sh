@@ -58,7 +58,7 @@ EOF
 
 if [[ "$(_ucld_::gh_is_cli_installed)" == true && "$(_ucld_::gh_is_authenticated)" == true ]]; then
   echo
-  read -r -n 1 -p "Do you want to clone a repo? [y/N] "
+  read -r -n 1 -p "Do you want to clone one of your repo? [y/N] "
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     _ucld_::gh_clone
   fi
