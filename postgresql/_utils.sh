@@ -50,7 +50,7 @@ _ucld_::pg_create_db() {
 }
 
 _ucld_::pg_update_su_password() {
-  local _psql_commands, _su_pass
+  local _psql_commands _su_pass
   _su_pass="$(_ucld_::key_gen 32)"
   _psql_commands=(
     "ALTER ROLE ucloud WITH PASSWORD '${_su_pass}' ;"
