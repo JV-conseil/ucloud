@@ -23,7 +23,7 @@ _ucld_::generate_ssl_certificate() {
   openssl rsa -in "${_server_key}" -passin pass:"${_password}" -out "${_server_key}" &>>logfile.log
   chown ucloud "${_server_key}"
   openssl req -new -x509 -days 365 -key "${_server_key}" -out "${_server_key/.key/.crt}" -subj "${_subject}" # &>>logfile.log
-  cp_ "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}" &>>logfile.log
+  cp "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}" &>>logfile.log
 }
 
 # <https://www.postgresql.org/docs/current/sql-altersystem.html>
@@ -69,10 +69,12 @@ EOF
   _ucld_::generate_ssl_certificate
   _ucld_::pg_alter_system
 
-  cp "${PG_PATH_TO_DB}/pg_hba.conf" "${PG_PATH_TO_DB}/pg_hba.conf.bkp"
+  cp "${PG_PATH_TO_DB}/pg_hba.conf" "${PG_PATH_TO_DB}/pg_hba.conf.bkp" &>>logfile.log
   cat postgresql/pg_hba.conf.txt >"${PG_PATH_TO_DB}/pg_hba.conf"
-
   psql --dbname=postgres --command="SELECT pg_reload_conf() ;"
+
+  # shellcheck disable=SC1090
+  . "${PG_PATH_TO_ENV_FILE}"
   psql --host=localhost
 
 }

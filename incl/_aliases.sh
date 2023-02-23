@@ -12,7 +12,6 @@ alias ls='ls -FGlAhp'
 
 if ! [ -x "$(command -v cd_)" ]; then
   # alias cp='cp -iv'     # Preferred 'cp' implementation
-  alias cp_='cp'          # Silent 'cp'
   alias cp='cp -v'        # Preferred 'cp' implementation
   alias mv='mv -iv'       # Preferred 'mv' implementation
   alias mkdir='mkdir -pv' # Preferred 'mkdir' implementation
