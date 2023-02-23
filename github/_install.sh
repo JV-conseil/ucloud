@@ -28,7 +28,8 @@ EOF
     mkdir "${UCLD_PATH[install]}"
 
     curl -sSL "https://github.com/cli/cli/releases/download/v${gh_cli_version}/${gh_cli_targz}" -o "${UCLD_PATH[install]}/${gh_cli_targz}"
-    tar -xvf "${UCLD_PATH[install]}/${gh_cli_targz}" --directory="${UCLD_PATH[install]}"
+    # tar -xvf "${UCLD_PATH[install]}/${gh_cli_targz}" --directory="${UCLD_PATH[install]}"
+    tar -xf "${UCLD_PATH[install]}/${gh_cli_targz}" --directory="${UCLD_PATH[install]}"
     sudo cp "${UCLD_PATH[install]}/gh_${gh_cli_version}_linux_amd64/bin/gh" /usr/local/bin/
     sudo cp -r "${UCLD_PATH[install]}/gh_${gh_cli_version}_linux_amd64/share/man/man1/"* /usr/share/man/man1/
 
