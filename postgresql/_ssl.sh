@@ -19,11 +19,11 @@ _ucld_::generate_ssl_certificate() {
   # _server_key="server.key"
 
   # create an ssl certificate key
-  openssl genrsa -aes128 -passout pass:"${_password}" -out "${_server_key}" 2048 &>>logfile.log
-  openssl rsa -in "${_server_key}" -passin pass:"${_password}" -out "${_server_key}" &>>logfile.log
+  openssl genrsa -aes128 -passout pass:"${_password}" -out "${_server_key}" 2048 1>/dev/null 2>>logfile.log
+  openssl rsa -in "${_server_key}" -passin pass:"${_password}" -out "${_server_key}" 1>/dev/null 2>>logfile.log
   chown ucloud "${_server_key}"
   openssl req -new -x509 -days 365 -key "${_server_key}" -out "${_server_key/.key/.crt}" -subj "${_subject}" 2>>logfile.log
-  cp "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}" &>>logfile.log
+  cp "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}" 1>/dev/null 2>>logfile.log
   cat "${_server_key}" >"${UCLD_PG_PATH[env]}/server.cert.pem"
   cat "${_server_key/.key/.crt}" >>"${UCLD_PG_PATH[env]}/server.cert.pem"
 }
