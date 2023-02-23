@@ -16,8 +16,7 @@
 
 cat "README.txt"
 
-_ucld_::build_skeleton
-_ucld_::update_bashrc
+_ucld_::startup_check
 
 echo
 read -r -n 1 -p "Do you want to install packages for Linux with apt? [y/N] "
@@ -41,7 +40,7 @@ if [[ "$(_ucld_::is_postgresql_running)" == true ]]; then
 
 fi
 
-if [[ "$(_ucld_::is_ubuntu_job)" == true ]]; then
+if [[ "$(_ucld_::is_database_instance)" == false ]]; then
 
   echo
   read -r -n 1 -p "Do you want to manage Django? [y/N] "
