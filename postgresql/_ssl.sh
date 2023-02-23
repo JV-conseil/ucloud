@@ -74,7 +74,7 @@ EOF
   psql --dbname=postgres --command="SELECT pg_reload_conf() ;"
 
   # shellcheck disable=SC1090
-  . "${UCLD_PG_PATH[env_file]}"
+  . "${UCLD_PG_PATH[.env_file]}"
   psql --host=localhost
 
 }

@@ -25,7 +25,7 @@ for key in ".pgpass" ".env"; do
 done
 
 # DBPASS="$(_ucld_::key_gen 32)"
-UCLD_DB_PARAM["pass"]="$(_ucld_::key_gen 32)"
+UCLD_DB_PARAM["password"]="$(_ucld_::key_gen 32)"
 
 export PGSSLMODE="${UCLD_DB_PARAM[sslmode]}"
 export PGPASSFILE="${UCLD_PG_PATH[".pgpass"]}"

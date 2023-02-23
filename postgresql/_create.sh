@@ -15,7 +15,7 @@ _ucld_::pg_create_db() {
   local _psql_commands=(
     "DROP DATABASE IF EXISTS ${UCLD_DB_PARAM[name]} ;"
     "DROP USER ${UCLD_DB_PARAM[user]} ;"
-    "CREATE USER ${UCLD_DB_PARAM[user]} WITH PASSWORD '${UCLD_DB_PARAM[pass]}' ;"
+    "CREATE USER ${UCLD_DB_PARAM[user]} WITH PASSWORD '${UCLD_DB_PARAM[password]}' ;"
     "CREATE DATABASE ${UCLD_DB_PARAM[name]} ;"
     "GRANT ALL PRIVILEGES ON DATABASE ${UCLD_DB_PARAM[name]} TO ${UCLD_DB_PARAM[user]} ;"
   )
@@ -29,13 +29,13 @@ _ucld_::pg_create_db() {
 }
 
 _ucld_::dump_env_file() {
-  cat "incl/.shebang.txt" >"${UCLD_PG_PATH[env_file]}"
+  cat "incl/.shebang.txt" >"${UCLD_PG_PATH[.env_file]}"
   cat <<<"
 export DEBUG=${DEBUG}
 
 export DBHOST=""${UCLD_DB_PARAM[host]}""
 export DBNAME=""${UCLD_DB_PARAM[name]}""
-export DBPASS=""${UCLD_DB_PARAM[pass]}""
+export DBPASS=""${UCLD_DB_PARAM[password]}""
 export DBPORT=""${UCLD_DB_PARAM[port]}""
 export DBSSLMODE=""${UCLD_DB_PARAM[sslmode]}""
 export DBUSER=""${UCLD_DB_PARAM[user]}""
@@ -43,7 +43,7 @@ export DBUSER=""${UCLD_DB_PARAM[user]}""
 export SECRET_KEY=""$(_ucld_::key_gen 16)""
 
 export UCLD_PUBLIC_LINK=""${UCLD_PUBLIC_LINK}""
-  " >>"${UCLD_PG_PATH[env_file]}"
+  " >>"${UCLD_PG_PATH[.env_file]}"
 }
 
 _ucld_::pg_list() {
@@ -64,7 +64,7 @@ _ucld_::pg_update_su_password() {
     psql --dbname=postgres --command="${_cmd}"
   done
 
-  cat "incl/.shebang.txt" >"${UCLD_PG_PATH[pgpass]}"
-  echo "localhost:5432:${PGUSER}:${PGUSER}:${_su_pass}" >>"${UCLD_PG_PATH[pgpass]}"
-  chmod 600 "${UCLD_PG_PATH[pgpass]}"
+  cat "incl/.shebang.txt" >"${UCLD_PG_PATH[".pgpass"]}"
+  echo "localhost:5432:${PGUSER}:${PGUSER}:${_su_pass}" >>"${UCLD_PG_PATH[".pgpass"]}"
+  chmod 600 "${UCLD_PG_PATH[".pgpass"]}"
 }
