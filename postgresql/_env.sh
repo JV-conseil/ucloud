@@ -27,8 +27,6 @@ done
 # DBPASS="$(_ucld_::key_gen 32)"
 UCLD_DB_PARAM["pass"]="$(_ucld_::key_gen 32)"
 
-declare -xr PGSSLMODE="${UCLD_DB_PARAM[sslmode]}"
-declare -xr PGPASSFILE="${UCLD_PG_PATH[".pgpass"]}"
-declare -xr PGUSER="ucloud"
-
-declare -r UCLD_DB_PARAM UCLD_PG_PATH
+export PGSSLMODE="${UCLD_DB_PARAM[sslmode]}"
+export PGPASSFILE="${UCLD_PG_PATH[".pgpass"]}"
+export PGUSER="ucloud"
