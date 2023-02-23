@@ -17,6 +17,7 @@
 cat "README.txt"
 
 _ucld_::build_skeleton
+_ucld_::update_bashrc
 
 echo
 read -r -n 1 -p "Do you want to install packages for Linux with apt? [y/N] "

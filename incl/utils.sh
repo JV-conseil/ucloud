@@ -98,3 +98,16 @@ _ucld_::is_ubuntu_job() {
   if [[ -d "/work/${UCLD_DIR[database]}" ]]; then _bool=false; fi
   echo ${_bool}
 }
+
+_ucld_::update_bashrc() {
+  if grep -q "cd_() " "${HOME}/.profile" &>>logfile.log; then
+    return
+  fi
+  for _file in ".profile" ".bashrc"; do
+    cat <<<"
+
+
+#====================================================" >>"${HOME}/${_file}"
+    cat incl/_aliases.sh >>"${HOME}/${_file}"
+  done
+}
