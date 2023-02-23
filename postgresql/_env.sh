@@ -24,7 +24,6 @@ for key in ".pgpass" ".env"; do
   UCLD_PG_PATH["${key}"]="${UCLD_PG_PATH[env]}/${key}"
 done
 
-# DBPASS="$(_ucld_::key_gen 32)"
 UCLD_DB_PARAM["password"]="$(_ucld_::key_gen 32)"
 
 export PGPASSFILE="${UCLD_PG_PATH[".pgpass"]}"
