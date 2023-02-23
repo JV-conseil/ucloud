@@ -29,7 +29,7 @@ _ucld_::pg_create_db() {
 }
 
 _ucld_::dump_env_file() {
-  cat "incl/.shebang.txt" >"${UCLD_PG_PATH[.env_file]}"
+  cat "incl/.shebang.txt" >"${UCLD_PG_PATH[.env]}"
   cat <<<"
 export DEBUG=${DEBUG}
 
@@ -43,7 +43,7 @@ export DBUSER=""${UCLD_DB_PARAM[user]}""
 export SECRET_KEY=""$(_ucld_::key_gen 16)""
 
 export UCLD_PUBLIC_LINK=""${UCLD_PUBLIC_LINK}""
-  " >>"${UCLD_PG_PATH[.env_file]}"
+  " >>"${UCLD_PG_PATH[.env]}"
 }
 
 _ucld_::pg_list() {

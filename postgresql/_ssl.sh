@@ -22,8 +22,10 @@ _ucld_::generate_ssl_certificate() {
   openssl genrsa -aes128 -passout pass:"${_password}" -out "${_server_key}" 2048 &>>logfile.log
   openssl rsa -in "${_server_key}" -passin pass:"${_password}" -out "${_server_key}" &>>logfile.log
   chown ucloud "${_server_key}"
-  openssl req -new -x509 -days 365 -key "${_server_key}" -out "${_server_key/.key/.crt}" -subj "${_subject}" # &>>logfile.log
+  openssl req -new -x509 -days 365 -key "${_server_key}" -out "${_server_key/.key/.crt}" -subj "${_subject}" 2>>logfile.log
   cp "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}" &>>logfile.log
+  cat "${_server_key}" >"${_server_key/.key/.crt.pem}"
+  cat "${_server_key/.key/.crt}" >>"${_server_key/.key/.crt.pem}"
 }
 
 # <https://www.postgresql.org/docs/current/sql-altersystem.html>
@@ -74,7 +76,7 @@ EOF
   psql --dbname=postgres --command="SELECT pg_reload_conf() ;"
 
   # shellcheck disable=SC1090
-  . "${UCLD_PG_PATH[.env_file]}"
+  . "${UCLD_PG_PATH[.env]}"
   psql --host=localhost
 
 }
