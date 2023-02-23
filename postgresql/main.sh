@@ -10,9 +10,9 @@
 
 # shellcheck disable=SC1091
 {
-  . "incl/all.sh"
-  . "postgresql/_utils.sh"
-  . "postgresql/_env_file.sh"
+  . "incl/utils.sh"
+  . "postgresql/_env.sh"
+  . "postgresql/_create.sh"
   . "postgresql/_ssl.sh"
   # more files
 }
@@ -27,7 +27,7 @@ if [[ "$(_ucld_::is_postgresql_running)" == true ]]; then
 
     _ucld_::pg_create_db
     _ucld_::pg_update_su_password
-    _ucld_::create_env_file
+    _ucld_::dump_env_file
 
   else
     _ucld_::pg_list

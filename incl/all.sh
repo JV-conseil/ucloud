@@ -11,13 +11,8 @@
 # shellcheck disable=SC1091
 {
   . "incl/_aliases.sh"
-  . "incl/_env.sh"
-  . "incl/_utils.sh"
-  . "incl/_skeleton.sh"
-  . "incl/_exceptions.sh"
+  . "incl/utils.sh"
   # more files
 }
 
-if [[ "${DEBUG}" -gt 0 ]]; then
-  _ucld_::debug
-fi
+_ucld_::debug
