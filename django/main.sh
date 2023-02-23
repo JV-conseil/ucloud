@@ -44,9 +44,9 @@ if [[ -d "${_dj_repo}" ]]; then
     if [[ $REPLY =~ ^[Yy]$ ]]; then
       _ucld_::dj_running_migrations
       _ucld_::dj_create_superuser
-    else
-      python manage.py runserver
     fi
+
+    python manage.py runserver
 
   else
     _ucld_::exception postgresql
