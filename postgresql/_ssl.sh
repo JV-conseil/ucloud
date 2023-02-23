@@ -43,7 +43,7 @@ _ucld_::pg_alter_system() {
 
   for _cmd in "${_psql_commands[@]}"; do
     # echo "${_cmd}"
-    psql --dbname=postgres --command="${_cmd}"
+    psql --dbname=postgres --command="${_cmd}" 1>/dev/null 2>>logfile.log
   done
 }
 
