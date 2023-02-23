@@ -8,11 +8,21 @@
 #                 All rights reserved
 #====================================================
 
+# shellcheck disable=SC1091
+{
+  . "incl/_env.sh"
+  . "incl/_exceptions.sh"
+  # more files
+}
+
 _ucld_::back_to_script_dir_() {
-  cd_ "${PATH_TO_SCRIPT_DIR}"
+  cd_ "${UCLD_PATH[main]}"
 }
 
 _ucld_::debug() {
+  if [[ "${DEBUG}" -eq 0 ]]; then
+    return
+  fi
   cat <<EOF
 
 
@@ -21,8 +31,8 @@ _ucld_::debug() {
 ===================
 
 EOF
-  cat /proc/version 2>>logfile.log
-  cat /etc/issue 2>>logfile.log
+  cat /proc/version &>/dev/null
+  cat /etc/issue &>/dev/null
   bash --version
   python --version
 
@@ -55,6 +65,22 @@ _ucld_::parent_directory() {
   )"
 }
 
+_ucld_::build_skeleton() {
+  if [[ 
+    "$(_ucld_::is_ucloud_execution)" == false ||
+    "$(_ucld_::is_ubuntu_job)" == false ]] \
+    ; then
+    return
+  fi
+
+  for key in "${!UCLD_PATH[@]}"; do
+    value="${UCLD_PATH["${key}"]}"
+    if [ ! -d "${value}" ]; then
+      mkdir "${value}"
+    fi
+  done
+}
+
 _ucld_::is_postgresql_running() {
   local _bool=false
   if [ -x "$(command -v psql)" ]; then _bool=true; fi
@@ -69,6 +95,6 @@ _ucld_::is_ucloud_execution() {
 
 _ucld_::is_ubuntu_job() {
   local _bool=true
-  if [[ -d "/work/${UCLD_FOLDERS[database]}" ]]; then _bool=false; fi
+  if [[ -d "/work/${UCLD_DIR[database]}" ]]; then _bool=false; fi
   echo ${_bool}
 }

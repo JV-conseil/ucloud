@@ -27,7 +27,7 @@ EOF
 
   sudo apt update && sudo apt upgrade
 
-  for _bin in "${INSTALL_LINUX_PACKAGES[@]}"; do
+  for _bin in "${UCLD_INSTALL_PACKAGES[@]}"; do
 
     cat <<EOF
 

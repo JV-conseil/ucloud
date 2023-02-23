@@ -10,9 +10,9 @@
 
 _ucld_::generate_ssl_certificate() {
   local _password _server_key _subject
-  _server_key="${PG_PATH_TO_DB}/server.key"
+  _server_key="${UCLD_PG_PATH[database]}/server.key"
   _password="$(_ucld_::key_gen)"
-  _subject="/C=DK/ST=Syddanmark/L=Odense/O=Syddansk Universitet/OU=RIO/CN=JV conseil/emailAddress=contact@jv-conseil.net"
+  _subject="/C=FR/ST=IDF/L=/O=JV conseil - Internet Consulting/OU=/CN=JV conseil/emailAddress=contact@jv-conseil.net"
 
   # unalias cp &>>logfile.log
   # _password="$(openssl rand -base64 15)"
@@ -47,7 +47,7 @@ _ucld_::pg_alter_system() {
 
 _ucld_::pg_conf_ssl() {
   local _server_key _password
-  _server_key="${PG_PATH_TO_DB}/server.key"
+  _server_key="${UCLD_PG_PATH[database]}/server.key"
   _password="$(_ucld_::key_gen)"
 
   cat <<EOF
@@ -61,20 +61,20 @@ Configure SSL on PostgreSQL
 
 EOF
 
-  if [[ ! -d ${PG_PATH_TO_DB} ]]; then
-    _ucld_::exception "${PG_PATH_TO_DB} database directory not found... exiting"
+  if [[ ! -d ${UCLD_PG_PATH[database]} ]]; then
+    _ucld_::exception "${UCLD_PG_PATH[database]} database directory not found... exiting"
     return
   fi
 
   _ucld_::generate_ssl_certificate
   _ucld_::pg_alter_system
 
-  cp "${PG_PATH_TO_DB}/pg_hba.conf" "${PG_PATH_TO_DB}/pg_hba.conf.bkp" &>>logfile.log
-  cat postgresql/pg_hba.conf.txt >"${PG_PATH_TO_DB}/pg_hba.conf"
+  cp "${UCLD_PG_PATH[database]}/pg_hba.conf" "${UCLD_PG_PATH[database]}/pg_hba.conf.bkp" &>>logfile.log
+  cat postgresql/pg_hba.conf.txt >"${UCLD_PG_PATH[database]}/pg_hba.conf"
   psql --dbname=postgres --command="SELECT pg_reload_conf() ;"
 
   # shellcheck disable=SC1090
-  . "${PG_PATH_TO_ENV_FILE}"
+  . "${UCLD_PG_PATH[env_file]}"
   psql --host=localhost
 
 }

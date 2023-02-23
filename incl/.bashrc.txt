@@ -143,3 +143,4 @@ fi
 module use /opt/easybuild/modules/all
 module load EasyBuild
 complete -cf sudo
+`
