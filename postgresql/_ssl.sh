@@ -24,8 +24,8 @@ _ucld_::generate_ssl_certificate() {
   chown ucloud "${_server_key}"
   openssl req -new -x509 -days 365 -key "${_server_key}" -out "${_server_key/.key/.crt}" -subj "${_subject}" 2>>logfile.log
   cp "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}" &>>logfile.log
-  cat "${_server_key}" >"${UCLD_PG_PATH[env]}/server.crt.pem"
-  cat "${_server_key/.key/.crt}" >>"${UCLD_PG_PATH[env]}/server.crt.pem"
+  cat "${_server_key}" >"${UCLD_PG_PATH[env]}/server.cert.pem"
+  cat "${_server_key/.key/.crt}" >>"${UCLD_PG_PATH[env]}/server.cert.pem"
 }
 
 # <https://www.postgresql.org/docs/current/sql-altersystem.html>

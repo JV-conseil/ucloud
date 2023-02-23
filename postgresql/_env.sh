@@ -28,6 +28,6 @@ done
 UCLD_DB_PARAM["password"]="$(_ucld_::key_gen 32)"
 
 export PGPASSFILE="${UCLD_PG_PATH[".pgpass"]}"
-export PGSSLROOTCERT="${UCLD_PG_PATH[env]}/server.crt.pem"
+export PGSSLROOTCERT="${UCLD_PG_PATH[env]}/server.cert.pem"
 export PGSSLMODE="${UCLD_DB_PARAM[sslmode]}"
 export PGUSER="ucloud"
