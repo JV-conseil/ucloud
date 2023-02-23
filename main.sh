@@ -28,20 +28,28 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   . github/main.sh
 fi
 
-echo
-read -r -n 1 -p "Do you want to manage PostreSQL? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  . postgresql/main.sh
+if [[ "$(_ucld_::is_postgresql_running)" == true ]]; then
+
+  echo
+  read -r -n 1 -p "Do you want to manage PostreSQL? [y/N] "
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    . postgresql/main.sh
+  fi
+
 fi
 
-echo
-read -r -n 1 -p "Do you want to manage Django? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  . django/main.sh
-fi
+if [[ "$(_ucld_::is_ubuntu_job)" == true ]]; then
 
-echo
-read -r -n 1 -p "Do you want to run a Python app? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  . app/main.sh
+  echo
+  read -r -n 1 -p "Do you want to manage Django? [y/N] "
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    . django/main.sh
+  fi
+
+  echo
+  read -r -n 1 -p "Do you want to run a Python app? [y/N] "
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    . app/main.sh
+  fi
+
 fi

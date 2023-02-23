@@ -60,3 +60,15 @@ _ucld_::is_postgresql_running() {
   if [ -x "$(command -v psql)" ]; then _bool=true; fi
   echo ${_bool}
 }
+
+_ucld_::is_ucloud_execution() {
+  local _bool=false
+  if [[ "${PWD}" == "/work/"* ]]; then _bool=true; fi
+  echo ${_bool}
+}
+
+_ucld_::is_ubuntu_job() {
+  local _bool=true
+  if [[ -d "/work/${UCLD_FOLDERS[database]}" ]]; then _bool=false; fi
+  echo ${_bool}
+}
