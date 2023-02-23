@@ -10,7 +10,7 @@
 
 # shellcheck disable=SC1091
 {
-  . "incl/utils.sh"
+  . "incl/all.sh"
   . "github/_utils.sh"
   # more files
 }

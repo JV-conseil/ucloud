@@ -9,7 +9,7 @@
 #====================================================
 
 # shellcheck disable=SC1091
-. "incl/utils.sh"
+. "incl/all.sh"
 
 cat "app/README.txt"
 

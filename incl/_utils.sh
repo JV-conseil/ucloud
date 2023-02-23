@@ -8,13 +8,6 @@
 #                 All rights reserved
 #====================================================
 
-# shellcheck disable=SC1091
-{
-  . "incl/_env.sh"
-  . "incl/_exceptions.sh"
-  # more files
-}
-
 _ucld_::back_to_script_dir_() {
   cd_ "${UCLD_PATH[main]}"
 }
@@ -68,7 +61,7 @@ _ucld_::parent_directory() {
 _ucld_::build_skeleton() {
   if [[ 
     "$(_ucld_::is_ucloud_execution)" == false ||
-    "$(_ucld_::is_ubuntu_job)" == false ]] \
+    "$(_ucld_::is_database_instance)" == true ]] \
     ; then
     return
   fi
@@ -93,9 +86,9 @@ _ucld_::is_ucloud_execution() {
   echo ${_bool}
 }
 
-_ucld_::is_ubuntu_job() {
-  local _bool=true
-  if [[ -d "/work/${UCLD_DIR[database]}" ]]; then _bool=false; fi
+_ucld_::is_database_instance() {
+  local _bool=false
+  if [[ -d "/work/${UCLD_DIR[database]}" ]]; then _bool=true; fi
   echo ${_bool}
 }
 
@@ -110,4 +103,9 @@ _ucld_::update_bashrc() {
 #====================================================" >>"${HOME}/${_file}"
     cat incl/_aliases.sh >>"${HOME}/${_file}"
   done
+}
+
+_ucld_::startup_check() {
+  _ucld_::build_skeleton
+  _ucld_::update_bashrc
 }

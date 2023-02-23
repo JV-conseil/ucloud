@@ -10,7 +10,7 @@
 
 # shellcheck disable=SC1091
 {
-  . "incl/utils.sh"
+  . "incl/all.sh"
   . "postgresql/_env.sh"
   . "postgresql/_create.sh"
   . "postgresql/_ssl.sh"
@@ -18,6 +18,8 @@
 }
 
 cat "postgresql/README.txt"
+
+_ucld_::startup_check
 
 if [[ "$(_ucld_::is_postgresql_running)" == true ]]; then
 
