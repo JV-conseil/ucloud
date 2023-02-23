@@ -11,33 +11,37 @@
 #
 #====================================================
 
-declare -a UCLD_INSTALL_PACKAGES
-declare -A UCLD_DB_PARAM UCLD_DIR UCLD_PATH UCLD_PG_PATH
-declare -xi DEBUG
+if ! [ -v "${UCLD_PATH}" ]; then
 
-# shellcheck disable=SC1091
-{
-  . "./settings.conf"
-  . "env/settings.conf" &>/dev/null
-  # more files
-}
+  declare -a UCLD_INSTALL_PACKAGES
+  declare -A UCLD_DB_PARAM UCLD_DIR UCLD_PATH UCLD_PG_PATH
+  declare -xi DEBUG
 
-UCLD_PATH["main"]="${PWD}"
-UCLD_PATH["work"]="${UCLD_PATH[main]%/*}"
+  # shellcheck disable=SC1091
+  {
+    . "./settings.conf"
+    . "env/settings.conf" &>/dev/null
+    # more files
+  }
 
-# export UCLD_PATH[main]="${PWD}"
-# export UCLD_PATH[work]="${UCLD_PATH[main]%/*}"
+  UCLD_PATH["main"]="${PWD}"
+  UCLD_PATH["work"]="${UCLD_PATH[main]%/*}"
 
-for key in "${!UCLD_DIR[@]}"; do
+  # export UCLD_PATH[main]="${PWD}"
+  # export UCLD_PATH[work]="${UCLD_PATH[main]%/*}"
 
-  _value="${UCLD_PATH[work]}/${UCLD_DIR[${key}]}"
-  UCLD_PATH["${key}"]="${_value}"
+  for key in "${!UCLD_DIR[@]}"; do
 
-  # globals
-  if [[ "${key}" == "data" ]]; then
-    eval "export UCLD_PATH_TO_${key^^}=\"${_value}\""
-  fi
+    _value="${UCLD_PATH[work]}/${UCLD_DIR[${key}]}"
+    UCLD_PATH["${key}"]="${_value}"
 
-done
+    # globals
+    if [[ "${key}" == "data" ]]; then
+      eval "export UCLD_PATH_TO_${key^^}=\"${_value}\""
+    fi
 
-declare -r DEBUG UCLD_DIR UCLD_PATH
+  done
+
+  declare -r DEBUG UCLD_DIR UCLD_PATH
+
+fi
