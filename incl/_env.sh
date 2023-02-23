@@ -18,7 +18,7 @@ declare -xi DEBUG
 # shellcheck disable=SC1091
 {
   . "./settings.conf"
-  . "env/settings.conf" &>/dev/null || cp "./settings.conf" "env/settings.conf" &>/dev/null
+  . "env/settings.conf" &>/dev/null
   # more files
 }
 

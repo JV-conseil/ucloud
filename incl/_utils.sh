@@ -72,6 +72,10 @@ _ucld_::build_skeleton() {
       mkdir "${value}"
     fi
   done
+
+  if [[ ! -f "env/settings.conf" ]]; then
+    cp -v "./settings.conf" "env/settings.conf"
+  fi
 }
 
 _ucld_::is_postgresql_running() {
