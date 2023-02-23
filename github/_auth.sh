@@ -24,7 +24,6 @@ Authenticating to GitHub with a Personal Access Token...
 
 EOF
 
-  gh version
   gh auth login --hostname "github.com" --git-protocol "https"
 }
 
