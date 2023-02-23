@@ -1,0 +1,64 @@
+{
+    // Place your snippets for shellscript here. Each snippet is defined under a snippet name and has a prefix, body and
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+    // same ids are connected.
+    // Example:
+    // "Print to console": {
+    // 	"prefix": "log",
+    // 	"body": [
+    // 		"console.log('$1');",
+    // 		"$2"
+    // 	],
+    // 	"description": "Log output to console"
+    // }
+    "bash": {
+        "prefix": [
+            "bash",
+            "#!",
+            "shebang"
+        ],
+        "body": [
+            "#!/usr/bin/env bash",
+            "# -*- coding: UTF-8 -*-",
+            "#",
+            "# author        : JV-conseil",
+            "# credits       : JV-conseil",
+            "# licence       : BSD 3-Clause License",
+            "# copyright     : Copyright (c) 2019-2023 JV-conseil",
+            "#                 All rights reserved",
+            "#====================================================",
+            "",
+        ],
+        "description": "Description: Shebang Bash executor."
+    },
+    "Print to console": {
+        "prefix": "log",
+        "body": [
+            "console.log('$1');",
+            "$2"
+        ],
+        "description": "Log output to console"
+    },
+    "function": {
+        "prefix": [
+            "_ucld_::",
+            "function"
+        ],
+        "body": [
+            "_ucld_::${1:generic_function} () {",
+            "\tlocal _bool=true",
+            "\tif cmd; then _bool=false; fi",
+            "\techo ${_bool}",
+            "}",
+        ],
+        "description": [
+            "This defines a generic function _ucld_::generic_function() {}.\n",
+            "The reserved word function is optional.\n",
+            "If the function reserved word is supplied, the parentheses are optional.\n",
+            "1. Recommended way:\n",
+            "name() {}\n",
+            "2. C-like-way:\nfunction name [()] {}"
+        ]
+    },
+}
