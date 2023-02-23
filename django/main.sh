@@ -10,8 +10,8 @@
 
 # shellcheck disable=SC1090,SC1091
 {
-  . "incl/all.sh"
-  . "${PATH_TO_ENV}/.env" || :
+  . "incl/utils.sh"
+  . "${UCLD_PATH[env]}/.env" || :
   . "django/_utils.sh"
   # more files
 }
@@ -25,7 +25,7 @@ Please select a valid Django repository...
 
 EOF
 
-select _dj_repo in $(dirname "${PATH_TO_WORK_DIR}"/*/manage.py); do
+select _dj_repo in $(dirname "${UCLD_PATH[work]}"/*/manage.py); do
   test -n "${_dj_repo}" && break
   echo ">>> Invalid Selection"
 done

@@ -9,7 +9,7 @@
 #====================================================
 
 # shellcheck disable=SC1091
-. "incl/all.sh"
+. "incl/utils.sh"
 
 cat "app/README.txt"
 
@@ -19,7 +19,7 @@ Please select a repo with a Python app...
 
 EOF
 
-select _app_repo in $(dirname "${PATH_TO_WORK_DIR}"/*/main.py); do
+select _app_repo in $(dirname "${UCLD_PATH[work]}"/*/main.py); do
   test -n "${_app_repo}" && break
   echo ">>> Invalid Selection"
 done
@@ -51,7 +51,7 @@ Displaying the output folder...
 
 EOF
 
-  ls "${PATH_TO_DATA}/output"
+  ls "${UCLD_PATH[data]}/output"
 
 else
   # echo "Error: main.py not found in ${_app_repo}... exiting" >&2

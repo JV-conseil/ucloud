@@ -11,15 +11,9 @@
 #
 #====================================================
 
-declare -A UCLD_SKELETON
+for key in "${!UCLD_PATH[@]}"; do
 
-for key in "${!UCLD_FOLDERS[@]}"; do
-
-  value="${PATH_TO_WORK_DIR}/${UCLD_FOLDERS[${key}]}"
-  UCLD_SKELETON["${key}"]="${value}"
-
-  # globals
-  eval "export PATH_TO_${key^^}=\"${value}\""
+  value="${UCLD_PATH["${key}"]}"
 
   # folder creation
   if [[ 

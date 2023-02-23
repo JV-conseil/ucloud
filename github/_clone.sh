@@ -22,7 +22,7 @@ EOF
 
   cat <<EOF
 
-Choose one of the repo in the list below to clone it into ${PATH_TO_WORK_DIR}
+Choose one of the repo in the list below to clone it into ${UCLD_PATH[work]}
 
 EOF
 
@@ -35,22 +35,22 @@ EOF
   if [[ "${_gh_repo}" ]]; then
     cat <<EOF
 
-Cloning ${_gh_repo} into ${PATH_TO_WORK_DIR}...
+Cloning ${_gh_repo} into ${UCLD_PATH[work]}...
 
 EOF
 
-    if [[ -d "${PATH_TO_WORK_DIR}/${_gh_repo#*/}" ]]; then
+    if [[ -d "${UCLD_PATH[work]}/${_gh_repo#*/}" ]]; then
       cat <<EOF
 
 ${_gh_repo#*/} is already cloned!
 
 EOF
-      ls "${PATH_TO_WORK_DIR}/${_gh_repo#*/}"
+      ls "${UCLD_PATH[work]}/${_gh_repo#*/}"
     else
-      cd_ "${PATH_TO_WORK_DIR}"
-      gh repo clone "${_gh_repo}" &>>"${PATH_TO_SCRIPT_DIR}/logfile.log"
+      cd_ "${UCLD_PATH[work]}"
+      gh repo clone "${_gh_repo}" &>>"${UCLD_PATH[main]}/logfile.log"
       _ucld_::back_to_script_dir_
-      ls "${PATH_TO_WORK_DIR}"
+      ls "${UCLD_PATH[work]}"
     fi
 
   fi
