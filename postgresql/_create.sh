@@ -21,7 +21,7 @@ _ucld_::pg_create_db() {
   )
 
   for _cmd in "${_psql_commands[@]}"; do
-    echo "${_cmd}"
+    # echo "${_cmd}"
     psql --dbname=postgres --command="${_cmd}"
   done
 
@@ -29,7 +29,7 @@ _ucld_::pg_create_db() {
 }
 
 _ucld_::dump_env_file() {
-  cat "incl/.shebang.txt" >"${UCLD_PG_PATH[.env]}"
+  cat "incl/.shebang.txt" >"${UCLD_PG_PATH[".env"]}"
   cat <<<"
 export DEBUG=${DEBUG}
 
@@ -43,7 +43,7 @@ export DBUSER=""${UCLD_DB_PARAM[user]}""
 export SECRET_KEY=""$(_ucld_::key_gen 16)""
 
 export UCLD_PUBLIC_LINK=""${UCLD_PUBLIC_LINK}""
-  " >>"${UCLD_PG_PATH[.env]}"
+  " >>"${UCLD_PG_PATH[".env"]}"
 }
 
 _ucld_::pg_list() {
@@ -60,7 +60,7 @@ _ucld_::pg_update_su_password() {
   )
 
   for _cmd in "${_psql_commands[@]}"; do
-    echo "${_cmd}"
+    # echo "${_cmd}"
     psql --dbname=postgres --command="${_cmd}"
   done
 
