@@ -18,15 +18,12 @@ declare -xi DEBUG
 # shellcheck disable=SC1091
 {
   . "./settings.conf"
-  . "env/settings.conf" &>/dev/null
+  . "env/settings.conf" &>/dev/null || cp "./settings.conf" "env/settings.conf" &>/dev/null
   # more files
 }
 
 UCLD_PATH["main"]="${PWD}"
 UCLD_PATH["work"]="${UCLD_PATH[main]%/*}"
-
-# export UCLD_PATH[main]="${PWD}"
-# export UCLD_PATH[work]="${UCLD_PATH[main]%/*}"
 
 for key in "${!UCLD_DIR[@]}"; do
 
@@ -35,7 +32,9 @@ for key in "${!UCLD_DIR[@]}"; do
 
   # globals
   if [[ "${key}" == "data" ]]; then
-    eval "export UCLD_PATH_TO_${key^^}=\"${_value}\""
+    eval "export UCLD_PATH_TO_${key^^}=""${_value}"""
   fi
 
 done
+
+export UCLD_PUBLIC_LINK
