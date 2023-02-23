@@ -37,7 +37,7 @@ if [[ -d "${_dj_repo}" ]]; then
   _ucld_::dj_collectstatic
   _ucld_::dj_install_dependencies
 
-  if [[ -v "${VC_JOB_NUM}" && "${VC_JOB_NUM}" -gt 0 ]]; then
+  if [[ "${VC_JOB_NUM}" -gt 0 ]]; then
 
     echo
     read -r -N 1 -p "Do you want to run migrations? [y/N] "
