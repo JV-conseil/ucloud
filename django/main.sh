@@ -11,7 +11,7 @@
 # shellcheck disable=SC1090,SC1091
 {
   . "incl/all.sh"
-  . "${PATH_TO_ENV_FILE}"
+  . "${PATH_TO_ENV}/.env" || :
   . "django/_utils.sh"
   # more files
 }
@@ -43,6 +43,11 @@ if [[ -d "${_dj_repo}" ]]; then
     read -r -N 1 -p "Do you want to run migrations? [y/N] "
     if [[ $REPLY =~ ^[Yy]$ ]]; then
       _ucld_::dj_running_migrations
+    fi
+
+    echo
+    read -r -N 1 -p "Do you want to create a superuser? [y/N] "
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
       _ucld_::dj_create_superuser
     fi
 

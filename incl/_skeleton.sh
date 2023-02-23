@@ -18,11 +18,6 @@ for key in "${!UCLD_FOLDERS[@]}"; do
   value="${PATH_TO_WORK_DIR}/${UCLD_FOLDERS[${key}]}"
   UCLD_SKELETON["${key}"]="${value}"
 
-  # .env file
-  if [[ "${key}" == "env" ]]; then
-    UCLD_SKELETON["env_file"]="${value}/.env"
-  fi
-
   # globals
   eval "export PATH_TO_${key^^}=\"${value}\""
 
