@@ -38,9 +38,10 @@ export DBNAME=""${UCLD_DB_PARAM[name]}""
 export DBPASS=""${UCLD_DB_PARAM[password]}""
 export DBPORT=""${UCLD_DB_PARAM[port]}""
 export DBSSLMODE=""${UCLD_DB_PARAM[sslmode]}""
+export DBSSLROOTCERT=""${UCLD_PG_PATH[env]}/server.cert.pem""
 export DBUSER=""${UCLD_DB_PARAM[user]}""
 
-export SECRET_KEY=""$(_ucld_::key_gen 16)""
+export SECRET_KEY=""$(_ucld_::key_gen 32)""
 
 export UCLD_PUBLIC_LINK=""${UCLD_PUBLIC_LINK}""
   " >>"${UCLD_PG_PATH[".env"]}"
