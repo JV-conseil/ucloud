@@ -30,9 +30,11 @@ if ! [ -x "$(command -v cd_)" ]; then
 fi
 
 if ! grep -q "cd_() " "${HOME}/.profile" &>>logfile.log; then
-  cat <<<"
+  for _file in ".profile" ".bashrc"; do
+    cat <<<"
 
 
-#====================================================" >>"${HOME}/.profile"
-  cat incl/_aliases.sh >>"${HOME}/.profile"
+#====================================================" >>"${HOME}/${_file}"
+    cat incl/_aliases.sh >>"${HOME}/${_file}"
+  done
 fi
