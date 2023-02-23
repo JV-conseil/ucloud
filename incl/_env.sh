@@ -39,5 +39,3 @@ for key in "${!UCLD_DIR[@]}"; do
   fi
 
 done
-
-DEBUG UCLD_DIR UCLD_PATH
