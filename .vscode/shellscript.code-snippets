@@ -32,14 +32,6 @@
         ],
         "description": "Description: Shebang Bash executor."
     },
-    "Print to console": {
-        "prefix": "log",
-        "body": [
-            "console.log('$1');",
-            "$2"
-        ],
-        "description": "Log output to console"
-    },
     "function": {
         "prefix": [
             "_ucld_::",
