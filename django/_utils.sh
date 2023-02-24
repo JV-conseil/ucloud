@@ -9,38 +9,25 @@
 #====================================================
 
 _ucld_::dj_debug() {
-  cat <<EOF
+  _ucld_::debug
 
+  if [[ "${DEBUG}" -gt 1 ]]; then
+    ls -FGlAhp
+    echo
 
-===================
- DEBUG information
-===================
-
-EOF
-  bash --version
-  python --version
-
-  # print environment variables sorted by name
-  # <https://stackoverflow.com/a/60756021/2477854>
-  echo
-  env -0 | sort -z | tr '\0' '\n'
-  echo
-
-  ls -FGlAhp
-  echo
-
-  cat <<EOF
+    cat <<EOF
 
 Test your deployment
 curl "https://${UCLD_PUBLIC_LINK}" --verbose
 
 EOF
+  fi
+
 }
 
 _ucld_::dj_collectstatic() {
   if [[ "${DEBUG}" -gt 0 ]]; then
     _ucld_::dj_debug
-  else
     python manage.py collectstatic --no-input
   fi
 }
