@@ -86,7 +86,7 @@
 # TYPE      DATABASE        USER            ADDRESS         METHOD
 
 # "local" is for Unix domain socket connections only
-local       all             all                             cert
+local       all             all                             md5
 # IPv4 local connections:
 # host      all             all             127.0.0.1/32    cert
 hostssl     all             all             0.0.0.0/0       cert
@@ -98,10 +98,10 @@ hostssl     all             all             ::1/128         cert
 hostnossl   all             all             ::1/128         reject
 # Allow replication connections from localhost, by a user with the
 # replication privilege.
-local       replication     all                             cert
+local       replication     all                             md5
 # host      replication     all             127.0.0.1/32    cert
 # host      replication     all             ::1/128         cert
 hostssl     replication     all             127.0.0.1/32    cert
 hostssl     replication     all             ::1/128         cert
 
-host all all all cert
+host all all all md5
