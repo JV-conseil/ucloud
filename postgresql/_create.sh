@@ -22,10 +22,10 @@ _ucld_::pg_create_db() {
 
   for _cmd in "${_psql_commands[@]}"; do
     # echo "${_cmd}"
-    psql --dbname=postgres --command="${_cmd}" 1>/dev/null 2>>logfile.log
+    psql --dbname=postgres --command="${_cmd}"
   done
 
-  _ucld_::pg_list
+  # _ucld_::pg_list
 }
 
 _ucld_::dump_env_file() {
@@ -62,7 +62,7 @@ _ucld_::pg_update_su_password() {
 
   for _cmd in "${_psql_commands[@]}"; do
     # echo "${_cmd}"
-    psql --dbname=postgres --command="${_cmd}" 1>/dev/null 2>>logfile.log
+    psql --dbname=postgres --command="${_cmd}"
   done
 
   cat "incl/.shebang.txt" >"${UCLD_PG_PATH[".pgpass"]}"

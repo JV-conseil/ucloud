@@ -74,7 +74,7 @@ _ucld_::build_skeleton() {
   done
 
   if [[ ! -f "${UCLD_PATH[env]}/settings.conf" ]]; then
-    cp -v "./settings.conf" "${UCLD_PATH[env]}/settings.conf"
+    cp "./settings.conf" "${UCLD_PATH[env]}/settings.conf"
   fi
 }
 
@@ -92,7 +92,7 @@ _ucld_::is_ucloud_execution() {
 
 _ucld_::is_database_instance() {
   local _bool=false
-  if [[ -d "/work/${UCLD_DIR[database]}" ]]; then _bool=true; fi
+  if [[ -d "${UCLD_PG_PATH[database]}" ]]; then _bool=true; fi
   echo ${_bool}
 }
 

@@ -43,11 +43,16 @@ _ucld_::pg_alter_system() {
 
   for _cmd in "${_psql_commands[@]}"; do
     # echo "${_cmd}"
-    psql --dbname=postgres --command="${_cmd}" 1>/dev/null 2>>logfile.log
+    psql --dbname=postgres --command="${_cmd}" 2>>logfile.log
   done
 }
 
 _ucld_::pg_conf_ssl() {
+  if [[ ! -d ${UCLD_PG_PATH[database]} ]]; then
+    _ucld_::exception "${UCLD_PG_PATH[database]} database directory not found... exiting"
+    return
+  fi
+
   local _server_key _password
   _server_key="${UCLD_PG_PATH[database]}/server.key"
   _password="$(_ucld_::key_gen)"
@@ -60,11 +65,6 @@ Configure SSL on PostgreSQL
 
 EOF
 
-  if [[ ! -d ${UCLD_PG_PATH[database]} ]]; then
-    _ucld_::exception "${UCLD_PG_PATH[database]} database directory not found... exiting"
-    return
-  fi
-
   _ucld_::generate_ssl_certificate
   _ucld_::pg_alter_system
 
@@ -72,6 +72,6 @@ EOF
   cat postgresql/pg_hba.conf.txt >"${UCLD_PG_PATH[database]}/pg_hba.conf"
   psql --dbname=postgres --command="SELECT pg_reload_conf() ;"
 
-  psql --host=localhost
+  psql --host=localhost --command="\du+ ;"
 
 }

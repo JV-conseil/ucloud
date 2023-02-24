@@ -35,6 +35,8 @@ for key in "${!UCLD_DIR[@]}"; do
     eval "export UCLD_PATH_TO_${key^^}=""${_value}"""
   fi
 
+  UCLD_PG_PATH["${key}"]="/work/${UCLD_DIR[${key}]}"
+
 done
 
 export UCLD_PUBLIC_LINK

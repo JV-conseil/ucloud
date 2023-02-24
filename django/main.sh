@@ -37,7 +37,9 @@ if [[ -d "${_dj_repo}" ]]; then
   _ucld_::dj_collectstatic
   _ucld_::dj_install_dependencies
 
-  if [[ "${VC_JOB_NUM}" -gt 0 ]]; then
+  echo
+  read -r -N 1 -p "Do you have connected a running PostgreSQL server? [y/N] "
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
 
     echo
     read -r -N 1 -p "Do you want to run migrations? [y/N] "

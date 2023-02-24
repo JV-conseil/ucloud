@@ -11,20 +11,11 @@
 #
 #====================================================
 
-declare -A UCLD_PG_PATH
-
-for key in "${!UCLD_DIR[@]}"; do
-
-  _value="/work/${UCLD_DIR[${key}]}"
-  UCLD_PG_PATH["${key}"]="${_value}"
-
-done
+UCLD_DB_PARAM["password"]="$(_ucld_::key_gen 32)"
 
 for key in ".pgpass" ".env"; do
   UCLD_PG_PATH["${key}"]="${UCLD_PG_PATH[env]}/${key}"
 done
-
-UCLD_DB_PARAM["password"]="$(_ucld_::key_gen 32)"
 
 export PGPASSFILE="${UCLD_PG_PATH[".pgpass"]}"
 export PGSSLROOTCERT="${UCLD_PG_PATH[env]}/server.cert.pem"
