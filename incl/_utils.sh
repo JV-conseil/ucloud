@@ -73,8 +73,8 @@ _ucld_::build_skeleton() {
     fi
   done
 
-  if [[ ! -f "env/settings.conf" ]]; then
-    cp -v "./settings.conf" "env/settings.conf"
+  if [[ ! -f "${UCLD_PATH[env]}/settings.conf" ]]; then
+    cp -v "./settings.conf" "${UCLD_PATH[env]}/settings.conf"
   fi
 }
 
