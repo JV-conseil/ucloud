@@ -10,6 +10,7 @@
 
 # shellcheck disable=SC1091
 {
+  . "incl/_log.sh"
   . "incl/_aliases.sh"
   . "incl/_env.sh"
   . "incl/_exceptions.sh"

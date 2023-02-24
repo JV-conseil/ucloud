@@ -38,7 +38,7 @@
             "function"
         ],
         "body": [
-            "_ucld_::${1:generic_function} () {",
+            "_ucld_::${1:generic_function}() {",
             "\tlocal _bool=true",
             "\tif cmd; then _bool=false; fi",
             "\techo ${_bool}",
