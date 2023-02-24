@@ -39,4 +39,4 @@ for key in "${!UCLD_DIR[@]}"; do
 
 done
 
-export UCLD_PUBLIC_LINK
+export UCLD_ALLOWED_HOSTS

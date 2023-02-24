@@ -17,10 +17,14 @@ _ucld_::dj_debug() {
 
     cat <<EOF
 
-Test your deployment
-curl "https://${UCLD_PUBLIC_LINK}" --verbose
+
+Curl commands to test your server
+---------------------------------
 
 EOF
+    for _host in "${UCLD_ALLOWED_HOSTS[@]}"; do
+      echo "$ curl https://${_host} --verbose"
+    done
   fi
 
 }
@@ -61,7 +65,7 @@ EOF
   echo "Username: ${_username}"
   echo "Password: ${_password}"
 
-  echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('${_username}', '${_username}', '${_password}');" | python manage.py shell && echo -e "\n\e[0;33mDone!\nYou will be able to test superuser access to the admin panel by visiting https://${UCLD_PUBLIC_LINK}/admin/login/?next=/admin/\e[0;0m"
+  echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('${_username}', '${_username}', '${_password}');" | python manage.py shell && echo -e "\n\e[0;33mDone!\nYou will be able to test superuser access to the admin panel by visiting https://${UCLD_ALLOWED_HOSTS[0]}/admin\e[0;0m"
 }
 
 _ucld_::dj_running_migrations() {

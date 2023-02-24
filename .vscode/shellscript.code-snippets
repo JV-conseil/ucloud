@@ -14,8 +14,8 @@
     // }
     "bash": {
         "prefix": [
-            "bash",
-            "#!",
+            // "bash",
+            // "#!",
             "shebang"
         ],
         "body": [
@@ -51,6 +51,19 @@
             "1. Recommended way:\n",
             "name() {}\n",
             "2. C-like-way:\nfunction name [()] {}"
+        ]
+    },
+    "array_loop": {
+        "prefix": [
+            "for_array",
+        ],
+        "body": [
+            "for _item in \"${MY_ARRAY[@]}\"; do",
+            "\techo \"${_item}\"",
+            "done",
+        ],
+        "description": [
+            "Loop through an array",
         ]
     },
 }
