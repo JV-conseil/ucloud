@@ -32,15 +32,13 @@
 
 ## Usage
 
-:point_right: `git clone https://github.com/JV-conseil/ucloud.git`
+1. Authenticate on <kbd>[UCloud](https://cloud.sdu.dk/app/login)</kbd> and navigate to <kbd>[Apps][UCloud Apps]</kbd> > <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd>.
 
-Authenticate on <kbd>[UCloud](https://cloud.sdu.dk/app/login)</kbd> and navigate to <kbd>[Apps][UCloud Apps]</kbd> > <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd>.
+1. Configure a <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd> run with <kbd>"Add folder"</kbd> to select one of your folder then click on <kbd>Submit</kbd>.
 
-Configure a <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd> run with <kbd>"Add folder"</kbd> to select one of your folder then click on <kbd>Submit</kbd>.
+1. Once <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd> job is running click on <kbd>Open terminal</kbd>.
 
-Once <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd> job is running click on <kbd>Open terminal</kbd>.
-
-Then copy paste the following `bash` commands.
+1. Let's import this repo **`git clone https://github.com/JV-conseil/ucloud.git`** with the following `bash` commands 👇
 
 ```bash
 ls -FGlAhp
