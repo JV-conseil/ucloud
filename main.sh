@@ -14,6 +14,8 @@
 # shellcheck disable=SC1091
 . "incl/all.sh"
 
+_ucld_::debug
+
 cat "README.txt"
 
 _ucld_::startup_check

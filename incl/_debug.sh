@@ -48,5 +48,3 @@ EOF
   fi
 
 }
-
-_ucld_::debug

@@ -17,6 +17,8 @@
   # more files
 }
 
+_ucld_::debug
+
 cat "postgresql/README.txt"
 
 _ucld_::startup_check
