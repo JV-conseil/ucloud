@@ -1,0 +1,120 @@
+{
+  "siteVersion": 3,
+  "request": {
+    "application": {
+      "name": "django",
+      "version": "4.1.2"
+    },
+    "product": {
+      "id": "u1-standard-2",
+      "category": "u1-standard",
+      "provider": "ucloud"
+    },
+    "name": null,
+    "replicas": 1,
+    "parameters": {
+      "start": {
+        "path": "/43896/Welcome/ucloud/django/deployment.sh",
+        "type": "file",
+        "readOnly": false
+      },
+      "appdir": {
+        "path": "/43896/Welcome/Welcome",
+        "type": "file",
+        "readOnly": false
+      }
+    },
+    "resources": [
+      {
+        "type": "peer",
+        "jobId": "536353",
+        "hostname": "postgres.database.ucloud.sdu.dk"
+      },
+      {
+        "path": "/43896/Welcome/env",
+        "type": "file",
+        "readOnly": false
+      },
+      {
+        "path": "/43896/Welcome/ucloud",
+        "type": "file",
+        "readOnly": false
+      },
+      {
+        "id": "500930",
+        "type": "ingress"
+      },
+      {
+        "id": "503362",
+        "type": "ingress"
+      }
+    ],
+    "timeAllocation": {
+      "hours": 2,
+      "minutes": 0,
+      "seconds": 0
+    },
+    "resolvedProduct": null,
+    "resolvedApplication": null,
+    "resolvedSupport": null,
+    "allowDuplicateJob": true,
+    "sshEnabled": false
+  },
+  "resolvedResources": {
+    "ingress": {
+      "500930": {
+        "id": "500930",
+        "specification": {
+          "domain": "app-githubbing.cloud.sdu.dk",
+          "product": {
+            "id": "u1-publiclink",
+            "category": "u1-publiclink",
+            "provider": "ucloud"
+          }
+        },
+        "owner": {
+          "createdBy": "********************",
+          "project": null
+        },
+        "createdAt": 1676734135883,
+        "status": {
+          "boundTo": [],
+          "state": "READY",
+          "resolvedSupport": null,
+          "resolvedProduct": null
+        },
+        "updates": [
+          {
+            "state": "READY",
+            "status": "Ingress is now ready",
+            "timestamp": 1676734136812,
+            "binding": null
+          }
+        ],
+        "permissions": {
+          "myself": [
+            "ADMIN",
+            "READ",
+            "EDIT"
+          ],
+          "others": [
+            {
+              "entity": {
+                "type": "user",
+                "username": "********************"
+              },
+              "permissions": [
+                "EDIT",
+                "READ"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "machineType": {
+    "cpu": 2,
+    "memoryInGigs": 12
+  }
+}

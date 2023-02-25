@@ -17,16 +17,21 @@
         "path": "/43896/Welcome/database",
         "type": "file",
         "readOnly": false
-      },
-      "password_file": {
-        "path": "/43896/Welcome/env/.pgpass",
-        "type": "file",
-        "readOnly": false
       }
     },
     "resources": [
       {
-        "path": "/43896/Welcome",
+        "path": "/43896/Welcome/ucloud",
+        "type": "file",
+        "readOnly": false
+      },
+      {
+        "path": "/43896/Welcome/env",
+        "type": "file",
+        "readOnly": false
+      },
+      {
+        "path": "/43896/Welcome/Welcome",
         "type": "file",
         "readOnly": false
       }
