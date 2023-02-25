@@ -12,22 +12,18 @@ _ucld_::back_to_script_dir_() {
   cd_ "${UCLD_PATH[main]}"
 }
 
-_ucld_::key_gen() {
-  # e.g.: $(_ucld_::key_gen 128)
-  local _size=${1:-15}
-  if [ -x "$(command -v python)" ]; then
-    python -c "import secrets; result = ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+') for i in range($_size)); print(result)"
-  else
-    openssl rand -base64 "${_size}"
-  fi
-}
-
 _ucld_::parent_directory() {
   # <https://stackoverflow.com/a/24112741/2477854>
   echo "$(
     cd_ "$(dirname "${BASH_SOURCE[0]}")"
     pwd -P
   )"
+}
+
+_ucld_::is_python_installed() {
+  local _bool=false
+  if [ -x "$(command -v python)" ]; then _bool=true; fi
+  echo ${_bool}
 }
 
 _ucld_::is_postgresql_running() {
@@ -54,4 +50,15 @@ _ucld_::update_bashrc() {
 #====================================================" >>"${HOME}/${_file}"
     cat incl/_aliases.sh >>"${HOME}/${_file}"
   done
+}
+
+_ucld_::key_gen() {
+  # e.g.: $(_ucld_::key_gen 128)
+  local _size=${1:-15}
+  # if [ -x "$(command -v python)" ]; then
+  if [[ "$(_ucld_::is_python_installed)" == true ]]; then
+    python -c "import secrets; result = ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+') for i in range($_size)); print(result)"
+  else
+    openssl rand -base64 "${_size}"
+  fi
 }

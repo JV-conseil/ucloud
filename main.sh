@@ -42,13 +42,13 @@ if [[ "$(_ucld_::is_postgresql_running)" == true ]]; then
 
 fi
 
-echo
-read -r -n 1 -p "Do you want to manage Django? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  . django/main.sh
-fi
+if [[ "$(_ucld_::is_python_installed)" == true ]]; then
 
-if [[ "$(_ucld_::is_postgresql_running)" == false ]]; then
+  echo
+  read -r -n 1 -p "Do you want to manage Django? [y/N] "
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    . django/main.sh
+  fi
 
   echo
   read -r -n 1 -p "Do you want to run a Python app? [y/N] "
