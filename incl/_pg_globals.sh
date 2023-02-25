@@ -11,7 +11,7 @@
 #
 #====================================================
 
-_ucld_::assign_path
+# _ucld_::assign_path
 
 UCLD_DB_PARAM["password"]="$(_ucld_::key_gen 32)"
 
