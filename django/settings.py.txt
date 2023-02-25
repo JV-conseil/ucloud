@@ -55,6 +55,10 @@ CSRF_COOKIE_SECURE = SESSION_COOKIE_SECURE
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = ["https://*.cloud.sdu.dk"]
 
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = (
+    ("HTTP_X_FORWARDED_PROTO", "https") if SECURE_SSL_REDIRECT else None
+)
 
 # Application definition
 
