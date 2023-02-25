@@ -43,6 +43,15 @@ if [[ "$(_ucld_::is_postgresql_running)" == true ]]; then
     if [[ $REPLY =~ ^[Yy]$ ]]; then
       _ucld_::generate_ssl_certificate
     fi
+
+    echo
+    read -r -n 1 -p "Do you want to update the server parameters? [y/N] "
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      _ucld_::pg_alter_system
+      _ucld_::pg_hba_udpate
+      psql --host=localhost --command="\du+ ;"
+    fi
+
   fi
 
   _ucld_::pg_list
