@@ -8,23 +8,29 @@
 #                 All rights reserved
 #====================================================
 
-alias ls='ls -FGlAhp'
+# print environment variables sorted by name
+# <https://stackoverflow.com/a/60756021/2477854>
+alias env="env -0 | sort -z | tr '\0' '\n'"
+
+# alias cp='cp -iv'
+alias ls='ls -FGlAhp --color=auto'
+alias mkdir='mkdir -pv'
+alias mv='mv -iv'
+alias nano="nano --linenumbers"
+alias rm='rm -rf'
 
 if ! [ -x "$(command -v cd_)" ]; then
-  # alias cp='cp -iv'     # Preferred 'cp' implementation
-  alias mv='mv -iv'       # Preferred 'mv' implementation
-  alias mkdir='mkdir -pv' # Preferred 'mkdir' implementation
-  alias rm='rm -rf'       # Preferred 'rm' implementation
 
   # Silent cd with no list directory
   cd_() { builtin cd "$@" || exit; }
+
   # Always list directory contents upon 'cd'
   cd() {
     builtin cd "$@" || exit
     ls
   }
 
-  nano() {
-    command nano --linenumbers "$@"
-  }
+  # nano() {
+  #   command nano --linenumbers "$@"
+  # }
 fi
