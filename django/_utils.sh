@@ -9,7 +9,7 @@
 #====================================================
 
 _ucld_::dj_debug() {
-  local _host
+  local _host _array
   if [[ "${DEBUG}" -eq 0 ]]; then
     return 0
   fi
@@ -29,7 +29,8 @@ Curl commands to test your server
 
 EOF
 
-    for _host in "${UCLD_ALLOWED_HOSTS[@]}"; do
+    IFS=' ' read -ra _array <<<"${UCLD_ALLOWED_HOSTS}"
+    for _host in "${_array[@]}"; do
       echo "# curl https://${_host} --verbose"
     done
   fi
