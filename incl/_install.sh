@@ -11,7 +11,13 @@
 _ucld_::install_packages() {
   local _bin
 
-  if [[ $(apt -v &>>logfile.log) -gt 0 ]]; then
+  if [ -x "$(command -v apt)" ]; then
+    return
+  fi
+
+  echo
+  read -r -n 1 -p "Do you want to install packages for Linux with apt? [y/N] "
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     return
   fi
 

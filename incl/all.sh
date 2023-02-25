@@ -18,6 +18,6 @@
   . "incl/_exceptions.sh"
   . "incl/_skeleton.sh"
   . "incl/_debug.sh"
-  . "incl/install.sh"
+  . "incl/_install.sh"
   # more files
 }

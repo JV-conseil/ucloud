@@ -20,11 +20,7 @@ cat "README.txt"
 
 _ucld_::startup_check
 
-echo
-read -r -n 1 -p "Do you want to install packages for Linux with apt? [y/N] "
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  . _ucld_::install_packages
-fi
+_ucld_::install_packages
 
 echo
 read -r -n 1 -p "Do you want to manage GitHub? [y/N] "
