@@ -66,4 +66,21 @@
             "Loop through an array",
         ]
     },
+    "cat": {
+        "prefix": [
+            "cat",
+        ],
+        "body": [
+            "cat <<EOF",
+            "",
+            "===================",
+            " TITLE ",
+            "===================",
+            "",
+            "EOF",
+        ],
+        "description": [
+            "Concatenate FILE(s) to standard output",
+        ]
+    },
 }
