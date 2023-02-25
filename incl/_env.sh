@@ -11,7 +11,7 @@
 #
 #====================================================
 
-declare -a UCLD_INSTALL_PACKAGES
+declare -a UCLD_INSTALL_PACKAGES UCLD_ALLOWED_HOSTS
 declare -A UCLD_DB_PARAM UCLD_DIR UCLD_PATH UCLD_PG_PATH
 declare -xi DEBUG
 
