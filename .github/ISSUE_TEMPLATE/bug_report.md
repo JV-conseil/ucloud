@@ -8,30 +8,26 @@ assignees: ''
 ---
 
 <!--
-  Hi there! Thank you for discovering and submitting an issue.
+
+  Hi there 👋 Thank you for discovering and submitting an issue.
 
   Before you submit this; let's make sure of a few things.
   Please make sure the following boxes are ticked if they are correct.
   If not, please try and fulfill these first.
+
 -->
 
-<!-- Checked checkbox should look like this: [x] -->
 - [ ] I have searched the [issues] of this repo and believe that this is not a duplicate.
 - [ ] If an exception occurs when executing a command, I executed it again in debug mode (`DEBUF = True` in settings).
 
-<!--
-  Once those are done, if you're able to fill in the following list with your information,
-  it'd be very helpful to whoever handles the issue.
--->
-
-### Describe the bug 🐛 
+### Describe the bug 🐛
 
 > A clear and precise description of what the bug is, please be descriptive! Thanks 🙌
 
 ### To Reproduce 🚶
 
 > Steps to reproduce the behavior:
-> 
+>
 > 1. Go to '...'
 > 2. Click on '....'
 > 3. Scroll down to '....'
@@ -41,7 +37,7 @@ assignees: ''
 
 > A clear and concise description of what you expected to happen.
 
-### Configuration ⚙️ 
+### Configuration ⚙️
 
 > A clear and concise description of your configuration.
 >
@@ -50,11 +46,11 @@ assignees: ''
 > Django version 4.1.2
 > ...
 
-### Screenshots 📸 
+### Screenshots 📸
 
 > If applicable, add screenshots to help explain your problem.
 
-### Diagnosis attempts 🩺 
+### Diagnosis attempts 🩺
 
 > `curl "https://some.domain.name" --verbose`
 
