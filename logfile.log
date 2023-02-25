@@ -1,8 +1,0 @@
-2023-02-25 17:48:18	postgresql/_env.sh: line 23: .pgpass: syntax error: operand expected (error token is ".pgpass")
-2023-02-25 18:04:43	postgresql/_env.sh: line 23: .pgpass: syntax error: operand expected (error token is ".pgpass")
-2023-02-25 18:05:15	postgresql/_env.sh: line 23: .pgpass: syntax error: operand expected (error token is ".pgpass")
- database directory not found... exiting
-cp: /Users/julien_vieillefont/GitHub/JV-conseil/ucloud/database/pg_hba.conf: No such file or directory
-The operation couldn’t be completed. Unable to locate a Java Runtime.
-Please visit http://www.java.com for information on installing Java.
-
