@@ -24,39 +24,84 @@ assignees: ''
   it'd be very helpful to whoever handles the issue.
 -->
 
-**Describe the bug**
-A clear and precise description of what the bug is, please be descriptive! Thanks again 🙌
+### Describe the bug 🐛 
 
-**To Reproduce**
-Steps to reproduce the behavior:
+> A clear and precise description of what the bug is, please be descriptive! Thanks 🙌
 
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+### To Reproduce 🚶
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+> Steps to reproduce the behavior:
+> 
+> 1. Go to '...'
+> 2. Click on '....'
+> 3. Scroll down to '....'
+> 4. See error
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+### Expected behavior 🚀
 
-**Desktop (please complete the following information):**
+> A clear and concise description of what you expected to happen.
 
-- OS: [e.g. iOS]
-- Browser [e.g. chrome, safari]
-- Version [e.g. 22]
+### Configuration ⚙️ 
 
-**Smartphone (please complete the following information):**
+> A clear and concise description of your configuration.
+>
+> Python 3.11.0
+> PostgreSQL Server 14.5
+> Django version 4.1.2
+> ...
 
-- Device: [e.g. iPhone6]
-- OS: [e.g. iOS8.1]
-- Browser [e.g. stock browser, safari]
-- Version [e.g. 22]
+### Screenshots 📸 
 
-**Additional context**
-Add any other context about the problem here.
+> If applicable, add screenshots to help explain your problem.
 
-<!-- Definition -->
+### Diagnosis attempts 🩺 
+
+> `curl "https://some.domain.name" --verbose`
+
+### Additional context 🌍
+
+> Add any other context about the problem here.
+
+<!-- links -->
 
 [issues]: https://github.com/JV-conseil/ucloud/issues
+
+
+
+==============================================================
+
+
+[<img width="1264" alt="upstream connect error or disconnect:reset before headers  reset reason connection failure" src="https://user-images.githubusercontent.com/8126807/221378949-d513c87c-c750-4bd6-bc36-e5b2bd2e922d.png">](https://stackoverflow.com/a/64096669/2477854)
+
+**[kubernetes - upstream connect error or disconnect/reset before headers. reset reason: connection failure](https://stackoverflow.com/a/64096669/2477854)** 👀 
+
+> I solved it. In my case the yaml file was wrong. I reviewed it and the problem now is solved. Thank you – [stackoverflow.com](https://stackoverflow.com/questions/63408608/upstream-connect-error-or-disconnect-reset-before-headers-reset-reason-connect)
+
+
+
+[UCloud][UCloud] public link does not connect with a running Django app 🐍 
+
+When visiting the page <https://app-githubbing.cloud.sdu.dk> we got an error message 🙅‍♂️ 
+
+> upstream connect error or disconnect/reset before headers. reset reason: connection failure
+
+### Configuration ⚙️ 
+
+nginx
+Python 3.11.0
+PostgreSQL Server 14.5
+Django version 4.1.2
+
+### Expected behavior
+
+Display a 🚀 when visiting <https://app-githubbing.cloud.sdu.dk>
+
+### Documentation 📚 
+
+> UCloud utilizes [Kubernetes for Container orchestration][Kubernetes for Container orchestration]. This is used both for the deployment of UCloud and scheduling of user jobs. — [UCloud  3rd party dependencies][Kubernetes for Container orchestration]
+
+### Diagnosis attempts 🩺 
+
+**curl request**
+
+`curl "https://app-githubbing.cloud.sdu.dk" --verbose`👇
