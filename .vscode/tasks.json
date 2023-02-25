@@ -45,7 +45,7 @@
     {
       "label": "Launch",
       "type": "shell",
-      "isBackground": true,
+      "isBackground": false,
       "osx": {
         "command": ". main.sh"
       },
@@ -53,11 +53,11 @@
         "command": ". main.sh"
       },
       "runOptions": {
-        "runOn": "folderOpen"
+        "runOn": "folderOpen",
       },
       "group": {
         "kind": "build",
-        "isDefault": true
+        "isDefault": true,
       },
       "detail": "The missing repo to manage apps on UCloud...",
       "problemMatcher": []
