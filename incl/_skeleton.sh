@@ -9,14 +9,17 @@
 #====================================================
 
 _ucld_::build_skeleton() {
-  local _key _option
+  local _key _option _echo
   _option=${1:-""}
-
-  echo -e "\nBuilding skeleton...\n"
+  _echo=0
 
   for _key in "${!UCLD_DIR[@]}"; do
     value="${UCLD_PATH["${_key}"]}"
     if [ ! -d "${value}" ]; then
+      if [ ${_echo} -eq 0 ]; then
+        echo -e "\nBuilding skeleton...\n"
+        _echo=1
+      fi
       mkdir "${value}"
     elif [[ "${_option}" == "delete" ]]; then
       rm "${value}"
