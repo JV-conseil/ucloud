@@ -9,9 +9,29 @@
 #====================================================
 
 _ucld_::dj_debug() {
-  _ucld_::debug
+  if [[ "${DEBUG}" -eq 0 ]]; then
+    return
+  fi
+  cat <<EOF
+
+
+===================
+ DEBUG information
+===================
+
+EOF
+  cat /proc/version &>/dev/null
+  cat /etc/issue &>/dev/null
+  bash --version
+  python --version
 
   if [[ "${DEBUG}" -gt 1 ]]; then
+    # print environment variables sorted by name
+    # <https://stackoverflow.com/a/60756021/2477854>
+    echo
+    env -0 | sort -z | tr '\0' '\n'
+    echo
+
     ls -FGlAhp
     echo
 
