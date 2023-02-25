@@ -15,7 +15,6 @@ _ucld_::back_to_script_dir_() {
 _ucld_::key_gen() {
   # e.g.: $(_ucld_::key_gen 128)
   local _size=${1:-15}
-  # if [[ $(python --version &>>logfile.log) -ne 0 ]]; then
   if [ -x "$(command -v python)" ]; then
     python -c "import secrets; result = ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+') for i in range($_size)); print(result)"
   else
