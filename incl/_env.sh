@@ -12,7 +12,7 @@
 #====================================================
 
 declare -a UCLD_INSTALL_PACKAGES UCLD_ALLOWED_HOSTS
-declare -A UCLD_DB_PARAM UCLD_DIR UCLD_PATH UCLD_PG_PATH
+declare -A UCLD_DB_PARAM UCLD_DIR UCLD_PATH # UCLD_PG_PATH
 declare -xi DEBUG
 
 # shellcheck disable=SC1091
@@ -22,21 +22,36 @@ declare -xi DEBUG
   # more files
 }
 
-UCLD_PATH["main"]="${PWD}"
-UCLD_PATH["work"]="${UCLD_PATH[main]%/*}"
+export UCLD_ALLOWED_HOSTS
 
-for key in "${!UCLD_DIR[@]}"; do
+_ucld_::assign_path() {
+  local _key
+  UCLD_PATH=(["main"]="${PWD}" ["work"]="${PWD}")
 
-  _value="${UCLD_PATH[work]}/${UCLD_DIR[${key}]}"
-  UCLD_PATH["${key}"]="${_value}"
-
-  # globals
-  if [[ "${key}" == "data" ]]; then
-    eval "export UCLD_PATH_TO_${key^^}=""${_value}"""
+  if [[ -d "${PWD%/*}" && $(_ucld_::is_ucloud_execution) == true ]]; then
+    UCLD_PATH["work"]="${PWD%/*}"
   fi
 
-  UCLD_PG_PATH["${key}"]="/work/${UCLD_DIR[${key}]}"
+  for _key in "${!UCLD_DIR[@]}"; do
 
-done
+    _value="${UCLD_PATH[work]}/${UCLD_DIR[${_key}]}"
+    UCLD_PATH["${_key}"]="${_value}"
 
-export UCLD_ALLOWED_HOSTS
+    # globals
+    if [[ "${_key}" == "data" ]]; then
+      eval "export UCLD_PATH_TO_${_key^^}=""${_value}"""
+    fi
+
+    # UCLD_PG_PATH["${_key}"]="/work/${UCLD_DIR[${_key}]}"
+
+  done
+
+  if [[ "${DEBUG}" -gt 1 ]]; then
+    echo -e "\nAssigning path for project...\n"
+    for _key in "${!UCLD_PATH[@]}"; do
+      echo "UCLD_PATH[${_key}]=${UCLD_PATH[${_key}]}"
+    done
+  fi
+}
+
+_ucld_::assign_path
