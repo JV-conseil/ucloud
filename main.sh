@@ -23,7 +23,7 @@ _ucld_::startup_check
 echo
 read -r -n 1 -p "Do you want to install packages for Linux with apt? [y/N] "
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-  . incl/install.sh
+  . _ucld_::install_packages
 fi
 
 echo

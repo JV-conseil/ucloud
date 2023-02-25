@@ -9,6 +9,7 @@
 #====================================================
 
 _ucld_::dj_debug() {
+  local _host
   if [[ "${DEBUG}" -eq 0 ]]; then
     return 0
   fi

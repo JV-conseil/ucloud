@@ -12,7 +12,9 @@
 #====================================================
 
 _ucld_::pg_create_db() {
-  local _psql_commands=(
+  local _psql_commands _cmd
+
+  _psql_commands=(
     "DROP DATABASE IF EXISTS ${UCLD_DB_PARAM[name]} ;"
     "DROP USER ${UCLD_DB_PARAM[user]} ;"
     "CREATE USER ${UCLD_DB_PARAM[user]} WITH PASSWORD '${UCLD_DB_PARAM[password]}' ;"
@@ -29,7 +31,8 @@ _ucld_::pg_create_db() {
 }
 
 _ucld_::dump_env_file() {
-  cat "incl/.shebang.txt" >"${UCLD_PATH[".env"]}"
+  local _env_file="${UCLD_PATH[env]}/.env"
+  cat "incl/.shebang.txt" >"${_env_file}"
   cat <<<"
 export DEBUG=${DEBUG}
 
@@ -44,7 +47,7 @@ export DBUSER=""${UCLD_DB_PARAM[user]}""
 export SECRET_KEY=""$(_ucld_::key_gen 32)""
 
 export UCLD_ALLOWED_HOSTS=""${UCLD_PUBLIC_LINKS[*]}""
-  " >>"${UCLD_PATH[".env"]}"
+  " >>"${_env_file}"
 }
 
 _ucld_::pg_list() {
@@ -54,7 +57,8 @@ _ucld_::pg_list() {
 }
 
 _ucld_::pg_update_su_password() {
-  local _psql_commands _su_pass
+  local _psql_commands _su_pass _cmd
+
   _su_pass="$(_ucld_::key_gen 32)"
   _psql_commands=(
     "ALTER ROLE ${PGUSER} WITH PASSWORD '${_su_pass}' ;"

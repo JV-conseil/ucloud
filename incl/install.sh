@@ -8,7 +8,12 @@
 #                 All rights reserved
 #====================================================
 
-if [[ $(apt -v &>>logfile.log) -eq 0 ]]; then
+_ucld_::install_packages() {
+  local _bin
+
+  if [[ $(apt -v &>>logfile.log) -gt 0 ]]; then
+    return
+  fi
 
   cat <<EOF
 
@@ -53,4 +58,4 @@ You are now running $(${_bin%.*} --version 2>>logfile.log)
 EOF
   done
 
-fi
+}

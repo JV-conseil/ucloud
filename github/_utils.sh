@@ -19,7 +19,7 @@ _ucld_::gh_list_user_orgs() {
 }
 
 _ucld_::gh_list_user_repos() {
-  local _choice _owners _repos
+  local _choice _owners _repos _repo _org
   declare -a _repos
   declare -a _owners=("")
 

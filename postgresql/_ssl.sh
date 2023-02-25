@@ -38,7 +38,8 @@ _ucld_::generate_ssl_certificate_v1() {
 
 # <https://www.postgresql.org/docs/current/sql-altersystem.html>
 _ucld_::pg_alter_system() {
-  local _psql_commands
+  local _psql_commands _cmd
+
   _psql_commands=(
     "ALTER SYSTEM SET ssl = on ;"
     # "ALTER SYSTEM SET ssl_ca_file = 'root.crt' ;"
