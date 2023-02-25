@@ -9,6 +9,14 @@
 #====================================================
 
 _ucld_::generate_ssl_certificate() {
+  local _server_key _subject
+  _server_key="${UCLD_PATH[database]}/server.key"
+  _subject="localhost"
+  openssl req -new -x509 -days 365 -nodes -text -out "${_server_key/.key/.crt}" -keyout "${_server_key}" -subj "/CN=${_subject}"
+  chmod og-rwx "${_server_key}"
+}
+
+_ucld_::generate_ssl_certificate_v1() {
   local _password _server_key _subject
   _server_key="${UCLD_PG_PATH[database]}/server.key"
   _password="$(_ucld_::key_gen)"
