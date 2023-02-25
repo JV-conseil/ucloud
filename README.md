@@ -20,7 +20,7 @@
 <img alt="https://img.shields.io/badge/stack-overflow-orange.svg" src="https://img.shields.io/badge/stack-overflow-orange.svg">
 -->
 
-> The missing repo to start GitHubbing on UCloud.
+> The missing repo to start GitHubbing on UCloud :point_right: `git clone https://github.com/JV-conseil/ucloud.git`
 
 ![social-media-preview](https://user-images.githubusercontent.com/8126807/219748305-e5d5d517-ec5c-4364-8a61-7baefdaf6f63.png)
 
