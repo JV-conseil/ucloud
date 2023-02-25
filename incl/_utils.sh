@@ -12,33 +12,6 @@ _ucld_::back_to_script_dir_() {
   cd_ "${UCLD_PATH[main]}"
 }
 
-_ucld_::debug() {
-  if [[ "${DEBUG}" -eq 0 ]]; then
-    return
-  fi
-  cat <<EOF
-
-
-===================
- DEBUG information
-===================
-
-EOF
-  cat /proc/version &>/dev/null
-  cat /etc/issue &>/dev/null
-  bash --version
-  python --version
-
-  if [[ "${DEBUG}" -gt 1 ]]; then
-    # print environment variables sorted by name
-    # <https://stackoverflow.com/a/60756021/2477854>
-    echo
-    env -0 | sort -z | tr '\0' '\n'
-    echo
-  fi
-
-}
-
 _ucld_::key_gen() {
   # e.g.: $(_ucld_::key_gen 128)
   local _size=${1:-15}
@@ -58,26 +31,6 @@ _ucld_::parent_directory() {
   )"
 }
 
-_ucld_::build_skeleton() {
-  if [[ 
-    "$(_ucld_::is_ucloud_execution)" == false ||
-    "$(_ucld_::is_database_instance)" == true ]] \
-    ; then
-    return
-  fi
-
-  for key in "${!UCLD_PATH[@]}"; do
-    value="${UCLD_PATH["${key}"]}"
-    if [ ! -d "${value}" ]; then
-      mkdir "${value}"
-    fi
-  done
-
-  if [[ ! -f "${UCLD_PATH[env]}/settings.conf" ]]; then
-    cp "./settings.conf" "${UCLD_PATH[env]}/settings.conf"
-  fi
-}
-
 _ucld_::is_postgresql_running() {
   local _bool=false
   if [ -x "$(command -v psql)" ]; then _bool=true; fi
@@ -86,17 +39,12 @@ _ucld_::is_postgresql_running() {
 
 _ucld_::is_ucloud_execution() {
   local _bool=false
-  if [[ "${PWD}" == "/work/"* ]]; then _bool=true; fi
-  echo ${_bool}
-}
-
-_ucld_::is_database_instance() {
-  local _bool=false
-  if [[ -d "${UCLD_PG_PATH[database]}" ]]; then _bool=true; fi
+  if [[ "${PWD}" == "/work"* ]]; then _bool=true; fi
   echo ${_bool}
 }
 
 _ucld_::update_bashrc() {
+  local _file
   if grep -q "cd_() " "${HOME}/.profile" &>>logfile.log; then
     return
   fi
@@ -107,9 +55,4 @@ _ucld_::update_bashrc() {
 #====================================================" >>"${HOME}/${_file}"
     cat incl/_aliases.sh >>"${HOME}/${_file}"
   done
-}
-
-_ucld_::startup_check() {
-  _ucld_::build_skeleton
-  _ucld_::update_bashrc
 }
