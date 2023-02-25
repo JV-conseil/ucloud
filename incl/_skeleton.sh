@@ -9,26 +9,44 @@
 #====================================================
 
 _ucld_::build_skeleton() {
-  local _key _option _echo
+  local _key _value _option _echo
   _option=${1:-""}
   _echo=0
 
   for _key in "${!UCLD_DIR[@]}"; do
-    value="${UCLD_PATH["${_key}"]}"
-    if [ ! -d "${value}" ]; then
-      if [ ${_echo} -eq 0 ]; then
-        echo -e "\nBuilding skeleton...\n"
-        _echo=1
-      fi
-      mkdir "${value}"
-    elif [[ "${_option}" == "delete" ]]; then
-      rm "${value}"
-    fi
+
+    _value="${UCLD_PATH["${_key}"]}"
+
+    if [[ ! -f "${_value}" && ! -d "${_value}" ]]; then
+
+      if [[ "${_option}" == "delete" ]]; then
+
+        if [ ${_echo} -eq 0 ]; then
+          echo -e "\nDeleting skeleton...\n"
+          _echo=1
+        fi
+
+        rm -v "${_value}"
+
+      else
+
+        if [ ${_echo} -eq 0 ]; then
+          echo -e "\nBuilding skeleton...\n"
+          _echo=1
+        fi
+
+        mkdir "${_value}"
+
+        if [[ ${_key} == "env" && ! -f "${_value}/settings.conf" ]]; then
+          cp "./settings.conf" "${_value}/settings.conf"
+        fi
+
+      fi # [[ "${_option}" == "delete" ]]
+
+    fi # [[ ! -f "${_value}" && ! -d "${_value}" ]]
+
   done
 
-  if [[ ! -f "${UCLD_PATH[env]}/settings.conf" ]]; then
-    cp "./settings.conf" "${UCLD_PATH[env]}/settings.conf"
-  fi
 }
 
 _ucld_::startup_check() {
