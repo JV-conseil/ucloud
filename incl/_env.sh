@@ -24,7 +24,8 @@ declare -xi DEBUG
 
 _ucld_::assign_path() {
   local _key _path _main _msg
-  UCLD_PATH=(["main"]="${PWD}" ["work"]="${PWD}")
+  UCLD_PATH["main"]="${PWD}"
+  UCLD_PATH["work"]="${PWD}"
   _msg=0
 
   if [[ -d "${PWD%/*}" && $(_ucld_::is_ucloud_execution) == true ]]; then
@@ -35,13 +36,9 @@ _ucld_::assign_path() {
 
     _path="${UCLD_PATH[work]}/${UCLD_DIR[${_key}]}"
 
-    # if [[
-    #   (${UCLD_PATH["${_key}"]+x} && "${_path}" != "${UCLD_PATH["${_key}"]}") ||
-    #   ! ${UCLD_PATH["${_key}"]+x} ]]; then
-
     if [[ 
-      (-v ${UCLD_PATH["${_key}"]} && "${_path}" != "${UCLD_PATH["${_key}"]}") ||
-      ! -v ${UCLD_PATH["${_key}"]} ]]; then
+      ! ${UCLD_PATH["${_key}"]+_} ||
+      (${UCLD_PATH["${_key}"]+_} && "${_path}" != "${UCLD_PATH["${_key}"]}") ]]; then
 
       if [[ "$_msg" -eq 0 ]]; then
         echo -e "\nAssigning path for active job...\n"
