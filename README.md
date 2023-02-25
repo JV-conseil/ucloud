@@ -20,7 +20,7 @@
 <img alt="https://img.shields.io/badge/stack-overflow-orange.svg" src="https://img.shields.io/badge/stack-overflow-orange.svg">
 -->
 
-> The missing repo to start GitHubbing on UCloud :point_right: `git clone https://github.com/JV-conseil/ucloud.git`
+> The missing repo to start GitHubbing on UCloud
 
 ![social-media-preview](https://user-images.githubusercontent.com/8126807/219748305-e5d5d517-ec5c-4364-8a61-7baefdaf6f63.png)
 
@@ -32,9 +32,9 @@
 
 ## Usage
 
-Authenticate on [UCloud](https://cloud.sdu.dk/app/login).
+:point_right: `git clone https://github.com/JV-conseil/ucloud.git`
 
-Navigate to <kbd>[Apps][UCloud Apps]</kbd> > <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd>.
+Authenticate on <kbd>[UCloud](https://cloud.sdu.dk/app/login)</kbd> and navigate to <kbd>[Apps][UCloud Apps]</kbd> > <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd>.
 
 Configure a <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd> run with <kbd>"Add folder"</kbd> to select one of your folder then click on <kbd>Submit</kbd>.
 
