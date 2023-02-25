@@ -12,7 +12,9 @@ _ucld_::build_skeleton() {
   local _key _option
   _option=${1:-""}
 
-  for _key in "${!UCLD_PATH[@]}"; do
+  echo -e "\nBuilding skeleton...\n"
+
+  for _key in "${!UCLD_DIR[@]}"; do
     value="${UCLD_PATH["${_key}"]}"
     if [ ! -d "${value}" ]; then
       mkdir "${value}"
