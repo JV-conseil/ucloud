@@ -1,2 +1,7 @@
 # Custom
 .DS_Store
+*.log
+data/*
+database/*
+env/*
+install/*

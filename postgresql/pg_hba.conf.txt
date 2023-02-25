@@ -47,9 +47,9 @@
 # or "samenet" to match any address in any subnet that the server is
 # directly connected to.
 #
-# METHOD can be "trust", "reject", "md5", "password", "scram-sha-256",
+# METHOD can be "trust", "reject", "cert", "password", "scram-sha-256",
 # "gss", "sspi", "ident", "peer", "pam", "ldap", "radius" or "cert".
-# Note that "password" sends passwords in clear text; "md5" or
+# Note that "password" sends passwords in clear text; "cert" or
 # "scram-sha-256" are preferred since they send encrypted passwords.
 #
 # OPTIONS are a set of options for the authentication in the format
@@ -86,7 +86,7 @@
 # TYPE      DATABASE        USER            ADDRESS         METHOD
 
 # "local" is for Unix domain socket connections only
-local       all             all                             md5
+local       all             all                             cert
 # IPv4 local connections:
 # host      all             all             127.0.0.1/32    cert
 hostssl     all             all             0.0.0.0/0       cert
@@ -97,10 +97,10 @@ hostssl     all             all             ::1/128         cert
 hostnossl   all             all             ::1/128         reject
 # Allow replication connections from localhost, by a user with the
 # replication privilege.
-local       replication     all                             md5
+local       replication     all                             cert
 # host      replication     all             127.0.0.1/32    cert
 # host      replication     all             ::1/128         cert
 hostssl     replication     all             127.0.0.1/32    cert
 hostssl     replication     all             ::1/128         cert
 
-host all all all md5
+host all all all cert

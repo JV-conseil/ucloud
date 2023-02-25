@@ -29,7 +29,7 @@ _ucld_::pg_create_db() {
 }
 
 _ucld_::dump_env_file() {
-  cat "incl/.shebang.txt" >"${UCLD_PG_PATH[".env"]}"
+  cat "incl/.shebang.txt" >"${UCLD_PATH[".env"]}"
   cat <<<"
 export DEBUG=${DEBUG}
 
@@ -44,7 +44,7 @@ export DBUSER=""${UCLD_DB_PARAM[user]}""
 export SECRET_KEY=""$(_ucld_::key_gen 32)""
 
 export UCLD_ALLOWED_HOSTS=""${UCLD_ALLOWED_HOSTS[*]// /;}""
-  " >>"${UCLD_PG_PATH[".env"]}"
+  " >>"${UCLD_PATH[".env"]}"
 }
 
 _ucld_::pg_list() {
@@ -65,7 +65,7 @@ _ucld_::pg_update_su_password() {
     psql --dbname=postgres --command="${_cmd}"
   done
 
-  cat "incl/.shebang.txt" >"${UCLD_PG_PATH[".pgpass"]}"
-  echo "localhost:5432:${PGUSER}:${PGUSER}:${_su_pass}" >>"${UCLD_PG_PATH[".pgpass"]}"
-  chmod 600 "${UCLD_PG_PATH[".pgpass"]}"
+  cat "incl/.shebang.txt" >"${PGPASSFILE}"
+  echo "localhost:5432:${PGUSER}:${PGUSER}:${_su_pass}" >>"${PGPASSFILE}"
+  chmod 600 "${PGPASSFILE}"
 }

@@ -11,14 +11,14 @@
 _ucld_::generate_ssl_certificate() {
   local _server_key _subject
   _server_key="${UCLD_PATH[database]}/server.key"
-  _subject="localhost"
-  openssl req -new -x509 -days 365 -nodes -text -out "${_server_key/.key/.crt}" -keyout "${_server_key}" -subj "/CN=${_subject}"
+  _subject="/CN=localhost"
+  openssl req -new -x509 -days 365 -nodes -text -out "${_server_key/.key/.crt}" -keyout "${_server_key}" -subj "${_subject}"
   chmod og-rwx "${_server_key}"
 }
 
 _ucld_::generate_ssl_certificate_v1() {
   local _password _server_key _subject
-  _server_key="${UCLD_PG_PATH[database]}/server.key"
+  _server_key="${UCLD_PATH[database]}/server.key"
   _password="$(_ucld_::key_gen)"
   _subject="/C=FR/ST=IDF/L=/O=JV conseil - Internet Consulting/OU=/CN=JV conseil/emailAddress=contact@jv-conseil.net"
 
@@ -32,8 +32,8 @@ _ucld_::generate_ssl_certificate_v1() {
   chown ucloud "${_server_key}"
   openssl req -new -x509 -days 365 -key "${_server_key}" -out "${_server_key/.key/.crt}" -subj "${_subject}" 2>>logfile.log
   cp "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}" 1>/dev/null 2>>logfile.log
-  cat "${_server_key}" >"${UCLD_PG_PATH[env]}/server.cert.pem"
-  cat "${_server_key/.key/.crt}" >>"${UCLD_PG_PATH[env]}/server.cert.pem"
+  cat "${_server_key}" >"${UCLD_PATH[env]}/server.cert.pem"
+  cat "${_server_key/.key/.crt}" >>"${UCLD_PATH[env]}/server.cert.pem"
 }
 
 # <https://www.postgresql.org/docs/current/sql-altersystem.html>
@@ -41,7 +41,7 @@ _ucld_::pg_alter_system() {
   local _psql_commands
   _psql_commands=(
     "ALTER SYSTEM SET ssl = on ;"
-    "ALTER SYSTEM SET ssl_ca_file = 'root.crt' ;"
+    # "ALTER SYSTEM SET ssl_ca_file = 'root.crt' ;"
     "ALTER SYSTEM SET ssl_cert_file = 'server.crt' ;"
     "ALTER SYSTEM SET ssl_crl_file = '' ;"
     "ALTER SYSTEM SET ssl_key_file = 'server.key' ;"
@@ -51,19 +51,15 @@ _ucld_::pg_alter_system() {
 
   for _cmd in "${_psql_commands[@]}"; do
     # echo "${_cmd}"
-    psql --dbname=postgres --command="${_cmd}" 2>>logfile.log
+    psql --dbname=postgres --command="${_cmd}" # 2>>logfile.log
   done
 }
 
 _ucld_::pg_conf_ssl() {
-  if [[ ! -d ${UCLD_PG_PATH[database]} ]]; then
-    _ucld_::exception "${UCLD_PG_PATH[database]} database directory not found... exiting"
+  if [[ ! -d ${UCLD_PATH[database]} ]]; then
+    _ucld_::exception "${UCLD_PATH[database]} database directory not found... exiting"
     return
   fi
-
-  local _server_key _password
-  _server_key="${UCLD_PG_PATH[database]}/server.key"
-  _password="$(_ucld_::key_gen)"
 
   cat <<EOF
 
@@ -76,8 +72,8 @@ EOF
   _ucld_::generate_ssl_certificate
   _ucld_::pg_alter_system
 
-  cp "${UCLD_PG_PATH[database]}/pg_hba.conf" "${UCLD_PG_PATH[database]}/pg_hba.conf.bkp" &>>logfile.log
-  cat postgresql/pg_hba.conf.txt >"${UCLD_PG_PATH[database]}/pg_hba.conf"
+  cp "${UCLD_PATH[database]}/pg_hba.conf" "${UCLD_PATH[database]}/pg_hba.conf.bkp" &>>logfile.log
+  cat postgresql/pg_hba.conf.txt >"${UCLD_PATH[database]}/pg_hba.conf"
   psql --dbname=postgres --command="SELECT pg_reload_conf() ;"
 
   psql --host=localhost --command="\du+ ;"

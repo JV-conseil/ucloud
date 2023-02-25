@@ -12,7 +12,7 @@
 #====================================================
 
 declare -a UCLD_INSTALL_PACKAGES UCLD_ALLOWED_HOSTS
-declare -A UCLD_DB_PARAM UCLD_DIR UCLD_PATH # UCLD_PG_PATH
+declare -A UCLD_DB_PARAM UCLD_DIR UCLD_PATH # UCLD_PATH
 declare -xi DEBUG
 
 # shellcheck disable=SC1091
@@ -42,12 +42,12 @@ _ucld_::assign_path() {
       eval "export UCLD_PATH_TO_${_key^^}=""${_value}"""
     fi
 
-    # UCLD_PG_PATH["${_key}"]="/work/${UCLD_DIR[${_key}]}"
+    # UCLD_PATH["${_key}"]="/work/${UCLD_DIR[${_key}]}"
 
   done
 
   if [[ "${DEBUG}" -gt 1 ]]; then
-    echo -e "\nAssigning path for project...\n"
+    echo -e "\nAssigning path for active job...\n"
     for _key in "${!UCLD_PATH[@]}"; do
       echo "UCLD_PATH[${_key}]=${UCLD_PATH[${_key}]}"
     done
