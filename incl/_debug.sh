@@ -28,14 +28,20 @@ EOF
 
   if [[ "${DEBUG}" -gt 1 ]]; then
 
-    # echo
-    # env
-    # echo
+    if [[ "${DEBUG}" -gt 2 ]]; then
 
-    echo "$(
-      set -o posix
-      set | sort
-    )"
+      echo "$(
+        set -o posix
+        set | sort
+      )"
+
+    else
+
+      echo
+      env
+      echo
+
+    fi
 
     echo
     alias
