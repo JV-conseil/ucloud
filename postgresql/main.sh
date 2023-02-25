@@ -26,13 +26,9 @@ if [[ "$(_ucld_::is_postgresql_running)" == true ]]; then
   echo
   read -r -n 1 -p "Do you want to create a new User & Database? [y/N] "
   if [[ $REPLY =~ ^[Yy]$ ]]; then
-
     _ucld_::pg_create_db
     _ucld_::pg_update_su_password
     _ucld_::dump_env_file
-
-  else
-    _ucld_::pg_list
   fi
 
   echo
@@ -40,8 +36,15 @@ if [[ "$(_ucld_::is_postgresql_running)" == true ]]; then
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     _ucld_::pg_conf_ssl
   else
-    _ucld_::pg_list
+
+    echo
+    read -r -n 1 -p "Do you want to generate a new self-signed certificate for the server? [y/N] "
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      _ucld_::generate_ssl_certificate
+    fi
   fi
+
+  _ucld_::pg_list
 
 else
   _ucld_::exception psql
