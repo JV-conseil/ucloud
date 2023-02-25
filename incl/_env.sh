@@ -35,9 +35,13 @@ _ucld_::assign_path() {
 
     _path="${UCLD_PATH[work]}/${UCLD_DIR[${_key}]}"
 
+    # if [[
+    #   (${UCLD_PATH["${_key}"]+x} && "${_path}" != "${UCLD_PATH["${_key}"]}") ||
+    #   ! ${UCLD_PATH["${_key}"]+x} ]]; then
+
     if [[ 
-      (${UCLD_PATH["${_key}"]+x} && "${_path}" != "${UCLD_PATH["${_key}"]}") ||
-      ! ${UCLD_PATH["${_key}"]+x} ]]; then
+      (-v ${UCLD_PATH["${_key}"]} && "${_path}" != "${UCLD_PATH["${_key}"]}") ||
+      ! -v ${UCLD_PATH["${_key}"]+x} ]]; then
 
       if [[ "$_msg" -eq 0 ]]; then
         echo -e "\nAssigning path for active job...\n"

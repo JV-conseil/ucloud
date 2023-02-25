@@ -15,9 +15,9 @@ _ucld_::debug() {
   cat <<EOF
 
 
-===================
- DEBUG information
-===================
+===============
+ DEBUG LEVEL ${DEBUG}
+===============
 
 EOF
 
