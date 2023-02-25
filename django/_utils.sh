@@ -10,27 +10,12 @@
 
 _ucld_::dj_debug() {
   if [[ "${DEBUG}" -eq 0 ]]; then
-    return
+    return 0
   fi
-  cat <<EOF
 
-
-===================
- DEBUG information
-===================
-
-EOF
-  cat /proc/version &>/dev/null
-  cat /etc/issue &>/dev/null
-  bash --version
-  python --version
+  _ucld_::debug
 
   if [[ "${DEBUG}" -gt 1 ]]; then
-    # print environment variables sorted by name
-    # <https://stackoverflow.com/a/60756021/2477854>
-    echo
-    env -0 | sort -z | tr '\0' '\n'
-    echo
 
     ls -FGlAhp
     echo
@@ -42,12 +27,10 @@ Curl commands to test your server
 ---------------------------------
 
 EOF
-    # TODO
-    # $ curl https://app-githubbing.cloud.sdu.dk app-mission-ocean.cloud.sdu.dk --verbose
-    # python: can't open file '/work/Welcome/manage.py': [Errno 2] No such file or directory
-    # for _host in "${UCLD_ALLOWED_HOSTS[@]}"; do
-    #   echo "# curl https://${_host} --verbose"
-    # done
+
+    for _host in "${UCLD_ALLOWED_HOSTS[@]}"; do
+      echo "# curl https://${_host} --verbose"
+    done
   fi
 
 }
