@@ -10,10 +10,14 @@
 
 _ucld_::generate_ssl_certificate() {
   local _server_key _subject
+
   _server_key="${UCLD_PATH[database]}/server.key"
   _subject="/CN=localhost"
+
   openssl req -new -x509 -days 365 -nodes -text -out "${_server_key/.key/.crt}" -keyout "${_server_key}" -subj "${_subject}"
   chmod og-rwx "${_server_key}"
+
+  cp "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}"
 }
 
 _ucld_::generate_ssl_certificate_v1() {
@@ -42,7 +46,7 @@ _ucld_::pg_alter_system() {
 
   _psql_commands=(
     "ALTER SYSTEM SET ssl = on ;"
-    # "ALTER SYSTEM SET ssl_ca_file = 'root.crt' ;"
+    "ALTER SYSTEM SET ssl_ca_file = 'root.crt' ;"
     "ALTER SYSTEM SET ssl_cert_file = 'server.crt' ;"
     "ALTER SYSTEM SET ssl_crl_file = '' ;"
     "ALTER SYSTEM SET ssl_key_file = 'server.key' ;"
