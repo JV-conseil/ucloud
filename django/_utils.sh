@@ -22,9 +22,12 @@ Curl commands to test your server
 ---------------------------------
 
 EOF
-    for _host in "${UCLD_ALLOWED_HOSTS[@]}"; do
-      echo "$ curl https://${_host} --verbose"
-    done
+    # TODO
+    # $ curl https://app-githubbing.cloud.sdu.dk app-mission-ocean.cloud.sdu.dk --verbose
+    # python: can't open file '/work/Welcome/manage.py': [Errno 2] No such file or directory
+    # for _host in "${UCLD_ALLOWED_HOSTS[@]}"; do
+    #   echo "# curl https://${_host} --verbose"
+    # done
   fi
 
 }
@@ -32,6 +35,7 @@ EOF
 _ucld_::dj_collectstatic() {
   if [[ "${DEBUG}" -gt 0 ]]; then
     _ucld_::dj_debug
+  else
     python manage.py collectstatic --no-input
   fi
 }
