@@ -8,6 +8,9 @@
 #                 All rights reserved
 #====================================================
 
+# export CLICOLOR=1
+# export LSCOLORS=ExFxBxDxCxegedabagacad
+
 # print environment variables sorted by name
 # <https://stackoverflow.com/a/60756021/2477854>
 alias env="env -0 | sort -z | tr '\0' '\n'"

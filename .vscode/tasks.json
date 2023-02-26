@@ -7,6 +7,9 @@
       "label": "App",
       "type": "shell",
       "isBackground": false,
+      "presentation": {
+        "focus": true,
+      },
       "osx": {
         "command": ". app/main.sh"
       },

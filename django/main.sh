@@ -18,38 +18,40 @@
 
 cat "django/README.txt"
 
-cat <<EOF
+if [[ ${UCLD_PATH[django]+_} ]]; then
 
+  _dj_repo="${UCLD_PATH[django]}"
 
-Please select a valid Django repository...
+else
 
-EOF
+  _ucld_::h2 "Please select a valid Django repository"
 
-select _dj_repo in $(dirname "${UCLD_PATH[work]}"/*/manage.py); do
-  test -n "${_dj_repo}" && break
-  echo ">>> Invalid Selection"
-done
+  select _dj_repo in $(dirname "${UCLD_PATH[work]}"/*/manage.py); do
+    test -n "${_dj_repo}" && break
+    # echo ">>> Invalid Selection"
+    _ucld_::alert ">>> Invalid Selection"
+  done
 
-if [[ -d "${_dj_repo}" ]]; then
+fi
+
+if [[ -f "${_dj_repo}/manage.py" ]]; then
 
   cd_ "$_dj_repo"
+
+  if [[ ! ${UCLD_PATH[django]+_} ]]; then
+    _ucld_::update_settings "UCLD_DIR[django]=$_dj_repo"
+  fi
 
   _ucld_::dj_collectstatic
   _ucld_::dj_install_dependencies
 
-  echo
-  read -r -N 1 -p "Do you have connected a running PostgreSQL server? [y/N] "
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
+  if "$(python manage.py check --database default)"; then
 
-    echo
-    read -r -N 1 -p "Do you want to run migrations? [y/N] "
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
+    if "$(_ucld_::ask_2 "Do you want to run migrations")"; then
       _ucld_::dj_running_migrations
     fi
 
-    echo
-    read -r -N 1 -p "Do you want to create a superuser? [y/N] "
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
+    if "$(_ucld_::ask_2 "Do you want to create a superuser")"; then
       _ucld_::dj_create_superuser
     fi
 
@@ -60,4 +62,7 @@ if [[ -d "${_dj_repo}" ]]; then
   fi
 
   _ucld_::back_to_script_dir_
+
+else
+  _ucld_::exception "No manage.py file found in ${_dj_repo} directory\nAre you sure it is a valid Django 🐍 app?"
 fi

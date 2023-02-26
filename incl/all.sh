@@ -12,11 +12,13 @@
 {
   . "incl/_log.sh"
   . "incl/_aliases.sh"
+  . "incl/_colors.sh"
   . "incl/_utils.sh"
   . "incl/_env.sh"
   . "incl/_pg_globals.sh"
   . "incl/_exceptions.sh"
   . "incl/_skeleton.sh"
+  . "incl/_settings.sh"
   . "incl/_debug.sh"
   . "incl/_install.sh"
   # more files

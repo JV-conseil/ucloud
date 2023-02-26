@@ -13,48 +13,38 @@
 
 cat "app/README.txt"
 
-cat <<EOF
+if [[ ${UCLD_PATH[app]+_} ]]; then
 
-Please select a repo with a Python app...
+  _app_repo="${UCLD_PATH[app]}"
 
-EOF
+else
 
-select _app_repo in $(dirname "${UCLD_PATH[work]}"/*/main.py); do
-  test -n "${_app_repo}" && break
-  echo ">>> Invalid Selection"
-done
+  _ucld_::h2 "Please select a repo with a Python app"
+
+  select _app_repo in $(dirname "${UCLD_PATH[work]}"/*/main.py); do
+    test -n "${_app_repo}" && break
+    _ucld_::alert ">>> Invalid Selection"
+  done
+
+fi
 
 if [[ -f "${_app_repo}/main.py" ]]; then
 
-  cat <<EOF
+  if [[ ! ${UCLD_PATH[app]+_} ]]; then
+    _ucld_::update_settings "UCLD_DIR[app]=${_app_repo}"
+    pass
+  fi
 
-
-Installing dependencies...
-
-EOF
-
+  _ucld_::h2 "Installing dependencies"
   pip install -r "${_app_repo}/requirements.txt"
 
-  cat <<EOF
-
-
-Running the app...
-
-EOF
-
+  _ucld_::h2 "Running the app"
   python3 "${_app_repo}/main.py"
 
-  cat <<EOF
-
-
-Displaying the output folder...
-
-EOF
-
+  _ucld_::h2 "Displaying the output folder"
   ls "${UCLD_PATH[data]}/output"
 
 else
-  # echo "Error: main.py not found in ${_app_repo}... exiting" >&2
-  _ucld_::exception "main.py not found in ${_app_repo}... exiting"
+  _ucld_::exception "No main.py file found in ${_app_repo} directory\nAre you sure it is a valid Python 🐍 app?"
 
 fi

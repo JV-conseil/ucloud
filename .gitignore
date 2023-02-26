@@ -1,6 +1,10 @@
-# Custom
+# Apple
 .DS_Store
-*.log
+
+#
+logfile.log
+
+# skeleton UCLD_DIR & UCLD_PATH
 data/*
 database/*
 env/*

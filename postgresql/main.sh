@@ -24,29 +24,37 @@ _ucld_::startup_check
 
 if [[ "$(_ucld_::is_postgresql_running)" == true ]]; then
 
-  echo
-  read -r -n 1 -p "Do you want to create a new User & Database? [y/N] "
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
+  # echo
+  # read -r -n 1 -p "Do you want to create a new User & Database? [y/N] "
+  # if [[ $REPLY =~ ^[Yy]$ ]]; then
+
+  if "$(_ucld_::ask_2 "Do you want to create a new User & Database")"; then
     _ucld_::pg_create_db
     _ucld_::pg_update_su_password
     _ucld_::dump_env_file
   fi
 
-  echo
-  read -r -n 1 -p "Do you want to configure SSL on PostgreSQL? [y/N] "
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
+  # echo
+  # read -r -n 1 -p "Do you want to configure SSL on PostgreSQL? [y/N] "
+  # if [[ $REPLY =~ ^[Yy]$ ]]; then
+
+  if "$(_ucld_::ask_2 "Do you want to configure SSL on PostgreSQL")"; then
     _ucld_::pg_conf_ssl
   else
 
-    echo
-    read -r -n 1 -p "Do you want to generate a new self-signed certificate for the server? [y/N] "
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
+    # echo
+    # read -r -n 1 -p "Do you want to generate a new self-signed certificate for the server? [y/N] "
+    # if [[ $REPLY =~ ^[Yy]$ ]]; then
+
+    if "$(_ucld_::ask_2 "Do you want to generate a new self-signed certificate for the server")"; then
       _ucld_::generate_ssl_certificate
     fi
 
-    echo
-    read -r -n 1 -p "Do you want to update the server parameters? [y/N] "
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
+    # echo
+    # read -r -n 1 -p "Do you want to update the server parameters? [y/N] "
+    # if [[ $REPLY =~ ^[Yy]$ ]]; then
+
+    if "$(_ucld_::ask_2 "Do you want to update the server parameters")"; then
       _ucld_::pg_alter_system
       _ucld_::pg_hba_udpate
       psql --host=localhost --command="\du+ ;"

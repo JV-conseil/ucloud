@@ -52,17 +52,18 @@ _ucld_::pg_hba_udpate() {
 
 _ucld_::pg_conf_ssl() {
   if [[ ! -d ${UCLD_PATH[database]} ]]; then
-    _ucld_::exception "${UCLD_PATH[database]} database directory not found... exiting"
+    _ucld_::exception "${UCLD_PATH[database]} database directory not found"
     return
   fi
 
-  cat <<EOF
+  #   cat <<EOF
 
+  # Configure SSL on PostgreSQL
+  # ---------------------------
 
-Configure SSL on PostgreSQL
----------------------------
+  # EOF
 
-EOF
+  _ucld_::h2 "Configure SSL on PostgreSQL"
 
   _ucld_::generate_ssl_certificate
   _ucld_::pg_alter_system

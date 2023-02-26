@@ -21,13 +21,14 @@ _ucld_::dj_debug() {
     ls -FGlAhp
     echo
 
-    cat <<EOF
+    # cat <<EOF
 
+    # Curl commands to test your server
+    # ---------------------------------
 
-Curl commands to test your server
----------------------------------
+    # EOF
 
-EOF
+    _ucld_::h2 "Curl commands to test your server"
 
     IFS=' ' read -ra _array <<<"${UCLD_ALLOWED_HOSTS}"
     for _host in "${_array[@]}"; do
@@ -46,27 +47,31 @@ _ucld_::dj_collectstatic() {
 }
 
 _ucld_::dj_install_dependencies() {
-  cat <<EOF
+  #   cat <<EOF
 
+  # =========================
+  #  Installing dependencies
+  # =========================
 
-=========================
- Installing dependencies
-=========================
+  # EOF
 
-EOF
+  _ucld_::h2 "Installing dependencies"
+
   python3 -m pip install --upgrade pip
   pip3 install -r requirements.txt
 }
 
 _ucld_::dj_create_superuser() {
-  cat <<EOF
+  #   cat <<EOF
 
+  # ======================
+  #  Creating a superuser
+  # ======================
 
-======================
- Creating a superuser
-======================
+  # EOF
 
-EOF
+  _ucld_::h2 "Creating a superuser"
+
   local _username="ucloud"
   local _password
   _password=$(_ucld_::key_gen 32)
@@ -78,14 +83,16 @@ EOF
 }
 
 _ucld_::dj_running_migrations() {
-  cat <<EOF
+  #   cat <<EOF
 
+  # ====================
+  #  Running migrations
+  # ====================
 
-====================
- Running migrations
-====================
+  # EOF
 
-EOF
+  _ucld_::h2 "Running migrations"
+
   python manage.py makemigrations
   python manage.py migrate
 }

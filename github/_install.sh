@@ -13,10 +13,9 @@ _ucld_::gh_cli_install() {
   gh_cli_version=$(curl --silent "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-)
   gh_cli_targz="gh_${gh_cli_version}_linux_amd64.tar.gz"
 
+  _ucld_::h2 "Installing GitHub CLI v$gh_cli_version"
+
   cat <<EOF
-
-
-Installing GitHub CLI v$gh_cli_version...
 
 GitHub CLI, or gh, is a command-line interface to GitHub for use in your terminal or your scripts.
 https://cli.github.com/manual/
@@ -36,11 +35,13 @@ EOF
 
   fi
 
-  cat <<EOF
+  _ucld_::h2 "You are now running $(gh version)"
 
-You are now running $(gh version)
+  #   cat <<EOF
 
-EOF
+  # You are now running $(gh version)
+
+  # EOF
 }
 
 alias gh_cli_install="_ucld_::gh_cli_install"

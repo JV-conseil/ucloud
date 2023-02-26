@@ -21,16 +21,16 @@ _ucld_::install_packages() {
     return
   fi
 
-  cat <<EOF
+  #   cat <<EOF
 
+  # Installing packages for Linux with apt
+  # --------------------------------------
 
-Installing packages for Linux with apt
---------------------------------------
+  # Updating Apt...
 
+  # EOF
 
-Updating Apt...
-
-EOF
+  _ucld_::h2 "Installing packages for Linux with apt\n\nUpdating Apt"
 
   # NOTE: The PPA does not support Ubuntu 22.10.
   # You may follow the bottom link to build it from source tarball.
@@ -40,12 +40,13 @@ EOF
 
   for _bin in "${UCLD_INSTALL_PACKAGES[@]}"; do
 
-    cat <<EOF
+    #     cat <<EOF
 
+    # Installing ${_bin}...
 
-Installing ${_bin}...
+    # EOF
 
-EOF
+    _ucld_::h2 "Installing ${_bin}"
 
     sudo apt install -y "$_bin"
 
@@ -57,11 +58,13 @@ EOF
       pip install --upgrade pip
     fi
 
-    cat <<EOF
+    #     cat <<EOF
 
-You are now running $(${_bin%.*} --version 2>>logfile.log)
+    # You are now running $(${_bin%.*} --version 2>>logfile.log)
 
-EOF
+    # EOF
+
+    _ucld_::h2 "You are now running $(${_bin%.*} --version 2>>logfile.log)"
   done
 
 }
