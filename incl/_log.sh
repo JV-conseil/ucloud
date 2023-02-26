@@ -11,6 +11,8 @@
 _ucld_::logfile() {
   local _logfile=./logfile.log
 
+  # TODO
+
   # add timestamp & log stdout and stderr
   # exec > >(while read -r _line; do printf "%s %s\n" "$(date "+%Y-%m-%d %H:%M:%S")" "${_line}" | tee -a ${_logfile}; done)
   # exec 2> >(while read -r _line; do printf "%s %s\n" "$(date "+%Y-%m-%d %H:%M:%S")" "${_line}" | tee -a "${_logfile}"; done >&2)

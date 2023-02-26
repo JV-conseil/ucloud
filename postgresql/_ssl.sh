@@ -62,7 +62,7 @@ _ucld_::pg_hba_udpate() {
 
   esac
 
-  cp "${UCLD_PATH[database]}/pg_hba.conf" "${UCLD_PATH[database]}/pg_hba.conf.bkp" # &>>logfile.log
+  cp -v "${UCLD_PATH[database]}/pg_hba.conf" "${UCLD_PATH[database]}/pg_hba.conf.bkp" # &>>logfile.log
   cat "${_template}" >"${UCLD_PATH[database]}/pg_hba.conf"
 
 }
@@ -76,15 +76,6 @@ _ucld_::pg_conf_ssl() {
     _ucld_::exception "${UCLD_PATH[database]} database directory not found"
     return
   fi
-
-  #   cat <<EOF
-
-  # Configure SSL on PostgreSQL
-  # ---------------------------
-
-  # EOF
-
-  _ucld_::h2 "Configure SSL on PostgreSQL"
 
   _ucld_::generate_ssl_certificate
   _ucld_::pg_alter_system
@@ -106,11 +97,13 @@ _ucld_::generate_ssl_certificate_v1() {
   # _server_key="server.key"
 
   # create an ssl certificate key
-  openssl genrsa -aes128 -passout pass:"${_password}" -out "${_server_key}" 2048 1>/dev/null 2>>logfile.log
-  openssl rsa -in "${_server_key}" -passin pass:"${_password}" -out "${_server_key}" 1>/dev/null 2>>logfile.log
-  chown ucloud "${_server_key}"
-  openssl req -new -x509 -days 365 -key "${_server_key}" -out "${_server_key/.key/.crt}" -subj "${_subject}" 2>>logfile.log
-  cp "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}" 1>/dev/null 2>>logfile.log
-  cat "${_server_key}" >"${UCLD_PATH[env]}/server.cert.pem"
-  cat "${_server_key/.key/.crt}" >>"${UCLD_PATH[env]}/server.cert.pem"
+  {
+    openssl genrsa -aes128 -passout pass:"${_password}" -out "${_server_key}" 2048
+    openssl rsa -in "${_server_key}" -passin pass:"${_password}" -out "${_server_key}"
+    chown ucloud "${_server_key}"
+    openssl req -new -x509 -days 365 -key "${_server_key}" -out "${_server_key/.key/.crt}" -subj "${_subject}"
+    cp "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}"
+    cat "${_server_key}" >"${UCLD_PATH[env]}/server.cert.pem"
+    cat "${_server_key/.key/.crt}" >>"${UCLD_PATH[env]}/server.cert.pem"
+  } 1>/dev/null 2>>logfile.log
 }

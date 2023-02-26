@@ -43,6 +43,7 @@ _ucld_::update_bashrc() {
   if grep -q "cd_() " "${HOME}/.profile" &>>logfile.log; then
     return
   fi
+
   for _file in ".profile" ".bashrc"; do
     cat <<<"
 

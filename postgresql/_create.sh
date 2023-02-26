@@ -70,6 +70,7 @@ _ucld_::pg_update_su_password() {
   done
 
   cat "incl/.shebang.txt" >"${PGPASSFILE}"
-  echo "localhost:5432:${PGUSER}:${PGUSER}:${_su_pass}" >>"${PGPASSFILE}"
+  # echo "localhost:5432:${PGUSER}:${PGUSER}:${_su_pass}" >>"${PGPASSFILE}"
+  echo "localhost:5432:*:${PGUSER}:${_su_pass}" >>"${PGPASSFILE}"
   chmod 600 "${PGPASSFILE}"
 }

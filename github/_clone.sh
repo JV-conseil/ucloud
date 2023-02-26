@@ -32,7 +32,7 @@ _ucld_::gh_clone() {
     else
 
       cd_ "${UCLD_PATH[work]}"
-      gh repo clone "${_gh_repo}" &>>"${UCLD_PATH[main]}/logfile.log"
+      gh repo clone "${_gh_repo}" # &>>"${UCLD_PATH[main]}/logfile.log"
       _ucld_::back_to_script_dir_
       ls "${UCLD_PATH[work]}"
 

@@ -10,6 +10,7 @@
 
 _ucld_::reset_settings() {
   rm -v "${UCLD_PATH[env]}/settings.conf"
+  cp "./settings.conf" "${UCLD_PATH[env]}/settings.conf"
   _ucld_::assign_path
 }
 

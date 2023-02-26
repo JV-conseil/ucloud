@@ -40,12 +40,6 @@ _ucld_::install_packages() {
 
   for _bin in "${UCLD_INSTALL_PACKAGES[@]}"; do
 
-    #     cat <<EOF
-
-    # Installing ${_bin}...
-
-    # EOF
-
     _ucld_::h2 "Installing ${_bin}"
 
     sudo apt install -y "$_bin"
@@ -57,12 +51,6 @@ _ucld_::install_packages() {
 
       pip install --upgrade pip
     fi
-
-    #     cat <<EOF
-
-    # You are now running $(${_bin%.*} --version 2>>logfile.log)
-
-    # EOF
 
     _ucld_::h2 "You are now running $(${_bin%.*} --version 2>>logfile.log)"
   done
