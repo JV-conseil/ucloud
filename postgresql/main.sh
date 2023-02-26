@@ -11,6 +11,7 @@
 # shellcheck disable=SC1091
 {
   . "incl/all.sh"
+  . "postgresql/_utils.sh"
   . "postgresql/_create.sh"
   . "postgresql/_ssl.sh"
   # more files

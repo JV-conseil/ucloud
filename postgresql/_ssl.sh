@@ -56,21 +56,21 @@ _ucld_::pg_hba_udpate() {
     ;;
 
   *)
-    _ucld_::exception "${PGSSLMODE} does not require to change pg_hba.conf"
-    return
+    _template="postgresql/pg_hba.conf.bkp"
     ;;
 
   esac
 
-  cp -v "${UCLD_PATH[database]}/pg_hba.conf" "${UCLD_PATH[database]}/pg_hba.conf.bkp" # &>>logfile.log
+  if [[ ! -f "${UCLD_PATH[database]}/pg_hba.conf.bkp" ]]; then
+    cp -v "${UCLD_PATH[database]}/pg_hba.conf" "${UCLD_PATH[database]}/pg_hba.conf.bkp" # &>>logfile.log
+  fi
+
   cat "${_template}" >"${UCLD_PATH[database]}/pg_hba.conf"
 
 }
 
 _ucld_::pg_reload_conf() {
   psql --dbname=postgres --command="SELECT pg_reload_conf() ;"
-  psql --dbname=postgres --command="\du+ ;"
-  psql --host=localhost
 }
 
 _ucld_::pg_conf_ssl() {

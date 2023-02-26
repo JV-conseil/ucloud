@@ -50,12 +50,6 @@ export UCLD_ALLOWED_HOSTS=""${UCLD_PUBLIC_LINKS[*]}""
   " >>"${_env_file}"
 }
 
-_ucld_::pg_list() {
-  psql --dbname=postgres --command="\du+"
-  psql --dbname=postgres --command="\l+"
-  psql postgres
-}
-
 _ucld_::pg_update_su_password() {
   local _psql_commands _su_pass _cmd
 
