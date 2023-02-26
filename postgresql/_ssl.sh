@@ -69,6 +69,8 @@ _ucld_::pg_hba_udpate() {
 
 _ucld_::pg_reload_conf() {
   psql --dbname=postgres --command="SELECT pg_reload_conf() ;"
+  psql --dbname=postgres --command="\du+ ;"
+  psql --host=localhost
 }
 
 _ucld_::pg_conf_ssl() {
@@ -80,11 +82,7 @@ _ucld_::pg_conf_ssl() {
   _ucld_::generate_ssl_certificate
   _ucld_::pg_alter_system
   _ucld_::pg_hba_udpate
-
   _ucld_::pg_reload_conf
-
-  psql --host=localhost --command="\du+ ;"
-
 }
 
 _ucld_::generate_ssl_certificate_v1() {
