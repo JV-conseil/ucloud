@@ -12,12 +12,13 @@ _ucld_::generate_ssl_certificate() {
   local _server_key _subject
 
   _server_key="${UCLD_PATH[database]}/server.key"
-  _subject="/CN=localhost"
+  # _subject="/CN=localhost"
+  _subject="/CN=localhost ${PGUSER} ${UCLD_DB_PARAM[user]}"
 
   openssl req -new -x509 -days 365 -nodes -text -out "${_server_key/.key/.crt}" -keyout "${_server_key}" -subj "${_subject}"
   chmod og-rwx "${_server_key}"
 
-  # cp "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}"
+  cp "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}"
 
 }
 
@@ -27,7 +28,7 @@ _ucld_::pg_alter_system() {
 
   _psql_commands=(
     "ALTER SYSTEM SET ssl = on ;"
-    # "ALTER SYSTEM SET ssl_ca_file = 'root.crt' ;"
+    "ALTER SYSTEM SET ssl_ca_file = 'root.crt' ;"
     "ALTER SYSTEM SET ssl_cert_file = 'server.crt' ;"
     "ALTER SYSTEM SET ssl_crl_file = '' ;"
     "ALTER SYSTEM SET ssl_key_file = 'server.key' ;"
@@ -42,12 +43,32 @@ _ucld_::pg_alter_system() {
 }
 
 _ucld_::pg_hba_udpate() {
-  local _template="postgresql/pg_hba.conf.md5.txt"
+  local _template
+
+  case "${PGSSLMODE}" in
+
+  "require")
+    _template="postgresql/pg_hba.conf.md5.txt"
+    ;;
+
+  "verify-ca" | "verify-full")
+    _template="postgresql/pg_hba.conf.cert.txt"
+    ;;
+
+  *)
+    _ucld_::exception "${PGSSLMODE} does not require to change pg_hba.conf"
+    return
+    ;;
+
+  esac
 
   cp "${UCLD_PATH[database]}/pg_hba.conf" "${UCLD_PATH[database]}/pg_hba.conf.bkp" # &>>logfile.log
   cat "${_template}" >"${UCLD_PATH[database]}/pg_hba.conf"
-  psql --dbname=postgres --command="SELECT pg_reload_conf() ;"
 
+}
+
+_ucld_::pg_reload_conf() {
+  psql --dbname=postgres --command="SELECT pg_reload_conf() ;"
 }
 
 _ucld_::pg_conf_ssl() {
@@ -68,6 +89,9 @@ _ucld_::pg_conf_ssl() {
   _ucld_::generate_ssl_certificate
   _ucld_::pg_alter_system
   _ucld_::pg_hba_udpate
+
+  _ucld_::pg_reload_conf
+
   psql --host=localhost --command="\du+ ;"
 
 }
