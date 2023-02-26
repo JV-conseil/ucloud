@@ -15,11 +15,11 @@ _ucld_::install_packages() {
     return
   fi
 
-  if "! $(_ucld_::ask "Do you want to install packages for Linux with apt")"; then
+  if [ "$(_ucld_::ask "Do you want to install packages for Linux with apt")" == false ]; then
     return
   fi
 
-  _ucld_::h2 "Installing packages for Linux with apt\n\nUpdating Apt"
+  _ucld_::h2 "Updating Apt"
 
   # NOTE: The PPA does not support Ubuntu 22.10.
   # You may follow the bottom link to build it from source tarball.
@@ -41,7 +41,7 @@ _ucld_::install_packages() {
       pip install --upgrade pip
     fi
 
-    _ucld_::h2 "You are now running $(${_bin%.*} --version 2>>logfile.log)"
+    _ucld_::h3 "You are now running $(${_bin%.*} --version 2>>logfile.log)"
   done
 
 }
