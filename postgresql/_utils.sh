@@ -14,5 +14,5 @@
 _ucld_::pg_list() {
   psql --dbname=postgres --command="\du+"
   psql --dbname=postgres --command="\l+"
-  psql --dbname=postgres --hostname=localhost
+  psql --dbname=postgres --host=localhost
 }
