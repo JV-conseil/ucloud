@@ -11,24 +11,13 @@
 _ucld_::install_packages() {
   local _bin
 
-  if [ -x "$(command -v apt)" ]; then
+  if [ ! -x "$(command -v apt)" ]; then
     return
   fi
 
-  echo
-  read -r -n 1 -p "Do you want to install packages for Linux with apt? [y/N] "
-  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+  if "! $(_ucld_::ask "Do you want to install packages for Linux with apt")"; then
     return
   fi
-
-  #   cat <<EOF
-
-  # Installing packages for Linux with apt
-  # --------------------------------------
-
-  # Updating Apt...
-
-  # EOF
 
   _ucld_::h2 "Installing packages for Linux with apt\n\nUpdating Apt"
 

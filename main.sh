@@ -19,9 +19,10 @@ _ucld_::debug
 cat "README.txt"
 
 _ucld_::startup_check
-_ucld_::install_packages
 
 echo
+_ucld_::install_packages
+
 if "$(_ucld_::ask "Do you want to manage GitHub")"; then
   . github/main.sh
 fi
