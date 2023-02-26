@@ -13,7 +13,7 @@ _ucld_::generate_ssl_certificate() {
 
   _server_key="${UCLD_PATH[database]}/server.key"
   # _subject="/CN=localhost"
-  _subject="/CN=localhost ${PGUSER} ${UCLD_DB_PARAM[user]}"
+  _subject="/CN=${PGUSER}"
 
   openssl req -new -x509 -days 365 -nodes -text -out "${_server_key/.key/.crt}" -keyout "${_server_key}" -subj "${_subject}"
   chmod og-rwx "${_server_key}"
