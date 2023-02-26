@@ -10,7 +10,9 @@
 
 _ucld_::reset_settings() {
   rm -v "${UCLD_PATH[env]}/settings.conf"
-  cp "./settings.conf" "${UCLD_PATH[env]}/settings.conf"
+  cp -v "./settings.conf" "${UCLD_PATH[env]}/settings.conf"
+  # shellcheck disable=SC1091
+  . "${UCLD_PATH[env]}/settings.conf"
   _ucld_::assign_path
 }
 
