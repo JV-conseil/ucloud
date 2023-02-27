@@ -33,7 +33,7 @@ _ucld_::reset_settings() {
   cp -v "./settings.conf" "${UCLD_PATH[env]}/settings.conf"
   _ucld_::source_settings
   for _key in "${UCLD_SETTINGS_PATH[@]}"; do
-    unset "${UCLD_SETTINGS_PATH["${_key}"]}" 2>logfile
+    unset "${UCLD_PATH["${_key}"]}" 2>logfile
   done
 }
 
