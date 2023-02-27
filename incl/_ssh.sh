@@ -30,12 +30,12 @@ _ucld_::update_ssh_config() {
 
   for _path in "${UCLOUD_SSH_PATH[@]}"; do
     _config="${_path}/config"
+    touch "${_config}"
 
     if grep -q "${UCLOUD_SSH_KEY[key]}" "${_config}" 2>>logfile.log; then
       return
     fi
 
-    touch "${_config}"
     cat <<<"Host ""${HOSTNAME}""
   Hostname ""${HOSTNAME}""
   User ""${USER}""
