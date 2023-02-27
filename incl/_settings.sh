@@ -30,11 +30,11 @@ _ucld_::source_settings() {
 _ucld_::reset_settings() {
   local _path
   rm -v "${UCLD_PATH[env]}/settings.conf"
+  for _key in "${UCLD_SETTINGS_PATH[@]}"; do
+    unset "${UCLD_PATH["${_key}"]}"
+  done
   cp -v "./settings.conf" "${UCLD_PATH[env]}/settings.conf"
   _ucld_::source_settings
-  for _key in "${UCLD_SETTINGS_PATH[@]}"; do
-    unset "${UCLD_PATH["${_key}"]}" 2>logfile
-  done
 }
 
 _ucld_::update_settings() {
