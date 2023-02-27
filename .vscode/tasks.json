@@ -78,5 +78,18 @@
       "detail": "The missing command lines to PostgreSQL on UCloud",
       "problemMatcher": [],
     },
+    {
+      "label": "Utilities",
+      "type": "shell",
+      "isBackground": false,
+      "osx": {
+        "command": ". utilities/main.sh"
+      },
+      "linux": {
+        "command": ". utilities/main.sh"
+      },
+      "detail": "Utility Command Lines",
+      "problemMatcher": [],
+    },
   ]
 }

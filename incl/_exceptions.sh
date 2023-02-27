@@ -17,7 +17,7 @@ _ucld_::exception() {
   postgresql)
     _error="a connected job with a running PostgreSQL server was not found. \n\n\
 You should quit this run and start a new one with a running PostgreSQL server \n\
-connected job identified by the hostname: ${UCLD_DB_PARAM[host]} \n"
+connected job identified by the hostname: ${UCLD_DB_PARAM[host]}"
     ;;
 
   esac

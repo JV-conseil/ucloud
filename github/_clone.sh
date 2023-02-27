@@ -26,7 +26,7 @@ _ucld_::gh_clone() {
     _ucld_::h2 "Cloning ${_gh_repo} into ${UCLD_PATH[work]}"
 
     if [[ -d "${UCLD_PATH[work]}/${_gh_repo#*/}" ]]; then
-      _ucld_::h2 "${_gh_repo#*/} is already cloned" "magenta"
+      _ucld_::alert "${_gh_repo#*/} is already cloned"
       ls "${UCLD_PATH[work]}/${_gh_repo#*/}"
 
     else

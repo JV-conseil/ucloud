@@ -16,33 +16,35 @@
 #====================================================
 
 declare -A UCLOUD_SSH_KEY
+declare -a UCLOUD_SSH_PATH
 
 UCLOUD_SSH_KEY=(
   [key]="id_ed25519_ucloud"
-  [path]="${HOME}/.ssh"
-  [path_env]="${UCLD_PATH[env]}/.ssh"
+  [password]="$(_ucld_::key_gen 32)"
 )
 
+UCLOUD_SSH_PATH=("${HOME}/.ssh" "${UCLD_PATH[env]}/.ssh")
+
 _ucld_::update_ssh_config() {
-  local _config _config_home
+  local _config _path
 
-  _config="${UCLOUD_SSH_KEY[path_env]}/config"
-  _config_home="${UCLOUD_SSH_KEY[path]}/config"
+  for _path in "${UCLOUD_SSH_PATH[@]}"; do
+    _config="${_path}/config"
 
-  touch "${_config}"
+    if grep -q "${UCLOUD_SSH_KEY[key]}" "${_config}"; then
+      return
+    fi
 
-  cat <<<"
-# ucloud
-Host ""${HOSTNAME}""
+    touch "${_config}"
+    cat <<<"Host ""${HOSTNAME}""
   Hostname ""${HOSTNAME}""
   User ""${USER}""
-" >>"${_config}"
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ""${UCLOUD_SSH_PATH[0]}/${UCLOUD_SSH_KEY[key]}""" >>"${_config}"
 
-  if [[ $(_ucld_::is_ucloud_execution) == true ]]; then
-    cat "${_config}" >>"${_config_home}"
-    # shellcheck disable=SC1090
-    . "${_config_home}"
-  fi
+  done
+
 }
 
 _ucld_::update_ssh_agent() {
@@ -51,9 +53,9 @@ _ucld_::update_ssh_agent() {
   eval "$(ssh-agent -s)"
 
   if [[ $(_ucld_::is_ucloud_execution) == true ]]; then
-    ssh-add "${UCLOUD_SSH_KEY[path]}/${UCLOUD_SSH_KEY[key]}" -t "${_lifetime}"
+    ssh-add "${UCLOUD_SSH_PATH[0]}/${UCLOUD_SSH_KEY[key]}" -t "${_lifetime}"
   else
-    ssh-add --apple-use-keychain "${UCLOUD_SSH_KEY[path]}/${UCLOUD_SSH_KEY[key]}" -t "${_lifetime}"
+    ssh-add --apple-use-keychain "${UCLOUD_SSH_PATH[0]}/${UCLOUD_SSH_KEY[key]}" -t "${_lifetime}"
   fi
 
   _ucld_::h2 "${UCLOUD_SSH_KEY[key]} successfully added to the ssh agent"
@@ -70,40 +72,39 @@ Title:
 ucloud
 
 Public key:
-$(cat "${UCLOUD_SSH_KEY[path_env]}/${UCLOUD_SSH_KEY[key]}.pub")
+$(cat "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY[key]}.pub")
 
 EOF
 }
 
+_ucld_::update_passfile() {
+  local _path
+  for _path in "${UCLOUD_SSH_PATH[@]}"; do
+    echo "${UCLOUD_SSH_KEY[key]}:${UCLOUD_SSH_KEY[password]}" >>"${_path}/passfile"
+  done
+}
+
 _ucld_::generate_ssh_key() {
-  local _password _passfile
 
-  # _key="id_ed25519_ucloud"
-  # _path="${UCLD_PATH[env]}/.ssh"
-  _password="$(_ucld_::key_gen 32)"
-  _passfile="${UCLOUD_SSH_KEY[path_env]}/.passfile"
+  mkdir "${UCLOUD_SSH_PATH[1]}"
 
-  mkdir "${UCLOUD_SSH_KEY[path_env]}"
+  if ssh-keygen -t ed25519 -N "${UCLOUD_SSH_KEY[password]}" -C "${USER}@${HOSTNAME}" -f "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY[key]}"; then
 
-  if ssh-keygen -t ed25519 -N "${_password}" -C "${USER}@${HOSTNAME}" -f "${UCLOUD_SSH_KEY[path_env]}/${UCLOUD_SSH_KEY[key]}"; then
+    cp -v "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY[key]}"* "${UCLOUD_SSH_PATH[0]}"
 
     cat <<EOF
 
 Keep the passphrase used to generate the key:
-${_password}
+${UCLOUD_SSH_KEY[password]}
 
 It has been saved also under:
-${_passfile}
+${UCLOUD_SSH_PATH[1]}/passfile
 
 Enter this passphrase below 👇
 
 EOF
 
-    echo "${UCLOUD_SSH_KEY[key]}:${_password}" >>"${_passfile}"
-
-    # sudo
-    cp -r "${UCLOUD_SSH_KEY[path_env]}/"* "${HOME}/.ssh/"
-
+    _ucld_::update_passfile
     _ucld_::update_ssh_config
     _ucld_::update_ssh_agent
     _ucld_::resources_storing
