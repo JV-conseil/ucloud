@@ -8,6 +8,18 @@
 #                 All rights reserved
 #====================================================
 
+_ucld_::edit_settings() {
+  nano "${UCLD_PATH[env]}/settings.conf"
+}
+
+_ucld_::show_settings() {
+  if [[ "${DEBUG}" -eq 0 ]]; then
+    return
+  fi
+  _ucld_::h3 "Your settings can be modified with\nnano ${UCLD_PATH[env]}/settings.conf"
+  cat "${UCLD_PATH[env]}/settings.conf"
+}
+
 _ucld_::source_settings() {
   # shellcheck disable=SC1091
   . "${UCLD_PATH[env]}/settings.conf"
@@ -26,12 +38,4 @@ _ucld_::update_settings() {
   fi
   echo "${1}" >>"${UCLD_PATH[env]}/settings.conf"
   _ucld_::source_settings
-}
-
-_ucld_::show_settings() {
-  if [[ "${DEBUG}" -eq 0 ]]; then
-    return
-  fi
-  _ucld_::h3 "Your settings can be modified with\nnano ${UCLD_PATH[env]}/settings.conf"
-  cat "${UCLD_PATH[env]}/settings.conf"
 }

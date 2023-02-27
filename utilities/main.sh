@@ -35,7 +35,14 @@ if "$(_ucld_::ask "Do you want to reset your settings")"; then
   _ucld_::reset_settings
   _ucld_::show_settings
   echo
+elif "$(_ucld_::ask "Do you want to edit your settings")"; then
+  _ucld_::edit_settings
 else
   _ucld_::show_settings
+  echo
+fi
+
+if "$(_ucld_::ask "Do you want to check the logs")"; then
+  nano logfile.log
   echo
 fi
