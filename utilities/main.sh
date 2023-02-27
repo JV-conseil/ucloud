@@ -43,6 +43,6 @@ else
 fi
 
 if "$(_ucld_::ask "Do you want to check the logs")"; then
-  nano logfile.log
+  cat logfile.log
   echo
 fi

@@ -10,6 +10,7 @@
 
 _ucld_::edit_settings() {
   nano "${UCLD_PATH[env]}/settings.conf"
+  _ucld_::source_settings
 }
 
 _ucld_::show_settings() {
@@ -33,9 +34,12 @@ _ucld_::reset_settings() {
 }
 
 _ucld_::update_settings() {
-  if [[ "${DEBUG}" -gt 0 ]]; then
-    _ucld_::h3 "Appending ${1} to ${UCLD_PATH[env]}/settings.conf"
-  fi
   echo "${1}" >>"${UCLD_PATH[env]}/settings.conf"
   _ucld_::source_settings
+}
+
+_ucld_::init_settings() {
+  if [[ ! -f "${UCLD_PATH[env]}/settings.conf" ]]; then
+    cp -v "./settings.conf" "${UCLD_PATH[env]}/settings.conf"
+  fi
 }

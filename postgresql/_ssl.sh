@@ -18,7 +18,7 @@ _ucld_::generate_ssl_certificate() {
   openssl req -new -x509 -days 365 -nodes -text -out "${_server_key/.key/.crt}" -keyout "${_server_key}" -subj "${_subject}"
   chmod og-rwx "${_server_key}"
 
-  cp "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}"
+  cp -v "${_server_key/.key/.crt}" "${_server_key/server.key/root.crt}"
 
 }
 

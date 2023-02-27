@@ -37,10 +37,6 @@ _ucld_::build_skeleton() {
 
         mkdir "${_value}"
 
-        if [[ ${_key} == "env" && ! -f "${_value}/settings.conf" ]]; then
-          cp "./settings.conf" "${_value}/settings.conf"
-        fi
-
       fi # [[ "${_option}" == "delete" ]]
 
     fi # [[ ! -f "${_value}" && ! -d "${_value}" ]]
@@ -50,7 +46,8 @@ _ucld_::build_skeleton() {
 }
 
 _ucld_::startup_check() {
-  _ucld_::build_skeleton "$@"
   _ucld_::update_bashrc
+  _ucld_::build_skeleton "$@"
+  _ucld_::init_settings
   echo
 }
