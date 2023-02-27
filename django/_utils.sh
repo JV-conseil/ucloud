@@ -71,6 +71,6 @@ _ucld_::dj_running_migrations() {
 
 _ucld_::is_connected_database() {
   local _bool=false
-  if python manage.py check --database default 2>>logfile.log; then _bool=true; fi
+  if python manage.py check --database default &>>logfile.log; then _bool=true; fi
   echo ${_bool}
 }
