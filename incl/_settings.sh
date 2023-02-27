@@ -8,9 +8,9 @@
 #                 All rights reserved
 #====================================================
 
-declare -a UCLD_SETTINGS_PATH
+# declare -a UCLD_SETTINGS_DIR
 
-UCLD_SETTINGS_PATH=("app" "django")
+# UCLD_SETTINGS_DIR=("app" "django")
 
 _ucld_::edit_settings() {
   nano "${UCLD_PATH[env]}/settings.conf"
@@ -30,9 +30,9 @@ _ucld_::source_settings() {
 _ucld_::reset_settings() {
   local _path
   rm -v "${UCLD_PATH[env]}/settings.conf"
-  for _key in "${UCLD_SETTINGS_PATH[@]}"; do
-    unset "UCLD_PATH[${_key}]"
-  done
+  # for _key in "${UCLD_SETTINGS_DIR[@]}"; do
+  #   unset "UCLD_DIR[${_key}]"
+  # done
   cp -v "./settings.conf" "${UCLD_PATH[env]}/settings.conf"
   _ucld_::source_settings
 }

@@ -30,7 +30,7 @@ fi
 
 if [[ -f "${_app_repo}/main.py" ]]; then
 
-  _ucld_::update_settings "UCLD_DIR[app]=""${_app_repo}"""
+  _ucld_::update_settings "UCLD_DIR[app]=""${_app_repo##*/}"""
 
   _ucld_::h2 "Installing dependencies"
   pip install -r "${_app_repo}/requirements.txt"
