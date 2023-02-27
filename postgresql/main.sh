@@ -26,7 +26,6 @@ _ucld_::startup_check
 
 if [[ "$(_ucld_::is_postgresql_running)" == true ]]; then
 
-  echo
   if "$(_ucld_::ask_2 "Do you want to create a new User & Database")"; then
     _ucld_::pg_create_db
     _ucld_::pg_update_su_password

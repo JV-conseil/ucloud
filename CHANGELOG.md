@@ -8,6 +8,7 @@
 
 - Reset settings
 - Colored read
+- Support to generate SSH key
 
 ### Changed
 

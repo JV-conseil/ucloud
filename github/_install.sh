@@ -43,10 +43,6 @@ alias gh_cli_install="_ucld_::gh_cli_install"
 
 if [[ "$(_ucld_::is_gh_cli_installed)" == false ]]; then
 
-  # echo
-  # read -r -n 1 -p "Do you want to install GitHub CLI? [y/N] "
-  # if [[ $REPLY =~ ^[Yy]$ ]]; then
-
   if "$(_ucld_::ask "Do you want to install GitHub CLI")"; then
     _ucld_::gh_cli_install
   fi

@@ -52,4 +52,5 @@ _ucld_::build_skeleton() {
 _ucld_::startup_check() {
   _ucld_::build_skeleton "$@"
   _ucld_::update_bashrc
+  echo
 }

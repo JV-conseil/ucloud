@@ -29,10 +29,6 @@ EOF
 
 if [[ "$(_ucld_::is_gh_cli_installed)" == true && "$(_ucld_::is_gh_auth_login)" == false ]]; then
 
-  # echo
-  # read -r -n 1 -p "Do you want to authenticate to GitHub? [y/N] "
-  # if [[ $REPLY =~ ^[Yy]$ ]]; then
-
   if "$(_ucld_::ask_2 "Do you want to authenticate to GitHub")"; then
     _ucld_::gh_login
   fi

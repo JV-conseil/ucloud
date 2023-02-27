@@ -50,7 +50,7 @@ if [[ "$(_ucld_::is_python_installed)" == true ]]; then
 
 fi
 
-if "$(_ucld_::ask "Do you want to generate a new SSH key")"; then
+if "$(_ucld_::ask "Do you need to generate an SSH key")"; then
   _ucld_::generate_ssh_key
   echo
 fi
