@@ -58,7 +58,7 @@ _ucld_::ask() {
 }
 
 _ucld_::ask_2() {
-  _ucld_::ask "$1" "yellow"
+  _ucld_::ask "$1" "green"
 }
 
 # h1, H2, h3...

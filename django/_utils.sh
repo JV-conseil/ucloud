@@ -21,19 +21,14 @@ _ucld_::dj_debug() {
     ls -FGlAhp
     echo
 
-    # cat <<EOF
+    if [[ -v "${UCLD_ALLOWED_HOSTS}" ]]; then
+      _ucld_::h2 "Curl commands to test your server"
+      IFS=' ' read -ra _array <<<"${UCLD_ALLOWED_HOSTS}"
+      for _host in "${_array[@]}"; do
+        echo "# curl https://${_host} --verbose"
+      done
+    fi
 
-    # Curl commands to test your server
-    # ---------------------------------
-
-    # EOF
-
-    _ucld_::h2 "Curl commands to test your server"
-
-    IFS=' ' read -ra _array <<<"${UCLD_ALLOWED_HOSTS}"
-    for _host in "${_array[@]}"; do
-      echo "# curl https://${_host} --verbose"
-    done
   fi
 
 }
@@ -47,13 +42,6 @@ _ucld_::dj_collectstatic() {
 }
 
 _ucld_::dj_install_dependencies() {
-  #   cat <<EOF
-
-  # =========================
-  #  Installing dependencies
-  # =========================
-
-  # EOF
 
   _ucld_::h2 "Installing dependencies"
 
@@ -62,13 +50,6 @@ _ucld_::dj_install_dependencies() {
 }
 
 _ucld_::dj_create_superuser() {
-  #   cat <<EOF
-
-  # ======================
-  #  Creating a superuser
-  # ======================
-
-  # EOF
 
   _ucld_::h2 "Creating a superuser"
 
@@ -83,13 +64,6 @@ _ucld_::dj_create_superuser() {
 }
 
 _ucld_::dj_running_migrations() {
-  #   cat <<EOF
-
-  # ====================
-  #  Running migrations
-  # ====================
-
-  # EOF
 
   _ucld_::h2 "Running migrations"
 

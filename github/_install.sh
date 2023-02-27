@@ -43,7 +43,7 @@ alias gh_cli_install="_ucld_::gh_cli_install"
 
 if [[ "$(_ucld_::is_gh_cli_installed)" == false ]]; then
 
-  if "$(_ucld_::ask "Do you want to install GitHub CLI")"; then
+  if "$(_ucld_::ask_2 "Do you want to install GitHub CLI")"; then
     _ucld_::gh_cli_install
   fi
 

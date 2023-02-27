@@ -58,4 +58,7 @@ fi
 if "$(_ucld_::ask "Do you want to reset your settings")"; then
   _ucld_::reset_settings
   echo
+else
+  _ucld_::show_settings
+  echo
 fi

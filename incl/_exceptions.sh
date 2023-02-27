@@ -14,19 +14,18 @@ _ucld_::exception() {
 
   case ${_error} in
 
-  psql | postgresql)
-    _error="a connected job with a running PostgreSQL server was not found.\nYou should quit this run and start a new one\nwith a running PostgreSQL server connected job identified by the hostname:\n${UCLD_DB_PARAM[host]}"
+  postgresql)
+    _error="a connected job with a running PostgreSQL server was not found. \n\n\
+You should quit this run and start a new one with a running PostgreSQL server \n\
+connected job identified by the hostname: ${UCLD_DB_PARAM[host]} \n"
     ;;
 
-  *)
-    _error="en exception occured"
-    ;;
   esac
 
   # echo ""
   # printf "%s\t%s\n" "$(date "+%Y-%m-%d %H:%M:%S")" "${_error}" >>logfile.log
 
   echo "${_error}" >>logfile.log
-  _ucld_::h1 "ERROR: ${_error}\nExiting..."
+  _ucld_::h1 "ERROR: ${_error}\n\nExiting..."
 
 }
