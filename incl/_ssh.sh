@@ -33,7 +33,7 @@ _ucld_::update_ssh_config() {
     touch "${_config}"
 
     if grep -q "${UCLOUD_SSH_KEY[key]}" "${_config}" 2>>logfile.log; then
-      return
+      continue
     fi
 
     cat <<<"Host ""${HOSTNAME}""
