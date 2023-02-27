@@ -11,7 +11,7 @@
 _ucld_::install_packages() {
   local _bin
 
-  if [ ! -x "$(command -v apt)" ]; then
+  if [[ ! -x "$(command -v apt)" || $(_ucld_::is_ucloud_execution) == false ]]; then
     return
   fi
 
@@ -44,4 +44,5 @@ _ucld_::install_packages() {
     _ucld_::h3 "You are now running $(${_bin%.*} --version 2>>logfile.log)"
   done
 
+  echo
 }

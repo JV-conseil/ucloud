@@ -11,6 +11,7 @@
 # shellcheck disable=SC1091
 {
   . "incl/all.sh"
+  . "incl/_pg_globals.sh"
   . "postgresql/_utils.sh"
   . "postgresql/_create.sh"
   . "postgresql/_ssl.sh"

@@ -30,6 +30,8 @@ fi
 
 if [[ -f "${_app_repo}/main.py" ]]; then
 
+  _ucld_::update_settings "UCLD_DIR[app]=${_app_repo}"
+
   _ucld_::h2 "Installing dependencies"
   pip install -r "${_app_repo}/requirements.txt"
 
@@ -38,8 +40,6 @@ if [[ -f "${_app_repo}/main.py" ]]; then
 
   _ucld_::h2 "Displaying the output folder"
   ls "${UCLD_PATH[data]}/output"
-
-  _ucld_::update_settings "UCLD_DIR[app]=${_app_repo}"
 
 else
   _ucld_::exception "No main.py file found in ${_app_repo} directory\nAre you sure it is a valid Python 🐍 app?"
