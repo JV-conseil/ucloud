@@ -18,7 +18,7 @@ declare -xi DEBUG
 # shellcheck disable=SC1091
 {
   . "./settings.conf"
-  . "env/settings.conf" &>/dev/null
+  . "env/settings.conf" 2>>logfile.log # TODO: bug
   # more files
 }
 

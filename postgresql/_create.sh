@@ -46,7 +46,7 @@ export DBUSER=""${UCLD_DB_PARAM[user]}""
 
 export SECRET_KEY=""$(_ucld_::key_gen 32)""
 
-export UCLD_ALLOWED_HOSTS=""${UCLD_PUBLIC_LINKS[*]}""
+export UCLD_ALLOWED_HOSTS=\"${UCLD_PUBLIC_LINKS[*]}\"
   " >>"${_env_file}"
 }
 

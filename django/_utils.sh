@@ -64,9 +64,13 @@ _ucld_::dj_create_superuser() {
 }
 
 _ucld_::dj_running_migrations() {
-
   _ucld_::h2 "Running migrations"
-
   python manage.py makemigrations
   python manage.py migrate
+}
+
+_ucld_::is_connected_database() {
+  local _bool=false
+  if python manage.py check --database default 2>>logfile.log; then _bool=true; fi
+  echo ${_bool}
 }
