@@ -38,6 +38,7 @@ _ucld_::alert() {
   _color=${2:-"magenta"}
 
   echo -e "${UCLD_COLORS["${_color}"]}${1}${UCLD_COLORS[_reset]} 🛑"
+  echo
 }
 
 # read

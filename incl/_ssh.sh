@@ -31,7 +31,7 @@ _ucld_::update_ssh_config() {
   for _path in "${UCLOUD_SSH_PATH[@]}"; do
     _config="${_path}/config"
 
-    if grep -q "${UCLOUD_SSH_KEY[key]}" "${_config}"; then
+    if grep -q "${UCLOUD_SSH_KEY[key]}" "${_config}" 2>>logfile.log; then
       return
     fi
 

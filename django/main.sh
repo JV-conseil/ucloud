@@ -36,7 +36,9 @@ fi
 
 if [[ -f "${_dj_repo}/manage.py" ]]; then
 
-  _ucld_::update_settings "UCLD_DIR[django]=$_dj_repo"
+  _ucld_::h3 "You have selected repo ${1}"
+
+  _ucld_::update_settings "UCLD_DIR[django]=""${_dj_repo}"""
 
   cd_ "$_dj_repo"
 

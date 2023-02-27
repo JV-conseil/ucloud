@@ -12,9 +12,7 @@ _ucld_::gh_login() {
   cat <<EOF
 
 
-Authenticating to GitHub with a Personal Access Token...
-
-Go to
+To generate a personal access token go to
 https://github.com/settings/tokens
 
 Click on

@@ -21,8 +21,10 @@ _ucld_::reset_settings() {
 }
 
 _ucld_::update_settings() {
-  local _add="${1}"
-  echo "${_add}" >>"${UCLD_PATH[env]}/settings.conf"
+  if [[ "${DEBUG}" -gt 0 ]]; then
+    _ucld_::h3 "Appending ${1} to ${UCLD_PATH[env]}/settings.conf"
+  fi
+  echo "${1}" >>"${UCLD_PATH[env]}/settings.conf"
   _ucld_::source_settings
 }
 
@@ -30,5 +32,6 @@ _ucld_::show_settings() {
   if [[ "${DEBUG}" -eq 0 ]]; then
     return
   fi
+  _ucld_::h3 "Your settings can be modified with\nnano ${UCLD_PATH[env]}/settings.conf"
   cat "${UCLD_PATH[env]}/settings.conf"
 }
