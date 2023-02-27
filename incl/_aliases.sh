@@ -20,7 +20,7 @@ alias ls='ls -FGlAhp --color=auto'
 alias mkdir='mkdir -pv'
 alias mv='mv -iv'
 alias nano="nano --linenumbers"
-alias rm='rm -vrf'
+alias rm='rm -rf'
 
 if ! [ -x "$(command -v cd_)" ]; then
 
