@@ -14,9 +14,21 @@ _ucld_::gh_login() {
 
 Authenticating to GitHub with a Personal Access Token...
 
-- generate one token here https://github.com/settings/tokens
-- minimum required scopes are 'repo', 'read:org', 'workflow'.
-- expiration Custom... + 1 day.
+Go to
+https://github.com/settings/tokens
+
+Click on
+Generate new token
+
+Note
+UCloud + 1 Day
+
+Expiration
+Custom... and pick the day next
+
+Select scopes
+minimum required scopes are 'repo', 'read:org', 'workflow'.
+
 
 ? Authenticate Git with your GitHub credentials? Yes
 ? How would you like to authenticate GitHub CLI?
