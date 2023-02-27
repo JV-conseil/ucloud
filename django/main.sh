@@ -36,11 +36,9 @@ fi
 
 if [[ -f "${_dj_repo}/manage.py" ]]; then
 
-  cd_ "$_dj_repo"
+  _ucld_::update_settings "UCLD_DIR[django]=$_dj_repo"
 
-  if [[ ! ${UCLD_PATH[django]+_} ]]; then
-    _ucld_::update_settings "UCLD_DIR[django]=$_dj_repo"
-  fi
+  cd_ "$_dj_repo"
 
   _ucld_::dj_collectstatic
   _ucld_::dj_install_dependencies

@@ -8,16 +8,19 @@
 #                 All rights reserved
 #====================================================
 
-_ucld_::reset_settings() {
-  rm -v "${UCLD_PATH[env]}/settings.conf"
-  cp -v "./settings.conf" "${UCLD_PATH[env]}/settings.conf"
+_ucld_::source_settings() {
   # shellcheck disable=SC1091
   . "${UCLD_PATH[env]}/settings.conf"
   _ucld_::assign_path
 }
 
+_ucld_::reset_settings() {
+  rm -v "${UCLD_PATH[env]}/settings.conf"
+  cp -v "./settings.conf" "${UCLD_PATH[env]}/settings.conf"
+  _ucld_::source_settings
+}
+
 _ucld_::update_settings() {
   local _add="${1}"
   echo "${_add}" >>"${UCLD_PATH[env]}/settings.conf"
-  _ucld_::assign_path
 }
