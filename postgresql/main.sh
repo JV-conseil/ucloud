@@ -11,7 +11,7 @@
 # shellcheck disable=SC1091
 {
   . "incl/all.sh"
-  . "incl/_pg_globals.sh"
+  . "postgresql/_pg_globals.sh"
   . "postgresql/_utils.sh"
   . "postgresql/_create.sh"
   . "postgresql/_ssl.sh"
@@ -30,14 +30,17 @@ if [[ "$(_ucld_::is_postgresql_running)" == true ]]; then
     _ucld_::pg_create_db
     _ucld_::pg_update_su_password
     _ucld_::dump_env_file
+    echo
   fi
 
   if "$(_ucld_::ask_2 "Do you want to configure SSL on PostgreSQL")"; then
     _ucld_::pg_conf_ssl
+    echo
   else
 
     if "$(_ucld_::ask_2 "Do you want to generate a new self-signed certificate for the server")"; then
       _ucld_::generate_ssl_certificate
+      echo
     fi
 
     if "$(_ucld_::ask_2 "Do you want to update the server parameters")"; then
