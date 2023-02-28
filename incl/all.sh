@@ -14,7 +14,7 @@
   . "incl/_aliases.sh"
   . "incl/_colors.sh"
   . "incl/_utils.sh"
-  . "incl/_env.sh"
+  . "incl/_path.sh"
   . "incl/_exceptions.sh"
   . "incl/_skeleton.sh"
   . "incl/_settings.sh"

@@ -10,6 +10,7 @@
 
 _ucld_::dj_debug() {
   local _host _array
+
   if [[ "${DEBUG}" -eq 0 ]]; then
     return 0
   fi
@@ -42,31 +43,34 @@ _ucld_::dj_collectstatic() {
 }
 
 _ucld_::dj_install_dependencies() {
-
   _ucld_::h2 "Installing dependencies"
-
   python3 -m pip install --upgrade pip
   pip3 install -r requirements.txt
+  echo
 }
 
 _ucld_::dj_create_superuser() {
-
-  _ucld_::h2 "Creating a superuser"
-
-  local _username="ucloud"
   local _password
   _password=$(_ucld_::key_gen 32)
 
-  echo "Username: ${_username}"
-  echo "Password: ${_password}"
+  echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('${USER}', '${USER}', '${_password}');" | python manage.py shell
 
-  echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('${_username}', '${_username}', '${_password}');" | python manage.py shell && echo -e "\n\e[0;33mDone!\nYou will be able to test superuser access to the admin panel by visiting https://${UCLD_ALLOWED_HOSTS[0]}/admin\e[0;0m"
+  cat <<EOF
+
+Username: ${USER}
+Password: ${_password}
+
+You will be able to test superuser access to the admin panel by visiting
+https://${UCLD_PUBLIC_LINKS[0]}/admin
+
+EOF
 }
 
 _ucld_::dj_running_migrations() {
   _ucld_::h2 "Running migrations"
   python manage.py makemigrations
   python manage.py migrate
+  echo
 }
 
 _ucld_::is_connected_database() {
