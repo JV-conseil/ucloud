@@ -46,3 +46,10 @@ if "$(_ucld_::ask "Do you want to check the logs")"; then
   cat logfile.log
   echo
 fi
+
+if "$(_ucld_::ask "Do you want to erase everything" magenta)"; then
+  if "$(_ucld_::ask "Do you confirm" red)"; then
+    _ucld_::reset_settings
+    rm ./*
+  fi
+fi

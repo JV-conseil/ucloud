@@ -26,6 +26,7 @@ declare -A UCLD_COLORS=(
   [cyan]=$'\e[1;36m'
   [green]=$'\e[1;32m'
   [magenta]=$'\e[1;35m'
+  [red]=$'\e[1;31m'
   [white]=$'\e[1;37m'
   [yellow]=$'\e[1;33m'
 )
