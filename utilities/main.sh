@@ -50,7 +50,12 @@ if "$(_ucld_::ask "Do you want to check the logs")"; then
 fi
 
 if "$(_ucld_::ask "Do you want to erase everything" magenta)"; then
-  if "$(_ucld_::ask "Do you confirm" red)"; then
-    rm -v "${UCLD_PATH["work"]}/"*
+  if "$(_ucld_::ask "ARE YOU ABSOLUTELY SURE" red)"; then
+
+    read -e -r -p "To confirm type ERASE ALL "
+    if [[ "${REPLY}" == "ERASE ALL" ]]; then
+      rm -v "${UCLD_PATH["work"]}/"*
+    fi
+
   fi
 fi

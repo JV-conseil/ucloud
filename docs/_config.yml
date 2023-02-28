@@ -3,7 +3,8 @@
 
 # remote_theme: rundocs/jekyll-rtd-theme
 # remote_theme: JV-conseil-Internet-Consulting/jekyll-rtd-theme@single
-remote_theme: JV-conseil-Internet-Consulting/jekyll-rtd-theme
+# remote_theme: JV-conseil-Internet-Consulting/jekyll-rtd-theme
+remote_theme: https://github.com/carlosperate/jekyll-theme-rtd
 
 # Aux links for the upper right navigation
 # aux_links:
