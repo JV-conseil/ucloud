@@ -51,7 +51,6 @@ fi
 
 if "$(_ucld_::ask "Do you want to erase everything" magenta)"; then
   if "$(_ucld_::ask "Do you confirm" red)"; then
-    _ucld_::reset_settings
     rm -v "${UCLD_PATH["work"]}/"*
   fi
 fi
