@@ -17,6 +17,8 @@
   . "postgresql/_ssl.sh"
 }
 
+_ucld_::debug
+
 cat "utilities/README.txt"
 
 _ucld_::startup_check
@@ -50,6 +52,6 @@ fi
 if "$(_ucld_::ask "Do you want to erase everything" magenta)"; then
   if "$(_ucld_::ask "Do you confirm" red)"; then
     _ucld_::reset_settings
-    rm ./*
+    rm -v "${UCLD_PATH["work"]}/"*
   fi
 fi

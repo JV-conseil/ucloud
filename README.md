@@ -109,4 +109,3 @@ If this project helps you, you can offer me a cup of coffee ☕️ :-)
 [UCloud Developer Guide]: https://docs.cloud.sdu.dk/dev/index.html
 [UCloud Terminal Ubuntu]: https://cloud.sdu.dk/app/jobs/create?app=terminal-ubuntu&version=0.20.0
 [UCloud User Guide]: https://docs.cloud.sdu.dk/index.html
-
