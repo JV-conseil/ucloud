@@ -41,7 +41,8 @@ _ucld_::gh_clone() {
   fi
 }
 
-if [[ "$(_ucld_::is_gh_cli_installed)" == true && "$(_ucld_::is_gh_auth_login)" == true ]]; then
+# if [[ "$(_ucld_::is_gh_cli_installed)" == true && "$(_ucld_::is_gh_auth_login)" == true ]]; then
+if "$(_ucld_::is_gh_cli_installed)" && "$(_ucld_::is_gh_auth_login)"; then
 
   echo
   if "$(_ucld_::ask_2 "Do you want to clone one of your repo")"; then

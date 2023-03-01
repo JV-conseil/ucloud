@@ -51,7 +51,7 @@ _ucld_::key_gen() {
   # e.g.: $(_ucld_::key_gen 128)
   local _size=${1:-15}
   # if [ -x "$(command -v python)" ]; then
-  if [[ "$(_ucld_::is_python_installed)" == true ]]; then
+  if "$(_ucld_::is_python_installed)"; then
     python -c "import secrets; result = ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+') for i in range($_size)); print(result)"
   else
     openssl rand -base64 "${_size}"

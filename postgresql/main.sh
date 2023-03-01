@@ -22,7 +22,7 @@ _ucld_::debug
 
 cat "postgresql/README.txt"
 
-if [[ "$(_ucld_::is_postgresql_server_running)" == true ]]; then
+if "$(_ucld_::is_postgresql_server_running)"; then
 
   if "$(_ucld_::ask_2 "Do you want to create a new User & Database")"; then
     _ucld_::pg_create_db

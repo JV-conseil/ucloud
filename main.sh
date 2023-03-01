@@ -12,7 +12,11 @@
 #====================================================
 
 # shellcheck disable=SC1091
-. "incl/all.sh"
+{
+  . "incl/all.sh"
+  . "postgresql/_utils.sh"
+  # more files
+}
 
 _ucld_::debug
 
@@ -26,7 +30,7 @@ if "$(_ucld_::ask "Do you want to manage GitHub")"; then
   echo
 fi
 
-if [[ "$(_ucld_::is_postgresql_server_running)" == true ]]; then
+if "$(_ucld_::is_postgresql_server_running)"; then
 
   if "$(_ucld_::ask "Do you want to manage PostreSQL")"; then
     . postgresql/main.sh
@@ -35,7 +39,7 @@ if [[ "$(_ucld_::is_postgresql_server_running)" == true ]]; then
 
 fi
 
-if [[ "$(_ucld_::is_python_installed)" == true ]]; then
+if "$(_ucld_::is_python_installed)"; then
 
   if "$(_ucld_::ask "Do you want to manage Django")"; then
     . django/main.sh
