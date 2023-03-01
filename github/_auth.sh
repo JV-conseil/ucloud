@@ -37,7 +37,6 @@ EOF
   gh auth login --hostname "github.com" --git-protocol "https"
 }
 
-# if [[ "$(_ucld_::is_gh_cli_installed)" == true && "$(_ucld_::is_gh_auth_login)" == false ]]; then
 if "$(_ucld_::is_gh_cli_installed)" && "$(_ucld_::is_gh_auth_login)"; then
 
   if "$(_ucld_::ask_2 "Do you want to authenticate to GitHub")"; then

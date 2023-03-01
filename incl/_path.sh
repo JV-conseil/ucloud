@@ -17,7 +17,7 @@ declare -xi DEBUG
 
 UCLD_PATH=([main]="${PWD}" [work]="${PWD}")
 
-if [[ -d "${PWD%/*}" && $(_ucld_::is_ucloud_execution) == true ]]; then
+if [[ -d "${PWD%/*}" && $(_ucld_::is_ucloud_execution) ]]; then
   UCLD_PATH["work"]="${PWD%/*}"
 fi
 
@@ -52,44 +52,3 @@ _ucld_::build_path() {
 }
 
 _ucld_::build_path
-
-# deprecated
-
-# _ucld_::build_path_v1() {
-#   local _key _path _main _msg
-#   UCLD_PATH["main"]="${PWD}"
-#   UCLD_PATH["work"]="${PWD}"
-#   _msg=0
-
-#   if [[ -d "${PWD%/*}" && $(_ucld_::is_ucloud_execution) == true ]]; then
-#     UCLD_PATH["work"]="${PWD%/*}"
-#   fi
-
-#   for _key in "${!UCLD_DIR[@]}"; do
-
-#     _path="${UCLD_PATH[work]}/${UCLD_DIR[${_key}]}"
-
-#     if [[
-#       ! ${UCLD_PATH["${_key}"]+_} ||
-#       (${UCLD_PATH["${_key}"]+_} && "${_path}" != "${UCLD_PATH["${_key}"]}") ]]; then
-
-#       if [[ "$_msg" -eq 0 ]]; then
-#         echo -e "\nAssigning path for active job...\n"
-#         for _main in "main" "work"; do
-#           echo "UCLD_PATH[${_main}]=${UCLD_PATH[${_main}]}"
-#         done
-#         _msg=1
-#       fi
-
-#       UCLD_PATH["${_key}"]="${_path}"
-#       echo "UCLD_PATH[${_key}]=${_path}"
-
-#       if [[ "${_key}" == "data" ]]; then
-#         eval "export UCLD_PATH_TO_${_key^^}=""${_path}"""
-#       fi
-
-#     fi
-
-#   done
-
-# }
