@@ -1,4 +1,9 @@
-<!-- markdownlint-disable MD026 MD033 MD041 -->
+---
+sort: 3
+title: Further Reading 📚
+---
+
+<!-- markdownlint-disable MD025 MD026 MD033 MD041 -->
 <!-- omit in toc -->
 # Further Readings 📚
 
