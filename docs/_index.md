@@ -1,5 +1,5 @@
 ---
-sort: 1
+sort: 100
 title: GitHubbing on UCloud with Ubuntu Terminal
 ---
 
