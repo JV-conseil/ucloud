@@ -11,8 +11,23 @@
 #
 #====================================================
 
+_ucld_::is_postgresql_server_running() {
+  local _bool=false
+  # if [ -x "$(command -v psql)" ]; then _bool=true; fi
+  if pg_ctl status -D "${UCLD_PATH[database]}" &>>logfile.log; then _bool=true; fi
+  echo ${_bool}
+}
+
 _ucld_::pg_list() {
   psql --dbname=postgres --command="\du+"
   psql --dbname=postgres --command="\l+"
+
+  _ucld_::h3 "Checking SSL connection to postgres database"
+  echo "To quit type \q"
+  echo
   psql --dbname=postgres --host=localhost
+}
+
+_ucld_::start_postgresql_server() {
+  pg_ctl -D "${UCLD_PATH[database]}" -l logfile start 2>>logfile.log
 }

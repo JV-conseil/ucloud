@@ -26,7 +26,7 @@ if "$(_ucld_::ask "Do you want to manage GitHub")"; then
   echo
 fi
 
-if [[ "$(_ucld_::is_postgresql_running)" == true ]]; then
+if [[ "$(_ucld_::is_postgresql_server_running)" == true ]]; then
 
   if "$(_ucld_::ask "Do you want to manage PostreSQL")"; then
     . postgresql/main.sh

@@ -7,8 +7,10 @@ Utility Command Lines
 What this script does
 
 - Generate SSH keys
-- Generate self-signed certificate.
+- Generate a self-signed certificate.
 - Reset your settings.
+- Check the logs.
+- Erase everything.
 
 
 
