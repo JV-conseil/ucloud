@@ -15,19 +15,26 @@
 _ucld_::unofficial_bash_strict_mode() {
   local _mode=${1:-""}
 
-  # settings to write safe scripts
-  # <https://sipb.mit.edu/doc/safe-shell/>
-  set -euo pipefail
+  case "${_mode}" in
 
-  # Shopt builtin allows you to change additional shell optional behavior
-  # <https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html>
-  shopt -s failglob
-  # IFS=$'\n\t'
+  "on")
+    # settings to write safe scripts
+    # <https://sipb.mit.edu/doc/safe-shell/>
+    set -euo pipefail
 
-  if [ "${_mode}" == "reset" ]; then
+    # Shopt builtin allows you to change additional shell optional behavior
+    # <https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html>
+    shopt -s failglob
+    IFS=$'\n\t'
+    ;;
+
+  "off" | "reset")
     set +euo pipefail
     shopt -u failglob
-  fi
+    ;;
+
+  esac
+
 }
 
 _ucld_::back_to_script_dir_() {

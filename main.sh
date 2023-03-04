@@ -15,7 +15,7 @@
   # more files
 }
 
-_ucld_::unofficial_bash_strict_mode
+_ucld_::unofficial_bash_strict_mode "on"
 
 _ucld_::debug
 
@@ -68,4 +68,4 @@ else
   _ucld_::show_settings
 fi
 
-_ucld_::unofficial_bash_strict_mode "reset"
+_ucld_::unofficial_bash_strict_mode "off"
