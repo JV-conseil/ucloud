@@ -47,13 +47,16 @@ _ucld_::dj_debug() {
     ls -FGlAhp
     echo
 
-    if [[ -v "${UCLD_ALLOWED_HOSTS}" ]]; then
-      _ucld_::h2 "Curl commands to test your server"
-      IFS=' ' read -ra _array <<<"${UCLD_ALLOWED_HOSTS}"
-      for _host in "${_array[@]}"; do
-        echo "# curl https://${_host} --verbose"
-      done
-    fi
+    # TODO: django/_utils.sh:
+    # line 51: UCLD_ALLOWED_HOSTS: unbound variable
+    #
+    # if [[ -v "${UCLD_ALLOWED_HOSTS}" ]]; then
+    #   _ucld_::h2 "Curl commands to test your server"
+    #   IFS=' ' read -ra _array <<<"${UCLD_ALLOWED_HOSTS}"
+    #   for _host in "${_array[@]}"; do
+    #     echo "# curl https://${_host} --verbose"
+    #   done
+    # fi
 
   fi
 
