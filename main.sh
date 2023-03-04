@@ -71,4 +71,4 @@ else
   _ucld_::show_settings
 fi
 
-set +o
+set +o pipefail
