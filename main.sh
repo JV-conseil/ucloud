@@ -14,8 +14,6 @@
   # more files
 }
 
-_ucld_::unofficial_bash_strict_mode "on"
-
 _ucld_::debug
 
 cat "README.txt"
@@ -66,5 +64,3 @@ if "$(_ucld_::ask "Do you want to reset your settings")"; then
 else
   _ucld_::show_settings
 fi
-
-_ucld_::unofficial_bash_strict_mode "off"

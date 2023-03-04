@@ -17,8 +17,6 @@
   # more files
 }
 
-_ucld_::unofficial_bash_strict_mode "on"
-
 _ucld_::dj_collectstatic
 _ucld_::dj_install_dependencies
 python manage.py runserver

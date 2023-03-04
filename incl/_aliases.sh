@@ -13,7 +13,7 @@
 
 # print environment variables sorted by name
 # <https://stackoverflow.com/a/60756021/2477854>
-alias env="env -0 | sort -z | tr '\0' '\n'"
+alias env='env -0 | sort -z | tr "\0" "\n"'
 
 # alias cp='cp -iv'
 alias ls='ls -FGlAhp --color=auto'
