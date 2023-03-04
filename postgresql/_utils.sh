@@ -13,7 +13,9 @@
 
 _ucld_::is_postgresql_server_running() {
   local _bool=false
-  if pg_ctl status -D "${UCLD_PATH[database]}" 2>>logfile.log || :; then _bool=true; fi
+  if [ -x "$(command -v pg_ctl)" ]; then
+    if pg_ctl status -D "${UCLD_PATH[database]}" 2>>logfile.log; then _bool=true; fi
+  fi
   echo ${_bool}
 }
 
