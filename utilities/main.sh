@@ -62,11 +62,11 @@ if "$(_ucld_::ask "Do you want to erase everything" magenta)"; then
     if [[ "${REPLY}" == "ERASE ALL" ]]; then
       rm -v "${UCLD_PATH["work"]}/"*
     else
-      exit 0
+      return 0
     fi
 
   else
-    exit 0
+    return 0
 
   fi
 fi
