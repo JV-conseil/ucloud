@@ -13,7 +13,7 @@
 
 # settings to write safe scripts
 # <https://sipb.mit.edu/doc/safe-shell/>
-set -eu -o pipefail
+set -eux -o pipefail
 shopt -s failglob
 
 # shellcheck disable=SC1091
@@ -63,11 +63,9 @@ if "$(_ucld_::ask "Do you need to generate an SSH key")"; then
   echo
 fi
 
-if "$(_ucld_::ask "Do you want to reset your settings" || :)"; then
+if "$(_ucld_::ask "Do you want to reset your settings")"; then
   _ucld_::reset_settings
   _ucld_::show_settings
 else
   _ucld_::show_settings
 fi
-
-echo "Last command ${?}"
