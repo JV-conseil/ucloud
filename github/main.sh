@@ -17,9 +17,6 @@
 
 cat "github/README.txt"
 
-# shellcheck disable=SC1091
-{
-  . "github/_install.sh"
-  . "github/_auth.sh"
-  . "github/_clone.sh"
-}
+. "github/_install.sh"
+. "github/_auth.sh"
+. "github/_clone.sh"

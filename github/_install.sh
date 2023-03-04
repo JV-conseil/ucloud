@@ -45,6 +45,7 @@ if "$(_ucld_::is_gh_cli_installed)"; then
 
   if "$(_ucld_::ask_2 "Do you want to install GitHub CLI")"; then
     _ucld_::gh_cli_install
+    echo
   fi
 
 fi
