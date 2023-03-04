@@ -13,7 +13,7 @@
 
 # settings to write safe scripts
 # <https://sipb.mit.edu/doc/safe-shell/>
-set -eu -o pipefail
+# set -eu -o pipefail
 shopt -s failglob
 
 # shellcheck disable=SC1091
@@ -66,9 +66,8 @@ fi
 if "$(_ucld_::ask "Do you want to reset your settings")"; then
   _ucld_::reset_settings
   _ucld_::show_settings
-  echo
 else
   _ucld_::show_settings
-  echo
-  exit 0
 fi
+
+echo "Last command ${?}"
