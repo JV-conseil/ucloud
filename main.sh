@@ -6,23 +6,16 @@
 # licence       : BSD 3-Clause License
 # copyright     : Copyright (c) 2019-2023 JV-conseil
 #                 All rights reserved
-#
-# shellcheck source=/dev/null
-#
 #====================================================
 
-# settings to write safe scripts
-# <https://sipb.mit.edu/doc/safe-shell/>
-set -euo pipefail
-shopt -s failglob
-IFS=$'\n\t'
-
-# shellcheck disable=SC1091
+# shellcheck source=/dev/null
 {
   . "incl/all.sh"
   . "postgresql/_utils.sh"
   # more files
 }
+
+_ucld_::unofficial_bash_strict_mode
 
 _ucld_::debug
 
@@ -32,14 +25,16 @@ _ucld_::startup_check
 _ucld_::install_packages
 
 if "$(_ucld_::ask "Do you want to manage GitHub")"; then
-  . github/main.sh
+  # shellcheck source=/dev/null
+  . "github/main.sh"
   echo
 fi
 
 if "$(_ucld_::is_postgresql_server_running)"; then
 
   if "$(_ucld_::ask "Do you want to manage PostreSQL")"; then
-    . postgresql/main.sh
+    # shellcheck source=/dev/null
+    . "postgresql/main.sh"
     echo
   fi
 
@@ -48,12 +43,14 @@ fi
 if "$(_ucld_::is_python_installed)"; then
 
   if "$(_ucld_::ask "Do you want to manage Django")"; then
-    . django/main.sh
+    # shellcheck source=/dev/null
+    . "django/main.sh"
     echo
   fi
 
   if "$(_ucld_::ask "Do you want to run your Python app")"; then
-    . app/main.sh
+    # shellcheck source=/dev/null
+    . "app/main.sh"
     echo
   fi
 
@@ -71,4 +68,4 @@ else
   _ucld_::show_settings
 fi
 
-set +euo pipefail
+# set +euo pipefail

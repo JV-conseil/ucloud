@@ -8,6 +8,26 @@
 #                 All rights reserved
 #====================================================
 
+# The Unofficial Bash Strict Mode
+# These lines deliberately cause your script to fail.
+# Wait, what? Believe me, this is a good thing.
+# <http://redsymbol.net/articles/unofficial-bash-strict-mode/>
+_ucld_::unofficial_bash_strict_mode() {
+  local _mode=${1:-""}
+
+  # settings to write safe scripts
+  # <https://sipb.mit.edu/doc/safe-shell/>
+  set -euo pipefail
+  shopt -s failglob
+  IFS=$'\n\t'
+
+  if [ "${_mode}" == "reset" ]; then
+    set +euo pipefail
+    shopt +s failglob
+    unset IFS
+  fi
+}
+
 _ucld_::back_to_script_dir_() {
   cd_ "${UCLD_PATH[main]}"
 }

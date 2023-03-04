@@ -8,7 +8,7 @@
 #                 All rights reserved
 #====================================================
 
-# shellcheck disable=SC1091
+# shellcheck source=/dev/null
 {
   . "incl/_log.sh"
   . "incl/_aliases.sh"

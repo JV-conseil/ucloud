@@ -6,12 +6,9 @@
 # licence       : BSD 3-Clause License
 # copyright     : Copyright (c) 2019-2023 JV-conseil
 #                 All rights reserved
-#
-# shellcheck source=/dev/null
-#
 #====================================================
 
-# shellcheck disable=SC1091
+# shellcheck source=/dev/null
 {
   . "incl/all.sh"
   . "postgresql/_ssl.sh"

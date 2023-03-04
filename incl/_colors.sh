@@ -6,18 +6,6 @@
 # licence       : BSD 3-Clause License
 # copyright     : Copyright (c) 2019-2023 JV-conseil
 #                 All rights reserved
-#
-# shellcheck disable=SC2034
-#
-# black='\E[30;40m'
-# red='\E[31;40m'
-# green='\E[32;40m'
-# yellow='\E[33;40m'
-# blue='\E[34;40m'
-# magenta='\E[35;40m'
-# cyan='\E[36;40m'
-# white='\E[37;40m'
-#
 #====================================================
 
 declare -A UCLD_COLORS=(

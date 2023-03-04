@@ -8,7 +8,7 @@
 #                 All rights reserved
 #====================================================
 
-# shellcheck disable=SC1091
+# shellcheck source=/dev/null
 {
   . "/work/env/.env"
   . "/work/ucloud/incl/_debug.sh"

@@ -6,9 +6,6 @@
 # licence       : BSD 3-Clause License
 # copyright     : Copyright (c) 2019-2023 JV-conseil
 #                 All rights reserved
-#
-# shellcheck disable=SC2034
-#
 #====================================================
 
 UCLD_DB_PARAM["password"]="$(_ucld_::key_gen 32)"

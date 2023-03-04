@@ -6,11 +6,9 @@
 # licence       : BSD 3-Clause License
 # copyright     : Copyright (c) 2019-2023 JV-conseil
 #                 All rights reserved
-#
-# shellcheck disable=SC2034
-#
 #====================================================
 
+# shellcheck disable=SC2034
 declare -a UCLD_INSTALL_PACKAGES UCLD_PUBLIC_LINKS
 declare -A UCLD_DB_PARAM UCLD_DIR UCLD_PATH
 declare -xi DEBUG
@@ -44,7 +42,7 @@ _ucld_::build_path() {
   done
 }
 
-# shellcheck disable=SC1091,SC2317
+# shellcheck source=/dev/null
 {
   . "./settings.conf"
   . "${UCLD_PATH[env]}/settings.conf" 2>>logfile.log || :
