@@ -61,12 +61,9 @@ if "$(_ucld_::ask "Do you want to erase everything" magenta)"; then
     read -e -r -p "To confirm type ERASE ALL "
     if [[ "${REPLY}" == "ERASE ALL" ]]; then
       rm -v "${UCLD_PATH["work"]}/"*
-    else
-      return 0
     fi
-
-  else
-    return 0
 
   fi
 fi
+
+return 2>/dev/null
