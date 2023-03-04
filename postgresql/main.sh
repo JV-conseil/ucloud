@@ -49,7 +49,7 @@ if "$(_ucld_::is_postgresql_server_running)"; then
 
   fi
 
-  _ucld_::pg_list
+  _ucld_::pg_list || true
 
 else
   _ucld_::exception postgresql

@@ -28,7 +28,6 @@ _ucld_::gh_list_user_repos() {
 
     if [ "${_choice}" == "full" ]; then
 
-      echo "gh repo list ""${_org}"" --no-archived"
       gh repo list "${_org}" --no-archived
 
     else

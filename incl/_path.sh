@@ -21,7 +21,7 @@ if "$(_ucld_::is_ucloud_execution)" && [ -d "${PWD%/*}" ]; then
   UCLD_PATH["work"]="${PWD%/*}"
 fi
 
-UCLD_DIR=([app]=env [env]=env [data]="" [database]="" [django]="" [install]="")
+UCLD_DIR=([app]="" [env]=env [data]="" [database]="" [django]="" [install]="")
 
 UCLD_PATH[env]="${UCLD_PATH[work]}/${UCLD_DIR[env]}"
 
@@ -47,7 +47,7 @@ _ucld_::build_path() {
 # shellcheck disable=SC1091
 {
   . "./settings.conf"
-  . "${UCLD_PATH[env]}/settings.conf" 2>>logfile.log || true
+  . "${UCLD_PATH[env]}/settings.conf" 2>>logfile.log
   # more files
 }
 
