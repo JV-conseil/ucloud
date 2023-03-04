@@ -19,13 +19,25 @@
 
 cat "django/README.txt"
 
-_dj_repo=""
+_dj_repo="${UCLD_PATH[django]}"
 
-if [[ ${UCLD_PATH[django]+_} ]]; then
+# if [[ ${UCLD_PATH[django]+_} ]]; then
 
-  _dj_repo="${UCLD_PATH[django]}"
+#   _dj_repo="${UCLD_PATH[django]}"
 
-else
+# else
+
+#   _ucld_::h2 "Please select a valid Django repository"
+
+#   select _dj_repo in $(dirname "${UCLD_PATH[work]}"/*/manage.py || :); do
+#     test -n "${_dj_repo}" && break
+#     # echo ">>> Invalid Selection"
+#     _ucld_::alert ">>> Invalid Selection"
+#   done
+
+# fi
+
+if ! "${_dj_repo}"; then
 
   _ucld_::h2 "Please select a valid Django repository"
 

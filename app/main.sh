@@ -13,13 +13,24 @@
 
 cat "app/README.txt"
 
-_app_repo=""
+_app_repo="${UCLD_PATH[app]}"
 
-if [[ ${UCLD_PATH[app]+_} ]]; then
+# if [[ ${UCLD_PATH[app]+_} ]]; then
 
-  _app_repo="${UCLD_PATH[app]}"
+#   _app_repo="${UCLD_PATH[app]}"
 
-else
+# else
+
+#   _ucld_::h2 "Please select a repo with a Python app"
+
+#   select _app_repo in $(dirname "${UCLD_PATH[work]}"/*/main.py || :); do
+#     test -n "${_app_repo}" && break
+#     _ucld_::alert ">>> Invalid Selection"
+#   done
+
+# fi
+
+if ! "${_app_repo}"; then
 
   _ucld_::h2 "Please select a repo with a Python app"
 
@@ -28,9 +39,10 @@ else
     _ucld_::alert ">>> Invalid Selection"
   done
 
-fi
+# fi
 
-if [[ "${_app_repo}" ]]; then
+else
+
   if [[ -f "${_app_repo}/main.py" ]]; then
 
     _ucld_::update_settings "UCLD_DIR[app]=""${_app_repo##*/}"""
@@ -46,6 +58,6 @@ if [[ "${_app_repo}" ]]; then
 
   else
     _ucld_::exception "No main.py file found in ${_app_repo} directory\nAre you sure it is a valid Python 🐍 app?"
-
   fi
+
 fi
