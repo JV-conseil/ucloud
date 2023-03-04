@@ -70,5 +70,5 @@ if "$(_ucld_::ask "Do you want to reset your settings")"; then
 else
   _ucld_::show_settings
   echo
-  return 0
+  exit 0
 fi
