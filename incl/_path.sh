@@ -47,7 +47,7 @@ _ucld_::build_path() {
 # shellcheck disable=SC1091
 {
   . "./settings.conf"
-  . "${UCLD_PATH[env]}/settings.conf" 2>>logfile.log
+  . "${UCLD_PATH[env]}/settings.conf" 2>>logfile.log || true
   # more files
 }
 
