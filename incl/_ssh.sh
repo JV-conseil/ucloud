@@ -90,8 +90,6 @@ _ucld_::generate_ssh_key() {
 
   if ssh-keygen -t ed25519 -N "${UCLOUD_SSH_KEY[password]}" -C "${USER}@${HOSTNAME}" -f "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY[key]}"; then
 
-    ls "${UCLOUD_SSH_PATH[1]}"
-
     cat <<EOF
 
 Keep the passphrase used to generate the key:
@@ -105,8 +103,6 @@ Enter this passphrase below 👇
 EOF
 
     if cp -v "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY[key]}"* "${UCLOUD_SSH_PATH[0]}"; then
-
-      ls "${UCLOUD_SSH_PATH[0]}"
 
       _ucld_::update_passfile
       _ucld_::update_ssh_config

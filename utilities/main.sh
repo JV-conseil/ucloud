@@ -11,11 +11,6 @@
 #
 #====================================================
 
-# settings to write safe scripts
-# <https://sipb.mit.edu/doc/safe-shell/>
-set -eu -o pipefail
-shopt -s failglob
-
 # shellcheck disable=SC1091
 {
   . "incl/all.sh"
