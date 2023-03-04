@@ -68,5 +68,4 @@ if "$(_ucld_::ask "Do you want to reset your settings")"; then
   _ucld_::show_settings
 else
   _ucld_::show_settings
-  return 1
 fi

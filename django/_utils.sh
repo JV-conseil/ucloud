@@ -37,7 +37,7 @@ _ucld_::dj_debug() {
   local _host _array
 
   if [[ "${DEBUG}" -eq 0 ]]; then
-    return 0
+    return
   fi
 
   _ucld_::debug

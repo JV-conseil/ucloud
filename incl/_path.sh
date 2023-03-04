@@ -42,8 +42,6 @@ _ucld_::build_path() {
       eval "export UCLD_PATH_TO_${_key^^}=""${_path}"""
     fi
   done
-
-  return 0
 }
 
 # shellcheck disable=SC1091,SC2317

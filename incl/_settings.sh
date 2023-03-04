@@ -19,7 +19,8 @@ _ucld_::edit_settings() {
 
 _ucld_::show_settings() {
   cat "${UCLD_PATH[env]}/settings.conf"
-  return 0
+  BP_PIPESTATUS=("${PIPESTATUS[@]}")
+  return 1
 }
 
 _ucld_::source_settings() {
