@@ -17,7 +17,7 @@ _ucld_::build_skeleton() {
     if [[ -z "${UCLD_DIR[${_key}]}" ]]; then
       continue
     fi
-    mkdir "${UCLD_PATH["${_key}"]}" || true
+    mkdir "${UCLD_PATH["${_key}"]}" || :
   done
 }
 
