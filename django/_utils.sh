@@ -24,7 +24,7 @@ _ucld_::dj_create_superuser() {
 
   cat <<EOF
 
-Username: ${USER}
+Username: ${USER:-"ucloud"}
 Password: ${_password}
 
 You will be able to test superuser access to the admin panel by visiting
