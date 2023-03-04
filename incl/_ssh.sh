@@ -90,7 +90,7 @@ _ucld_::generate_ssh_key() {
 
   if ssh-keygen -t ed25519 -N "${UCLOUD_SSH_KEY[password]}" -C "${USER}@${HOSTNAME}" -f "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY[key]}"; then
 
-    cp -v "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY[key]}"* "${UCLOUD_SSH_PATH[0]}" || :
+    cp -vf "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY[key]}"* "${UCLOUD_SSH_PATH[0]}" || true
 
     cat <<EOF
 
