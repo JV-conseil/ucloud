@@ -65,5 +65,3 @@ if "$(_ucld_::ask "Do you want to erase everything" magenta)"; then
 
   fi
 fi
-
-return 2>/dev/null
