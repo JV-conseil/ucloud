@@ -17,14 +17,16 @@ _ucld_::dj_collectstatic() {
 }
 
 _ucld_::dj_create_superuser() {
-  local _password
+  local _password _user
+
+  _user=${USER:-"ucloud"}
   _password=$(_ucld_::key_gen 32)
 
-  echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('${USER}', '${USER}', '${_password}');" | python manage.py shell
+  echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('${USER}', '${_user}', '${_password}');" | python manage.py shell
 
   cat <<EOF
 
-Username: ${USER:-"ucloud"}
+Username: ${_user}
 Password: ${_password}
 
 You will be able to test superuser access to the admin panel by visiting
