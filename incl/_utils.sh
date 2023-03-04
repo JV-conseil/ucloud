@@ -18,13 +18,15 @@ _ucld_::unofficial_bash_strict_mode() {
   # settings to write safe scripts
   # <https://sipb.mit.edu/doc/safe-shell/>
   set -euo pipefail
+
+  # Shopt builtin allows you to change additional shell optional behavior
+  # <https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html>
   shopt -s failglob
-  IFS=$'\n\t'
+  # IFS=$'\n\t'
 
   if [ "${_mode}" == "reset" ]; then
     set +euo pipefail
-    shopt +s failglob
-    unset IFS
+    shopt -u failglob
   fi
 }
 
