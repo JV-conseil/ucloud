@@ -37,7 +37,7 @@ _ucld_::warning() {
   case ${_error} in
 
   postgresql)
-    _error="a connected job with a running PostgreSQL server is necessary to complete the next steps. \n\n\
+    _error="A connected job with a running PostgreSQL server is necessary to complete the next steps. \n\n\
 You should quit this run and start a new one with a connected job to a running PostgreSQL server \n\
 identified by the hostname: ${UCLD_DB_PARAM[host]}"
     ;;
