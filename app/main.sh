@@ -13,24 +13,13 @@
 
 cat "app/README.txt"
 
-_app_repo="${UCLD_PATH[app]}"
+_app_repo=""
 
-# if [[ ${UCLD_PATH[app]+_} ]]; then
+if [[ ${UCLD_PATH[app]+_} ]]; then
 
-#   _app_repo="${UCLD_PATH[app]}"
+  _app_repo="${UCLD_PATH[app]}"
 
-# else
-
-#   _ucld_::h2 "Please select a repo with a Python app"
-
-#   select _app_repo in $(dirname "${UCLD_PATH[work]}"/*/main.py || :); do
-#     test -n "${_app_repo}" && break
-#     _ucld_::alert ">>> Invalid Selection"
-#   done
-
-# fi
-
-if ! "${_app_repo}"; then
+else
 
   _ucld_::h2 "Please select a repo with a Python app"
 
@@ -39,9 +28,9 @@ if ! "${_app_repo}"; then
     _ucld_::alert ">>> Invalid Selection"
   done
 
-# fi
+fi
 
-else
+if [[ "${_app_repo}" ]]; then
 
   if [[ -f "${_app_repo}/main.py" ]]; then
 
