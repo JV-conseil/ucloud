@@ -28,7 +28,7 @@ _ucld_::is_python_installed() {
 
 _ucld_::is_ucloud_execution() {
   local _bool=false
-  if [[ "${PWD}" == "/work"* ]]; then _bool=true; fi
+  if [[ "${PWD}" == "/work/"* ]]; then _bool=true; fi
   echo ${_bool}
 }
 

@@ -11,6 +11,10 @@
 #
 #====================================================
 
+# settings to write safe scripts
+# <https://sipb.mit.edu/doc/safe-shell/>
+set -euf -o pipefail
+
 # shellcheck disable=SC1091
 {
   . "incl/all.sh"
@@ -31,6 +35,7 @@ fi
 
 if "$(_ucld_::ask "Do you want to generate a new self-signed certificate for the server")"; then
   _ucld_::generate_ssl_certificate
+  echo
 fi
 
 if "$(_ucld_::ask "Do you want to reset your settings")"; then

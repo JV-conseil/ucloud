@@ -41,6 +41,7 @@ if "$(_ucld_::is_gh_cli_installed)" && "$(_ucld_::is_gh_auth_login)"; then
 
   if "$(_ucld_::ask_2 "Do you want to authenticate to GitHub")"; then
     _ucld_::gh_login
+    echo
   fi
 
 fi

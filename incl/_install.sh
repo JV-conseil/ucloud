@@ -11,7 +11,7 @@
 _ucld_::install_packages() {
   local _bin
 
-  if [[ ! -x "$(command -v apt)" || $(_ucld_::is_ucloud_execution) == false ]]; then
+  if ! "$(_ucld_::is_ucloud_execution)" || [ ! -x "$(command -v apt)" ]; then
     return
   fi
 

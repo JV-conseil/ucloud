@@ -17,7 +17,7 @@ declare -xi DEBUG
 
 UCLD_PATH=([main]="${PWD}" [work]="${PWD}")
 
-if [[ -d "${PWD%/*}" && $(_ucld_::is_ucloud_execution) ]]; then
+if "$(_ucld_::is_ucloud_execution)" && [ -d "${PWD%/*}" ]; then
   UCLD_PATH["work"]="${PWD%/*}"
 fi
 

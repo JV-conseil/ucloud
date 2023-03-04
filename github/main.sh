@@ -8,6 +8,10 @@
 #                 All rights reserved
 #====================================================
 
+# settings to write safe scripts
+# <https://sipb.mit.edu/doc/safe-shell/>
+set -euf -o pipefail
+
 # shellcheck disable=SC1091
 {
   . "incl/all.sh"
@@ -17,6 +21,9 @@
 
 cat "github/README.txt"
 
-. "github/_install.sh"
-. "github/_auth.sh"
-. "github/_clone.sh"
+# shellcheck disable=SC1091
+{
+  . "github/_install.sh"
+  . "github/_auth.sh"
+  . "github/_clone.sh"
+}

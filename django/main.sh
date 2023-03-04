@@ -8,10 +8,14 @@
 #                 All rights reserved
 #====================================================
 
+# settings to write safe scripts
+# <https://sipb.mit.edu/doc/safe-shell/>
+set -euf -o pipefail
+
 # shellcheck disable=SC1090,SC1091
 {
   . "incl/all.sh"
-  . "${UCLD_PATH[env]}/.env" 2>>logfile.log
+  . "${UCLD_PATH[env]}/.env" 2>>logfile.log || true
   . "django/_utils.sh"
   . "postgresql/_utils.sh"
   # more files
@@ -59,7 +63,7 @@ if [[ -f "${_dj_repo}/manage.py" ]]; then
     python manage.py runserver
 
   else
-    _ucld_::exception postgresql
+    _ucld_::warning postgresql
   fi
 
   _ucld_::back_to_script_dir_

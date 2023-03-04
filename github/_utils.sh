@@ -10,8 +10,6 @@
 # List organizations for the authenticated user
 # <https://docs.github.com/en/rest/orgs/orgs?apiVersion=2022-11-28#list-organizations-for-the-authenticated-user>
 #
-# shellcheck disable=SC2207
-#
 #====================================================
 
 _ucld_::gh_list_user_orgs() {
@@ -19,17 +17,18 @@ _ucld_::gh_list_user_orgs() {
 }
 
 _ucld_::gh_list_user_repos() {
-  local _choice _owners _repos _repo _org
-  declare -a _repos
+  local _choice _owners _repo _org
   declare -a _owners=("")
 
-  _choice=${1}
-  _owners+=($(_ucld_::gh_list_user_orgs)) || return
+  _choice=${1:-""}
+  # shellcheck disable=SC2207
+  _owners+=($(_ucld_::gh_list_user_orgs || true))
 
   for _org in "${_owners[@]}"; do
 
     if [ "${_choice}" == "full" ]; then
 
+      echo "gh repo list ""${_org}"" --no-archived"
       gh repo list "${_org}" --no-archived
 
     else

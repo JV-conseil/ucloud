@@ -21,10 +21,10 @@ _ucld_::debug() {
 
 EOF
 
-  cat /proc/version &>/dev/null
-  cat /etc/issue &>/dev/null
-  bash --version
-  python --version
+  cat /proc/version &>/dev/null || true
+  cat /etc/issue &>/dev/null || true
+  bash --version || true
+  python --version || true
 
   if [[ "${DEBUG}" -gt 1 ]]; then
 
