@@ -13,7 +13,7 @@ _ucld_::pg_create_db() {
 
   _psql_commands=(
     "DROP DATABASE IF EXISTS ${UCLD_DB_PARAM[name]} ;"
-    "DROP USER ${UCLD_DB_PARAM[user]} ;"
+    "DROP USER IF EXISTS ${UCLD_DB_PARAM[user]} ;"
     "CREATE USER ${UCLD_DB_PARAM[user]} WITH PASSWORD '${UCLD_DB_PARAM[password]}' ;"
     "CREATE DATABASE ${UCLD_DB_PARAM[name]} ;"
     "GRANT ALL PRIVILEGES ON DATABASE ${UCLD_DB_PARAM[name]} TO ${UCLD_DB_PARAM[user]} ;"
