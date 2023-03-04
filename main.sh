@@ -68,4 +68,4 @@ else
   _ucld_::show_settings
 fi
 
-# set +euo pipefail
+_ucld_::unofficial_bash_strict_mode "reset"
