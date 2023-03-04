@@ -11,7 +11,7 @@
 # shellcheck disable=SC1090,SC1091
 {
   . "incl/all.sh"
-  . "${UCLD_PATH[env]}/.env" 2>>logfile.log || true
+  . "${UCLD_PATH[env]}/.env" 2>>logfile.log || :
   . "django/_utils.sh"
   . "postgresql/_utils.sh"
   # more files
@@ -29,7 +29,7 @@ else
 
   _ucld_::h2 "Please select a valid Django repository"
 
-  select _dj_repo in $(dirname "${UCLD_PATH[work]}"/*/manage.py || true); do
+  select _dj_repo in $(dirname "${UCLD_PATH[work]}"/*/manage.py || :); do
     test -n "${_dj_repo}" && break
     # echo ">>> Invalid Selection"
     _ucld_::alert ">>> Invalid Selection"

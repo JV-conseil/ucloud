@@ -22,7 +22,7 @@ _ucld_::gh_list_user_repos() {
 
   _choice=${1:-""}
   # shellcheck disable=SC2207
-  _owners+=($(_ucld_::gh_list_user_orgs || true))
+  _owners+=($(_ucld_::gh_list_user_orgs || :))
 
   for _org in "${_owners[@]}"; do
 

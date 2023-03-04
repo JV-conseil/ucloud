@@ -86,7 +86,7 @@ _ucld_::update_passfile() {
 
 _ucld_::generate_ssh_key() {
 
-  mkdir "${UCLOUD_SSH_PATH[1]}" || true
+  mkdir "${UCLOUD_SSH_PATH[1]}" || :
 
   if ssh-keygen -t ed25519 -N "${UCLOUD_SSH_KEY[password]}" -C "${USER}@${HOSTNAME}" -f "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY[key]}"; then
 

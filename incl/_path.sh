@@ -42,12 +42,14 @@ _ucld_::build_path() {
       eval "export UCLD_PATH_TO_${_key^^}=""${_path}"""
     fi
   done
+
+  return 0
 }
 
-# shellcheck disable=SC1091
+# shellcheck disable=SC1091,SC2317
 {
   . "./settings.conf"
-  . "${UCLD_PATH[env]}/settings.conf" 2>>logfile.log || true
+  . "${UCLD_PATH[env]}/settings.conf" 2>>logfile.log || :
   # more files
 }
 

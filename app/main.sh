@@ -23,7 +23,7 @@ else
 
   _ucld_::h2 "Please select a repo with a Python app"
 
-  select _app_repo in $(dirname "${UCLD_PATH[work]}"/*/main.py || true); do
+  select _app_repo in $(dirname "${UCLD_PATH[work]}"/*/main.py || :); do
     test -n "${_app_repo}" && break
     _ucld_::alert ">>> Invalid Selection"
   done
