@@ -13,7 +13,6 @@
   . "incl/all.sh"
   . "${UCLD_PATH[env]}/.env" 2>>logfile.log || :
   . "django/_utils.sh"
-  . "postgresql/_utils.sh"
   # more files
 }
 

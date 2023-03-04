@@ -8,14 +8,6 @@
 #                 All rights reserved
 #====================================================
 
-_ucld_::is_postgresql_server_running() {
-  local _bool=false
-  if [ -x "$(command -v pg_ctl)" ]; then
-    if pg_ctl status -D "${UCLD_PATH[database]}" &>/dev/null; then _bool=true; fi
-  fi
-  echo ${_bool}
-}
-
 _ucld_::pg_list() {
   psql --dbname=postgres --command="\du+"
   psql --dbname=postgres --command="\l+"

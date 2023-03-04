@@ -12,6 +12,16 @@ _ucld_::back_to_script_dir_() {
   cd_ "${UCLD_PATH[main]}"
 }
 
+_ucld_::is_postgresql_server_running() {
+  local _bool=false
+  if [ -x "$(command -v pg_ctl)" ]; then
+    if pg_ctl status -D "${UCLD_PATH[database]}" &>/dev/null; then _bool=true; fi
+  elif [ -x "$(command -v python)" ]; then
+    if python manage.py check --database default &>/dev/null; then _bool=true; fi
+  fi
+  echo ${_bool}
+}
+
 _ucld_::is_python_installed() {
   local _bool=false
   if [ -x "$(command -v python)" ]; then _bool=true; fi

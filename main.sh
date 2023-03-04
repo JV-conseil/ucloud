@@ -11,7 +11,6 @@
 # shellcheck source=/dev/null
 {
   . "incl/all.sh"
-  . "postgresql/_utils.sh"
   # more files
 }
 
