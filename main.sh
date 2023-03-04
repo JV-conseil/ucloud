@@ -15,6 +15,7 @@
 # <https://sipb.mit.edu/doc/safe-shell/>
 set -eu -o pipefail
 shopt -s failglob
+IFS=$'\n\t'
 
 # shellcheck disable=SC1091
 {
@@ -69,3 +70,5 @@ if "$(_ucld_::ask "Do you want to reset your settings")"; then
 else
   _ucld_::show_settings
 fi
+
+set +o
