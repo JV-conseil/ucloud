@@ -21,7 +21,7 @@ _ucld_::pg_list() {
   psql --dbname=postgres --command="\l+"
 
   _ucld_::h3 "Checking SSL connection to postgres database"
-  echo "To quit type \q"
+  echo "... to quit and go back to Terminal type \q"
   echo
   psql --dbname=postgres --host=localhost
 }

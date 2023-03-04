@@ -48,3 +48,32 @@ EOF
   fi
 
 }
+
+# The Unofficial Bash Strict Mode
+# These lines deliberately cause your script to fail.
+# Wait, what? Believe me, this is a good thing.
+# <http://redsymbol.net/articles/unofficial-bash-strict-mode/>
+_ucld_::unofficial_bash_strict_mode() {
+  local _mode=${1:-""}
+
+  case "${_mode}" in
+
+  "on")
+    # settings to write safe scripts
+    # <https://sipb.mit.edu/doc/safe-shell/>
+    set -euo pipefail
+
+    # Shopt builtin allows you to change additional shell optional behavior
+    # <https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html>
+    shopt -s failglob
+    # IFS=$'\n\t'
+    ;;
+
+  "off" | "reset")
+    set +euo pipefail
+    shopt -u failglob
+    ;;
+
+  esac
+
+}
