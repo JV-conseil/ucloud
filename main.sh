@@ -13,7 +13,7 @@
 
 # settings to write safe scripts
 # <https://sipb.mit.edu/doc/safe-shell/>
-set -eu -o pipefail
+set -euo pipefail
 shopt -s failglob
 IFS=$'\n\t'
 
@@ -71,4 +71,4 @@ else
   _ucld_::show_settings
 fi
 
-set +o pipefail
+set +euo pipefail
