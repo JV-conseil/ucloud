@@ -63,7 +63,7 @@ if "$(_ucld_::ask "Do you need to generate an SSH key")"; then
   echo
 fi
 
-if "$(_ucld_::ask "Do you want to reset your settings")"; then
+if "$(_ucld_::ask "Do you want to reset your settings" || :)"; then
   _ucld_::reset_settings
   _ucld_::show_settings
 else
