@@ -22,7 +22,7 @@ _ucld_::dj_create_superuser() {
   _user=${USER:-"ucloud"}
   _password=$(_ucld_::key_gen 32)
 
-  echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('${USER}', '${_user}', '${_password}');" | python manage.py shell
+  echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('${_user}', '${_user}', '${_password}');" | python manage.py shell
 
   cat <<EOF
 
