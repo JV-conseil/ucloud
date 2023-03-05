@@ -68,8 +68,8 @@ else
   _ucld_::show_settings
 fi
 
-if "$(_ucld_::is_linux)"; then
-  # shellcheck disable=SC2034
-  BP_PIPESTATUS=("${PIPESTATUS[@]}")
-  _PRESERVED_PROMPT_COMMAND=""
-fi
+# if "$(_ucld_::is_linux)"; then
+#   # shellcheck disable=SC2034
+#   BP_PIPESTATUS=("${PIPESTATUS[@]}")
+#   _PRESERVED_PROMPT_COMMAND=""
+# fi
