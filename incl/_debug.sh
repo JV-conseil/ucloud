@@ -50,8 +50,8 @@ _ucld_::debug() {
 
 EOF
 
-  cat /proc/version &>/dev/null || :
-  cat /etc/issue &>/dev/null || :
+  cat /proc/version 2>/dev/null || :
+  cat /etc/issue 2>/dev/null || :
   bash --version || :
   python --version || :
 
