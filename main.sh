@@ -11,7 +11,12 @@
 # settings to write safe scripts
 # <https://sipb.mit.edu/doc/safe-shell/>
 # set -eu -o pipefail
-set +eu -o pipefail
+# set +eu -o pipefail
+
+# Safer bash scripts with 'set -euxo pipefail'
+# <https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/>
+set -Eeuo pipefail
+trap "echo ERR trap fired!" ERR
 # set -o errtrace
 # set -o functrace
 # set -o verbose
@@ -25,6 +30,8 @@ echo "-/${IFS}-/-"
 
 # trap "{ echo 'Terminated with Ctrl+C'; }" SIGINT
 # trap BP_PIPESTATUS EXIT
+
+trap pipefail EXIT
 
 # if type bashdb &>/dev/null; then
 #   shopt -s extdebug
