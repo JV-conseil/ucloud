@@ -17,8 +17,8 @@ _ucld_::unofficial_bash_strict_mode() {
 
   "off" | "reset")
     export UNOFFICIAL_BASH_STRICT_MODE=0
-    set +euo pipefail
-    shopt -u failglob
+    set +euo pipefail errtrace functrace verbose xtrace
+    shopt -u failglob extdebug
     ;;
 
   *)
@@ -27,10 +27,10 @@ _ucld_::unofficial_bash_strict_mode() {
 
     # settings to write safe scripts
     # <https://sipb.mit.edu/doc/safe-shell/>
-    set -euo pipefail
+    set -euo pipefail errtrace functrace verbose xtrace
     # Shopt builtin allows you to change additional shell optional behavior
     # <https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html>
-    shopt -s failglob
+    shopt -s failglob extdebug
     # IFS=$'\n\t'
     ;;
   esac

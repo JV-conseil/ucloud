@@ -40,4 +40,6 @@
     "bats"
   ],
   "shellformat.path": "/opt/homebrew/bin/shfmt",
+  "shellcheck.executablePath": "/opt/homebrew/bin/shellcheck",
+  "shellcheck.logLevel": "trace",
 }
