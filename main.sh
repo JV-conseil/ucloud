@@ -18,8 +18,33 @@ set -eu -o pipefail
 # Shopt builtin allows you to change additional shell optional behavior
 # <https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html>
 shopt -s failglob
-shopt -s extdebug
 IFS=$'\n\t'
+
+if type bashdb &>/dev/null; then
+  shopt -s extdebug
+else
+  set -o errtrace
+  set -o functrace
+  set -o verbose
+fi
+
+echo "Run TRACE mode"
+exec 4>./xtrace.out
+BASH_XTRACEFD=4
+set -o xtrace # same as set -x
+
+# shellcheck disable=SC2317
+debug() {
+  echo "[ DEBUG ]| BASH_COMMAND=${BASH_COMMAND}"
+  echo "         | BASH_ARGC=${BASH_ARGC[@]} BASH_ARGV=${BASH_ARGV[@]}"
+  echo "         | BASH_SOURCE: ${!BASH_SOURCE[@]} ${BASH_SOURCE[@]}"
+  echo "         | BASH_LINENO: ${!BASH_LINENO[@]} ${BASH_LINENO[@]}"
+  echo "         | FUNCNAME: ${!FUNCNAME[@]} ${FUNCNAME[@]}"
+  echo "         | PIPESTATUS: ${!PIPESTATUS[@]} ${PIPESTATUS[@]}"
+}
+
+trap 'echo ERR trap from ${FUNCNAME:-MAIN} context. $BASH_COMMAND failed with error code $?' ERR
+trap 'debug' DEBUG
 
 # shellcheck source=/dev/null
 {

@@ -3,6 +3,7 @@
 
 #
 logfile.log
+xtrace.out
 
 # skeleton UCLD_DIR & UCLD_PATH
 data/*
