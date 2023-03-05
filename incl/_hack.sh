@@ -10,7 +10,7 @@
 
 if "$(_ucld_::is_linux)"; then
   # shellcheck disable=SC2034
-  BP_PIPESTATUS=("${PIPESTATUS[@]}")
+  # BP_PIPESTATUS=("${PIPESTATUS[@]}")
   _PRESERVED_PROMPT_COMMAND="${PROMPT_COMMAND}"
 fi
 
