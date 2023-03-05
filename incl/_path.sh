@@ -50,6 +50,9 @@ _ucld_::build_path() {
   # more files
 }
 
-UCLD_ALLOWED_HOSTS="$(_ucld_::join_array "${UCLD_PUBLIC_LINKS[@]}")"
+UCLD_ALLOWED_HOSTS="$(
+  IFS=$' '
+  echo "${UCLD_PUBLIC_LINKS[*]}"
+)"
 
 _ucld_::build_path

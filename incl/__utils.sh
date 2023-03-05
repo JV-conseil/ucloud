@@ -12,14 +12,6 @@ _ucld_::back_to_script_dir_() {
   cd_ "${UCLD_PATH[main]}"
 }
 
-_ucld_::join_array() {
-  local _array=${1}
-  echo "$(
-    IFS=$' '
-    echo "${_array[*]}"
-  )"
-}
-
 _ucld_::is_python_installed() {
   local _bool=false
   if [ -x "$(command -v python)" ]; then _bool=true; fi
