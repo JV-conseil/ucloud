@@ -31,8 +31,6 @@ echo "-/${IFS}-/-"
 # trap "{ echo 'Terminated with Ctrl+C'; }" SIGINT
 # trap BP_PIPESTATUS EXIT
 
-trap pipefail EXIT
-
 # if type bashdb &>/dev/null; then
 #   shopt -s extdebug
 # else
@@ -115,6 +113,8 @@ if "$(_ucld_::ask "Do you want to reset your settings")"; then
 else
   _ucld_::show_settings
 fi
+
+BP_PIPESTATUS=("${PIPESTATUS[@]}")
 
 # BP_PIPESTATUS=("${PIPESTATUS[@]}")
 # exit 0
