@@ -20,12 +20,6 @@ _ucld_::join_array() {
   echo "${_array}"
 }
 
-_ucld_::is_linux() {
-  local _bool=false
-  if [[ "$(cat /proc/version || :)" == "Linux"* ]]; then _bool=true; fi
-  echo "${_bool}"
-}
-
 _ucld_::is_python_installed() {
   local _bool=false
   if [ -x "$(command -v python)" ]; then _bool=true; fi

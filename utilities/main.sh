@@ -7,10 +7,6 @@
 # copyright     : Copyright (c) 2019-2023 JV-conseil
 #                 All rights reserved
 #====================================================
-# set -Eeuo pipefail
-set -Ee
-shopt -s failglob
-IFS=$'\n\t'
 
 # shellcheck source=/dev/null
 {
