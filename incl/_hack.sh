@@ -13,3 +13,9 @@ if "$(_ucld_::is_linux)"; then
   BP_PIPESTATUS=("${PIPESTATUS[@]}")
   _PRESERVED_PROMPT_COMMAND="${PROMPT_COMMAND}"
 fi
+
+trap ctrl_c INT
+
+function ctrl_c() {
+  echo "Ctrl + C happened"
+}
