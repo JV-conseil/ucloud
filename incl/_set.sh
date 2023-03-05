@@ -35,16 +35,18 @@ _ucld_::is_linux() {
   echo "${_bool}"
 }
 
-if ! "$(_ucld_::is_linux)"; then
-  set -Eeuo pipefail
-fi
+_ucld_::set_show() {
+  bash --version || :
+  cat <<EOF
 
-cat <<EOF
+Bash $(if [[ "${-}" =~ [eu] ]]; then echo "Strict Mode activated"; else echo "Options"; fi) set ${-}
 
-=====================================
- Bash $(if [[ "${-}" =~ [eu] ]]; then echo "Strict Mode activated"; else echo "Options"; fi) ${-}
-=====================================
-
+$(echo ${SHELLOPTS} | tr ':' '\n')
 $(shopt -s)
 
 EOF
+}
+
+if ! "$(_ucld_::is_linux)"; then
+  set -Eeuo pipefail
+fi

@@ -18,8 +18,6 @@
   # more files
 }
 
-_ucld_::debug
-
 cat "postgresql/README.txt"
 
 if "$(_ucld_::is_postgresql_server_running)"; then

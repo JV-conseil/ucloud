@@ -52,7 +52,7 @@ EOF
 
   cat /proc/version 2>/dev/null || :
   cat /etc/issue 2>/dev/null || :
-  bash --version || :
+  _ucld_::set_show
   python --version || :
 
   if [[ "${DEBUG}" -gt 1 ]]; then
