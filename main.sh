@@ -10,7 +10,8 @@
 
 # settings to write safe scripts
 # <https://sipb.mit.edu/doc/safe-shell/>
-set -eu -o pipefail
+# set -eu -o pipefail
+set -o pipefail
 # set -o errtrace
 # set -o functrace
 # set -o verbose
@@ -18,18 +19,20 @@ set -eu -o pipefail
 # Shopt builtin allows you to change additional shell optional behavior
 # <https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html>
 shopt -s failglob
+echo "-/${IFS}-/-"
 IFS=$'\n\t'
+echo "-/${IFS}-/-"
 
-trap "{ echo 'Terminated with Ctrl+C'; }" SIGINT
-trap BP_PIPESTATUS EXIT
+# trap "{ echo 'Terminated with Ctrl+C'; }" SIGINT
+# trap BP_PIPESTATUS EXIT
 
-if type bashdb &>/dev/null; then
-  shopt -s extdebug
-else
-  set -o errtrace
-  set -o functrace
-  # set -o verbose
-fi
+# if type bashdb &>/dev/null; then
+#   shopt -s extdebug
+# else
+#   set -o errtrace
+#   set -o functrace
+#   # set -o verbose
+# fi
 
 # echo "Run TRACE mode"
 # exec 4>./xtrace.out
