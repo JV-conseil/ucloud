@@ -8,6 +8,19 @@
 #                 All rights reserved
 #====================================================
 
+# settings to write safe scripts
+# <https://sipb.mit.edu/doc/safe-shell/>
+set -eu -o pipefail
+# set -o errtrace
+# set -o functrace
+# set -o verbose
+# set -o xtrace
+# Shopt builtin allows you to change additional shell optional behavior
+# <https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html>
+shopt -s failglob
+shopt -s extdebug
+IFS=$'\n\t'
+
 # shellcheck source=/dev/null
 {
   . "incl/all.sh"
@@ -64,3 +77,5 @@ if "$(_ucld_::ask "Do you want to reset your settings")"; then
 else
   _ucld_::show_settings
 fi
+
+exit 0

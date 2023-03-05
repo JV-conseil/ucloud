@@ -31,7 +31,7 @@ _ucld_::install_packages() {
 
     _ucld_::h2 "Installing ${_bin}"
 
-    sudo apt install -y "$_bin"
+    sudo apt install -y "$_bin" || :
 
     if [[ "$_bin" =~ ^python.* ]]; then
       # sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.11 1

@@ -8,7 +8,7 @@
 #                 All rights reserved
 #
 # Usage:
-# TRACE=1 BASH_ENV=utilities/debugger.sh utilities/main.sh
+# TRACE=1 BASH_ENV=utilities/debugger.sh ./main.sh
 #
 #====================================================
 
@@ -42,6 +42,7 @@ debug() {
   echo "         | BASH_SOURCE: ${!BASH_SOURCE[@]} ${BASH_SOURCE[@]}"
   echo "         | BASH_LINENO: ${!BASH_LINENO[@]} ${BASH_LINENO[@]}"
   echo "         | FUNCNAME: ${!FUNCNAME[@]} ${FUNCNAME[@]}"
+  echo "         | PIPESTATUS: ${!PIPESTATUS[@]} ${PIPESTATUS[@]}"
 }
 
 trap 'echo ERR trap from ${FUNCNAME:-MAIN} context. $BASH_COMMAND failed with error code $?' ERR
