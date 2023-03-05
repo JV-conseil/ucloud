@@ -13,11 +13,11 @@ _ucld_::back_to_script_dir_() {
 }
 
 _ucld_::join_array() {
-  local _array=${1} _ifs="${IFS}"
-  IFS=" "
-  _array="${_array[*]}"
-  IFS="${_ifs}"
-  echo "${_array}"
+  local _array=${1}
+  echo "$(
+    IFS=$' '
+    echo "${_array[*]}"
+  )"
 }
 
 _ucld_::is_python_installed() {
