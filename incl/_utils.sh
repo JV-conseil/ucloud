@@ -22,7 +22,7 @@ _ucld_::join_array() {
 
 _ucld_::is_linux() {
   local _bool=false
-  if [[ "$(cat /proc/version &>/dev/null || :)" == "Linux"* ]]; then _bool=true; fi
+  if [[ "$(cat /proc/version || :)" == "Linux"* ]]; then _bool=true; fi
   echo "${_bool}"
 }
 
