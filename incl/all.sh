@@ -21,6 +21,6 @@
   . "incl/_debug.sh"
   . "incl/_install.sh"
   . "incl/_ssh.sh"
-  . "incl/_hack.sh"
+  # . "incl/_hack.sh"
   # more files
 }
