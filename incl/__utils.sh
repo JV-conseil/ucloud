@@ -69,6 +69,6 @@ _ucld_::update_bashrc() {
 
 
 #====================================================" >>"${HOME}/${_file}"
-    cat incl/_aliases.sh >>"${HOME}/${_file}"
+    cat incl/__aliases.sh >>"${HOME}/${_file}"
   done
 }

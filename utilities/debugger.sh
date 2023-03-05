@@ -15,7 +15,7 @@
 
 # shellcheck source=/dev/null
 {
-  . "incl/_debug.sh"
+  . "incl/__debug.sh"
   # more files
 }
 

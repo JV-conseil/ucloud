@@ -11,8 +11,8 @@
 # shellcheck source=/dev/null
 {
   . "/work/env/.env"
-  . "/work/ucloud/incl/_colors.sh"
-  . "/work/ucloud/incl/_debug.sh"
+  . "/work/ucloud/incl/__colors.sh"
+  . "/work/ucloud/incl/__debug.sh"
   . "/work/ucloud/django/_utils.sh"
   # more files
 }

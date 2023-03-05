@@ -10,11 +10,11 @@
 
 # shellcheck source=/dev/null
 {
-  . "incl/_set.sh"
-  . "incl/_aliases.sh"
-  . "incl/_debug.sh"
-  . "incl/_utils.sh"
-  . "incl/_colors.sh"
+  . "incl/__set.sh"
+  . "incl/__aliases.sh"
+  . "incl/__debug.sh"
+  . "incl/__utils.sh"
+  . "incl/__colors.sh"
   # below this line depends on ./settings.conf
   . "incl/_path.sh"
   . "incl/_exceptions.sh"
