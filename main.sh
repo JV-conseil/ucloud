@@ -20,6 +20,9 @@ set -eu -o pipefail
 shopt -s failglob
 IFS=$'\n\t'
 
+trap "{ echo 'Terminated with Ctrl+C'; }" SIGINT
+trap BP_PIPESTATUS EXIT
+
 if type bashdb &>/dev/null; then
   shopt -s extdebug
 else
@@ -43,8 +46,8 @@ debug() {
   echo "         | PIPESTATUS: ${!PIPESTATUS[@]} ${PIPESTATUS[@]}"
 }
 
-trap 'echo ERR trap from ${FUNCNAME:-MAIN} context. $BASH_COMMAND failed with error code $?' ERR
-trap 'BP_PIPESTATUS' DEBUG
+# trap 'echo ERR trap from ${FUNCNAME:-MAIN} context. $BASH_COMMAND failed with error code $?' ERR
+# trap 'BP_PIPESTATUS' DEBUG
 
 # shellcheck source=/dev/null
 {
@@ -103,5 +106,5 @@ else
   _ucld_::show_settings
 fi
 
-BP_PIPESTATUS=("${PIPESTATUS[@]}")
-exit 0
+# BP_PIPESTATUS=("${PIPESTATUS[@]}")
+# exit 0
