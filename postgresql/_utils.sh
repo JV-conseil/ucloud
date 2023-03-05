@@ -14,7 +14,7 @@ _ucld_::is_postgresql_server_running() {
     if pg_ctl status -D "${UCLD_PATH[database]}" &>/dev/null; then _bool=true; fi
   # elif [ -x "$(command -v python)" ]; then
   #   if python "${UCLD_PATH[django]}/manage.py" dbshell --database default &>/dev/null || :; then _bool=true; fi
-  elif [ -x "$(command -v psql)" ]; then
+  elif [[ -x "$(command -v python)" && -x "$(command -v psql)" ]]; then
     _bool=true
   fi
   echo ${_bool}
