@@ -10,6 +10,9 @@
 # settings to write safe scripts
 # <https://sipb.mit.edu/doc/safe-shell/>
 #
+# The Set Builtin allows you to change the values of shell options
+# <https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html>
+#
 # Shopt builtin allows you to change additional shell optional behavior
 # <https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html>
 #
@@ -36,7 +39,8 @@ if ! "$(_ucld_::is_linux)"; then
   set -Eeuo pipefail
 fi
 
-cat <<EOF
+if [[ "${-}" == *"e"* ]]; then
+  cat <<EOF
 
 =====================================
  Bash Strict Mode activated ${-}
@@ -45,3 +49,4 @@ cat <<EOF
 $(shopt -s)
 
 EOF
+fi
