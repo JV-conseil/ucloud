@@ -43,8 +43,8 @@ debug() {
   echo "         | PIPESTATUS: ${!PIPESTATUS[@]} ${PIPESTATUS[@]}"
 }
 
-trap 'echo ERR trap from ${FUNCNAME:-MAIN} context. $BASH_COMMAND failed with error code $?' ERR
-trap 'debug' DEBUG
+# trap 'echo ERR trap from ${FUNCNAME:-MAIN} context. $BASH_COMMAND failed with error code $?' ERR
+# trap 'debug' DEBUG
 
 # shellcheck source=/dev/null
 {
