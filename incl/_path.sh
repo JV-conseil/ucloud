@@ -11,7 +11,7 @@
 # shellcheck disable=SC2034
 declare -a UCLD_INSTALL_PACKAGES UCLD_PUBLIC_LINKS
 declare -A UCLD_DB_PARAM UCLD_DIR UCLD_PATH
-declare -xi DEBUG
+declare -xi DEBUG=0 BASH_STRICT_MODE=0
 declare -x UCLD_ALLOWED_HOSTS
 
 UCLD_PATH=([main]="${PWD}" [work]="${PWD}")

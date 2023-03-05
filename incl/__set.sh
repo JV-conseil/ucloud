@@ -26,15 +26,10 @@
 #
 #====================================================
 
-_ucld_::set_terminal_mode() {
-  set -E -o pipefail
-  shopt -s failglob
-  IFS=$'\n\t'
-}
-
-_ucld_::set_strict_mode() {
-  set -eu
-  _ucld_::set_terminal_mode
+_ucld_::is_linux() {
+  local _bool=false
+  if [[ "$(cat /proc/version 2>/dev/null || :)" == "Linux"* ]]; then _bool=true; fi
+  echo "${_bool}"
 }
 
 _ucld_::set_show_options() {
@@ -49,14 +44,19 @@ $(shopt -s)
 EOF
 }
 
-_ucld_::is_linux() {
-  local _bool=false
-  if [[ "$(cat /proc/version 2>/dev/null || :)" == "Linux"* ]]; then _bool=true; fi
-  echo "${_bool}"
+_ucld_::set_terminal_mode() {
+  set +eu
+  set -E -o pipefail
+  shopt -s failglob
+  IFS=$'\n\t'
 }
 
+_ucld_::set_strict_mode() {
+  _ucld_::set_terminal_mode
+  set -eu
+}
+
+_ucld_::set_strict_mode
 if "$(_ucld_::is_linux)"; then
   _ucld_::set_terminal_mode
-else
-  _ucld_::set_strict_mode
 fi
