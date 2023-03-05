@@ -25,13 +25,13 @@ if type bashdb &>/dev/null; then
 else
   set -o errtrace
   set -o functrace
-  set -o verbose
+  # set -o verbose
 fi
 
-echo "Run TRACE mode"
-exec 4>./xtrace.out
-BASH_XTRACEFD=4
-set -o xtrace # same as set -x
+# echo "Run TRACE mode"
+# exec 4>./xtrace.out
+# BASH_XTRACEFD=4
+# set -o xtrace # same as set -x
 
 # shellcheck disable=SC2317
 debug() {
@@ -43,8 +43,8 @@ debug() {
   echo "         | PIPESTATUS: ${!PIPESTATUS[@]} ${PIPESTATUS[@]}"
 }
 
-# trap 'echo ERR trap from ${FUNCNAME:-MAIN} context. $BASH_COMMAND failed with error code $?' ERR
-# trap 'debug' DEBUG
+trap 'echo ERR trap from ${FUNCNAME:-MAIN} context. $BASH_COMMAND failed with error code $?' ERR
+trap 'BP_PIPESTATUS' DEBUG
 
 # shellcheck source=/dev/null
 {
@@ -103,4 +103,5 @@ else
   _ucld_::show_settings
 fi
 
+BP_PIPESTATUS=("${PIPESTATUS[@]}")
 exit 0
