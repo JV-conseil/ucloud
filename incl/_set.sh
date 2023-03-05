@@ -22,7 +22,7 @@
 # <https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/>
 #
 #====================================================
-set -Ee
+set -E
 shopt -s failglob
 IFS=$'\n\t'
 
