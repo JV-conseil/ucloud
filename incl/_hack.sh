@@ -14,8 +14,8 @@ if "$(_ucld_::is_linux)"; then
   _PRESERVED_PROMPT_COMMAND="${PROMPT_COMMAND}"
 fi
 
-trap ctrl_c INT
+# trap ctrl_c INT
 
-function ctrl_c() {
-  echo "Ctrl + C happened"
-}
+# function ctrl_c() {
+#   echo "Ctrl + C happened"
+# }
