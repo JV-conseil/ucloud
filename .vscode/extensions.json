@@ -5,7 +5,6 @@
     "timonwong.shellcheck",
     "yzhang.markdown-all-in-one",
     "davidanson.vscode-markdownlint",
-    "foxundermoon.shell-format",
-    "rogalmic.bash-debug"
+    "foxundermoon.shell-format"
   ]
 }

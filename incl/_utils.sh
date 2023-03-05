@@ -12,6 +12,20 @@ _ucld_::back_to_script_dir_() {
   cd_ "${UCLD_PATH[main]}"
 }
 
+_ucld_::join_array() {
+  local _array=${1} _ifs="${IFS}"
+  IFS=" "
+  _array="${_array[*]}"
+  IFS="${_ifs}"
+  echo "${_array}"
+}
+
+_ucld_::is_linux() {
+  local _bool=false
+  if [[ "$(cat /proc/version &>/dev/null || :)" == "Linux"* ]]; then _bool=true; fi
+  echo "${_bool}"
+}
+
 _ucld_::is_postgresql_server_running() {
   local _bool=false
   if [ -x "$(command -v pg_ctl)" ]; then

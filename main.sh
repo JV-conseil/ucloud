@@ -7,55 +7,9 @@
 # copyright     : Copyright (c) 2019-2023 JV-conseil
 #                 All rights reserved
 #====================================================
-
-# settings to write safe scripts
-# <https://sipb.mit.edu/doc/safe-shell/>
-# set -eu -o pipefail
-# set +eu -o pipefail
-
-# Safer bash scripts with 'set -euxo pipefail'
-# <https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/>
 set -Eeuo pipefail
-trap "echo ERR trap fired!" ERR
-# set -o errtrace
-# set -o functrace
-# set -o verbose
-# set -o xtrace
-# Shopt builtin allows you to change additional shell optional behavior
-# <https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html>
 shopt -s failglob
-echo "-/${IFS}-/-"
 IFS=$'\n\t'
-echo "-/${IFS}-/-"
-
-# trap "{ echo 'Terminated with Ctrl+C'; }" SIGINT
-# trap BP_PIPESTATUS EXIT
-
-# if type bashdb &>/dev/null; then
-#   shopt -s extdebug
-# else
-#   set -o errtrace
-#   set -o functrace
-#   # set -o verbose
-# fi
-
-# echo "Run TRACE mode"
-# exec 4>./xtrace.out
-# BASH_XTRACEFD=4
-# set -o xtrace # same as set -x
-
-# shellcheck disable=SC2317
-debug() {
-  echo "[ DEBUG ]| BASH_COMMAND=${BASH_COMMAND}"
-  echo "         | BASH_ARGC=${BASH_ARGC[@]} BASH_ARGV=${BASH_ARGV[@]}"
-  echo "         | BASH_SOURCE: ${!BASH_SOURCE[@]} ${BASH_SOURCE[@]}"
-  echo "         | BASH_LINENO: ${!BASH_LINENO[@]} ${BASH_LINENO[@]}"
-  echo "         | FUNCNAME: ${!FUNCNAME[@]} ${FUNCNAME[@]}"
-  echo "         | PIPESTATUS: ${!PIPESTATUS[@]} ${PIPESTATUS[@]}"
-}
-
-# trap 'echo ERR trap from ${FUNCNAME:-MAIN} context. $BASH_COMMAND failed with error code $?' ERR
-# trap 'BP_PIPESTATUS' DEBUG
 
 # shellcheck source=/dev/null
 {
@@ -114,8 +68,6 @@ else
   _ucld_::show_settings
 fi
 
-BP_PIPESTATUS=("${PIPESTATUS[@]}")
-_PRESERVED_PROMPT_COMMAND=""
-
 # BP_PIPESTATUS=("${PIPESTATUS[@]}")
-# exit 0
+# _PRESERVED_PROMPT_COMMAND=""
+exit 1

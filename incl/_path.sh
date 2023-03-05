@@ -12,6 +12,7 @@
 declare -a UCLD_INSTALL_PACKAGES UCLD_PUBLIC_LINKS
 declare -A UCLD_DB_PARAM UCLD_DIR UCLD_PATH
 declare -xi DEBUG
+declare -x UCLD_ALLOWED_HOSTS
 
 UCLD_PATH=([main]="${PWD}" [work]="${PWD}")
 
@@ -48,5 +49,7 @@ _ucld_::build_path() {
   . "${UCLD_PATH[env]}/settings.conf" 2>>logfile.log || :
   # more files
 }
+
+UCLD_ALLOWED_HOSTS="$(_ucld_::join_array "${UCLD_PUBLIC_LINKS[@]}")"
 
 _ucld_::build_path
