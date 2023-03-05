@@ -39,14 +39,12 @@ if ! "$(_ucld_::is_linux)"; then
   set -Eeuo pipefail
 fi
 
-if [[ "${-}" == *"e"* ]]; then
-  cat <<EOF
+cat <<EOF
 
 =====================================
- Bash Strict Mode activated ${-}
+ Bash $(if [[ "${-}" =~ [eu] ]]; then echo "Strict Mode activated"; else echo "Options"; fi) ${-}
 =====================================
 
 $(shopt -s)
 
 EOF
-fi
