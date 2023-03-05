@@ -11,7 +11,7 @@
 # settings to write safe scripts
 # <https://sipb.mit.edu/doc/safe-shell/>
 # set -eu -o pipefail
-set -o pipefail
+set +eu -o pipefail
 # set -o errtrace
 # set -o functrace
 # set -o verbose
