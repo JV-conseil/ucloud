@@ -284,7 +284,3 @@ Code from exclusive appropriation.
 
 All other changes or additions to this Appendix require the production of a new
 EUPL version.
-
-<!-- links -->
-
-[EUPL]: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
