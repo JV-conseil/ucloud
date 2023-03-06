@@ -72,3 +72,10 @@ _ucld_::dj_running_migrations() {
   python manage.py migrate
   echo
 }
+
+# UCloud requires that Django runserver on port 3000?
+# <https://docs.cloud.sdu.dk/Apps/django.html#change-the-server-s-port>
+_ucld_::dj_runserver() {
+  local _port=3000
+  python manage.py runserver "${_port}"
+}

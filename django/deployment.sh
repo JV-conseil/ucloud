@@ -19,4 +19,4 @@
 
 _ucld_::dj_collectstatic
 _ucld_::dj_install_dependencies
-python manage.py runserver
+_ucld_::dj_runserver

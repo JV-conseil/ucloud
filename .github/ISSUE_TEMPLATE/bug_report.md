@@ -1,9 +1,9 @@
 ---
 name: Bug Report 🐞
 about: Did you find a bug?
-title: ''
+title: 'Bug Report 🐞 {short-description}'
 labels: bug, triage
-assignees: ''
+assignees: 'JV-conseil'
 
 ---
 
@@ -17,6 +17,7 @@ assignees: ''
 
 -->
 
+- [ ] I have activated the browser Private mode to evaluate if the error still happens.
 - [ ] I have searched the [issues] of this repo and believe that this is not a duplicate.
 - [ ] If an exception occurs when executing a command, I executed it again in debug mode (`DEBUF = True` in settings).
 
