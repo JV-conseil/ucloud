@@ -19,7 +19,7 @@ _ucld_::debug
 cat "utilities/README.txt"
 
 _ucld_::startup_check
-_ucld_::install_packages
+_ucld_::ask_install_packages
 
 if "$(_ucld_::ask "Do you need to generate an SSH key")"; then
   _ucld_::generate_ssh_key

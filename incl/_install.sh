@@ -8,16 +8,23 @@
 #                 All rights reserved
 #====================================================
 
+_ucld_::is_apt_available() {
+  local _bool=false
+  if "$(_ucld_::is_ucloud_execution)" || [ -x "$(command -v apt)" ]; then _bool=true; fi
+  echo "${_bool}"
+}
+
 _ucld_::install_packages() {
   local _bin
 
-  if ! "$(_ucld_::is_ucloud_execution)" || [ ! -x "$(command -v apt)" ]; then
+  # if ! "$(_ucld_::is_ucloud_execution)" || [ ! -x "$(command -v apt)" ]; then
+  if ! "$(_ucld_::is_apt_available)"; then
     return
   fi
 
-  if [ "$(_ucld_::ask "Do you want to install packages for Linux with apt")" == false ]; then
-    return
-  fi
+  # if [ "$(_ucld_::ask "Do you want to install packages for Linux with apt")" == false ]; then
+  #   return
+  # fi
 
   _ucld_::h2 "Updating Apt"
 
@@ -45,4 +52,12 @@ _ucld_::install_packages() {
   done
 
   echo
+}
+
+_ucld_::ask_install_packages() {
+  if "$(_ucld_::is_apt_available)"; then
+    if [ "$(_ucld_::ask "Do you want to install packages for Linux with apt")" == false ]; then
+      _ucld_::install_packages
+    fi
+  fi
 }

@@ -70,7 +70,7 @@ _ucld_::debugger() {
 
   if [[ -v TRACE ]]; then
     echo "Running TRACE mode..."
-    exec 4>./xtrace.out
+    exec 4>./utilities/xtrace.out
     BASH_XTRACEFD=4
     set -o xtrace # same as set -x
   fi
