@@ -50,6 +50,11 @@ _ucld_::sanitize_input() {
   echo "${_bool}"
 }
 
+_ucld_::update_and_upgrade_apt() {
+  sudo apt update -y
+  sudo apt upgrade -y
+}
+
 _ucld_::update_bashrc() {
   local _file
   if grep -q "cd_() " "${HOME}/.profile" &>>logfile.log; then
@@ -63,4 +68,24 @@ _ucld_::update_bashrc() {
 #====================================================" >>"${HOME}/${_file}"
     cat incl/__aliases.sh >>"${HOME}/${_file}"
   done
+}
+
+# Install Python3 from source
+# <https://cloudinfrastructureservices.co.uk/how-to-install-python-3-in-debian-11-10/>
+# <https://computingforgeeks.com/how-to-install-python-on-debian-linux/>
+# <https://computingforgeeks.com/how-to-install-python-on-ubuntu-linux/>
+_ucld_::udpate_python_version() {
+  local _path="/work/install" _python="3.11.2"
+  # sudo apt update -y && sudo apt upgrade -y
+  # sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
+  # sudo apt install -y python3
+  cd "${_path}" || cd "${UCLD_PATH[install]}" || return
+  wget "https://www.python.org/ftp/python/${_python}/Python-${_python}.tgz"
+  tar -xvf "Python-${_python}.tgz"
+  cd "Python-${_python}" || return 0
+  sudo "./configure" --enable-optimizations
+  sudo make -j "$(nproc)"
+  sudo make altinstall
+  pip install --upgrade pip
+  cd "${_path%/*}" || return
 }

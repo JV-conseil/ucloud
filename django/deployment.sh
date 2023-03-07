@@ -11,14 +11,14 @@
 # shellcheck source=/dev/null
 {
   . "/work/env/.env"
-  # . "/work/ucloud/incl/__colors.sh"
-  # . "/work/ucloud/incl/__debug.sh"
-  . "/work/ucloud/incl/all.sh"
+  . "/work/ucloud/incl/__colors.sh"
+  . "/work/ucloud/incl/__debug.sh"
+  . "/work/ucloud/incl/__utils.sh"
   . "/work/ucloud/django/_utils.sh"
   # more files
 }
 
-_ucld_::install_packages
+sudo apt install -y python3.11.2 || :
 _ucld_::dj_collectstatic
 _ucld_::dj_install_dependencies
 _ucld_::dj_runserver

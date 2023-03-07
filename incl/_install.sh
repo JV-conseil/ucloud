@@ -32,7 +32,7 @@ _ucld_::install_packages() {
   # You may follow the bottom link to build it from source tarball.
   # sudo add-apt-repository ppa:deadsnakes/ppa
 
-  sudo apt update && sudo apt upgrade
+  _ucld_::update_and_upgrade_apt
 
   for _bin in "${UCLD_INSTALL_PACKAGES[@]}"; do
 
@@ -58,6 +58,7 @@ _ucld_::ask_install_packages() {
   if "$(_ucld_::is_apt_available)"; then
     if "$(_ucld_::ask "Do you want to install packages for Linux with apt")"; then
       _ucld_::install_packages
+      _ucld_::udpate_python_version
     fi
   fi
 }
