@@ -12,6 +12,8 @@
 #
 #====================================================
 
+export GH_DEBUG=api
+
 _ucld_::gh_list_user_orgs() {
   gh api -H "Accept: application/vnd.github+json" /user/orgs --jq '.[].login' 2>>logfile.log
 }
