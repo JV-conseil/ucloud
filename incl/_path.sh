@@ -37,7 +37,7 @@ _ucld_::build_path() {
     UCLD_PATH["${_key}"]="${_path}"
 
     if [[ "${_key}" == "data" ]]; then
-      eval "export UCLD_PATH_TO_${_key^^}=""${_path}"""
+      eval "export UCLD_PATH_TO_${_key^^}=\"${_path}\""
     fi
   done
 }
