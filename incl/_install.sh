@@ -10,7 +10,7 @@
 
 _ucld_::is_apt_available() {
   local _bool=false
-  if "$(_ucld_::is_ucloud_execution)" || [ -x "$(command -v apt)" ]; then _bool=true; fi
+  if "$(_ucld_::is_ucloud_env)" || [ -x "$(command -v apt)" ]; then _bool=true; fi
   echo "${_bool}"
 }
 
@@ -19,7 +19,7 @@ _ucld_::install_packages() {
 
   _start=$(date +%s)
 
-  # if ! "$(_ucld_::is_ucloud_execution)" || [ ! -x "$(command -v apt)" ]; then
+  # if ! "$(_ucld_::is_ucloud_env)" || [ ! -x "$(command -v apt)" ]; then
   if ! "$(_ucld_::is_apt_available)"; then
     return
   fi
@@ -37,6 +37,10 @@ _ucld_::install_packages() {
   _ucld_::update_and_upgrade_apt
 
   for _bin in "${UCLD_INSTALL_PACKAGES[@]}"; do
+
+    if "$(_ucld_::is_debian_running)" && [[ "${_bin}" == "python"* ]]; then
+      return
+    fi
 
     _ucld_::h2 "Installing ${_bin}"
 

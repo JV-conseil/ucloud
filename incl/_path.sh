@@ -15,7 +15,7 @@ declare -ix DEBUG=0 BASH_STRICT_MODE=0
 
 UCLD_PATH=([main]="${PWD}" [work]="${PWD}")
 
-if "$(_ucld_::is_ucloud_execution)" && [ -d "${PWD%/*}" ]; then
+if "$(_ucld_::is_ucloud_env)" && [ -d "${PWD%/*}" ]; then
   UCLD_PATH["work"]="${PWD%/*}"
 fi
 
