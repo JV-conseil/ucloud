@@ -102,7 +102,10 @@ _ucld_::save_job_parameters() {
 _ucld_::save_job_parameters
 
 _ucld_::update_and_upgrade_apt() {
-  sudo apt update && sudo apt upgrade
+  sudo apt clean -y
+  sudo apt update -y
+  sudo apt upgrade -y
+  sudo apt autoremove -y
 }
 
 _ucld_::update_bashrc() {
