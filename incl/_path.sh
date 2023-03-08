@@ -49,8 +49,6 @@ _ucld_::build_path() {
   # more files
 }
 
-# https://app-602404-0.cloud.sdu.dk/
-# HOSTNAME=j-602404-job-0
 UCLD_ALLOWED_HOSTS=("$(_ucld_::clean_app_hostname)")
 UCLD_ALLOWED_HOSTS+="$(
   IFS=$' '
