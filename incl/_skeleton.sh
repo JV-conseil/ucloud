@@ -27,7 +27,7 @@ _ucld_::save_job_parameters() {
     return
   fi
   _app="$(cat <"${_job}" | jq -r '.request.application.name')"
-  cp -pv "${_job}" "${UCLD_PATH[jobs]}/JobParameters-${_app}.json"
+  cp -pv "${_job}" "${UCLD_PATH[jobs]}/${_app^}JobParameters.json"
 }
 
 _ucld_::startup_check() {
