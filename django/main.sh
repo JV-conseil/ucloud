@@ -59,7 +59,7 @@ if [[ "${_dj_repo}" ]]; then
         _ucld_::dj_create_superuser
       fi
 
-      _ucld_::dj_runserver
+      python manage.py runserver
 
     else
       _ucld_::warning postgresql
