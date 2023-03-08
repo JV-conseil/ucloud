@@ -89,7 +89,7 @@ _ucld_::sanitize_input() {
 
 _ucld_::save_job_parameters() {
   local _app _job="/work/JobParameters.json" _path="/work/jobs"
-  if [ ! -f "${_job}" ] &>/dev/null || :; then
+  if [ ! -f "${_job}" ]; then
     return
   fi
   if "$(_ucld_::is_jq_installed)"; then
