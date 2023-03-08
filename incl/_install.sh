@@ -19,14 +19,9 @@ _ucld_::install_packages() {
 
   _start=$(date +%s)
 
-  # if ! "$(_ucld_::is_ucloud_env)" || [ ! -x "$(command -v apt)" ]; then
   if ! "$(_ucld_::is_apt_available)"; then
     return
   fi
-
-  # if [ "$(_ucld_::ask "Do you want to install packages for Linux with apt")" == false ]; then
-  #   return
-  # fi
 
   _ucld_::h2 "Updating Apt"
 
