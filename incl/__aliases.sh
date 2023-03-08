@@ -17,7 +17,6 @@ alias env='env -0 | sort -z | tr "\0" "\n"'
 
 # alias cp='cp -iv'
 alias ls='ls -FGlAhp --color=auto'
-alias mkdir_='mkdir'
 alias mkdir='mkdir -pv'
 alias mv='mv -iv'
 alias nano="nano --linenumbers"
