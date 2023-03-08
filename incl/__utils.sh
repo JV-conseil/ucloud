@@ -14,7 +14,7 @@ _ucld_::back_to_script_dir_() {
 
 _ucld_::clean_hostname() {
   local _hostname="${HOSTNAME}"
-  if [ -n "${_hostname}" ]; then
+  if [ -z "${_hostname}" ]; then
     return
   fi
   _hostname="${_hostname/-job/}"
