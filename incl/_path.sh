@@ -9,10 +9,9 @@
 #====================================================
 
 # shellcheck disable=SC2034
-declare -a UCLD_INSTALL_PACKAGES UCLD_PUBLIC_LINKS
+declare -a UCLD_ALLOWED_HOSTS UCLD_INSTALL_PACKAGES UCLD_PUBLIC_LINKS
 declare -A UCLD_DB_PARAM UCLD_DIR UCLD_PATH
-declare -xi DEBUG=0 BASH_STRICT_MODE=0
-declare -x UCLD_ALLOWED_HOSTS
+declare -ix DEBUG=0 BASH_STRICT_MODE=0
 
 UCLD_PATH=([main]="${PWD}" [work]="${PWD}")
 
@@ -20,7 +19,7 @@ if "$(_ucld_::is_ucloud_execution)" && [ -d "${PWD%/*}" ]; then
   UCLD_PATH["work"]="${PWD%/*}"
 fi
 
-UCLD_DIR=([app]="" [env]=env [data]="" [database]="" [django]="" [install]="")
+UCLD_DIR=([app]="" [env]=env [data]="" [database]="" [django]="" [install]="" [jobs]=jobs)
 
 UCLD_PATH[env]="${UCLD_PATH[work]}/${UCLD_DIR[env]}"
 
@@ -50,7 +49,10 @@ _ucld_::build_path() {
   # more files
 }
 
-UCLD_ALLOWED_HOSTS="$(
+# https://app-602404-0.cloud.sdu.dk/
+# HOSTNAME=j-602404-job-0
+UCLD_ALLOWED_HOSTS=("$(_ucld_::clean_app_hostname)")
+UCLD_ALLOWED_HOSTS+="$(
   IFS=$' '
   echo "${UCLD_PUBLIC_LINKS[*]}"
 )"

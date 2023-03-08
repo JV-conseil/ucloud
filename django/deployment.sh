@@ -18,7 +18,6 @@
   # more files
 }
 
-sudo apt install -y python3.11.2 || :
 _ucld_::dj_collectstatic
 _ucld_::dj_install_dependencies
 _ucld_::dj_runserver

@@ -12,6 +12,26 @@ _ucld_::back_to_script_dir_() {
   cd_ "${UCLD_PATH[main]}"
 }
 
+_ucld_::clean_hostname() {
+  local _hostname="${HOSTNAME}"
+  if [ -n "${_hostname}" ]; then
+    return
+  fi
+  _hostname="${_hostname/-job/}"
+  _hostname="${_hostname/j-/}"
+  if [ -n "${_hostname}" ]; then
+    echo "${_hostname}"
+  fi
+}
+
+_ucld_::clean_app_hostname() {
+  local _hostname
+  _hostname="$(_ucld_::clean_hostname)"
+  if [ -n "${_hostname}" ]; then
+    echo "app-${_hostname}.cloud.sdu.dk"
+  fi
+}
+
 _ucld_::is_python_installed() {
   local _bool=false
   if [ -x "$(command -v python)" ]; then _bool=true; fi
