@@ -89,7 +89,7 @@ _ucld_::sanitize_input() {
 
 _ucld_::save_job_parameters() {
   local _app _job="/work/JobParameters.json" _path="/work/jobs"
-  if [ ! -f "${_job}" ]; then
+  if [ ! -f "${_job}" ] || [ ! -d "${_path}" ]; then
     return
   fi
   if "$(_ucld_::is_jq_installed)"; then
@@ -99,7 +99,7 @@ _ucld_::save_job_parameters() {
   fi
 }
 
-# _ucld_::save_job_parameters
+_ucld_::save_job_parameters
 
 _ucld_::update_and_upgrade_apt() {
   sudo apt update -y
