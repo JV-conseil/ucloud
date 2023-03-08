@@ -21,15 +21,6 @@ _ucld_::build_skeleton() {
   done
 }
 
-_ucld_::save_job_parameters() {
-  local _app _job="/work/JobParameters.json"
-  if [ ! -f "${_job}" ]; then
-    return
-  fi
-  _app="$(cat <"${_job}" | jq -r '.request.application.name')"
-  cp -pv "${_job}" "${UCLD_PATH[jobs]}/${_app^}JobParameters.json"
-}
-
 _ucld_::startup_check() {
   _ucld_::update_bashrc
   _ucld_::build_skeleton
