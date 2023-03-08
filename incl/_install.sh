@@ -15,7 +15,9 @@ _ucld_::is_apt_available() {
 }
 
 _ucld_::install_packages() {
-  local _bin
+  local _bin _start _stop
+
+  _start=$(date +%s)
 
   # if ! "$(_ucld_::is_ucloud_execution)" || [ ! -x "$(command -v apt)" ]; then
   if ! "$(_ucld_::is_apt_available)"; then
@@ -50,6 +52,9 @@ _ucld_::install_packages() {
 
     _ucld_::h3 "You are now running $(${_bin%.*} --version 2>>logfile.log)"
   done
+
+  _stop=$(date +%s)
+  _ucld_::h3 "Install completed in $((_stop - _start)) seconds"
 
   echo
 }
