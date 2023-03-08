@@ -23,8 +23,6 @@ UCLD_DIR=([app]="" [env]=env [data]="" [database]="" [django]="" [install]="" [j
 
 UCLD_PATH[env]="${UCLD_PATH[work]}/${UCLD_DIR[env]}"
 
-UCLD_PUBLIC_LINKS=("$(_ucld_::clean_app_hostname)")
-
 _ucld_::build_path() {
   local _key _path
 
@@ -50,6 +48,8 @@ _ucld_::build_path() {
   . "${UCLD_PATH[env]}/settings.conf" 2>>logfile.log || :
   # more files
 }
+
+UCLD_PUBLIC_LINKS+=("$(_ucld_::clean_app_hostname)")
 
 UCLD_ALLOWED_HOSTS="$(
   IFS=$' '
