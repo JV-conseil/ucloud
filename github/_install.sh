@@ -9,8 +9,12 @@
 #====================================================
 
 _ucld_::gh_cli_install() {
-  local gh_cli_version gh_cli_targz
-  gh_cli_version=$(curl --silent "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-)
+  local gh_cli_version="${1:-}" gh_cli_targz
+
+  if [ -z "${gh_cli_version}" ]; then
+    gh_cli_version=$(curl --silent "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-)
+  fi
+
   gh_cli_targz="gh_${gh_cli_version}_linux_amd64.tar.gz"
 
   cat <<EOF
@@ -44,7 +48,7 @@ alias gh_cli_install="_ucld_::gh_cli_install"
 if ! "$(_ucld_::is_gh_cli_installed)"; then
 
   if "$(_ucld_::ask_2 "Do you want to install GitHub CLI")"; then
-    _ucld_::gh_cli_install
+    _ucld_::gh_cli_install "2.23.0"
     echo
   fi
 
