@@ -50,8 +50,9 @@ _ucld_::dj_debug() {
     echo
 
     _ucld_::h2 "Curl commands to test your server"
-    IFS=' ' read -ra _array <<<"${UCLD_ALLOWED_HOSTS}"
-    for _host in "${_array[@]}"; do
+    # IFS=' ' read -ra _array <<<"${UCLD_ALLOWED_HOSTS}"
+    # for _host in "${_array[@]}"; do
+    for _host in "${UCLD_ALLOWED_HOSTS[@]}"; do
       echo "# curl https://${_host} --verbose"
     done
 

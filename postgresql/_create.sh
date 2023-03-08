@@ -42,9 +42,8 @@ export DBSSLROOTCERT=""${PGSSLROOTCERT}""
 export DBUSER=""${UCLD_DB_PARAM[user]}""
 
 export SECRET_KEY=""$(_ucld_::key_gen 32)""
-
-export UCLD_ALLOWED_HOSTS=\"${UCLD_ALLOWED_HOSTS}\"
   " >>"${_env_file}"
+  # export UCLD_ALLOWED_HOSTS=\"${UCLD_ALLOWED_HOSTS}\"
 }
 
 _ucld_::pg_update_su_password() {

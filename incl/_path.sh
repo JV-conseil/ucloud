@@ -10,6 +10,7 @@
 
 # shellcheck disable=SC2034
 declare -a UCLD_INSTALL_PACKAGES UCLD_PUBLIC_LINKS
+declare -ax UCLD_ALLOWED_HOSTS
 declare -A UCLD_DB_PARAM UCLD_DIR UCLD_PATH
 declare -ix DEBUG=0 BASH_STRICT_MODE=0
 
@@ -22,6 +23,8 @@ fi
 UCLD_DIR=([app]="" [env]=env [data]="" [database]="" [django]="" [install]="" [jobs]=jobs)
 
 UCLD_PATH[env]="${UCLD_PATH[work]}/${UCLD_DIR[env]}"
+
+UCLD_ALLOWED_HOSTS=("$(_ucld_::clean_app_hostname)")
 
 _ucld_::build_path() {
   local _key _path
@@ -49,11 +52,13 @@ _ucld_::build_path() {
   # more files
 }
 
-UCLD_PUBLIC_LINKS+=("$(_ucld_::clean_app_hostname)")
+UCLD_ALLOWED_HOSTS+=("${UCLD_PUBLIC_LINKS[@]}")
 
-UCLD_ALLOWED_HOSTS="$(
-  IFS=$' '
-  echo "${UCLD_PUBLIC_LINKS[*]}"
-)"
+# UCLD_PUBLIC_LINKS+=("$(_ucld_::clean_app_hostname)")
+
+# UCLD_ALLOWED_HOSTS="$(
+#   IFS=$' '
+#   echo "${UCLD_PUBLIC_LINKS[*]}"
+# )"
 
 _ucld_::build_path
