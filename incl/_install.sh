@@ -34,7 +34,7 @@ _ucld_::install_packages() {
   for _bin in "${UCLD_INSTALL_PACKAGES[@]}"; do
 
     if "$(_ucld_::is_debian_running)" && [[ "${_bin}" == "python"* ]]; then
-      return
+      continue
     fi
 
     _ucld_::h2 "Installing ${_bin}"
