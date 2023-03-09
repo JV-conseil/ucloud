@@ -14,7 +14,7 @@ _ucld_::dj_collectstatic() {
   fi
   _ucld_::h2 "Collecting Static files"
   python manage.py collectstatic --no-input
-
+  echo
 }
 
 _ucld_::dj_create_superuser() {
