@@ -12,6 +12,7 @@ _ucld_::dj_collectstatic() {
   if [[ "${DEBUG}" -gt 0 ]]; then
     return
   fi
+  _ucld_::h2 "Collecting Static files"
   python manage.py collectstatic --no-input
 
 }
