@@ -79,7 +79,7 @@ _ucld_::udpate_python_version() {
   sudo "./configure" --enable-optimizations
   sudo make -j "$(nproc)"
   sudo make altinstall
-  pip install --upgrade pip
+  sudo pip install --upgrade pip
   cd "${_path%/*}" || return
 }
 
