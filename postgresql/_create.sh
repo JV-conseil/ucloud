@@ -39,6 +39,8 @@ export DBSSLMODE=""${UCLD_DB_PARAM[sslmode]}""
 export DBSSLROOTCERT=""${PGSSLROOTCERT}""
 export DBUSER=""${UCLD_DB_PARAM[user]}""
 
+export UCLD_PATH_TO_DATA=\"${UCLD_PATH[data]}\"
+
 # Customized in /work/env/settings.conf
 
 # export DEBUG=${DEBUG}
