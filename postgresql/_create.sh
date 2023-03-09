@@ -31,8 +31,6 @@ _ucld_::dump_env_file() {
   local _env_file="${UCLD_PATH[env]}/.env"
   cat "incl/.shebang.txt" >"${_env_file}"
   cat <<<"
-export DEBUG=${DEBUG}
-
 export DBHOST=""${UCLD_DB_PARAM[host]}""
 export DBNAME=""${UCLD_DB_PARAM[name]}""
 export DBPASS=""${UCLD_DB_PARAM[password]}""
@@ -41,9 +39,11 @@ export DBSSLMODE=""${UCLD_DB_PARAM[sslmode]}""
 export DBSSLROOTCERT=""${PGSSLROOTCERT}""
 export DBUSER=""${UCLD_DB_PARAM[user]}""
 
-export UCLD_ALLOWED_HOSTS=\"${UCLD_ALLOWED_HOSTS}\"
+# Customized in /work/env/settings.conf
 
-export SECRET_KEY=""$(_ucld_::key_gen 32)""
+# export DEBUG=${DEBUG}
+# export UCLD_ALLOWED_HOSTS=\"${UCLD_ALLOWED_HOSTS}\"
+# export SECRET_KEY=""$(_ucld_::key_gen 32)""
   " >>"${_env_file}"
 }
 

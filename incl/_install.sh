@@ -10,14 +10,22 @@
 
 _ucld_::is_apt_available() {
   local _bool=false
-  if "$(_ucld_::is_ucloud_env)" || [ -x "$(command -v apt)" ]; then _bool=true; fi
+  if "$(_ucld_::is_ucloud_env)" && [ -x "$(command -v apt)" ]; then _bool=true; fi
   echo "${_bool}"
 }
 
-_ucld_::install_packages() {
-  local _bin _start _stop
+_ucld_::update_and_upgrade_apt() {
+  if ! "$(_ucld_::is_apt_available)"; then
+    return
+  fi
+  sudo apt clean -y
+  sudo apt update -y
+  sudo apt upgrade -y
+  sudo apt autoremove -y
+}
 
-  _start=$(date +%s)
+_ucld_::install_apt_packages() {
+  local _bin
 
   if ! "$(_ucld_::is_apt_available)"; then
     return
@@ -52,16 +60,49 @@ _ucld_::install_packages() {
     _ucld_::h3 "You are now running $(${_bin%.*} --version 2>>logfile.log)"
   done
 
-  _stop=$(date +%s)
-  _ucld_::h3 "Install completed in $((_stop - _start)) seconds"
-
   echo
 }
 
-_ucld_::ask_install_packages() {
+# Install Python3 from source
+# <https://cloudinfrastructureservices.co.uk/how-to-install-python-3-in-debian-11-10/>
+# <https://computingforgeeks.com/how-to-install-python-on-debian-linux/>
+# <https://computingforgeeks.com/how-to-install-python-on-ubuntu-linux/>
+_ucld_::udpate_python_version() {
+  local _path="/work/install" _python="3.11.2"
+  # sudo apt update -y && sudo apt upgrade -y
+  # sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
+  # sudo apt install -y python3
+  cd "${_path}" || cd "${UCLD_PATH[install]}" || return
+  wget "https://www.python.org/ftp/python/${_python}/Python-${_python}.tgz"
+  tar -xvf "Python-${_python}.tgz"
+  cd "Python-${_python}" || return 0
+  sudo "./configure" --enable-optimizations
+  sudo make -j "$(nproc)"
+  sudo make altinstall
+  pip install --upgrade pip
+  cd "${_path%/*}" || return
+}
+
+_ucld_::full_update_and_install() {
+  local _start _stop
+
+  if ! "$(_ucld_::is_apt_available)"; then
+    return
+  fi
+
+  _start=$(date +%s)
+
+  _ucld_::install_apt_packages
+  _ucld_::udpate_python_version
+
+  _stop=$(date +%s)
+  _ucld_::h3 "Install completed in $((_stop - _start)) seconds"
+}
+
+_ucld_::ask_update_linux() {
   if "$(_ucld_::is_apt_available)"; then
     if "$(_ucld_::ask "Do you want to install packages for Linux with apt")"; then
-      _ucld_::install_packages
+      _ucld_::full_update_and_install
     fi
   fi
 }

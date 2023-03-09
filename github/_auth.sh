@@ -8,8 +8,6 @@
 #                 All rights reserved
 #====================================================
 
-# export GH_DEBUG=api
-
 _ucld_::gh_login() {
   cat <<EOF
 

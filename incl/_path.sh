@@ -49,11 +49,4 @@ _ucld_::build_path() {
   # more files
 }
 
-UCLD_PUBLIC_LINKS+=("$(_ucld_::clean_app_hostname)")
-
-UCLD_ALLOWED_HOSTS="$(
-  IFS=$' '
-  echo "${UCLD_PUBLIC_LINKS[*]}"
-)"
-
 _ucld_::build_path

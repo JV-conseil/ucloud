@@ -20,7 +20,7 @@ _ucld_::debug
 cat "README.txt"
 
 _ucld_::startup_check
-_ucld_::ask_install_packages
+_ucld_::ask_update_linux
 
 if "$(_ucld_::ask "Do you want to manage GitHub")"; then
   # shellcheck source=/dev/null

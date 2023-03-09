@@ -10,13 +10,20 @@
 
 _ucld_::is_postgresql_server_running() {
   local _bool=false
+
+  # 1) PostgreSQL Server app running
   if [ -x "$(command -v pg_ctl)" ]; then
     if pg_ctl status -D "${UCLD_PATH[database]}" &>/dev/null; then _bool=true; fi
-  # elif [ -x "$(command -v python)" ]; then
-  #   if python "${UCLD_PATH[django]}/manage.py" dbshell --database default &>/dev/null || :; then _bool=true; fi
+
+  # 2) Terminal Unbuntu W/ a connected PostgreSQL Server
+  elif [ -x "$(command -v python)" ]; then
+    if python "${UCLD_PATH[django]}/manage.py" dbshell --database default &>/dev/null || :; then _bool=true; fi
+
+  # 3) Django app running
   elif [[ -x "$(command -v python)" && -x "$(command -v psql)" ]]; then
     _bool=true
   fi
+
   echo ${_bool}
 }
 
