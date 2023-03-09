@@ -75,3 +75,14 @@ _ucld_::dj_running_migrations() {
   python manage.py migrate
   echo
 }
+
+_ucld_::is_django_connected_to_postgresql() {
+  local _bool=false
+
+  # 2) Python W/ a connected PostgreSQL Server
+  if [ -x "$(command -v python)" ]; then
+    if python "${UCLD_PATH[django]}/manage.py" dbshell --database default &>/dev/null || :; then _bool=true; fi
+  fi
+
+  echo ${_bool}
+}

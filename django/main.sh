@@ -12,7 +12,6 @@
 {
   . "incl/all.sh"
   . "${UCLD_PATH[env]}/.env" 2>>logfile.log || :
-  . "postgresql/_utils.sh"
   . "django/_utils.sh"
   # more files
 }
@@ -49,7 +48,7 @@ if [[ "${_dj_repo}" ]]; then
     _ucld_::dj_collectstatic
     _ucld_::dj_install_dependencies
 
-    if "$(_ucld_::is_postgresql_server_running)"; then
+    if "$(_ucld_::is_django_connected_to_postgresql)"; then
 
       if "$(_ucld_::ask_2 "Do you want to run migrations")"; then
         _ucld_::dj_running_migrations

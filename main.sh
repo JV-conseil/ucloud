@@ -28,7 +28,7 @@ if "$(_ucld_::ask "Do you want to manage GitHub")"; then
   echo
 fi
 
-if "$(_ucld_::is_postgresql_server_running)"; then
+if "$(_ucld_::is_postgresql_app_running)"; then
 
   if "$(_ucld_::ask "Do you want to manage PostreSQL")"; then
     # shellcheck source=/dev/null

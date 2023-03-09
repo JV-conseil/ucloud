@@ -20,7 +20,7 @@
 
 cat "postgresql/README.txt"
 
-if "$(_ucld_::is_postgresql_server_running)"; then
+if "$(_ucld_::is_postgresql_app_running)"; then
 
   if "$(_ucld_::ask_2 "Do you want to create a new User & Database")"; then
     _ucld_::pg_create_db
