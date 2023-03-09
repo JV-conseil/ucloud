@@ -8,7 +8,7 @@
 #                 All rights reserved
 #====================================================
 
-export GH_DEBUG=api
+# export GH_DEBUG=api
 
 _ucld_::gh_cli_install() {
   local gh_cli_version gh_cli_targz
@@ -16,6 +16,7 @@ _ucld_::gh_cli_install() {
   gh_cli_version=$(curl --silent "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-)
 
   # NOTE: Hack v2.24.0 is bugged 🐛
+  # NOTE: v2.24.3 has fixed the bug 🐛
   # gh_cli_version="2.23.0"
 
   gh_cli_targz="gh_${gh_cli_version}_linux_amd64.tar.gz"
