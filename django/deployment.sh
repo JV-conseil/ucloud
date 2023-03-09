@@ -35,6 +35,7 @@ UCLD_HOTSNAME="$(_ucld_::clean_app_hostname)"
 
 SECRET_KEY="$(_ucld_::key_gen 32)"
 
-_ucld_::dj_collectstatic
+_ucld_::dj_debug
 _ucld_::dj_install_dependencies
+_ucld_::dj_collectstatic
 python manage.py runserver

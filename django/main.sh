@@ -46,11 +46,12 @@ if [[ "${_dj_repo}" ]]; then
     cd_ "$_dj_repo"
 
     if "$(_ucld_::ask_2 "Do you want to install dependencies")"; then
-      _ucld_::dj_collectstatic
       _ucld_::dj_install_dependencies
+      _ucld_::dj_collectstatic
     fi
 
-    if "$(_ucld_::is_django_connected_to_postgresql)"; then
+    # if "$(_ucld_::is_django_connected_to_postgresql)"; then
+    if "$(_ucld_::ask_2 "Do you have connected a PostgreSQL Server")"; then
 
       if "$(_ucld_::ask_2 "Do you want to run migrations")"; then
         _ucld_::dj_running_migrations

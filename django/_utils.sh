@@ -10,10 +10,10 @@
 
 _ucld_::dj_collectstatic() {
   if [[ "${DEBUG}" -gt 0 ]]; then
-    _ucld_::dj_debug
-  else
-    python manage.py collectstatic --no-input
+    return
   fi
+  python manage.py collectstatic --no-input
+
 }
 
 _ucld_::dj_create_superuser() {
@@ -76,13 +76,15 @@ _ucld_::dj_running_migrations() {
   echo
 }
 
-_ucld_::is_django_connected_to_postgresql() {
-  local _bool=false
+# TODO: NOT WORKING
+# _ucld_::is_django_connected_to_postgresql() {
+#   local _bool=false
 
-  # 2) Python W/ a connected PostgreSQL Server
-  if [ -x "$(command -v python)" ]; then
-    if python "${UCLD_PATH[django]}/manage.py" dbshell --database default &>/dev/null || :; then _bool=true; fi
-  fi
+#   # 2) Python W/ a connected PostgreSQL Server
+#   if [ -x "$(command -v python)" ]; then
+#     # if python "${UCLD_PATH[django]}/manage.py" dbshell --database default &>>logfile.log || :; then _bool=true; fi
+#     if python manage.py dbshell --database default || :; then _bool=true; fi
+#   fi
 
-  echo ${_bool}
-}
+#   echo ${_bool}
+# }
