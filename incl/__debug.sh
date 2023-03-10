@@ -23,7 +23,7 @@ EOF
 
   cat /proc/version 2>/dev/null || :
   cat /etc/issue 2>/dev/null || :
-  _ucld_::set_show_options 2>/dev/null || :
+  _ucld_::set_show_options
   python --version || :
 
   if [[ "${DEBUG}" -gt 1 ]]; then
