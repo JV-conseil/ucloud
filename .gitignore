@@ -10,3 +10,4 @@ data/*
 database/*
 env/*
 install/*
+jobs/*

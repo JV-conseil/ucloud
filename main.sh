@@ -53,11 +53,6 @@ if "$(_ucld_::is_python_installed)"; then
 
 fi
 
-if "$(_ucld_::ask "Do you need to generate an SSH key")"; then
-  _ucld_::generate_ssh_key
-  echo
-fi
-
 if "$(_ucld_::ask "Do you want to reset your settings")"; then
   _ucld_::reset_settings
   _ucld_::show_settings
