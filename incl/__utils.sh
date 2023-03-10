@@ -63,8 +63,7 @@ _ucld_::is_ucloud_env() {
 # e.g.: $(_ucld_::key_gen 128)
 _ucld_::key_gen() {
   local _size=${1:-15}
-  # if [ -x "$(command -v python)" ]; then
-  if "$(_ucld_::is_python_installed)"; then
+  if type python &>/dev/null; then
     python -c "import secrets; result = ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+') for i in range($_size)); print(result)"
   else
     openssl rand -base64 "${_size}"
