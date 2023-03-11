@@ -31,8 +31,4 @@ if ! [ -x "$(command -v cd_)" ]; then
     builtin cd "$@" || exit
     ls
   }
-
-  # nano() {
-  #   command nano --linenumbers "$@"
-  # }
 fi
