@@ -49,6 +49,7 @@ EOF
 
     echo
     alias
+    echo
   fi
 }
 
