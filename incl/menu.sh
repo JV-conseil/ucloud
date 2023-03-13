@@ -8,13 +8,13 @@
 #====================================================
 
 ucl() {
-  local _root="/work/ucloud"
+  local _main="/work/ucloud"
 
   if [ -n "${UCLD_PATH[main]}" ] &>/dev/null || :; then
-    _root="${UCLD_PATH[main]}"
+    _main="${UCLD_PATH[main]}"
   fi
 
-  cd "${_root}" &>/dev/null || return
+  cd "${_main}" &>/dev/null || return
 
   case "${1:-}" in
 

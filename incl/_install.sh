@@ -67,19 +67,26 @@ _ucld_::install_apt_packages() {
 # <https://computingforgeeks.com/how-to-install-python-on-debian-linux/>
 # <https://computingforgeeks.com/how-to-install-python-on-ubuntu-linux/>
 _ucld_::udpate_python_version() {
-  local _path="/work/install" _python="3.11.2"
-  # sudo apt update -y && sudo apt upgrade -y
-  # sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
-  # sudo apt install -y python3
-  cd "${_path}" || cd "${UCLD_PATH[install]}" || return
+  local _main="/work/ucloud" _install="/work/install" _python="3.11.2"
+
+  if [ -n "${UCLD_PATH[install]}" ] &>/dev/null || :; then
+    _install="${UCLD_PATH[install]}"
+    _main="${UCLD_PATH[main]}"
+  fi
+
+  cd "${_install}" || return
+
   wget "https://www.python.org/ftp/python/${_python}/Python-${_python}.tgz"
   tar -xvf "Python-${_python}.tgz"
-  cd "Python-${_python}" || return 0
+
+  cd "Python-${_python}" || return
+
   sudo "./configure" --enable-optimizations
   sudo make -j "$(nproc)"
   sudo make altinstall
   sudo pip install --upgrade pip
-  cd "${_path%/*}" || return
+
+  cd "${_main}" || return
 }
 
 _ucld_::full_update_and_install() {
@@ -92,7 +99,7 @@ _ucld_::full_update_and_install() {
   _start=$(date +%s)
 
   _ucld_::install_apt_packages
-  _ucld_::udpate_python_version
+  # _ucld_::udpate_python_version
 
   _stop=$(date +%s)
   _ucld_::h3 "Install completed in $((_stop - _start)) seconds"
