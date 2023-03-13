@@ -20,7 +20,7 @@ ucl() {
 
   "django")
     # shellcheck source=/dev/null
-    . "postgresql/main.sh"
+    . "django/main.sh"
     ;;
 
   "github" | "gh")
