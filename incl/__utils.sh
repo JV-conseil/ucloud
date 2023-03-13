@@ -114,5 +114,7 @@ _ucld_::append_bashrc_profile() {
       cat incl/__aliases.sh
       cat incl/menu.sh
     } >>"${HOME}/${_file}"
+    # shellcheck source=/dev/null
+    . "${HOME}/${_file}"
   done
 }
