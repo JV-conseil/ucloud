@@ -14,6 +14,7 @@ declare -x UCLD_ALLOWED_HOSTS
 
 # shellcheck source=/dev/null
 {
+  . "/work/ucloud/incl/__set.sh"
   . "/work/ucloud/incl/__colors.sh"
   . "/work/ucloud/incl/__debug.sh"
   . "/work/ucloud/incl/__utils.sh"
