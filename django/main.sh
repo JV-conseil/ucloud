@@ -11,6 +11,7 @@
 {
   . "incl/all.sh"
   . "${UCLD_PATH[env]}/.env" 2>>logfile.log || :
+  . "django/_env.sh"
   . "django/_utils.sh"
   # more files
 }

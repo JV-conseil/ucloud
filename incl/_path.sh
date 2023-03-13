@@ -48,6 +48,4 @@ _ucld_::build_path() {
   # more files
 }
 
-UCLD_HOSTNAME="$(_ucld_::clean_app_hostname)"
-
 _ucld_::build_path

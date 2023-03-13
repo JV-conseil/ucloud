@@ -43,7 +43,7 @@ export DBUSER=""${UCLD_DB_PARAM[user]}""
 # export DEBUG=${DEBUG}
 # export UCLD_ALLOWED_HOSTS=\"${UCLD_ALLOWED_HOSTS}\"
 export UCLD_PATH_TO_DATA=\"${UCLD_PATH[data]}\"
-export SECRET_KEY=""$(_ucld_::key_gen 32)""
+# export SECRET_KEY=""$(_ucld_::key_gen 32)""
   " >>"${_env_file}"
 }
 
