@@ -14,16 +14,18 @@ ucl() {
     _root="${UCLD_PATH[main]}"
   fi
 
+  cd "${_root}" &>/dev/null || return
+
   case "${1:-}" in
 
   "django")
     # shellcheck source=/dev/null
-    . "${_root}/postgresql/main.sh"
+    . "postgresql/main.sh"
     ;;
 
   "postgresql" | "pg")
     # shellcheck source=/dev/null
-    . "${_root}/postgresql/main.sh"
+    . "postgresql/main.sh"
     ;;
 
   *)
@@ -50,7 +52,7 @@ version:
 2023-03-11
 EOF
     # shellcheck source=/dev/null
-    . "${_root}/main.sh"
+    . "main.sh"
     ;;
 
   esac
