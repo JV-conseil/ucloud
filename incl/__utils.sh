@@ -99,17 +99,20 @@ _ucld_::save_job_parameters() {
 
 _ucld_::save_job_parameters
 
-_ucld_::update_bashrc() {
+_ucld_::append_bashrc_profile() {
   local _file
   if grep -q "cd_() " "${HOME}/.profile" &>>logfile.log; then
     return
   fi
 
   for _file in ".profile" ".bashrc"; do
-    cat <<<"
+    {
+      cat <<<"
 
 
-#====================================================" >>"${HOME}/${_file}"
-    cat incl/__aliases.sh >>"${HOME}/${_file}"
+#===================================================="
+      cat incl/__aliases.sh
+      cat incl/menu.sh
+    } >>"${HOME}/${_file}"
   done
 }

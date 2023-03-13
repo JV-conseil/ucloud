@@ -21,7 +21,7 @@ _ucld_::build_skeleton() {
 }
 
 _ucld_::startup_check() {
-  _ucld_::update_bashrc
+  _ucld_::append_bashrc_profile
   _ucld_::build_skeleton
   _ucld_::save_job_parameters
   _ucld_::init_settings

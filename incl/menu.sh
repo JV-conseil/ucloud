@@ -49,7 +49,6 @@ contact@jv-conseil.net
 version:
 2023-03-11
 EOF
-
     # shellcheck source=/dev/null
     . "${_root}/main.sh"
     ;;
