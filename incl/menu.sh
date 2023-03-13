@@ -8,26 +8,22 @@
 #====================================================
 
 ucl() {
+  local _root="/work/ucloud"
+
+  if [ -n "${UCLD_PATH[main]}" ] &>/dev/null || :; then
+    _root="${UCLD_PATH[main]}"
+  fi
+
   case "${1:-}" in
 
   "django")
     # shellcheck source=/dev/null
-    . ".bash/osx/django.sh"
-    ;;
-
-  "homebrew" | "brew")
-    # shellcheck source=/dev/null
-    . ".bash/osx/homebrew.sh"
-    ;;
-
-  "pipenv")
-    # shellcheck source=/dev/null
-    . ".bash/osx/pipenv.sh"
+    . "${_root}/postgresql/main.sh"
     ;;
 
   "postgresql" | "pg")
     # shellcheck source=/dev/null
-    . "/work/ucloud/postgresql/main.sh"
+    . "${_root}/postgresql/main.sh"
     ;;
 
   *)
@@ -37,13 +33,11 @@ ucl() {
 Bash Commands Lines ucl
 ----------------------
 
-e.g.: wl django
+e.g.: wl pg
 
 
 options:
 django      Django commands to startproject, startapp and set up PostgreSQL for this repository.
-homebrew    Homebrew installs the stuff you need that Apple (or your Linux system) didn’t (alias brew).
-pipenv      Pipenv Shell to run commands like: python manage.py makemigrations.
 postgresql  PostgreSQL CLI terminal and commands to create a Database and DB User for this repository (alias pg).
 
 
@@ -55,6 +49,9 @@ contact@jv-conseil.net
 version:
 2023-03-11
 EOF
+
+    # shellcheck source=/dev/null
+    . "${_root}/main.sh"
     ;;
 
   esac
