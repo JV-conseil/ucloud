@@ -28,6 +28,8 @@ _ucld_::clean_app_hostname() {
   _hostname="$(_ucld_::clean_hostname)"
   if [ -n "${_hostname}" ]; then
     echo "app-${_hostname}.cloud.sdu.dk"
+  else
+    echo ""
   fi
 }
 

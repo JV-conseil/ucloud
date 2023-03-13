@@ -10,7 +10,7 @@
 # shellcheck disable=SC2034
 declare -a UCLD_PUBLIC_LINKS
 declare -ix DEBUG=0
-declare -x SECRET_KEY UCLD_ALLOWED_HOSTS UCLD_HOTSNAME
+declare -x SECRET_KEY UCLD_ALLOWED_HOSTS UCLD_HOSTNAME
 
 # shellcheck source=/dev/null
 {
@@ -30,7 +30,7 @@ UCLD_ALLOWED_HOSTS="$(
   echo "${UCLD_PUBLIC_LINKS[*]}"
 )"
 
-UCLD_HOTSNAME="$(_ucld_::clean_app_hostname)"
+UCLD_HOSTNAME="$(_ucld_::clean_app_hostname)"
 
 SECRET_KEY="$(_ucld_::key_gen 32)"
 
