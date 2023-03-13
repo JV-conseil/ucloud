@@ -23,9 +23,19 @@ ucl() {
     . "postgresql/main.sh"
     ;;
 
+  "github" | "gh")
+    # shellcheck source=/dev/null
+    . "github/main.sh"
+    ;;
+
   "postgresql" | "pg")
     # shellcheck source=/dev/null
     . "postgresql/main.sh"
+    ;;
+
+  "util" | "utilities")
+    # shellcheck source=/dev/null
+    . "utilities/main.sh"
     ;;
 
   *)
@@ -35,12 +45,14 @@ ucl() {
 Bash Commands Lines ucl
 ----------------------
 
-e.g.: wl pg
+e.g.: ucl gh
 
 
 options:
-django      Django commands to startproject, startapp and set up PostgreSQL for this repository.
-postgresql  PostgreSQL CLI terminal and commands to create a Database and DB User for this repository (alias pg).
+django        Django commands to startproject, startapp and set up PostgreSQL for this repository.
+github        Authenticate, clone ec... (short gh).
+postgresql    PostgreSQL CLI terminal and commands to create a Database and DB User for this repository (short pg).
+utilities     Commands like generate SSH keys, a self-signed certificate etc... (short util).
 
 
 author:
