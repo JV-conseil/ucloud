@@ -99,7 +99,7 @@ _ucld_::full_update_and_install() {
   _start=$(date +%s)
 
   _ucld_::install_apt_packages
-  # _ucld_::udpate_python_version
+  _ucld_::udpate_python_version
 
   _stop=$(date +%s)
   _ucld_::h3 "Install completed in $((_stop - _start)) seconds"
