@@ -22,7 +22,35 @@ title: Django 🐍
 <img alt="https://img.shields.io/badge/stack-overflow-orange.svg" src="https://img.shields.io/badge/stack-overflow-orange.svg">
 -->
 
-> Doc on Django to be written...
+## Environment variables
+
+```py
+import os
+
+...
+
+UCLD_ALLOWED_HOSTS = os.environ.get("UCLD_ALLOWED_HOSTS", "")
+UCLD_HOSTNAME = os.environ.get("UCLD_HOSTNAME", "")
+UCLD_PATH_TO_DATA = os.environ.get("UCLD_PATH_TO_DATA", "")
+```
+
+Allowing integration with Django `settings.py`
+
+```py
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+
+if UCLD_HOSTNAME:
+    ALLOWED_HOSTS += [UCLD_HOSTNAME]
+
+if UCLD_ALLOWED_HOSTS:
+    ALLOWED_HOSTS += UCLD_ALLOWED_HOSTS.split(" ")
+
+CSRF_TRUSTED_ORIGINS = [f"https://{_host}" for _host in ALLOWED_HOSTS]
+
+UCLD_PATH_TO_DATA = os.environ.get(
+    "UCLD_PATH_TO_DATA", os.path.join(BASE_DIR, "dumpdata")
+)
+```
 
 ## Sponsorship
 
