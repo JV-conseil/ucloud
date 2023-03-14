@@ -11,7 +11,6 @@
 {
   . "incl/all.sh"
   . "${UCLD_PATH[env]}/.env" 2>>logfile.log || :
-  . "django/_env.sh"
   . "django/_utils.sh"
   # more files
 }
@@ -57,6 +56,10 @@ if [[ "${_dj_repo}" ]]; then
 
       if "$(_ucld_::ask_2 "Do you want to create a superuser")"; then
         _ucld_::dj_create_superuser
+      fi
+
+      if "$(_ucld_::ask_2 "Do you want to run a Django command")"; then
+        python manage.py help
       fi
 
       python manage.py runserver
