@@ -8,8 +8,9 @@
 #====================================================
 
 # shellcheck disable=SC2034
-declare -x SECRET_KEY UCLD_HOSTNAME
+# declare -x SECRET_KEY UCLD_HOSTNAME
+declare -x UCLD_HOSTNAME
 
 UCLD_HOSTNAME="$(_ucld_::clean_app_hostname)"
 
-SECRET_KEY="$(_ucld_::key_gen 32)"
+# SECRET_KEY="$(_ucld_::key_gen 32)"
