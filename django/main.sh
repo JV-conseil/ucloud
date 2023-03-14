@@ -59,7 +59,7 @@ if [[ "${_dj_repo}" ]]; then
       fi
 
       if "$(_ucld_::ask_2 "Do you want to run a Django command")"; then
-        python manage.py help
+        _ucld_::dj_run_command
       fi
 
       python manage.py runserver

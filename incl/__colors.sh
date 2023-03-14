@@ -19,8 +19,7 @@ declare -A UCLD_COLORS=(
 )
 
 _ucld_::alert() {
-  local _bool _message _color
-  _bool=false
+  local _bool=false _message _color
 
   _message=${1:-"Error"}
   _color=${2:-"magenta"}
@@ -32,8 +31,7 @@ _ucld_::alert() {
 # read
 
 _ucld_::ask() {
-  local _bool _prompt _color
-  _bool=false
+  local _bool=false _prompt _color
 
   _prompt=${1:-"Houston Do You Copy"}
   _color=${2:-"cyan"}

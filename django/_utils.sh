@@ -77,6 +77,16 @@ _ucld_::dj_running_migrations() {
   echo
 }
 
+_ucld_::dj_run_command() {
+  python manage.py help
+  read -e -r -p "Type the command to run, e.g.: xloader " -n 25
+  if [[ "${REPLY}" =~ ^[a-z_]{4,25}$ ]]; then
+    python manage.py "${REPLY}"
+  else
+    _ucld_::alert "${REPLY} does not seem like a valid Django command"
+  fi
+}
+
 # TODO: NOT WORKING
 # _ucld_::is_django_connected_to_postgresql() {
 #   local _bool=false
