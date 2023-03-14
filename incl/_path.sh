@@ -11,6 +11,7 @@
 declare -a UCLD_INSTALL_PACKAGES UCLD_PUBLIC_LINKS
 declare -A UCLD_DB_PARAM UCLD_DIR UCLD_PATH
 declare -ix DEBUG=0 BASH_STRICT_MODE=0
+declare -x UCLD_HOSTNAME
 
 UCLD_PATH=([main]="${PWD}" [work]="${PWD}")
 
@@ -21,6 +22,8 @@ fi
 UCLD_DIR=([app]="" [env]=env [data]="" [database]="" [django]="" [install]="" [jobs]=jobs)
 
 UCLD_PATH[env]="${UCLD_PATH[work]}/${UCLD_DIR[env]}"
+
+UCLD_HOSTNAME="$(_ucld_::clean_app_hostname)"
 
 _ucld_::build_path() {
   local _key _path

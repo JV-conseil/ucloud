@@ -10,7 +10,7 @@
 # shellcheck disable=SC2034
 declare -a UCLD_PUBLIC_LINKS
 declare -ix DEBUG=0
-declare -x UCLD_ALLOWED_HOSTS
+declare -x UCLD_ALLOWED_HOSTS UCLD_HOSTNAME
 
 # shellcheck source=/dev/null
 {
@@ -18,7 +18,6 @@ declare -x UCLD_ALLOWED_HOSTS
   . "/work/ucloud/incl/__colors.sh"
   . "/work/ucloud/incl/__debug.sh"
   . "/work/ucloud/incl/__utils.sh"
-  . "/work/ucloud/django/_env.sh"
   . "/work/ucloud/django/_utils.sh"
   # env/ customization
   . "/work/env/.env"
@@ -31,6 +30,8 @@ UCLD_ALLOWED_HOSTS="$(
   IFS=$' '
   echo "${UCLD_PUBLIC_LINKS[*]}"
 )"
+
+UCLD_HOSTNAME="$(_ucld_::clean_app_hostname)"
 
 _ucld_::dj_debug
 _ucld_::dj_install_dependencies
