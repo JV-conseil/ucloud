@@ -33,13 +33,13 @@
 
 ## What is UCloud
 
-> UCloud is an interactive digital research environment built to support the needs of researchers for both computing and data management, throughout all the data life cycle — [SDU eScience Center][UCloud User Guide]
+> UCloud is an interactive digital research environment built to support the needs of researchers for both computing and data management, throughout all the data life cycle — [SDU eScience Center](https://docs.cloud.sdu.dk/index.html)
 
-*This project is in no way affiliated with [GitHub](https://github.com/), [Ubuntu](https://ubuntu.com), [SDU eScience Center][SDU eScience Center], [University of Southern Denmark](https://www.sdu.dk/en), [Aalborg University](https://www.aau.dk), [Aarhus Universitet](https://www.au.dk), [Danmarks Tekniske Universitet](https://www.dtu.dk) and [DeiC](https://www.deic.dk) (Danish e-infrastucture Coorperation).*
+*This project is in no way affiliated with [GitHub](https://github.com/), [Ubuntu](https://ubuntu.com), [SDU eScience Center](https://escience.sdu.dk/), [University of Southern Denmark](https://www.sdu.dk/en), [Aalborg University](https://www.aau.dk), [Aarhus Universitet](https://www.au.dk), [Danmarks Tekniske Universitet](https://www.dtu.dk) and [DeiC](https://www.deic.dk) (Danish e-infrastucture Coorperation).*
 
 ## Getting Started 🚀
 
-1. Authenticate on [<kbd>UCloud</kbd>](https://cloud.sdu.dk/app/login) and navigate to [<kbd>Apps</kbd>][UCloud Apps] > [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu].
+1. Authenticate on [<kbd>UCloud</kbd>](https://cloud.sdu.dk/app/login) and navigate to [<kbd>Apps</kbd>](https://cloud.sdu.dk/app/applications/overview/) > [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu].
 
 2. Configure a [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu] run with <kbd>"Add folder"</kbd> to select one of your folder then click on <kbd>Submit</kbd>.
 
@@ -67,7 +67,4 @@ If this project helps you, you can offer me a cup of coffee ☕️ :-)
 
 <!-- links -->
 
-[SDU eScience Center]: https://escience.sdu.dk/
-[UCloud Apps]: https://cloud.sdu.dk/app/applications/overview/
 [UCloud Terminal Ubuntu]: https://cloud.sdu.dk/app/jobs/create?app=terminal-ubuntu&version=0.20.0
-[UCloud User Guide]: https://docs.cloud.sdu.dk/index.html

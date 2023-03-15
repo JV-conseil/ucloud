@@ -30,7 +30,7 @@ title: Django 🐍
 
 👀 Note the **hostname** to connect to the running PostgreSQL Server job<br>`"hostname": "postgres.database.ucloud.sdu.dk"`.
 
-👉 See also [DjangoJobParameters.json](../jobs/DjangoJobParameters.json) template.
+👉 See also [DjangoJobParameters.json](DjangoJobParameters.json) template.
 
 ## Usage
 

@@ -26,6 +26,7 @@ title: Further Reading 📚
 - [UCloud](https://docs.cloud.sdu.dk/dev/index.html) Developer Guide.
 - [UCloud](https://docs.cloud.sdu.dk/help/faq.html) Frequently Asked Questions page.
 - [UCloud](https://status.cloud.sdu.dk/) Health Status page.
+- [UCloud](https://docs.cloud.sdu.dk/dev/backend/service-lib/wiki/third_party_dependencies.html#http-and-websockets) 3rd party dependencies (Docker, Kubernetes, WebSockets...).
 
 ## Bash
 

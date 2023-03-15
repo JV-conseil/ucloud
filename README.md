@@ -28,19 +28,19 @@
 
 ## What is UCloud
 
-> UCloud is an interactive digital research environment built to support the needs of researchers for both computing and data management, throughout all the data life cycle — [SDU eScience Center][UCloud User Guide]
+> UCloud is an interactive digital research environment built to support the needs of researchers for both computing and data management, throughout all the data life cycle — [SDU eScience Center](https://docs.cloud.sdu.dk/index.html)
 
-*This project is in no way affiliated with [GitHub](https://github.com/), [Ubuntu](https://ubuntu.com), [SDU eScience Center][SDU eScience Center], [University of Southern Denmark](https://www.sdu.dk/en), [Aalborg University](https://www.aau.dk), [Aarhus Universitet](https://www.au.dk), [Danmarks Tekniske Universitet](https://www.dtu.dk) and [DeiC](https://www.deic.dk) (Danish e-infrastucture Coorperation).*
+*This project is in no way affiliated with [GitHub][GitHub], [Ubuntu](https://ubuntu.com), [SDU eScience Center](https://escience.sdu.dk/), [University of Southern Denmark](https://www.sdu.dk/en), [Aalborg University](https://www.aau.dk), [Aarhus Universitet](https://www.au.dk), [Danmarks Tekniske Universitet](https://www.dtu.dk) and [DeiC](https://www.deic.dk) (Danish e-infrastucture Coorperation).*
 
 ## Usage
 
-1. Authenticate on <kbd>[UCloud](https://cloud.sdu.dk/app/login)</kbd> and navigate to <kbd>[Apps][UCloud Apps]</kbd> > <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd>.
+1. Authenticate on [<kbd>UCloud</kbd>](https://cloud.sdu.dk/app/login) and navigate to [<kbd>Apps</kbd>](https://cloud.sdu.dk/app/applications/overview/) > [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu].
 
-1. Configure a <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd> run with <kbd>"Add folder"</kbd> to select one of your folder then click on <kbd>Submit</kbd>.
+2. Configure a [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu] run with <kbd>"Add folder"</kbd> to select one of your folder then click on <kbd>Submit</kbd>.
 
-1. Once <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd> job is running click on <kbd>Open terminal</kbd>.
+3. Once [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu] job is running click on <kbd>Open terminal</kbd>.
 
-1. Let's import this repo **`git clone https://github.com/JV-conseil/ucloud.git`** with the following `bash` commands 👇
+4. Let's import this repo **`git clone https://github.com/JV-conseil/ucloud.git`** with the following `bash` commands 👇
 
 ```bash
 ls -FGlAhp
@@ -54,7 +54,7 @@ cd ucloud
 
 ![The missing repo to start GitHubbing on UCloud](https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif)
 
-## Running an app on UCloud
+## Running Python 🐍 App on UCloud
 
 Once you are in sync with your [GitHub][GitHub] repos and your UCloud folder structure looks like this.
 
@@ -76,17 +76,14 @@ cd /work/{your-working-folder}/ucloud || exit
 
 ## Further Readings 📚
 
-- [UCloud][UCloud User Guide] User Guide.
-- [UCloud][UCloud Developer Guide] Developer Guide.
-- [UCloud 3rd party dependencies][UCloud 3rd party dependencies].
-- [Awesome Bash][Awesome Bash] A curated list of delightful Bash scripts and resources.
-- [The Ultimate Guide to Modularizing Bash Script Code][The Ultimate Guide to Modularizing Bash Script Code] by Shinichi Okada (medium.com).
-- [Shell Scripting for Beginners][Shell Scripting for Beginners – How to Write Bash Scripts in Linux] — How to Write Bash Scripts in Linux (freecodecamp.org).
-- [GitHub CLI][GitHub CLI manual] or gh, is a command-line interface to GitHub for use in your terminal or your scripts.
-- [Google Shell Style Guide][Google Shell Style Guide] v2.02.
-- [How to use a key-value dictionary][How to use a key-value dictionary in bash] in bash.
-- [How to Configure SSL on PostgreSQL][How to Configure SSL on PostgreSQL].
-- [Bash Parameter expansions][Bash Parameter expansions].
+> Check also our extended [Further Readings](docs/reading.md) 📚 section in [docs](docs/index.md).
+
+- [UCloud](https://docs.cloud.sdu.dk/index.html) User Guide.
+- [UCloud](https://docs.cloud.sdu.dk/dev/index.html) Developer Guide.
+- [UCloud](https://docs.cloud.sdu.dk/help/faq.html) Frequently Asked Questions page.
+- [UCloud](https://status.cloud.sdu.dk/) Health Status page.
+- [UCloud](https://docs.cloud.sdu.dk/dev/backend/service-lib/wiki/third_party_dependencies.html#http-and-websockets) 3rd party dependencies (Docker, Kubernetes, WebSockets...).
+- [GitHub CLI](https://cli.github.com/manual/) or gh, is a command-line interface to GitHub for use in your terminal or your scripts.
 
 ## Sponsorship
 
@@ -96,18 +93,5 @@ If this project helps you, you can offer me a cup of coffee ☕️ :-)
 
 <!-- links -->
 
-[Awesome Bash]: https://github.com/awesome-lists/awesome-bash
-[Bash Parameter expansions]: https://devhints.io/bash#parameter-expansions
-[GitHub CLI manual]: https://cli.github.com/manual/
 [GitHub]: https://github.com/
-[Google Shell Style Guide]: https://google.github.io/styleguide/shellguide.html
-[How to Configure SSL on PostgreSQL]: https://www.cherryservers.com/blog/how-to-configure-ssl-on-postgresql
-[How to use a key-value dictionary in bash]: https://www.xmodulo.com/key-value-dictionary-bash.html
-[SDU eScience Center]: https://escience.sdu.dk/
-[Shell Scripting for Beginners – How to Write Bash Scripts in Linux]: https://www.freecodecamp.org/news/shell-scripting-crash-course-how-to-write-bash-scripts-in-linux/
-[The Ultimate Guide to Modularizing Bash Script Code]: https://medium.com/mkdir-awesome/the-ultimate-guide-to-modularizing-bash-script-code-f4a4d53000c2
-[UCloud 3rd party dependencies]: https://docs.cloud.sdu.dk/dev/backend/service-lib/wiki/third_party_dependencies.html#http-and-websockets
-[UCloud Apps]: https://cloud.sdu.dk/app/applications/overview/
-[UCloud Developer Guide]: https://docs.cloud.sdu.dk/dev/index.html
 [UCloud Terminal Ubuntu]: https://cloud.sdu.dk/app/jobs/create?app=terminal-ubuntu&version=0.20.0
-[UCloud User Guide]: https://docs.cloud.sdu.dk/index.html

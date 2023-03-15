@@ -27,7 +27,7 @@ title: PostgreSQL 🐘
 
 ![PostgresqlJobParameters](https://user-images.githubusercontent.com/8126807/225361460-852d3134-7148-4ecc-b93e-cc527e4e5cc9.jpg)
 
-👉 See also [PostgresqlJobParameters.json](../jobs/PostgresqlJobParameters.json) template.
+👉 See also [PostgresqlJobParameters.json](PostgresqlJobParameters.json) template.
 
 ## Usage
 
