@@ -1,5 +1,5 @@
 ---
-sort: 2
+sort: 8
 title: Further Reading 📚
 ---
 
@@ -20,34 +20,29 @@ title: Further Reading 📚
 <img alt="https://img.shields.io/badge/stack-overflow-orange.svg" src="https://img.shields.io/badge/stack-overflow-orange.svg">
 -->
 
-- [UCloud][UCloud User Guide] User Guide.
-- [UCloud][UCloud Developer Guide] Developer Guide.
-- [Awesome Bash][Awesome Bash] A curated list of delightful Bash scripts and resources.
-- [The Ultimate Guide to Modularizing Bash Script Code][The Ultimate Guide to Modularizing Bash Script Code] by Shinichi Okada (medium.com).
-- [Shell Scripting for Beginners][Shell Scripting for Beginners – How to Write Bash Scripts in Linux] — How to Write Bash Scripts in Linux (freecodecamp.org).
-- [GitHub CLI][GitHub CLI manual] or gh, is a command-line interface to GitHub for use in your terminal or your scripts.
-- [Google Shell Style Guide][Google Shell Style Guide] v2.02.
-- [How to use a key-value dictionary][How to use a key-value dictionary in bash] in bash.
-- [How to Configure SSL on PostgreSQL][How to Configure SSL on PostgreSQL].
-- [Bash Parameter expansions][Bash Parameter expansions].
-- [Advanced Bash-Scripting Guide][Advanced Bash-Scripting Guide], An in-depth exploration of the art of shell scripting by Mendel Cooper (The Linux Documentation Project LDP).
+## UCloud
+
+- [UCloud](https://docs.cloud.sdu.dk/index.html) User Guide.
+- [UCloud](https://docs.cloud.sdu.dk/dev/index.html) Developer Guide.
+- [UCloud](https://docs.cloud.sdu.dk/help/faq.html) Frequently Asked Questions page.
+- [UCloud](https://status.cloud.sdu.dk/) Health Status page.
+
+## Bash
+
+- [Advanced Bash-Scripting Guide](https://tldp.org/LDP/abs/html/index.html), An in-depth exploration of the art of shell scripting by Mendel Cooper (The Linux Documentation Project LDP).
+- [Awesome Bash](https://github.com/awesome-lists/awesome-bash) A curated list of delightful Bash scripts and resources.
+- [Shell Scripting for Beginners](https://www.freecodecamp.org/news/shell-scripting-crash-course-how-to-write-bash-scripts-in-linux/) — How to Write Bash Scripts in Linux (freecodecamp.org).
+- [The Ultimate Guide to Modularizing Bash Script Code](https://medium.com/mkdir-awesome/the-ultimate-guide-to-modularizing-bash-script-code-f4a4d53000c2) by Shinichi Okada (medium.com).
+- [Google Shell Style Guide](https://google.github.io/styleguide/shellguide.html) revision 2.02.
+- [How to use a key-value dictionary](https://www.xmodulo.com/key-value-dictionary-bash.html) in bash.
+- [Bash Parameter expansions](https://devhints.io/bash#parameter-expansions).
+
+## GitHub
+
+- [GitHub CLI](https://cli.github.com/manual/) or gh, is a command-line interface to GitHub for use in your terminal or your scripts.
 
 ## Sponsorship
 
 If this project helps you, you can offer me a cup of coffee ☕️ :-)
 
 [![Become a sponsor to JV-conseil](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/JV-conseil)
-
-<!-- links -->
-
-[Advanced Bash-Scripting Guide]: https://tldp.org/LDP/abs/html/index.html
-[Awesome Bash]: https://github.com/awesome-lists/awesome-bash
-[Bash Parameter expansions]: https://devhints.io/bash#parameter-expansions
-[GitHub CLI manual]: https://cli.github.com/manual/
-[Google Shell Style Guide]: https://google.github.io/styleguide/shellguide.html
-[How to Configure SSL on PostgreSQL]: https://www.cherryservers.com/blog/how-to-configure-ssl-on-postgresql
-[How to use a key-value dictionary in bash]: https://www.xmodulo.com/key-value-dictionary-bash.html
-[Shell Scripting for Beginners – How to Write Bash Scripts in Linux]: https://www.freecodecamp.org/news/shell-scripting-crash-course-how-to-write-bash-scripts-in-linux/
-[The Ultimate Guide to Modularizing Bash Script Code]: https://medium.com/mkdir-awesome/the-ultimate-guide-to-modularizing-bash-script-code-f4a4d53000c2
-[UCloud Developer Guide]: https://docs.cloud.sdu.dk/dev/index.html
-[UCloud User Guide]: https://docs.cloud.sdu.dk/index.html

@@ -1,5 +1,5 @@
 ---
-sort: 4
+sort: 3
 title: Django 🐍
 ---
 
@@ -22,7 +22,29 @@ title: Django 🐍
 <img alt="https://img.shields.io/badge/stack-overflow-orange.svg" src="https://img.shields.io/badge/stack-overflow-orange.svg">
 -->
 
+> Second launch a Django job.
+
+## Parameters
+
+![DjangoJobParameters](https://user-images.githubusercontent.com/8126807/225370198-bb956d17-177e-4c6e-ae72-1e197f384319.jpg)
+
+👀 Note the **hostname** to connect to the running PostgreSQL Server job<br>`"hostname": "postgres.database.ucloud.sdu.dk"`.
+
+👉 See also [DjangoJobParameters.json](../jobs/DjangoJobParameters.json) template.
+
+## Usage
+
+1. Once the Django job has started and all the initialisation has been completed, click on <kbd>Open terminal</kbd> blue button in the top right corner.
+
+2. In Terminal navigate to the ucloud folder `cd /work/ucloud`
+
+3. Then launch the script with `. main.sh`
+
+4. Then follow instructions starting after _Do you want to manage Django_ question.
+
 ## Environment variables
+
+Available environment variables created in UCloud job to interact within Django app.
 
 ```py
 import os
@@ -51,6 +73,10 @@ UCLD_PATH_TO_DATA = os.environ.get(
     "UCLD_PATH_TO_DATA", os.path.join(BASE_DIR, "dumpdata")
 )
 ```
+
+## Reading 📚
+
+- [UCloud](https://docs.cloud.sdu.dk/Apps/django.html) Apps Django documentation.
 
 ## Sponsorship
 

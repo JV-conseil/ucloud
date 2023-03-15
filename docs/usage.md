@@ -86,27 +86,6 @@ version:
 2023-02-17
 ```
 
-## Running an app on UCloud
-
-Once you are in sync with your [GitHub][GitHub] repos and your UCloud folder structure looks like this.
-
-```bash
-/work/{your-working-folder}/
-├── data/
-└── {your-repo}/
-├── install/
-└── ucloud/
-    └── main.sh
-```
-
-Then you can run the script of the app from `ucloud/main.sh`.
-
-```bash
-cd /work/{your-working-folder}/ucloud || exit
-. main.sh
-```
-
-
 ## Sponsorship
 
 If this project helps you, you can offer me a cup of coffee ☕️ :-)
@@ -115,6 +94,5 @@ If this project helps you, you can offer me a cup of coffee ☕️ :-)
 
 <!-- links -->
 
-[GitHub]: https://github.com/
 [UCloud Apps]: https://cloud.sdu.dk/app/applications/overview/
 [UCloud Terminal Ubuntu]: https://cloud.sdu.dk/app/jobs/create?app=terminal-ubuntu&version=0.20.0

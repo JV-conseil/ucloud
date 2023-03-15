@@ -22,8 +22,9 @@
 - [x] Django’s cache framework > Filesystem caching `django.core.cache.backends.filebased.FileBasedCache`.
 - [x] Django run in pseudo UCloud localhost mode (see below 👀 ) https://app-{job-id}-0.cloud.sdu.dk.
 - [x] Django run with a Public link https://app-githubbing.cloud.sdu.dk.
+- [x] UCloud app run over 24 hours ⏳
 
-### End of March, 2023 👀 
+### End of March, 2023 👀
 
 - [ ] PostgreSQL server version bump to `v14.7`.
 - [ ] Django version bump to `v4.1.7`.

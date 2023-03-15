@@ -1,0 +1,68 @@
+{
+    "siteVersion": 3,
+    "request": {
+        "application": {
+            "name": "django",
+            "version": "4.1.2"
+        },
+        "product": {
+            "id": "u1-standard-8",
+            "category": "u1-standard",
+            "provider": "ucloud"
+        },
+        "name": null,
+        "replicas": 1,
+        "parameters": {
+            "start": {
+                "path": "/43896/Django v4.1.2 upstream connect error or disconnect/ucloud/django/deployment.sh",
+                "type": "file",
+                "readOnly": false
+            },
+            "appdir": {
+                "path": "/43896/Django v4.1.2 upstream connect error or disconnect/Welcome",
+                "type": "file",
+                "readOnly": false
+            }
+        },
+        "resources": [
+            {
+                "type": "peer",
+                "jobId": "626530",
+                "hostname": "postgres.database.ucloud.sdu.dk"
+            },
+            {
+                "path": "/43896/Django v4.1.2 upstream connect error or disconnect/env",
+                "type": "file",
+                "readOnly": false
+            },
+            {
+                "path": "/43896/Django v4.1.2 upstream connect error or disconnect/ucloud",
+                "type": "file",
+                "readOnly": false
+            },
+            {
+                "path": "/43896/Django v4.1.2 upstream connect error or disconnect/jobs",
+                "type": "file",
+                "readOnly": false
+            }
+        ],
+        "timeAllocation": {
+            "hours": 2,
+            "minutes": 0,
+            "seconds": 0
+        },
+        "resolvedProduct": null,
+        "resolvedApplication": null,
+        "resolvedSupport": null,
+        "allowDuplicateJob": true,
+        "sshEnabled": false
+    },
+    "resolvedResources": {
+        "ingress": {
+        }
+    },
+    "machineType": {
+        "cpu": 8,
+        "memoryInGigs": 48
+    }
+}

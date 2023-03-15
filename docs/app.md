@@ -1,5 +1,5 @@
 ---
-sort: 6
+sort: 4
 title: Python 🐍 App / Script
 ---
 
@@ -22,7 +22,45 @@ title: Python 🐍 App / Script
 <img alt="https://img.shields.io/badge/stack-overflow-orange.svg" src="https://img.shields.io/badge/stack-overflow-orange.svg">
 -->
 
-> Doc on Python 🐍 App / Script to be written...
+> First launch a Ubuntu Terminal job connected to your UCloud folder.
+
+## Running Python 🐍 App on UCloud
+
+Once you are in sync with your [GitHub](https://github.com/) repos and your UCloud folder structure looks like this.
+
+```bash
+/work/{your-working-folder}/
+├── data/
+└── {your-repo}/
+├── install/
+└── ucloud/
+    └── main.sh
+```
+
+Then you can run the script of the app from `ucloud/main.sh`.
+
+```bash
+cd /work/{your-working-folder}/ucloud || exit
+. main.sh
+```
+
+## Environment variables
+
+Available environment variables created in UCloud job to interact within Django app.
+
+```py
+import os
+
+...
+
+UCLD_PATH_TO_DATA = os.environ.get("UCLD_PATH_TO_DATA", "")
+```
+
+Allowing integration within your Python app.
+
+```py
+UCLD_PATH_TO_DATA = os.environ.get("UCLD_PATH_TO_DATA", "")
+```
 
 ## Sponsorship
 
