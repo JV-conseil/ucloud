@@ -20,13 +20,13 @@ title: Usage
 <img alt="https://img.shields.io/badge/stack-overflow-orange.svg" src="https://img.shields.io/badge/stack-overflow-orange.svg">
 -->
 
-1. Authenticate on <kbd>[UCloud](https://cloud.sdu.dk/app/login)</kbd> and navigate to <kbd>[Apps][UCloud Apps]</kbd> > <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd>.
+1. Authenticate on [<kbd>UCloud</kbd>](https://cloud.sdu.dk/app/login) and navigate to [<kbd>Apps</kbd>](https://cloud.sdu.dk/app/applications/overview/) > [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu].
 
-1. Configure a <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd> run with <kbd>"Add folder"</kbd> to select one of your folder then click on <kbd>Submit</kbd>.
+2. Configure a [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu] run with <kbd>"Add folder"</kbd> to select one of your folder then click on <kbd>Submit</kbd>.
 
-1. Once <kbd>[Terminal Ubuntu][UCloud Terminal Ubuntu]</kbd> job is running click on <kbd>Open terminal</kbd>.
+3. Once [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu] job is running click on <kbd>Open terminal</kbd>.
 
-1. Let's import this repo **`git clone https://github.com/JV-conseil/ucloud.git`** with the following `bash` commands 👇
+4. Let's import this repo **`git clone https://github.com/JV-conseil/ucloud.git`** with the following `bash` commands 👇
 
 ```bash
 ls -FGlAhp
@@ -94,5 +94,4 @@ If this project helps you, you can offer me a cup of coffee ☕️ :-)
 
 <!-- links -->
 
-[UCloud Apps]: https://cloud.sdu.dk/app/applications/overview/
 [UCloud Terminal Ubuntu]: https://cloud.sdu.dk/app/jobs/create?app=terminal-ubuntu&version=0.20.0

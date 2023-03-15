@@ -76,7 +76,7 @@ cd /work/{your-working-folder}/ucloud || exit
 
 ## Further Readings 📚
 
-> Check also our extended [Further Readings](docs/reading.md) 📚 section in [docs](docs/index.md).
+> Check also our extended [Further Readings](docs/reading.md) 📚 page in [docs](docs/index.md).
 
 - [UCloud](https://docs.cloud.sdu.dk/index.html) User Guide.
 - [UCloud](https://docs.cloud.sdu.dk/dev/index.html) Developer Guide.

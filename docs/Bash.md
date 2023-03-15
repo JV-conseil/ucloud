@@ -22,28 +22,11 @@ title: Bash
 -->
 
 > Doc on Bash to be written...
+>
+> Check Bash section in our extended [Further Readings](reading.md#bash) 📚 page in [docs](docs/index.md).
 
 ## Sponsorship
 
 If this project helps you, you can offer me a cup of coffee ☕️ :-)
 
 [![Become a sponsor to JV-conseil](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/JV-conseil)
-
-<!-- links -->
-
-[Advanced Bash-Scripting Guide]: https://tldp.org/LDP/abs/html/index.html
-[Awesome Bash]: https://github.com/awesome-lists/awesome-bash
-[Bash Parameter expansions]: https://devhints.io/bash#parameter-expansions
-[GitHub CLI manual]: https://cli.github.com/manual/
-[GitHub]: https://github.com/
-[Google Shell Style Guide]: https://google.github.io/styleguide/shellguide.html
-[How to Configure SSL on PostgreSQL]: https://www.cherryservers.com/blog/how-to-configure-ssl-on-postgresql
-[How to use a key-value dictionary in bash]: https://www.xmodulo.com/key-value-dictionary-bash.html
-[SDU eScience Center]: https://escience.sdu.dk/
-[Shell Scripting for Beginners – How to Write Bash Scripts in Linux]: https://www.freecodecamp.org/news/shell-scripting-crash-course-how-to-write-bash-scripts-in-linux/
-[The Ultimate Guide to Modularizing Bash Script Code]: https://medium.com/mkdir-awesome/the-ultimate-guide-to-modularizing-bash-script-code-f4a4d53000c2
-[UCloud Apps]: https://cloud.sdu.dk/app/applications/overview/
-[UCloud Developer Guide]: https://docs.cloud.sdu.dk/dev/index.html
-[UCloud Terminal Ubuntu]: https://cloud.sdu.dk/app/jobs/create?app=terminal-ubuntu&version=0.20.0
-[UCloud User Guide]: https://docs.cloud.sdu.dk/index.html
-
