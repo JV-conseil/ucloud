@@ -40,10 +40,6 @@ export DBUSER=""${UCLD_DB_PARAM[user]}""
 
 export SECRET_KEY=""$(_ucld_::key_gen 32)""
 
-# In deployment (in Django app) override by /work/env/settings.conf
-
-# export DEBUG=${DEBUG}
-# export UCLD_ALLOWED_HOSTS=\"${UCLD_ALLOWED_HOSTS}\"
 export UCLD_PATH_TO_DATA=\"${UCLD_PATH[data]}\"" >>"${_env_file}"
 }
 
