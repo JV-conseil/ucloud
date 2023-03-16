@@ -38,25 +38,27 @@ title: Python 🐍 App / Script
 
 3. Then launch the script with `. main.sh`.
 
-4. Then follow instructions starting after _Do you want to run your Python app_ question.
+4. Now your skeleton should look like this 👇
+
+    ```bash
+    /work/{your-working-folder}/
+    ├── data/
+    ├── database/
+    ├── env/
+    ├── install/
+    ├── jobs/
+    └── ucloud/
+        └── main.sh
+    └── {your-gh-repo}/
+        └── main.py
+    ```
+
+5. In case you app process data, do not forget to load files in the `data` folder.
+
+6. Then follow instructions starting after _Do you want to run your Python app_ question.
 
 ```warning
-Your cloned GitHub repository must have a **`main.py`** file at its root level to identified as a valid Python 🐍 app.
-```
-
-Now your skeleton should look like this 👇
-
-```bash
-/work/{your-working-folder}/
-├── data/
-├── database/
-├── env/
-├── install/
-├── jobs/
-└── ucloud/
-    └── main.sh
-└── {your-gh-repo}/
-    └── main.py
+Your cloned GitHub repository must have a **`main.py`** file at its root level to be identified as a valid Python 🐍 app.
 ```
 
 ## Environment variables

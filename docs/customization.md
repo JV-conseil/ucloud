@@ -28,7 +28,7 @@ title: Customization ⚙️
 
 1. Once the Ubuntu Terminal job has started, click on the <kbd>Open interface</kbd> blue button in the top right corner.
 
-2. You can edit your settings with `nano` as such<br>`nano /work/{your-working-folder}/env/settings.conf`
+2. You can edit your settings as such<br>`nano /work/{your-working-folder}/env/settings.conf`
 
 3. Save and Exit.
 
