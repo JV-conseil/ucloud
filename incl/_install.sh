@@ -66,7 +66,7 @@ _ucld_::install_apt_packages() {
 # <https://cloudinfrastructureservices.co.uk/how-to-install-python-3-in-debian-11-10/>
 # <https://computingforgeeks.com/how-to-install-python-on-debian-linux/>
 # <https://computingforgeeks.com/how-to-install-python-on-ubuntu-linux/>
-_ucld_::udpate_python_version() {
+_ucld_::update_python_version() {
   local _main="/work/ucloud" _install="/work/install" _python="3.11.2"
 
   if [ -n "${UCLD_PATH[install]}" ] &>/dev/null || :; then
@@ -99,7 +99,7 @@ _ucld_::full_update_and_install() {
   _start=$(date +%s)
 
   _ucld_::install_apt_packages
-  # _ucld_::udpate_python_version
+  # _ucld_::update_python_version
 
   _stop=$(date +%s)
   _ucld_::h3 "Install completed in $((_stop - _start)) seconds"

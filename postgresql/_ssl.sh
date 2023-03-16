@@ -41,7 +41,7 @@ _ucld_::pg_alter_system() {
   done
 }
 
-_ucld_::pg_hba_udpate() {
+_ucld_::pg_hba_update() {
   local _template
 
   case "${PGSSLMODE}" in
@@ -80,7 +80,7 @@ _ucld_::pg_conf_ssl() {
 
   _ucld_::generate_ssl_certificate
   _ucld_::pg_alter_system
-  _ucld_::pg_hba_udpate
+  _ucld_::pg_hba_update
   _ucld_::pg_reload_conf
 }
 
