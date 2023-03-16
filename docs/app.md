@@ -24,11 +24,25 @@ title: Python 🐍 App / Script
 
 > First launch a Ubuntu Terminal job connected to your UCloud folder.
 
-## Running Python 🐍 App on UCloud
+## Parameters
 
-Once you are in sync with your [GitHub](https://github.com/) repos and your UCloud folder structure looks like this.
+![PythonAppJobParameters](https://user-images.githubusercontent.com/8126807/225733122-ebe839ad-7929-41cd-9429-83660c1c7891.jpg)
 
-```bash
+👉 See also [PythonAppJobParameters.json](PythonAppJobParameters.json) template.
+
+## Usage
+
+1. Once the Ubuntu Terminal job has started, click on <kbd>Open interface</kbd> blue button in the top right corner.
+
+2. Navigate to the ucloud folder `cd /work/ucloud`.
+
+3. Then launch the script with `. main.sh`.
+
+4. Then follow instructions starting after _Do you want to run your Python app_ question.
+
+```warning
+Your cloned GitHub repository must have a **`main.py`** file at its root level to be spotted as a valid Python 🐍 app.
+
 /work/{your-working-folder}/
 ├── data/
 └── {your-repo}/
@@ -36,13 +50,6 @@ Once you are in sync with your [GitHub](https://github.com/) repos and your UClo
 ├── install/
 └── ucloud/
     └── main.sh
-```
-
-Then you can run the script of the app from `ucloud/main.sh`.
-
-```bash
-cd /work/{your-working-folder}/ucloud || exit
-. main.sh
 ```
 
 ## Environment variables
@@ -54,12 +61,6 @@ import os
 
 ...
 
-UCLD_PATH_TO_DATA = os.environ.get("UCLD_PATH_TO_DATA", "")
-```
-
-Allowing integration within your Python app.
-
-```py
 UCLD_PATH_TO_DATA = os.environ.get("UCLD_PATH_TO_DATA", "")
 ```
 

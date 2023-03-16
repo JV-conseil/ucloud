@@ -10,7 +10,7 @@
             "category": "u1-standard",
             "provider": "ucloud"
         },
-        "name": null,
+        "name": "Django v4.1.2 upstream connect error or disconnect",
         "replicas": 1,
         "parameters": {
             "start": {

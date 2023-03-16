@@ -1,0 +1,43 @@
+{
+    "siteVersion": 3,
+    "request": {
+        "application": {
+            "name": "terminal-ubuntu",
+            "version": "0.20.0"
+        },
+        "product": {
+            "id": "u1-standard-1",
+            "category": "u1-standard",
+            "provider": "ucloud"
+        },
+        "name": "EuroCenter-MSCA-ESRs",
+        "replicas": 1,
+        "parameters": {
+        },
+        "resources": [
+            {
+                "path": "/43896/EuroCenter-MSCA-ESRs",
+                "type": "file",
+                "readOnly": false
+            }
+        ],
+        "timeAllocation": {
+            "hours": 1,
+            "minutes": 0,
+            "seconds": 0
+        },
+        "resolvedProduct": null,
+        "resolvedApplication": null,
+        "resolvedSupport": null,
+        "allowDuplicateJob": true,
+        "sshEnabled": false
+    },
+    "resolvedResources": {
+        "ingress": {
+        }
+    },
+    "machineType": {
+        "cpu": 1,
+        "memoryInGigs": 6
+    }
+}
