@@ -44,23 +44,19 @@ title: Python 🐍 App / Script
 Your cloned GitHub repository must have a **`main.py`** file at its root level to identified as a valid Python 🐍 app.
 ```
 
-Your UCloud skeleton should look like this...
+Now your skeleton should look like this 👇
 
 ```bash
 /work/{your-working-folder}/
 ├── data/
-└── {your-repo}/
-    └── main.py
+├── database/
+├── env/
 ├── install/
+├── jobs/
 └── ucloud/
     └── main.sh
-```
-
-... in order to run the script 👇
-
-```bash
-cd /work/{your-working-folder}/ucloud || exit
-. main.sh
+└── {your-gh-repo}/
+    └── main.py
 ```
 
 ## Environment variables

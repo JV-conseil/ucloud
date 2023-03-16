@@ -24,8 +24,6 @@ title: Customization ⚙️
 
 > First launch a [Ubuntu Terminal job][UCloud Terminal Ubuntu] connected to your UCloud folder.
 
-## How To Customize your Settings ⚙️
-
 1. Once the Ubuntu Terminal job has started, click on the <kbd>Open interface</kbd> blue button in the top right corner.
 
 2. You can edit your settings with `nano` as such<br>`nano /work/{your-working-folder}/env/settings.conf`
@@ -34,11 +32,11 @@ title: Customization ⚙️
 
 4. In order for your udpated settings to take effect, either go back to<br>`cd /work/{your-working-folder}/ucloud && . main.sh`<br>or source your updated settings<br>`. /work/{your-working-folder}/env/settings.conf`.
 
+![customize ucloud](https://user-images.githubusercontent.com/8126807/225741438-083a3ccd-ca9d-4299-9e95-fb7b4d6b6858.gif)
+
 ```note
 Your settings are stored in `env/settings.conf` and the factory settings in `ucloud/settings.conf`.
 ```
-
-![customize ucloud](https://user-images.githubusercontent.com/8126807/225741438-083a3ccd-ca9d-4299-9e95-fb7b4d6b6858.gif)
 
 ## Sponsorship
 

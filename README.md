@@ -32,47 +32,44 @@
 
 *This project is in no way affiliated with [GitHub][GitHub], [Ubuntu](https://ubuntu.com), [SDU eScience Center](https://escience.sdu.dk/), [University of Southern Denmark](https://www.sdu.dk/en), [Aalborg University](https://www.aau.dk), [Aarhus Universitet](https://www.au.dk), [Danmarks Tekniske Universitet](https://www.dtu.dk) and [DeiC](https://www.deic.dk) (Danish e-infrastucture Coorperation).*
 
-## Usage
+```tip
+For a quick start 👉 **`git clone https://github.com/JV-conseil/ucloud.git`**
+```
+
+## Getting Started 🚀
 
 1. Authenticate on [<kbd>UCloud</kbd>](https://cloud.sdu.dk/app/login) and navigate to [<kbd>Apps</kbd>](https://cloud.sdu.dk/app/applications/overview/) > [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu].
 
 2. Configure a [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu] run with <kbd>"Add folder"</kbd> to select one of your folder then click on <kbd>Submit</kbd>.
 
-3. Once [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu] job is running click on <kbd>Open terminal</kbd>.
+3. Once the [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu] job has started, click on the <kbd>Open interface</kbd> blue button in the top right corner.
 
-4. Let's import this repo **`git clone https://github.com/JV-conseil/ucloud.git`** with the following `bash` commands 👇
+4. In the opened interface, let's import this repo with the following `bash` commands 👇
 
-```bash
-ls -FGlAhp
-cd {your-working-folder} || exit
+    ```bash
+    ls -FGlAhp
+    cd {your-working-folder} || exit
 
-git clone https://github.com/JV-conseil/ucloud.git
+    git clone https://github.com/JV-conseil/ucloud.git
 
-cd ucloud
-. main.sh
-```
+    cd ucloud || exit
+    . main.sh
+    ```
 
 ![The missing repo to start GitHubbing on UCloud](https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif)
 
-## Running a Python 🐍 App on UCloud
-
-Once you are in sync with your [GitHub][GitHub] repos and your UCloud folder structure looks like this.
+Now your skeleton should look like this 👇
 
 ```bash
 /work/{your-working-folder}/
 ├── data/
-└── {your-repo}/
-    └── main.py
+├── database/
+├── env/
 ├── install/
+├── jobs/
+├── {your-gh-repo}/
 └── ucloud/
     └── main.sh
-```
-
-Then you can run the script of the app from `ucloud/main.sh`.
-
-```bash
-cd /work/{your-working-folder}/ucloud || exit
-. main.sh
 ```
 
 ## Documentation

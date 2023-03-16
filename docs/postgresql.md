@@ -33,9 +33,9 @@ title: PostgreSQL 🐘
 
 1. Once the PostgreSQL Server job has started and all the initialisation (first run only) has been completed, click on the <kbd>Open terminal</kbd> blue button in the top right corner.
 
-1. In Terminal navigate to the ucloud folder `cd /work/ucloud`.
+1. In Terminal navigate to the ucloud folder `cd /work/ucloud`
 
-1. Then launch the script with `. main.sh`.
+1. Then launch the script with `. main.sh`
 
 1. Then follow instructions starting after _Do you want to manage PostreSQL_ question.
 

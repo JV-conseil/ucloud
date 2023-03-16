@@ -11,13 +11,18 @@ Clone the "ucloud" repo at the root of your working folder
 └── {ucloud}
 
 cd /work/{your-working-folder} || exit
+
 git clone https://github.com/JV-conseil/ucloud.git
+
+Now your skeleton should look like this 👇
 
 /work/{your-working-folder}/
 ├── data/
-└── {your-repo}/
-    └── main.py
+├── database/
+├── env/
 ├── install/
+├── jobs/
+├── {your-gh-repo}/
 └── ucloud/
     └── main.sh
 
