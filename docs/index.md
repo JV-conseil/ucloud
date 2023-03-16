@@ -37,11 +37,11 @@
 
 *This project is in no way affiliated with [GitHub](https://github.com/), [Ubuntu](https://ubuntu.com), [SDU eScience Center](https://escience.sdu.dk/), [University of Southern Denmark](https://www.sdu.dk/en), [Aalborg University](https://www.aau.dk), [Aarhus Universitet](https://www.au.dk), [Danmarks Tekniske Universitet](https://www.dtu.dk) and [DeiC](https://www.deic.dk) (Danish e-infrastucture Coorperation).*
 
-## Getting Started 🚀
-
 ```tip
-**`git clone https://github.com/JV-conseil/ucloud.git`** for a quick start.
+For a quick start 👉 **`git clone https://github.com/JV-conseil/ucloud.git`**
 ```
+
+## Getting Started 🚀
 
 1. Authenticate on [<kbd>UCloud</kbd>](https://cloud.sdu.dk/app/login) and navigate to [<kbd>Apps</kbd>](https://cloud.sdu.dk/app/applications/overview/) > [<kbd>Terminal Ubuntu</kbd>][UCloud Terminal Ubuntu].
 
