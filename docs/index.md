@@ -75,7 +75,7 @@ For a quick start 👉 **`git clone https://github.com/JV-conseil/ucloud.git`**
         └── main.sh
     ```
 
-<img src="[drawing.jpg](https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif)" alt="The missing repo to start GitHubbing on UCloud" width="100%"/>
+<img src="https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif" alt="The missing repo to start GitHubbing on UCloud" width="100%"/>
 
 ## Sponsorship
 
