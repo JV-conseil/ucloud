@@ -34,7 +34,7 @@ title: Python 🐍 App / Script
 
 1. Once the Ubuntu Terminal job has started, click on <kbd>Open interface</kbd> blue button in the top right corner.
 
-2. Navigate to the ucloud folder `cd /work/ucloud`.
+2. Navigate to the ucloud folder `cd /work/{your-working-folder}/ucloud`.
 
 3. Then launch the script with `. main.sh`.
 
@@ -42,7 +42,11 @@ title: Python 🐍 App / Script
 
 ```warning
 Your cloned GitHub repository must have a **`main.py`** file at its root level to be spotted as a valid Python 🐍 app.
+```
 
+Your UCloud skeleton should look like this...
+
+```bash
 /work/{your-working-folder}/
 ├── data/
 └── {your-repo}/
@@ -50,6 +54,13 @@ Your cloned GitHub repository must have a **`main.py`** file at its root level t
 ├── install/
 └── ucloud/
     └── main.sh
+```
+
+... in order to run the script 👇
+
+```bash
+cd /work/{your-working-folder}/ucloud || exit
+. main.sh
 ```
 
 ## Environment variables
