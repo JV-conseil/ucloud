@@ -21,7 +21,7 @@ title: PostgreSQL 🐘
 [![License BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](LICENSE)
 -->
 
-> First launch a PostgreSQL Server job to be able to connect it later on to a Django run.
+> First launch a PostgreSQL Server job to be able to connect it later on to a [Django job](django.md).
 
 ## Parameters
 

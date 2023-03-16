@@ -22,13 +22,15 @@ title: Django 🐍
 <img alt="https://img.shields.io/badge/stack-overflow-orange.svg" src="https://img.shields.io/badge/stack-overflow-orange.svg">
 -->
 
-> Second launch a Django job.
+> First launch a [PostgreSQL Server job](postgresql.md) to be able to connect it later on to this Django job.
 
 ## Parameters
 
 ![DjangoJobParameters](https://user-images.githubusercontent.com/8126807/225370198-bb956d17-177e-4c6e-ae72-1e197f384319.jpg)
 
-👀 Note the **hostname** to connect to the running PostgreSQL Server job **`postgres.database.ucloud.sdu.dk`**.
+```note
+**`postgres.database.ucloud.sdu.dk`** 👀 is the **hostname** string to connect to the running PostgreSQL Server job.
+```
 
 👉 See also [DjangoJobParameters.json](DjangoJobParameters.json) template.
 
