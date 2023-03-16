@@ -29,6 +29,10 @@ title: PostgreSQL 🐘
 
 👉 See also [PostgresqlJobParameters.json](PostgresqlJobParameters.json) template.
 
+```note
+Your job paramaters `JobParameters.json` are saved in the `jobs` folder.
+```
+
 ## Usage
 
 1. Once the PostgreSQL Server job has started and all the initialisation (first run only) has been completed, click on the <kbd>Open terminal</kbd> blue button in the top right corner.
