@@ -61,21 +61,21 @@ For a quick start 👉 **`git clone https://github.com/JV-conseil/ucloud.git`**
     . main.sh
     ```
 
-![The missing repo to start GitHubbing on UCloud](https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif)
+5. Now your skeleton should look like this 👇
 
-Now your skeleton should look like this 👇
+    ```bash
+    /work/{your-working-folder}/
+    ├── data/
+    ├── database/
+    ├── env/
+    ├── install/
+    ├── jobs/
+    ├── {your-gh-repo}/
+    └── ucloud/
+        └── main.sh
+    ```
 
-```bash
-/work/{your-working-folder}/
-├── data/
-├── database/
-├── env/
-├── install/
-├── jobs/
-├── {your-gh-repo}/
-└── ucloud/
-    └── main.sh
-```
+<img src="[drawing.jpg](https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif)" alt="The missing repo to start GitHubbing on UCloud" width="100%"/>
 
 ## Sponsorship
 
