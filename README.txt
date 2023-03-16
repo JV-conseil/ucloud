@@ -6,13 +6,9 @@
 
 Clone the "ucloud" repo at the root of your working folder
 
-/work/{your-working-folder}/
-├── data/
-└── {ucloud}
+$ cd /work/{your-working-folder} || exit
 
-cd /work/{your-working-folder} || exit
-
-git clone https://github.com/JV-conseil/ucloud.git
+$ git clone https://github.com/JV-conseil/ucloud.git
 
 Now your skeleton should look like this 👇
 
