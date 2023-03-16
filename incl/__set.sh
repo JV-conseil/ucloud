@@ -25,6 +25,15 @@
 #
 #====================================================
 
+_ucld_::hack_unbound_variables() {
+  # unbound variables
+  # shellcheck disable=SC2034
+  {
+    BP_PIPESTATUS=""
+    _PRESERVED_PROMPT_COMMAND=""
+  }
+}
+
 _ucld_::is_linux() {
   local _bool=false
   if [[ "$(cat /proc/version 2>/dev/null || :)" == "Linux"* ]]; then _bool=true; fi
@@ -51,6 +60,7 @@ _ucld_::set_terminal_mode() {
 }
 
 _ucld_::set_strict_mode() {
+  _ucld_::hack_unbound_variables
   _ucld_::set_terminal_mode
   set -eu
 }

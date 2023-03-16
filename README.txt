@@ -6,24 +6,26 @@
 
 Clone the "ucloud" repo at the root of your working folder
 
-/work/{working-folder}/
+/work/{your-working-folder}/
 ├── data/
 └── {ucloud}
 
-cd /work/{working-folder} || exit
+cd /work/{your-working-folder} || exit
 git clone https://github.com/JV-conseil/ucloud.git
 
-/work/{working-folder}/
-├── {some-repo}/
+/work/{your-working-folder}/
 ├── data/
+└── {your-repo}/
+    └── main.py
 ├── install/
 └── ucloud/
+    └── main.sh
 
 
 Usage
 
-cd /work/{working-folder}/ucloud || exit
-bash main.sh
+cd /work/{your-working-folder}/ucloud || exit
+. main.sh
 
 
 The missing repo to manage apps on UCloud...

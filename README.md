@@ -62,6 +62,7 @@ Once you are in sync with your [GitHub][GitHub] repos and your UCloud folder str
 /work/{your-working-folder}/
 ├── data/
 └── {your-repo}/
+    └── main.py
 ├── install/
 └── ucloud/
     └── main.sh

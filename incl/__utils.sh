@@ -88,14 +88,19 @@ _ucld_::sanitize_input() {
 }
 
 _ucld_::save_job_parameters() {
-  local _app _job="/work/JobParameters.json" _path="/work/jobs"
-  if [ ! -f "${_job}" ] || [ ! -d "${_path}" ]; then
+  local _app _job="/work/JobParameters.json" _path="jobs"
+  if [ ! -f "${_job}" ]; then
     return
   fi
   if "$(_ucld_::is_jq_installed)"; then
     _app="$(cat <"${_job}" | jq -r '.request.application.name')"
+    _path="${_path}/${_app^}JobParameters.json"
     # mkdir "${_path}" &&
-    cp "${_job}" "${_path}/${_app^}JobParameters.json"
+    # cp "${_job}" "/work/${_path}" 2>>logfile.log || cp "${_job}" "../${_path}" 2>>logfile.log || :
+    {
+      cp "${_job}" "/work/${_path}"
+      cp "${_job}" "../${_path}"
+    } 2>>logfile.log || :
   fi
 }
 
@@ -119,4 +124,18 @@ _ucld_::append_bashrc_profile() {
     # shellcheck source=/dev/null
     . "${HOME}/${_file}"
   done
+}
+
+# DEPRECATED
+
+_ucld_::save_job_parameters_v1() {
+  local _app _job="/work/JobParameters.json" _path="/work/jobs"
+  if [ ! -f "${_job}" ] || [ ! -d "${_path}" ]; then
+    return
+  fi
+  if "$(_ucld_::is_jq_installed)"; then
+    _app="$(cat <"${_job}" | jq -r '.request.application.name')"
+    # mkdir "${_path}" &&
+    cp "${_job}" "${_path}/${_app^}JobParameters.json"
+  fi
 }

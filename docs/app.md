@@ -32,6 +32,7 @@ Once you are in sync with your [GitHub](https://github.com/) repos and your UClo
 /work/{your-working-folder}/
 ├── data/
 └── {your-repo}/
+    └── main.py
 ├── install/
 └── ucloud/
     └── main.sh
