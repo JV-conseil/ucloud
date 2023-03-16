@@ -31,15 +31,17 @@
 
 ![social-media-preview](https://user-images.githubusercontent.com/8126807/219748305-e5d5d517-ec5c-4364-8a61-7baefdaf6f63.png)
 
+```tip
+For a quick start 👉 **`git clone https://github.com/JV-conseil/ucloud.git`**
+```
+
 ## What is UCloud
 
 > UCloud is an interactive digital research environment built to support the needs of researchers for both computing and data management, throughout all the data life cycle — [SDU eScience Center](https://docs.cloud.sdu.dk/index.html)
 
 *This project is in no way affiliated with [GitHub](https://github.com/), [Ubuntu](https://ubuntu.com), [SDU eScience Center](https://escience.sdu.dk/), [University of Southern Denmark](https://www.sdu.dk/en), [Aalborg University](https://www.aau.dk), [Aarhus Universitet](https://www.au.dk), [Danmarks Tekniske Universitet](https://www.dtu.dk) and [DeiC](https://www.deic.dk) (Danish e-infrastucture Coorperation).*
 
-```tip
-For a quick start 👉 **`git clone https://github.com/JV-conseil/ucloud.git`**
-```
+<img src="https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif" alt="The missing repo to start GitHubbing on UCloud" width="100%"/>
 
 ## Getting Started 🚀
 
@@ -74,8 +76,6 @@ For a quick start 👉 **`git clone https://github.com/JV-conseil/ucloud.git`**
     └── ucloud/
         └── main.sh
     ```
-
-<img src="https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif" alt="The missing repo to start GitHubbing on UCloud" width="100%"/>
 
 ## Sponsorship
 
