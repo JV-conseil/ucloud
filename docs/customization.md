@@ -22,9 +22,9 @@ title: Customization ⚙️
 <img alt="https://img.shields.io/badge/stack-overflow-orange.svg" src="https://img.shields.io/badge/stack-overflow-orange.svg">
 -->
 
-> First launch a [Ubuntu Terminal job][UCloud Terminal Ubuntu] connected to your UCloud folder.
-
 ![customize ucloud](https://user-images.githubusercontent.com/8126807/225741438-083a3ccd-ca9d-4299-9e95-fb7b4d6b6858.gif)
+
+> First launch a [Ubuntu Terminal job][UCloud Terminal Ubuntu] connected to your UCloud folder.
 
 1. Once the Ubuntu Terminal job has started, click on the <kbd>Open interface</kbd> blue button in the top right corner.
 
