@@ -22,7 +22,7 @@ title: Python 🐍 App / Script
 <img alt="https://img.shields.io/badge/stack-overflow-orange.svg" src="https://img.shields.io/badge/stack-overflow-orange.svg">
 -->
 
-> First launch a Ubuntu Terminal job connected to your UCloud folder.
+> First launch a [Ubuntu Terminal job][UCloud Terminal Ubuntu] connected to your UCloud folder.
 
 ## Parameters
 
@@ -32,7 +32,7 @@ title: Python 🐍 App / Script
 
 ## Usage
 
-1. Once the Ubuntu Terminal job has started, click on <kbd>Open interface</kbd> blue button in the top right corner.
+1. Once the Ubuntu Terminal job has started, click on the <kbd>Open interface</kbd> blue button in the top right corner.
 
 2. Navigate to the ucloud folder `cd /work/{your-working-folder}/ucloud`.
 
@@ -41,7 +41,7 @@ title: Python 🐍 App / Script
 4. Then follow instructions starting after _Do you want to run your Python app_ question.
 
 ```warning
-Your cloned GitHub repository must have a **`main.py`** file at its root level to be spotted as a valid Python 🐍 app.
+Your cloned GitHub repository must have a **`main.py`** file at its root level to identified as a valid Python 🐍 app.
 ```
 
 Your UCloud skeleton should look like this...
@@ -80,3 +80,7 @@ UCLD_PATH_TO_DATA = os.environ.get("UCLD_PATH_TO_DATA", "")
 If this project helps you, you can offer me a cup of coffee ☕️ :-)
 
 [![Become a sponsor to JV-conseil](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/JV-conseil)
+
+<!-- links -->
+
+[UCloud Terminal Ubuntu]: https://cloud.sdu.dk/app/jobs/create?app=terminal-ubuntu&version=0.20.0

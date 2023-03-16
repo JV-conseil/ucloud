@@ -36,7 +36,7 @@ title: Django 🐍
 
 ## Usage
 
-1. Once the Django job has started and all the initialisation has been completed, click on <kbd>Open terminal</kbd> blue button in the top right corner.
+1. Once the Django job has started and all the initialisation has been completed, click on the <kbd>Open terminal</kbd> blue button in the top right corner.
 
 2. In Terminal navigate to the ucloud folder `cd /work/ucloud`
 

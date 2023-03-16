@@ -54,7 +54,7 @@ cd ucloud
 
 ![The missing repo to start GitHubbing on UCloud](https://user-images.githubusercontent.com/8126807/219773779-26b31233-79e3-495a-82bd-5699e3f9131e.gif)
 
-## Running Python 🐍 App on UCloud
+## Running a Python 🐍 App on UCloud
 
 Once you are in sync with your [GitHub][GitHub] repos and your UCloud folder structure looks like this.
 
@@ -74,6 +74,10 @@ Then you can run the script of the app from `ucloud/main.sh`.
 cd /work/{your-working-folder}/ucloud || exit
 . main.sh
 ```
+
+## Documentation
+
+Extended documentation is available 👉 <https://jv-conseil.github.io/ucloud/>
 
 ## Further Readings 📚
 
