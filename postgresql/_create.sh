@@ -38,7 +38,7 @@ export DBSSLMODE=""${UCLD_DB_PARAM[sslmode]}""
 export DBSSLROOTCERT=""${PGSSLROOTCERT}""
 export DBUSER=""${UCLD_DB_PARAM[user]}""
 
-export SECRET_KEY=""$(_ucld_::key_gen 32)""
+export SECRET_KEY=""$(_ucld_::key_gen 128)""
 
 export UCLD_PATH_TO_DATA=\"${UCLD_PATH[data]}\"" >>"${_env_file}"
 }
