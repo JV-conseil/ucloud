@@ -36,4 +36,6 @@ UCLD_HOSTNAME="$(_ucld_::clean_app_hostname)"
 _ucld_::dj_debug
 _ucld_::dj_install_dependencies
 _ucld_::dj_collectstatic
-python manage.py runserver
+
+python manage.py check --deploy
+python manage.py runserver 2>>/work/ucloud/logfile.log
