@@ -11,7 +11,7 @@
 declare -a UCLD_INSTALL_PACKAGES UCLD_PUBLIC_LINKS
 declare -A UCLD_DB_PARAM UCLD_DIR UCLD_PATH
 declare -ix DEBUG=0 BASH_STRICT_MODE=0
-declare -x UCLD_HOSTNAME
+declare -x UCLD_HOSTNAME UCLD_HOSTNAME
 
 UCLD_PATH=([main]="${PWD}" [work]="${PWD}")
 
@@ -50,5 +50,10 @@ _ucld_::build_path() {
   . "${UCLD_PATH[env]}/settings.conf" 2>>logfile.log || :
   # more files
 }
+
+UCLD_ALLOWED_HOSTS="$(
+  IFS=$' '
+  echo "${UCLD_PUBLIC_LINKS[*]}"
+)"
 
 _ucld_::build_path

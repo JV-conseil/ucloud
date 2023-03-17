@@ -12,6 +12,8 @@ declare -a UCLD_PUBLIC_LINKS
 declare -ix DEBUG=0
 declare -x UCLD_ALLOWED_HOSTS UCLD_HOSTNAME
 
+UCLD_HOSTNAME="$(_ucld_::clean_app_hostname)"
+
 # shellcheck source=/dev/null
 {
   . "/work/ucloud/incl/__set.sh"
@@ -30,8 +32,6 @@ UCLD_ALLOWED_HOSTS="$(
   IFS=$' '
   echo "${UCLD_PUBLIC_LINKS[*]}"
 )"
-
-UCLD_HOSTNAME="$(_ucld_::clean_app_hostname)"
 
 _ucld_::dj_debug
 _ucld_::dj_install_dependencies
