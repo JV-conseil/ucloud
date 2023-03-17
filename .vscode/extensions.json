@@ -5,6 +5,7 @@
     "timonwong.shellcheck",
     "yzhang.markdown-all-in-one",
     "davidanson.vscode-markdownlint",
-    "foxundermoon.shell-format"
+    "foxundermoon.shell-format",
+    "bierner.markdown-emoji"
   ]
 }

@@ -19,6 +19,9 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
   "scss.format.braceStyle": "collapse",
   "scss.format.enable": false,
   "shellcheck.logLevel": "trace",
