@@ -41,14 +41,15 @@ _ucld_::is_debian_running() {
 
 _ucld_::is_jq_installed() {
   local _bool=false
-  if [ -x "$(command -v jq)" ] 2>>logfile.log; then
+  if [ -x "$(command -v jq)" ] &>/dev/null; then
     _bool=true
   else
-    sudo apt-get update && sudo apt-get install -y jq && _bool=true
+    sudo apt-get update && sudo apt-get install -y jq &>/dev/null
     # {
     #   sudo apt-get update
     #   sudo apt-get install
     # } &>/dev/null || :
+    _bool=true
   fi
   echo "${_bool}"
 }
@@ -92,7 +93,7 @@ _ucld_::sanitize_input() {
 
 _ucld_::save_job_parameters() {
   local _app _job="/work/JobParameters.json" _path="jobs"
-  if [ ! -f "${_job}" ] 2>>logfile.log; then
+  if [ ! -f "${_job}" ]; then
     return
   fi
   if "$(_ucld_::is_jq_installed)"; then
