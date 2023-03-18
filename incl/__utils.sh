@@ -44,12 +44,11 @@ _ucld_::is_jq_installed() {
   if [ -x "$(command -v jq)" ] 2>>logfile.log; then
     _bool=true
   else
-    # sudo apt-get update && sudo apt-get install -y jq
-    {
-      sudo apt-get update
-      sudo apt-get install
-    } &>/dev/null || :
-    _bool=true
+    sudo apt-get update && sudo apt-get install -y jq && _bool=true
+    # {
+    #   sudo apt-get update
+    #   sudo apt-get install
+    # } &>/dev/null || :
   fi
   echo "${_bool}"
 }
