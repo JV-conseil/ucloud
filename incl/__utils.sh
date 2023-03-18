@@ -41,15 +41,15 @@ _ucld_::is_debian_running() {
 
 _ucld_::is_jq_installed() {
   local _bool=false
-  if [ -x "$(command -v jq)" ] &>/dev/null; then
+  if [ -x "$(command -v jq)" ] &>/dev/null || :; then
     _bool=true
   else
-    sudo apt-get update &>/dev/null
-    sudo apt-get install -y jq &>/dev/null
-    # {
-    #   sudo apt-get update
-    #   sudo apt-get install
-    # } &>/dev/null || :
+    # sudo apt-get update &>/dev/null || :
+    # sudo apt-get install -y jq &>/dev/null || :
+    {
+      sudo apt-get update
+      sudo apt-get install -y jq
+    } &>/dev/null || :
     _bool=true
   fi
   echo "${_bool}"
@@ -100,8 +100,12 @@ _ucld_::save_job_parameters() {
   if "$(_ucld_::is_jq_installed)"; then
     _app="$(cat <"${_job}" | jq -r '.request.application.name')"
     _path="${_path}/${_app^}JobParameters.json"
-    cp -pv "${_job}" "/work/${_path}" || :
-    cp -pv "${_job}" "../${_path}" || :
+    # cp "${_job}" "/work/${_path}" 2>>logfile.log || :
+    # cp "${_job}" "../${_path}" 2>>logfile.log || :
+    {
+      cp "${_job}" "/work/${_path}"
+      cp "${_job}" "../${_path}"
+    } 2>>logfile.log || :
   fi
 }
 
