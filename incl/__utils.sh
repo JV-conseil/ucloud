@@ -96,12 +96,8 @@ _ucld_::save_job_parameters() {
   if "$(_ucld_::is_jq_installed)"; then
     _app="$(cat <"${_job}" | jq -r '.request.application.name')"
     _path="${_path}/${_app^}JobParameters.json"
-    # cp "${_job}" "/work/${_path}" 2>>logfile.log || :
-    # cp "${_job}" "../${_path}" 2>>logfile.log || :
-    {
-      cp "${_job}" "/work/${_path}"
-      cp "${_job}" "../${_path}"
-    } 2>>logfile.log || :
+    cp "${_job}" "/work/${_path}" 2>>logfile.log || :
+    cp "${_job}" "../${_path}" 2>>logfile.log || :
   fi
 }
 
