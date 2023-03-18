@@ -48,7 +48,7 @@ _ucld_::is_jq_installed() {
     {
       sudo apt-get update
       sudo apt-get install
-    } 2>>logfile.log || :
+    } &>/dev/null || :
     _bool=true
   fi
   echo "${_bool}"
