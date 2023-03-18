@@ -93,14 +93,12 @@ _ucld_::sanitize_input() {
 
 _ucld_::save_job_parameters() {
   local _app _job="/work/JobParameters.json" _path="jobs"
-  if [ ! -f "${_job}" ]; then
+  if [ ! -f "${_job}" ] 2>>logfile.log; then
     return
   fi
   if "$(_ucld_::is_jq_installed)"; then
     _app="$(cat <"${_job}" | jq -r '.request.application.name')"
     _path="${_path}/${_app^}JobParameters.json"
-    # mkdir "${_path}" &&
-    # cp "${_job}" "/work/${_path}" 2>>logfile.log || cp "${_job}" "../${_path}" 2>>logfile.log || :
     {
       cp "${_job}" "/work/${_path}"
       cp "${_job}" "../${_path}"
