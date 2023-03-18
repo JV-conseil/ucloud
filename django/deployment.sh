@@ -20,7 +20,7 @@ declare -x UCLD_ALLOWED_HOSTS UCLD_HOSTNAME
   . "/work/ucloud/incl/__utils.sh"
   . "/work/ucloud/django/_utils.sh"
   # env/ customization
-  . "/work/env/.env"
+  . "/work/env/.env" || :
   . "/work/ucloud/settings.conf"
   . "/work/env/settings.conf" 2>>logfile.log || :
   # more files
