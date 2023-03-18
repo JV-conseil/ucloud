@@ -41,11 +41,11 @@ _ucld_::is_debian_running() {
 
 _ucld_::is_jq_installed() {
   local _bool=false
-  if [ -x "$(command -v jq)" ] &>/dev/null || :; then
+  if [ -x "$(command -v jq)" ]; then
     _bool=true
   else
-    sudo apt-get update &>/dev/null || :
-    sudo apt-get install -y jq &>/dev/null || :
+    sudo apt-get update &>/dev/null
+    sudo apt-get install -y jq &>/dev/null
     _bool=true
   fi
   echo "${_bool}"
