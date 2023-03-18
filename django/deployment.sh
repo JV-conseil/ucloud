@@ -22,7 +22,7 @@ declare -x UCLD_ALLOWED_HOSTS UCLD_HOSTNAME
   # env/ customization
   . "/work/env/.env" || :
   . "/work/ucloud/settings.conf"
-  . "/work/env/settings.conf" 2>>logfile.log || :
+  . "/work/env/settings.conf" 2>>/work/ucloud/logfile.log || :
   # more files
 }
 
