@@ -44,12 +44,8 @@ _ucld_::is_jq_installed() {
   if [ -x "$(command -v jq)" ] &>/dev/null || :; then
     _bool=true
   else
-    # sudo apt-get update &>/dev/null || :
-    # sudo apt-get install -y jq &>/dev/null || :
-    {
-      sudo apt-get update
-      sudo apt-get install -y jq
-    } &>/dev/null || :
+    sudo apt-get update &>/dev/null || :
+    sudo apt-get install -y jq &>/dev/null || :
     _bool=true
   fi
   echo "${_bool}"
