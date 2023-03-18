@@ -44,7 +44,8 @@ _ucld_::is_jq_installed() {
   if [ -x "$(command -v jq)" ] &>/dev/null; then
     _bool=true
   else
-    sudo apt-get update && sudo apt-get install -y jq &>/dev/null
+    sudo apt-get update &>/dev/null
+    sudo apt-get install -y jq &>/dev/null
     # {
     #   sudo apt-get update
     #   sudo apt-get install
@@ -99,10 +100,8 @@ _ucld_::save_job_parameters() {
   if "$(_ucld_::is_jq_installed)"; then
     _app="$(cat <"${_job}" | jq -r '.request.application.name')"
     _path="${_path}/${_app^}JobParameters.json"
-    {
-      cp "${_job}" "/work/${_path}"
-      cp "${_job}" "../${_path}"
-    } 2>>logfile.log || :
+    cp -pv "${_job}" "/work/${_path}" || :
+    cp -pv "${_job}" "../${_path}" || :
   fi
 }
 
