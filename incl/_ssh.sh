@@ -92,7 +92,10 @@ _ucld_::generate_ssh_key() {
   local _password
 
   _password="$(_ucld_::key_gen 32)"
-  echo "${_password}" | pbcopy
+  echo "${_password}" | pbcopy &>/dev/null || :
+  if _ucld_::is_xclip_installed; then
+    echo "${_password}" | xclip -selection clipboard &>/dev/null || :
+  fi
 
   mkdir "${UCLOUD_SSH_PATH[1]}" || :
 

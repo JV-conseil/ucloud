@@ -42,12 +42,20 @@ _ucld_::is_debian_running() {
 }
 
 _ucld_::is_jq_installed() {
-  if [ -x "$(command -v jq)" ]; then
-    true
+  _ucld_::is_package_installed jq
+}
+
+_ucld_::is_package_installed() {
+  if type apt-get &>/dev/null || :; then
+    if [ -x "$(command -v "${1}")" ]; then
+      true
+    else
+      sudo apt-get update &>/dev/null
+      sudo apt-get install -y "${1}" &>/dev/null
+      true
+    fi
   else
-    sudo apt-get update &>/dev/null
-    sudo apt-get install -y jq &>/dev/null
-    true
+    false
   fi
 }
 
@@ -67,10 +75,14 @@ _ucld_::is_ucloud_env() {
   fi
 }
 
+_ucld_::is_xclip_installed() {
+  _ucld_::is_package_installed xclip
+}
+
 # e.g.: $(_ucld_::key_gen 128)
 _ucld_::key_gen() {
   local _size=${1:-15}
-  if type python &>/dev/null; then
+  if type python &>/dev/null || :; then
     python -c "import secrets; result = ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+') for i in range($_size)); print(result)"
   else
     openssl rand -base64 "${_size}"
