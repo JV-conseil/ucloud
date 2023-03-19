@@ -97,7 +97,9 @@ _ucld_::generate_ssh_key() {
 
   if ssh-keygen -t ed25519 -N "${_password}" -C "${USER}@${HOSTNAME}" -f "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY}"; then
 
-    if cp -v "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY}"* "${UCLOUD_SSH_PATH[0]}"; then
+    chmod 400 "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY}"*
+
+    if sudo cp -pv "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY}"* "${UCLOUD_SSH_PATH[0]}"; then
 
       if _ucld_::is_xclip_installed; then
         echo "${_password}" | xclip -selection clipboard &>/dev/null || :
