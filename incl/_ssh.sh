@@ -101,9 +101,10 @@ _ucld_::generate_ssh_key() {
 
     if cp -v "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY}"* "${UCLOUD_SSH_PATH[0]}"; then
 
-      echo "${_password}" | pbcopy &>/dev/null || :
       if _ucld_::is_xclip_installed; then
         echo "${_password}" | xclip -selection clipboard &>/dev/null || :
+      else
+        echo "${_password}" | pbcopy &>/dev/null || :
       fi
 
       _ucld_::update_passfile "${_password}"

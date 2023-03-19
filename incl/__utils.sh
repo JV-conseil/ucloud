@@ -46,7 +46,7 @@ _ucld_::is_jq_installed() {
 }
 
 _ucld_::is_package_installed() {
-  if type apt-get &>/dev/null || :; then
+  if type apt-get &>/dev/null; then
     if [ -x "$(command -v "${1}")" ]; then
       true
     else
@@ -82,7 +82,7 @@ _ucld_::is_xclip_installed() {
 # e.g.: $(_ucld_::key_gen 128)
 _ucld_::key_gen() {
   local _size=${1:-15}
-  if type python &>/dev/null || :; then
+  if type python &>/dev/null; then
     python -c "import secrets; result = ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+') for i in range($_size)); print(result)"
   else
     openssl rand -base64 "${_size}"
