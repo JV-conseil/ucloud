@@ -25,6 +25,11 @@ if "$(_ucld_::ask "Do you need to generate an SSH key")"; then
   echo
 fi
 
+if "$(_ucld_::ask "Do you want to generate a random key")"; then
+  _ucld_::key_gen 20
+  echo
+fi
+
 if "$(_ucld_::ask "Do you want to generate a new self-signed certificate for the server")"; then
   _ucld_::generate_ssl_certificate
   echo
