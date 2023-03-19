@@ -43,18 +43,27 @@ _ucld_::update_ssh_config() {
 }
 
 _ucld_::update_ssh_agent() {
-  local _lifetime=31536000
+  local _lifetime=$(((365 / 2) * 24 * 60 * 60))
 
-  eval "$(ssh-agent -s)"
+  if eval "$(ssh-agent -s)"; then
 
-  if _ucld_::is_ucloud_env; then
-    ssh-add -t "${_lifetime}" "${UCLOUD_SSH_PATH[0]}/${UCLOUD_SSH_KEY}"
-  else
-    ssh-add -t "${_lifetime}" --apple-use-keychain "${UCLOUD_SSH_PATH[0]}/${UCLOUD_SSH_KEY}"
+    cat <<EOF
+
+The passphrase used to generate the key has been copied to your clipboard.
+
+Paste this passphrase below 👇
+
+EOF
+
+    if _ucld_::is_ucloud_env; then
+      ssh-add -t "${_lifetime}" "${UCLOUD_SSH_PATH[0]}/${UCLOUD_SSH_KEY}"
+    else
+      ssh-add -t "${_lifetime}" --apple-use-keychain "${UCLOUD_SSH_PATH[0]}/${UCLOUD_SSH_KEY}"
+    fi
+
+    _ucld_::h2 "${UCLOUD_SSH_KEY} successfully added to the ssh agent"
+    ssh-add -l
   fi
-
-  _ucld_::h2 "${UCLOUD_SSH_KEY} successfully added to the ssh agent"
-  ssh-add -l
 }
 
 _ucld_::resources_storing() {
@@ -83,22 +92,13 @@ _ucld_::generate_ssh_key() {
   local _password
 
   _password="$(_ucld_::key_gen 32)"
+  echo "${_password}" | pbcopy
 
   mkdir "${UCLOUD_SSH_PATH[1]}" || :
 
   if ssh-keygen -t ed25519 -N "${_password}" -C "${USER}@${HOSTNAME}" -f "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY}"; then
 
-    cat <<EOF
-
-Keep the passphrase used to generate the key:
-${_password}
-
-It has been saved also under:
-${UCLOUD_SSH_PATH[1]}/passfile
-
-Enter this passphrase below 👇
-
-EOF
+    chmod 400 "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY}"
 
     if cp -v "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY}"* "${UCLOUD_SSH_PATH[0]}"; then
 
