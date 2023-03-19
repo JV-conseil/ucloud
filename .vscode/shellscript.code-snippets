@@ -38,9 +38,13 @@
         ],
         "body": [
             "_ucld_::${1:generic_function}() {",
-            "\tlocal _bool=true",
-            "\tif cmd; then _bool=false; fi",
-            "\techo \"\\${_bool\\}\"",
+            "\tlocal _arg=\"\\${1:-\"something\"}\"",
+            "\tif cmd; then",
+            "\t\t_arg=\"something else\"",
+            "\t\ttrue",
+            "\telse",
+            "\t\tfalse",
+            "\tfi",
             "}",
         ],
         "description": [

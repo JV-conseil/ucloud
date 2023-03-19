@@ -20,7 +20,7 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[markdown]": {
-    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
   "scss.format.braceStyle": "collapse",
   "scss.format.enable": false,
