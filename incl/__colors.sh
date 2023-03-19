@@ -19,10 +19,7 @@ declare -A UCLD_COLORS=(
 )
 
 _ucld_::alert() {
-  local _bool=false _message _color
-
-  _message=${1:-"Error"}
-  _color=${2:-"magenta"}
+  local _message=${1:-"Error"} _color=${2:-"magenta"}
 
   echo -e "${UCLD_COLORS["${_color}"]}${1}${UCLD_COLORS[_reset]} 🛑"
   echo
@@ -31,17 +28,14 @@ _ucld_::alert() {
 # read
 
 _ucld_::ask() {
-  local _bool=false _prompt _color
-
-  _prompt=${1:-"Houston Do You Copy"}
-  _color=${2:-"cyan"}
+  local _prompt=${1:-"Houston Do You Copy"} _color=${2:-"cyan"}
 
   read -e -r -p "${UCLD_COLORS["${_color}"]}${_prompt}? [y/N]${UCLD_COLORS["_reset"]} " -n 1
   if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
-    _bool=true
+    true
+  else
+    false
   fi
-
-  echo "${_bool}"
 }
 
 _ucld_::ask_2() {
@@ -51,10 +45,7 @@ _ucld_::ask_2() {
 # h1, H2, h3...
 
 _ucld_::h1() {
-  local _message _color
-
-  _message=${1:-"Title h1"}
-  _color=${2:-"magenta"}
+  local _message=${1:-"Title h1"} _color=${2:-"magenta"}
 
   _message="$(echo -e "${UCLD_COLORS["${_color}"]}${_message}${UCLD_COLORS["_reset"]}")"
 

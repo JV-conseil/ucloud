@@ -34,33 +34,37 @@ _ucld_::clean_app_hostname() {
 }
 
 _ucld_::is_debian_running() {
-  local _bool=false
-  if [[ "$(cat /etc/issue 2>/dev/null || :)" == "Debian "* ]]; then _bool=true; fi
-  echo "${_bool}"
+  if [[ "$(cat /etc/issue 2>/dev/null || :)" == "Debian "* ]]; then
+    true
+  else
+    false
+  fi
 }
 
 _ucld_::is_jq_installed() {
-  local _bool=false
   if [ -x "$(command -v jq)" ]; then
-    _bool=true
+    true
   else
     sudo apt-get update &>/dev/null
     sudo apt-get install -y jq &>/dev/null
-    _bool=true
+    true
   fi
-  echo "${_bool}"
 }
 
 _ucld_::is_python_installed() {
-  local _bool=false
-  if [ -x "$(command -v python)" ]; then _bool=true; fi
-  echo ${_bool}
+  if [ -x "$(command -v python)" ]; then
+    true
+  else
+    false
+  fi
 }
 
 _ucld_::is_ucloud_env() {
-  local _bool=false
-  if [[ "${PWD}" == "/work/"* ]]; then _bool=true; fi
-  echo ${_bool}
+  if [[ "${PWD}" == "/work/"* ]]; then
+    true
+  else
+    false
+  fi
 }
 
 # e.g.: $(_ucld_::key_gen 128)
@@ -83,9 +87,11 @@ _ucld_::parent_directory() {
 
 # sanitize input using a regular expression
 _ucld_::sanitize_input() {
-  local _bool=false
-  if [[ "${1}" =~ ^[a-zA-Z0-9_./-]+$ ]]; then _bool=true; fi
-  echo "${_bool}"
+  if [[ "${1}" =~ ^[a-zA-Z0-9_./-]+$ ]]; then
+    true
+  else
+    false
+  fi
 }
 
 _ucld_::save_job_parameters() {
@@ -93,7 +99,7 @@ _ucld_::save_job_parameters() {
   if [ ! -f "${_job}" ]; then
     return
   fi
-  if "$(_ucld_::is_jq_installed)"; then
+  if _ucld_::is_jq_installed; then
     _app="$(cat <"${_job}" | jq -r '.request.application.name')"
     _path="${_path}/${_app^}JobParameters.json"
     cp "${_job}" "/work/${_path}" 2>>logfile.log || :
@@ -130,7 +136,7 @@ _ucld_::save_job_parameters_v1() {
   if [ ! -f "${_job}" ] || [ ! -d "${_path}" ]; then
     return
   fi
-  if "$(_ucld_::is_jq_installed)"; then
+  if _ucld_::is_jq_installed; then
     _app="$(cat <"${_job}" | jq -r '.request.application.name')"
     # mkdir "${_path}" &&
     cp "${_job}" "${_path}/${_app^}JobParameters.json"

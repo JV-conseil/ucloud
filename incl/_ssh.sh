@@ -47,7 +47,7 @@ _ucld_::update_ssh_agent() {
 
   eval "$(ssh-agent -s)"
 
-  if "$(_ucld_::is_ucloud_env)"; then
+  if _ucld_::is_ucloud_env; then
     ssh-add -t "${_lifetime}" "${UCLOUD_SSH_PATH[0]}/${UCLOUD_SSH_KEY}"
   else
     ssh-add -t "${_lifetime}" --apple-use-keychain "${UCLOUD_SSH_PATH[0]}/${UCLOUD_SSH_KEY}"

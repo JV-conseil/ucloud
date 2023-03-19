@@ -8,13 +8,15 @@
 #====================================================
 
 _ucld_::is_apt_available() {
-  local _bool=false
-  if "$(_ucld_::is_ucloud_env)" && [ -x "$(command -v apt)" ]; then _bool=true; fi
-  echo "${_bool}"
+  if _ucld_::is_ucloud_env && [ -x "$(command -v apt)" ]; then
+    true
+  else
+    false
+  fi
 }
 
 _ucld_::update_and_upgrade_apt() {
-  if ! "$(_ucld_::is_apt_available)"; then
+  if ! _ucld_::is_apt_available; then
     return
   fi
   sudo apt clean -y
@@ -26,7 +28,7 @@ _ucld_::update_and_upgrade_apt() {
 _ucld_::install_apt_packages() {
   local _bin
 
-  if ! "$(_ucld_::is_apt_available)"; then
+  if ! _ucld_::is_apt_available; then
     return
   fi
 
@@ -40,7 +42,7 @@ _ucld_::install_apt_packages() {
 
   for _bin in "${UCLD_INSTALL_PACKAGES[@]}"; do
 
-    if "$(_ucld_::is_debian_running)" && [[ "${_bin}" == "python"* ]]; then
+    if _ucld_::is_debian_running && [[ "${_bin}" == "python"* ]]; then
       continue
     fi
 
@@ -92,7 +94,7 @@ _ucld_::update_python_version() {
 _ucld_::full_update_and_install() {
   local _start _stop
 
-  if ! "$(_ucld_::is_apt_available)"; then
+  if ! _ucld_::is_apt_available; then
     return
   fi
 
@@ -106,8 +108,8 @@ _ucld_::full_update_and_install() {
 }
 
 _ucld_::ask_update_linux() {
-  if "$(_ucld_::is_apt_available)"; then
-    if "$(_ucld_::ask "Do you want to install packages for Linux with apt")"; then
+  if _ucld_::is_apt_available; then
+    if _ucld_::ask "Do you want to install packages for Linux with apt"; then
       _ucld_::full_update_and_install
     fi
   fi

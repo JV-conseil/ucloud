@@ -47,18 +47,18 @@ if [[ "${_dj_repo}" ]]; then
     _ucld_::dj_install_dependencies
     _ucld_::dj_collectstatic
 
-    # if "$(_ucld_::is_django_connected_to_postgresql)"; then
-    if "$(_ucld_::ask_2 "Do you have connected a PostgreSQL Server")"; then
+    # if _ucld_::is_django_connected_to_postgresql; then
+    if _ucld_::ask_2 "Do you have connected a PostgreSQL Server"; then
 
-      if "$(_ucld_::ask_2 "Do you want to run migrations")"; then
+      if _ucld_::ask_2 "Do you want to run migrations"; then
         _ucld_::dj_running_migrations
       fi
 
-      if "$(_ucld_::ask_2 "Do you want to create a superuser")"; then
+      if _ucld_::ask_2 "Do you want to create a superuser"; then
         _ucld_::dj_create_superuser
       fi
 
-      if "$(_ucld_::ask_2 "Do you want to run a Django command")"; then
+      if _ucld_::ask_2 "Do you want to run a Django command"; then
         _ucld_::dj_run_command
       fi
 

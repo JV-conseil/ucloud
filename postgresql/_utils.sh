@@ -7,6 +7,34 @@
 #                 All rights reserved
 #====================================================
 
+_ucld_::is_postgresql_app_running() {
+  if [ -x "$(command -v pg_ctl)" ]; then
+    if pg_ctl status -D "${UCLD_PATH[database]}" &>/dev/null; then
+      true
+    else
+      false
+    fi
+  else
+    false
+  fi
+}
+
+_ucld_::pg_list() {
+  psql --dbname=postgres --command="\du+"
+  psql --dbname=postgres --command="\l+"
+
+  _ucld_::h3 "Checking SSL connection to postgres database"
+  echo "... to quit and go back to Terminal type \q"
+  echo
+  psql --dbname=postgres --host=localhost
+}
+
+_ucld_::start_postgresql_server() {
+  pg_ctl -D "${UCLD_PATH[database]}" -l logfile start 2>>logfile.log
+}
+
+# DEPECATED
+
 # _ucld_::is_postgresql_server_running() {
 #   local _bool=false
 
@@ -25,28 +53,3 @@
 
 #   echo ${_bool}
 # }
-
-_ucld_::is_postgresql_app_running() {
-  local _bool=false
-
-  # 1) PostgreSQL Server app running
-  if [ -x "$(command -v pg_ctl)" ]; then
-    if pg_ctl status -D "${UCLD_PATH[database]}" &>/dev/null; then _bool=true; fi
-  fi
-
-  echo ${_bool}
-}
-
-_ucld_::pg_list() {
-  psql --dbname=postgres --command="\du+"
-  psql --dbname=postgres --command="\l+"
-
-  _ucld_::h3 "Checking SSL connection to postgres database"
-  echo "... to quit and go back to Terminal type \q"
-  echo
-  psql --dbname=postgres --host=localhost
-}
-
-_ucld_::start_postgresql_server() {
-  pg_ctl -D "${UCLD_PATH[database]}" -l logfile start 2>>logfile.log
-}

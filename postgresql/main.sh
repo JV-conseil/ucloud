@@ -19,26 +19,26 @@
 
 cat "postgresql/README.txt"
 
-if "$(_ucld_::is_postgresql_app_running)"; then
+if _ucld_::is_postgresql_app_running; then
 
-  if "$(_ucld_::ask_2 "Do you want to create a new User & Database")"; then
+  if _ucld_::ask_2 "Do you want to create a new User & Database"; then
     _ucld_::pg_create_db
     _ucld_::pg_update_su_password
     _ucld_::dump_env_file
     echo
   fi
 
-  if "$(_ucld_::ask_2 "Do you want to configure SSL on PostgreSQL")"; then
+  if _ucld_::ask_2 "Do you want to configure SSL on PostgreSQL"; then
     _ucld_::pg_conf_ssl
     echo
   else
 
-    if "$(_ucld_::ask_2 "Do you want to generate a new self-signed certificate for the server")"; then
+    if _ucld_::ask_2 "Do you want to generate a new self-signed certificate for the server"; then
       _ucld_::generate_ssl_certificate
       echo
     fi
 
-    if "$(_ucld_::ask_2 "Do you want to update the server parameters")"; then
+    if _ucld_::ask_2 "Do you want to update the server parameters"; then
       _ucld_::pg_alter_system
       _ucld_::pg_hba_update
       psql --host=localhost --command="\du+ ;"

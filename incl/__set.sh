@@ -35,9 +35,11 @@ _ucld_::hack_unbound_variables() {
 }
 
 _ucld_::is_linux() {
-  local _bool=false
-  if [[ "$(cat /proc/version 2>/dev/null || :)" == "Linux"* ]]; then _bool=true; fi
-  echo "${_bool}"
+  if [[ "$(cat /proc/version 2>/dev/null || :)" == "Linux"* ]]; then
+    true
+  else
+    false
+  fi
 }
 
 _ucld_::set_show_options() {
@@ -66,6 +68,6 @@ _ucld_::set_strict_mode() {
 }
 
 _ucld_::set_strict_mode
-if "$(_ucld_::is_linux)"; then
+if _ucld_::is_linux; then
   _ucld_::set_terminal_mode
 fi

@@ -15,7 +15,7 @@ declare -x UCLD_ALLOWED_HOSTS UCLD_HOSTNAME
 
 UCLD_PATH=([main]="${PWD}" [work]="${PWD}")
 
-if "$(_ucld_::is_ucloud_env)" && [ -d "${PWD%/*}" ]; then
+if _ucld_::is_ucloud_env && [ -d "${PWD%/*}" ]; then
   UCLD_PATH["work"]="${PWD%/*}"
 fi
 
