@@ -32,7 +32,7 @@ minimum required scopes are 'repo', 'read:org', 'workflow'.
 > Paste an authentication token
 
 EOF
-  open "https://github.com/settings/tokens"
+  open "https://github.com/settings/tokens" &>/dev/null || :
   gh auth login --hostname "github.com" --git-protocol "https"
 }
 
