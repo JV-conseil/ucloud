@@ -92,10 +92,6 @@ _ucld_::generate_ssh_key() {
   local _password
 
   _password="$(_ucld_::key_gen 32)"
-  echo "${_password}" | pbcopy &>/dev/null || :
-  if _ucld_::is_xclip_installed; then
-    echo "${_password}" | xclip -selection clipboard &>/dev/null || :
-  fi
 
   mkdir "${UCLOUD_SSH_PATH[1]}" || :
 
@@ -104,6 +100,11 @@ _ucld_::generate_ssh_key() {
     chmod 400 "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY}"
 
     if cp -v "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY}"* "${UCLOUD_SSH_PATH[0]}"; then
+
+      echo "${_password}" | pbcopy &>/dev/null || :
+      if _ucld_::is_xclip_installed; then
+        echo "${_password}" | xclip -selection clipboard &>/dev/null || :
+      fi
 
       _ucld_::update_passfile "${_password}"
       _ucld_::update_ssh_config
