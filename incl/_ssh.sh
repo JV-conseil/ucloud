@@ -49,7 +49,8 @@ _ucld_::update_ssh_agent() {
 
     cat <<EOF
 
-The passphrase used to generate the key has been copied to your clipboard.
+Here the passphrase used to generate the key:
+${1}
 
 Paste this passphrase below 👇
 
@@ -101,15 +102,9 @@ _ucld_::generate_ssh_key() {
 
     if sudo cp -pv "${UCLOUD_SSH_PATH[1]}/${UCLOUD_SSH_KEY}"* "${UCLOUD_SSH_PATH[0]}"; then
 
-      if _ucld_::is_xclip_installed; then
-        echo "${_password}" | xclip -selection clipboard &>/dev/null || :
-      else
-        echo "${_password}" | pbcopy &>/dev/null || :
-      fi
-
       _ucld_::update_passfile "${_password}"
       _ucld_::update_ssh_config
-      _ucld_::update_ssh_agent
+      _ucld_::update_ssh_agent "${_password}"
       _ucld_::resources_storing
 
     fi
