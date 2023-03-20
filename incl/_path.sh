@@ -48,6 +48,7 @@ _ucld_::build_path() {
 {
   . "./settings.conf"
   . "${UCLD_PATH[env]}/settings.conf" 2>>logfile.log || :
+  . "${UCLD_PATH[env]}/.env" 2>>logfile.log || :
   # more files
 }
 
