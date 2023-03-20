@@ -8,7 +8,9 @@
 #====================================================
 
 _ucld_::debug() {
-  if [[ "${DEBUG}" -eq 0 ]]; then
+  local _debug=${1:-DEBUG}
+
+  if [[ "${_debug}" -eq 0 ]]; then
     return
   fi
 
@@ -16,7 +18,7 @@ _ucld_::debug() {
 
 
 ===============
- DEBUG LEVEL ${DEBUG}
+ DEBUG LEVEL ${_debug}
 ===============
 
 EOF
@@ -26,11 +28,11 @@ EOF
   _ucld_::set_show_options
   python --version || :
 
-  if [[ "${DEBUG}" -gt 1 ]]; then
+  if [[ "${_debug}" -gt 1 ]]; then
 
-    if [[ "${DEBUG}" -gt 2 ]]; then
+    if [[ "${_debug}" -gt 2 ]]; then
 
-      if [[ "${DEBUG}" -gt 3 ]]; then
+      if [[ "${_debug}" -gt 3 ]]; then
         _ucld_::debugger
       fi
 

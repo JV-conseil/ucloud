@@ -51,6 +51,11 @@ if _ucld_::ask "Do you want to check the logs"; then
   echo
 fi
 
+if _ucld_::ask "Do you want to view the environment variables"; then
+  _ucld_::debug 3
+  echo
+fi
+
 if _ucld_::ask "Do you want to erase everything" magenta; then
   if _ucld_::ask "ARE YOU ABSOLUTELY SURE" red; then
 

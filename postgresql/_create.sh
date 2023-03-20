@@ -16,7 +16,7 @@ _ucld_::pg_create_db() {
     "CREATE USER ${UCLD_DB_PARAM[user]} WITH PASSWORD '${UCLD_DB_PARAM[password]}' ;"
     "CREATE DATABASE ${UCLD_DB_PARAM[name]} ;"
     "GRANT ALL PRIVILEGES ON DATABASE ${UCLD_DB_PARAM[name]} TO ${UCLD_DB_PARAM[user]} ;"
-    "ALTER DATABASE ${UCLD_DB_PARAM[DBNAME]} OWNER TO ${UCLD_DB_PARAM[DBUSER]} ;"
+    "ALTER DATABASE ${UCLD_DB_PARAM[name]} OWNER TO ${UCLD_DB_PARAM[user]} ;"
   )
 
   for _cmd in "${_psql_commands[@]}"; do
