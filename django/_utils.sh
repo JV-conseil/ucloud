@@ -30,7 +30,7 @@ Username: ${_user}
 Password: ${_password}
 
 You will be able to test superuser access to the admin panel by visiting
-https://${ALLOWED_HOSTS[0]}/admin
+https://${UCLD_HOSTNAME}/admin
 
 EOF
   fi
