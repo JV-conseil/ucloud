@@ -19,7 +19,9 @@ assignees: 'JV-conseil'
 
 - [ ] I have activated the browser Private mode to evaluate if the error still happens.
 - [ ] I have turn-off any extension on my browser like adblock that may interfere with the app behaviour.
-- [ ] I have searched the [issues] of this repo and believe that this is not a duplicate.
+- [ ] I am on the [latest][latest] version.
+- [ ] I have checked that no other similar [issues][issues] are already opened and believe that this is not a duplicate.
+- [ ] I have searched the [documentation][documentation] and believe that my question is not covered.
 - [ ] If an exception occurs when executing a command, I execute it again in debug mode (`DEBUF = True` in settings).
 
 ### Describe the bug 🐛
@@ -62,4 +64,6 @@ assignees: 'JV-conseil'
 
 <!-- links -->
 
-[issues]: https://github.com/JV-conseil/ucloud/issues
+[documentation]: https://jv-conseil.github.io/ucloud/
+[issues]:  https://github.com/JV-conseil/ucloud/issues
+[latest]: https://github.com/JV-conseil/ucloud/releases/latest
