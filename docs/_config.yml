@@ -3,7 +3,8 @@ remote_theme: https://github.com/JV-conseil/read-the-docs-jekyll-theme
 google:
   site_verification: ChPjQbKFflPAwOF9uuYRLEodZBgPjW5CISg0gSsViN0
 
-posthog: phc_f6FrCZbt951cotQoYFi5VAS7KYpyCnpgRcbknlMwBDs
+posthog:
+  project_api_key: phc_f6FrCZbt951cotQoYFi5VAS7KYpyCnpgRcbknlMwBDs
 
 plugins:
   - jemoji
