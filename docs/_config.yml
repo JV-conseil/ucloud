@@ -1,8 +1,9 @@
 remote_theme: https://github.com/JV-conseil/read-the-docs-jekyll-theme
 
 google:
-  gtag: G-XND3KV3BPB
   site_verification: ChPjQbKFflPAwOF9uuYRLEodZBgPjW5CISg0gSsViN0
+
+posthog: phc_f6FrCZbt951cotQoYFi5VAS7KYpyCnpgRcbknlMwBDs
 
 plugins:
   - jemoji
