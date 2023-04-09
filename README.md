@@ -96,4 +96,3 @@ If this project helps you, you can offer me a cup of coffee ☕️ :-)
 
 [GitHub]: https://github.com/
 [UCloud Terminal Ubuntu]: https://cloud.sdu.dk/app/jobs/create?app=terminal-ubuntu&version=0.20.0
-
