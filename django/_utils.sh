@@ -66,7 +66,8 @@ _ucld_::dj_debug() {
 _ucld_::dj_install_dependencies() {
   _ucld_::h2 "Installing dependencies"
   sudo python3 -m pip install --upgrade pip
-  sudo pip3 install -r requirements.txt
+  # sudo pip3 install -r requirements.txt
+  sudo python3 -m pip install -r requirements.txt
   echo
 }
 
