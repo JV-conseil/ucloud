@@ -55,7 +55,8 @@ _ucld_::install_apt_packages() {
       # sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/"${_bin}" 100
       sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/"${_bin}" 100
 
-      pip install --upgrade pip
+      # pip install --upgrade pip
+      sudo python3 -m pip install --upgrade pip
     fi
 
     _ucld_::h3 "You are now running $(${_bin%.*} --version 2>>logfile.log)"
