@@ -36,7 +36,8 @@ if [[ "${_app_repo}" ]]; then
     _ucld_::update_settings "UCLD_DIR[app]=""${_app_repo##*/}"""
 
     _ucld_::h2 "Installing dependencies"
-    pip install -r "${_app_repo}/requirements.txt"
+    # pip install -r "${_app_repo}/requirements.txt"
+    sudo python3 -m pip install -r "${_app_repo}/requirements.txt"
 
     _ucld_::h2 "Running the app"
     python3 "${_app_repo}/main.py"
