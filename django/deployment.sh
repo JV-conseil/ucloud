@@ -37,6 +37,6 @@ _ucld_::dj_debug
 _ucld_::dj_install_dependencies
 _ucld_::dj_collectstatic
 
-python manage.py check --deploy 2>&1 | tee -a /work/ucloud/logfile.log
+sudo python manage.py check --deploy 2>&1 | tee -a /work/ucloud/logfile.log
 # python manage.py runserver 2>>/work/ucloud/logfile.log
-python manage.py runserver 2>&1 | tee -a /work/ucloud/logfile.log
+sudo python manage.py runserver 2>&1 | tee -a /work/ucloud/logfile.log
