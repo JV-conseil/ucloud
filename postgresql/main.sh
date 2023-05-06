@@ -41,7 +41,7 @@ if _ucld_::is_postgresql_app_running; then
     if _ucld_::ask_2 "Do you want to update the server parameters"; then
       _ucld_::pg_alter_system
       _ucld_::pg_hba_update
-      psql --host=localhost --command="\du+ ;"
+      psql --host=localhost --command="\du+"
     fi
 
   fi
