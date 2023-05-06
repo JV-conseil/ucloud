@@ -20,8 +20,9 @@ _ucld_::is_postgresql_app_running() {
 }
 
 _ucld_::pg_list() {
-  psql --dbname=postgres --command="\du+"
-  psql --dbname=postgres --command="\l+"
+  # psql --dbname=postgres --command="\du+"
+  # psql --dbname=postgres --command="\l+"
+  psql --dbname=postgres --command="\du+" --command="\l+"
 
   _ucld_::h3 "Checking SSL connection to postgres database"
   echo "... to quit and go back to Terminal type \q"

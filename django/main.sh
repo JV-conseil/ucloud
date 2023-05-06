@@ -61,7 +61,7 @@ if [[ "${_dj_repo}" ]]; then
         _ucld_::dj_run_command
       fi
 
-      python manage.py runserver
+      sudo python manage.py runserver
 
     else
       _ucld_::warning postgresql
