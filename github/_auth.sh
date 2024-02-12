@@ -3,7 +3,7 @@
 #
 # author        : JV-conseil
 # credits       : JV-conseil
-# copyright     : Copyright (c) 2019-2023 JV-conseil
+# copyright     : Copyright (c) 2019-2024 JV-conseil
 #                 All rights reserved
 #====================================================
 
